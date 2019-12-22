@@ -19,9 +19,18 @@ img {
 	border: 0 none;
 }
 
-header, footer {
+header, footer, .menu {
 	background-color: #333;
 	color: #ccc;
+}
+
+.menu-music{
+	display: none;
+}
+
+.menu a{
+	color: #ccc;
+	text-decoration: none;
 }
 
 header .logo {
@@ -37,15 +46,14 @@ footer {
 /*******************************************
  * Top Bar
  *******************************************/
-
-@media screen and (max-width: 35.5em) {
-	header {
+@media screen and (max-width: 35.5em) { /* phone-sized screen */
+	.header-mobile {
 		clear: both;
 		height: 64px;
 		overflow: visible;
 	}
 
-	header .logo {
+	.header-mobile .logo {
 		border-radius: 0 42px 42px 42px;
 		float: left;
 		margin-top: -8px;
@@ -56,34 +64,94 @@ footer {
 		width: 80px;
 	}
 
-	header .logo > img {
+	.header-mobile .logo > img {
 		height: 100%;
 		width: 100%;
 	}
 
-/*============== Main Menu ==============*/
+/*============== Mobile Menu ==============*/
 
-	header .menu-colapsible-buttons {
+	.header-mobile .menu-mobile {
 		float: right;
 	}
 
-	header .menu-colapsible-buttons > a {
+	.header-mobile .menu-mobile > a {
 		color: #ccc;
 		display: inline-block;
-		font-size: 32px;
+		font-size: 36px;
 		line-height: 64px;
 		margin: 0 16px;
 		text-decoration: none;
 
 		transition: color .3s ease-out;
 	}
-	header .menu-colapsible-buttons > a:hover {
+	.header-mobile .menu-mobile > a:hover {
 		color: white;
 		transition: color .3s ease-in;
 	}
 
+	.header-mobile .menu-mobile > a.selected {
+		border-bottom: 2px solid;
+		color: white;
+		line-height: 62px;
+	}
 
-	/*============== Footer ==============*/
+	.header-mobile .menu-mobile > a .fa-chevron-down, .header-mobile .menu-mobile > a .fa-chevron-up {
+		font-size: 0.4em;
+		vertical-align: middle;
+	}
+
+/*============== Language / Main Menu / Music Menu ==============*/
+	.menu-language-choice, .menu-main {
+		display: none;
+		margin-top: -22px;
+	}
+
+	.menu-language-choice > ul, .menu-main > ul {
+		padding: 24px 0 12px 0;
+	}
+
+	.menu li {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.menu li > a {
+		border-bottom: 1px solid #666;
+		display: block;
+		font-size: 1.3em;
+		padding: 12px 8px;
+		text-align: left;
+	}
+
+	.menu-language-choice a .flag {
+		background: url(img/ikoni.png) no-repeat;
+		border-radius: 3px;
+		display: inline-block;
+		height: 18px;
+		margin: 0 2px;
+		vertical-align: middle;
+		width: 24px;
+	}
+
+	.menu-language-choice a .flag.flag-bg{background-position:-464px 0;}
+	.menu-language-choice a .flag.flag-en{background-position:-464px -18px;}
+
+	.menu-main li > a .icon {
+		margin: 0 10px 0 6px;
+	}
+
+	.menu-main li > a .fa-chevron-down {
+		font-size: 0.5em;
+		vertical-align: middle;
+	}
+
+	.menu-music {
+		display: none;
+	}
+
+/*============== Footer ==============*/
 	footer {
 		height: 40px;
 	}

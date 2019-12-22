@@ -10,25 +10,118 @@
 
 		<link rel="shortcut icon" href="img/favicon.ico" />
 
-		<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+			integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47"
+			crossorigin="anonymous">
+
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.12.0/css/solid.css"
+			integrity="sha384-9AfJF7pZ+RYk3wXpf8ge6fc3XhPaW3Xl57Qj/mSzPckn9Tu8zJ9qUipWq+/utX20"
+			crossorigin="anonymous">
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.12.0/css/fontawesome.css"
+			integrity="sha384-VoScp22LWX8GkkUAmdkkkj+rz+/r84lmCD6FALIryJxjwBSz6kE6oebSlamQx19e"
+			crossorigin="anonymous">
 
 		<link rel="stylesheet" href="css.css" />
 
-		<script src="https://kit.fontawesome.com/72096b0630.js" crossorigin="anonymous"></script>
+		<script
+			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			crossorigin="anonymous"></script>
 	</head>
 
 	<body>
 		<header class="shadow-bottom">
+			<div class="header-mobile">
 				<div class="logo shadow-bottom">
 					<img src="img/logo/dimmu-saurus-250.png" alt="Dimmu Saurus" />
 				</div>
 
-			<div class="menu-colapsible-buttons">
-				<a href="javascript:;" title="Change Language" class="fas fa-language"></a>
-				<a href="javascript:;" title="Menu" class="fas fa-bars"></a>
+				<div class="menu menu-mobile">
+					<a
+						href="javascript:;"
+						onClick="$('.menu-language-choice').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						title="Change Language"
+						class="fas fa-language">
+					</a>
+					<a
+						href="javascript:;"
+						onClick="$('.menu-main').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						title="Menu"
+						class="fas fa-bars">
+					</a>
+				</div>
 			</div>
 
+			<div class="menu menu-language-choice shadow-bottom">
+				<ul>
+					<li>
+						<a href="javascript:;">
+							<span class="flag flag-bg"></span>
+							Български
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;">
+							<span class="flag flag-en"></span>
+							English
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="menu menu-main shadow-bottom">
+				<ul>
+					<li>
+						<a>
+							<i class="icon fas fa-home"></i>
+							Начало
+						</a>
+					</li>
+					<li>
+						<a>
+							<i class="icon fas fa-book"></i>
+							Биография
+						</a>
+					</li>
+					<li>
+						<a href="javascript:;" onClick="$('.menu-music').toggle();">
+							<i class="icon fas fa-music"></i>
+							Музика
+							<i class="fas fa-chevron-down"></i>
+						</a>
+
+						<ul class="menu menu-music shadow-bottom">
+								<li>
+									<a>(2014) III</a>
+								</li>
+								<li>
+									<a>(2013) Битка на баира</a>
+								</li>
+								<li>
+									<a>(2013) Пътят, който всички...</a>
+								</li>
+								<li>
+									<a>(2010) Яхния от мисли</a>
+								</li>
+								<li>
+									<a>(2006) Зона Чернобил</a>
+								</li>
+								<li>
+									<a>Кавъри</a>
+								</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
 		</header>
+
+
 
 		<div id="content"> </div>
 		<footer class="shadow-top">
