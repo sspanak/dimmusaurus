@@ -36,104 +36,126 @@
 	</head>
 
 	<body>
-		<header class="shadow-bottom">
-			<div class="header-mobile">
+		<header>
+			<div class="header-container shadow-bottom">
+
+				<div class="logo-text logo-text-left">
+					Dimmu
+				</div>
+
 				<div class="logo shadow-bottom">
 					<img src="img/logo/dimmu-saurus-250.png" alt="Dimmu Saurus" />
 				</div>
 
-				<div class="menu menu-mobile">
-					<a
-						href="javascript:;"
-						onClick="$('.menu-language-choice').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
-						title="Change Language"
-						class="fas fa-language">
-					</a>
+				<div class="logo-text logo-text-right">
+					Saurus
+				</div>
+
+				<div class="toggle-wrapper toggle-main-menu-wrapper">
 					<a
 						href="javascript:;"
 						onClick="$('.menu-main').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
-						title="Menu"
-						class="fas fa-bars">
+						title="Menu">
+						<i class="fas fa-bars"></i>
+						<i class="fas fa-chevron-down"></i>
+					</a>
+				</div>
+
+				<div class="toggle-wrapper toggle-language-wrapper">
+					<a
+						href="javascript:;"
+						onClick="$('.menu-language-choice').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						title="Change Language">
+						<i class="fas fa-language"></i>
+						<i class="fas fa-chevron-down"></i>
 					</a>
 				</div>
 			</div>
 
-			<div class="menu menu-language-choice shadow-bottom">
-				<ul>
+			<div class="menu-wrapper language-choice-wrapper">
+				<div class="menu menu-language-choice shadow-bottom">
+					<ul>
+						<li>
+							<a href="javascript:;">
+								<span class="flag flag-bg"></span>
+								Български
+							</a>
+						</li>
 
-					<li>
-						<a href="javascript:;">
-							<span class="flag flag-bg"></span>
-							Български
-						</a>
-					</li>
+						<li>
+							<a href="javascript:;">
+								<span class="flag flag-en"></span>
+								English
+							</a>
+						</li>
 
-					<li>
-						<a href="javascript:;">
-							<span class="flag flag-en"></span>
-							English
-						</a>
-					</li>
+						<li>
+							<a href="javascript:;">
+								<span class="flag flag-fr"></span>
+								Français
+							</a>
+						</li>
 
-					<li>
-						<a href="javascript:;">
-							<span class="flag flag-fr"></span>
-							Français
-						</a>
-					</li>
+					</ul>
+				</div>
+			</div><div class="menu-wrapper menu-main-wrapper"> <!-- the space ruins the alignment -->
+				<div class="menu menu-main shadow-bottom">
+					<ul>
+						<li>
+							<a>
+								<i class="icon fas fa-home"></i>
+								Начало
+							</a>
+						</li>
+						<li>
+							<a>
+								<i class="icon fas fa-book"></i>
+								Биография
+							</a>
+						</li>
+						<li>
+							<a href="javascript:;" onClick="$('.menu-music').toggle();">
+								<i class="icon fas fa-music"></i>
+								Музика
+								<i class="fas fa-chevron-down"></i>
+							</a>
 
-				</ul>
+							<ul class="menu menu-music shadow-bottom">
+									<li>
+										<a>(2014) III</a>
+									</li>
+									<li>
+										<a>(2013) Битка на баира</a>
+									</li>
+									<li>
+										<a>(2013) Пътят, който всички...</a>
+									</li>
+									<li>
+										<a>(2010) Яхния от мисли</a>
+									</li>
+									<li>
+										<a>(2006) Зона Чернобил</a>
+									</li>
+									<li>
+										<a>Кавъри</a>
+									</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 			</div>
 
-			<div class="menu menu-main shadow-bottom">
-				<ul>
-					<li>
-						<a>
-							<i class="icon fas fa-home"></i>
-							Начало
-						</a>
-					</li>
-					<li>
-						<a>
-							<i class="icon fas fa-book"></i>
-							Биография
-						</a>
-					</li>
-					<li>
-						<a href="javascript:;" onClick="$('.menu-music').toggle();">
-							<i class="icon fas fa-music"></i>
-							Музика
-							<i class="fas fa-chevron-down"></i>
-						</a>
-
-						<ul class="menu menu-music shadow-bottom">
-								<li>
-									<a>(2014) III</a>
-								</li>
-								<li>
-									<a>(2013) Битка на баира</a>
-								</li>
-								<li>
-									<a>(2013) Пътят, който всички...</a>
-								</li>
-								<li>
-									<a>(2010) Яхния от мисли</a>
-								</li>
-								<li>
-									<a>(2006) Зона Чернобил</a>
-								</li>
-								<li>
-									<a>Кавъри</a>
-								</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
 		</header>
 
 
+		<div class="content">
+			<h1 class="screen-test screen-xs">Mobile</h1>
+			<h1 class="screen-test screen-s">Mobile, horizontal</h1>
+			<h1 class="screen-test screen-m">Tablet</h1>
+			<h1 class="screen-test screen-l">Desktop, small</h1>
+			<h1 class="screen-test screen-xl">Desktop, large</h1>
+		</div>
 
-		<div class="content"> </div>
 		<footer class="shadow-top">
 			<div class="copyright">
 				&copy; 2004-2019 Димозавъръ
