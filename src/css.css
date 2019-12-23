@@ -1,40 +1,27 @@
 /*******************************************
- * General
+ * General / Reset styles
  *******************************************/
 
-.shadow-top {
-	box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);
-}
-
-.shadow-bottom {
-	box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);
-}
-
+.shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
+.shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
+img {border: 0 none;}
 body {
 	background: #ececec;
 	background-image: url(img/fon-ececec.png);
 }
 
-img {
-	border: 0 none;
-}
 
 header, footer, .menu {
 	background-color: #333;
 	color: #ccc;
 }
 
-.menu-music{
-	display: none;
-}
-
-.menu a{
-	color: #ccc;
-	text-decoration: none;
-}
-
 header .logo {
 	background: #fafafa;
+}
+
+.content {
+	margin-bottom: 50px;
 }
 
 footer {
@@ -43,10 +30,40 @@ footer {
 	width: 100%;
 }
 
+/*==============  Menus ==============*/
+
+.menu a{
+	color: #ccc;
+	text-decoration: none;
+}
+
+.menu-music{
+	display: none;
+}
+
+/*============== Language Menu ==============*/
+.menu-language-choice a .flag {
+	background: url(img/ikoni.png) no-repeat;
+	border-radius: 3px;
+	display: inline-block;
+	height: 18px;
+	margin: 0 2px;
+	vertical-align: middle;
+	width: 24px;
+}
+
+.menu-language-choice a .flag-bg{background-position:-464px 0;}
+.menu-language-choice a .flag-en{background-position:-464px -18px;}
+.menu-language-choice a .flag-fr{background-position:-488px 0;}
+
 /*******************************************
  * Top Bar
  *******************************************/
-@media screen and (max-width: 35.5em) { /* phone-sized screen */
+
+/**
+ * Any phone screen
+ */
+@media screen and (max-width: 48em) {
 	.header-mobile {
 		clear: both;
 		height: 64px;
@@ -56,11 +73,10 @@ footer {
 	.header-mobile .logo {
 		border-radius: 0 42px 42px 42px;
 		float: left;
-		margin-top: -8px;
-		margin-left: -10px;
-		padding: 5px 4px 2px 10px;
-
 		height: 80px;
+		margin-left: -10px;
+		margin-top: -8px;
+		padding: 5px 4px 2px 10px;
 		width: 80px;
 	}
 
@@ -78,7 +94,7 @@ footer {
 	.header-mobile .menu-mobile > a {
 		color: #ccc;
 		display: inline-block;
-		font-size: 36px;
+		font-size: 32px;
 		line-height: 64px;
 		margin: 0 16px;
 		text-decoration: none;
@@ -90,7 +106,7 @@ footer {
 		transition: color .3s ease-in;
 	}
 
-	.header-mobile .menu-mobile > a.selected {
+	.header-mobile .menu-mobile > .selected {
 		border-bottom: 2px solid;
 		color: white;
 		line-height: 62px;
@@ -120,23 +136,10 @@ footer {
 	.menu li > a {
 		border-bottom: 1px solid #666;
 		display: block;
-		font-size: 1.3em;
+		font-size: 1.15em;
 		padding: 12px 8px;
 		text-align: left;
 	}
-
-	.menu-language-choice a .flag {
-		background: url(img/ikoni.png) no-repeat;
-		border-radius: 3px;
-		display: inline-block;
-		height: 18px;
-		margin: 0 2px;
-		vertical-align: middle;
-		width: 24px;
-	}
-
-	.menu-language-choice a .flag.flag-bg{background-position:-464px 0;}
-	.menu-language-choice a .flag.flag-en{background-position:-464px -18px;}
 
 	.menu-main li > a .icon {
 		margin: 0 10px 0 6px;
@@ -146,15 +149,42 @@ footer {
 		font-size: 0.5em;
 		vertical-align: middle;
 	}
+}
 
-	.menu-music {
-		display: none;
+/**
+ * Phone in landscape orientation or small tablet.
+ * Just making use of the wider horizontal space.
+ */
+@media screen and (min-width: 35.5em) and (max-width: 48em) {
+	.menu-mobile {
+		margin-right: 16px;
 	}
 
-/*============== Footer ==============*/
+	.menu li > a {
+		margin: 0 24px;
+		padding: 10px 8px;
+	}
+
 	footer {
-		height: 40px;
+		background: yellow;
 	}
 }
 
 
+@media screen and (min-width: 48em) {
+	footer {
+		background: green;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	footer {
+		background: blue;
+	}
+}
+
+@media screen and (min-width: 80em) {
+	footer {
+		background: purple;
+	}
+}
