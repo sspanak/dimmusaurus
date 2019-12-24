@@ -333,11 +333,11 @@ header .menu-music > ul {
 	}
 
 	header .menu a, .header-container .toggle-wrapper > a {
-		transition: all .3s ease-out;
+		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
 	header .menu a:hover, .header-container .toggle-wrapper > a:hover {
-		transition: all .2s ease-in;
+		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
 	header .menu li > a {
