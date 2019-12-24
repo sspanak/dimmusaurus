@@ -27,7 +27,7 @@
 			integrity="sha384-VoScp22LWX8GkkUAmdkkkj+rz+/r84lmCD6FALIryJxjwBSz6kE6oebSlamQx19e"
 			crossorigin="anonymous">
 
-		<link rel="stylesheet" href="css.css" />
+		<link rel="stylesheet" href="css.css?version=2" />
 
 		<script
 			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -114,34 +114,40 @@
 							</a>
 						</li>
 						<li>
-							<a href="javascript:;" onClick="$('.menu-music').toggle();">
+							<a href="javascript:;" onClick="$('.menu-music').toggleClass('menu-open');">
 								<i class="icon fas fa-music"></i>
 								Музика
 								<i class="fas fa-chevron-down"></i>
 							</a>
-
-							<ul class="menu menu-music shadow-bottom">
-									<li>
-										<a>(2014) III</a>
-									</li>
-									<li>
-										<a>(2013) Битка на баира</a>
-									</li>
-									<li>
-										<a>(2013) Пътят, който всички...</a>
-									</li>
-									<li>
-										<a>(2010) Яхния от мисли</a>
-									</li>
-									<li>
-										<a>(2006) Зона Чернобил</a>
-									</li>
-									<li>
-										<a>Кавъри</a>
-									</li>
-							</ul>
 						</li>
 					</ul>
+
+					<div class="menu menu-music shadow-bottom">
+						<ul>
+							<li>
+								<a>(2014) III</a>
+							</li>
+							<li>
+								<a>(2013) Битка на баира</a>
+							</li>
+							<li>
+								<a>(2013) Пътят, който всички...</a>
+							</li>
+							<li>
+								<a>(2010) Яхния от мисли</a>
+							</li>
+							<li>
+								<a>(2006) Зона Чернобил</a>
+							</li>
+							<li>
+								<a>Всички албуми</a>
+							</li>
+							<li>
+								<a>Кавъри</a>
+							</li>
+						</ul>
+					</div>
+
 				</div>
 			</div>
 

@@ -1,9 +1,9 @@
 /*==============  Debug ==============*/
 .screen-test {display: none; text-align: center;}
 
-/*******************************************
+/**********************************************************************************
  * General / Reset styles
- *******************************************/
+ **********************************************************************************/
 .shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
 .shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
 img {border: 0 none;}
@@ -11,7 +11,6 @@ body {
 	background: #ececec;
 	background-image: url(img/fon-ececec.png);
 }
-
 
 .header-container, footer, .menu {
 	background-color: #333;
@@ -28,21 +27,25 @@ footer {
 	width: 100%;
 }
 
+.menu-open{height: auto !important;}
+
 /*==============  Buttons ==============*/
-.header-container .toggle-wrapper > a {
+header .menu a, .header-container .toggle-wrapper > a {
 	color: #ccc;
-	display: inline-block;
-	font-size: 2em;
 	text-decoration: none;
-	transition: color .3s ease-out;
-}
-.header-container .toggle-wrapper > a:hover {
-	color: white;
-	transition: color .3s ease-in;
 }
 
-.header-container .toggle-wrapper > .selected {
+header .menu a:hover, .header-container .toggle-wrapper > a:hover {
 	color: white;
+}
+
+.header-container .toggle-wrapper > .selected, .header-container .menu > .selected {
+	color: white;
+}
+
+.header-container .toggle-wrapper > a {
+	display: inline-block;
+	font-size: 2em;
 }
 
 .header-container .toggle-wrapper > a .fa-chevron-down, .header-container .toggle-wrapper > a .fa-chevron-up {
@@ -51,13 +54,13 @@ footer {
 }
 
 /*==============  Menus ==============*/
-.menu a{
-	color: #ccc;
-	text-decoration: none;
+header .menu-music {
+	height: 0;
+	overflow: hidden;
 }
 
-.menu-music{
-	display: none;
+header .menu-music > ul {
+	margin-top: 0;
 }
 
 /*============== Language Menu ==============*/
@@ -75,9 +78,9 @@ footer {
 .menu-language-choice a .flag-en{background-position:-464px -18px;}
 .menu-language-choice a .flag-fr{background-position:-488px 0;}
 
-/*******************************************
+/**********************************************************************************
  * Any Phone screen
- *******************************************/
+ **********************************************************************************/
 @media screen and (max-width: 47.99em) {
 	.header-container {
 		clear: both;
@@ -134,13 +137,17 @@ footer {
 		padding: 24px 0 12px 0;
 	}
 
-	.menu li {
+	.menu-main > ul {
+		margin-bottom: 0;
+	}
+
+	header .menu li {
 		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
 
-	.menu li > a {
+	header .menu li > a {
 		border-bottom: 1px solid #666;
 		display: block;
 		font-size: 1.15em;
@@ -168,16 +175,16 @@ footer {
 }
 
 
-/***************************************************
+/**********************************************************************************
  * Phone in landscape orientation or small tablet.
  * Just making use of the wider horizontal space.
- ***************************************************/
+ **********************************************************************************/
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
 	.menu-mobile {
 		margin-right: 16px;
 	}
 
-	.menu li > a {
+	header .menu li > a {
 		margin: 0 24px;
 		padding: 10px 8px;
 	}
@@ -189,9 +196,9 @@ footer {
 }
 
 
-/***************************************************
+/**********************************************************************************
  * Tablet sized screen
- ***************************************************/
+ **********************************************************************************/
 @media screen and (min-width: 48em) {
 	.header-container {
 		display: flex;
@@ -207,7 +214,8 @@ footer {
 
 	.header-container .logo-text {
 		font-size: 3em;
-		line-height: 124px;
+		height: 100px;
+		line-height: 100px;
 		width: 175px;
 	}
 
@@ -280,13 +288,13 @@ footer {
 		padding: 0;
 	}
 
-	.menu li {
+	header .menu li {
 		list-style-type: none;
 		margin: 0;
 		padding: 0 12px 2px 12px;
 	}
 
-	.menu li > a {
+	header .menu li > a {
 		border-bottom: 1px solid #666;
 		display: block;
 		font-size: 1.1em;
@@ -311,12 +319,95 @@ footer {
 	.screen-m {display: block;}
 }
 
+
+/**********************************************************************************
+ * Desktop, small
+ **********************************************************************************/
 @media screen and (min-width: 64em) {
+	.header-container {
+		height: 131px;
+	}
+
+	header .menu a, .header-container .toggle-wrapper > a {
+		transition: all .3s ease-out;
+	}
+
+	header .menu a:hover, .header-container .toggle-wrapper > a:hover {
+		transition: all .2s ease-in;
+	}
+
+	header .menu li > a {
+		font-size: 1em;
+	}
+
+/*============== No buttons on large screens ==============*/
+	.header-container .toggle-main-menu-wrapper a {
+		display: none;
+	}
+
+/*============== Main Menu ==============*/
+	.menu-main-wrapper {
+		position: relative;
+		top: -37px;
+	}
+
+	.menu-main {
+		align-content: flex-start;
+		background-color: transparent;
+		box-shadow: none;
+		display: inline-flex;
+		flex-flow: wrap;
+		justify-content: flex-end;
+		width: 80%;
+	}
+
+	.menu-main > ul, .menu-main > ul > li, .menu-main > ul > li > a {
+		display: inline-block;
+	}
+
+	.menu-main > ul {
+		margin: 0 10px 0 0;
+	}
+
+	.menu-main > ul > li {
+		padding: 0;
+		vertical-align: top;
+	}
+
+	.menu-main > ul > li > a {
+		border-bottom: 0 none;
+		border-left: 1px solid #666;
+		border-radius: 4px;
+		border-top: 1px solid #444;
+		padding: 6px 8px;
+	}
+
+	.menu-main > ul > li > a:hover {
+		border-color: #888;
+	}
+
+	.menu-main > ul > li > a .icon {
+		margin: 0 4px 0 2px;
+	}
+/*============== Music Menu ==============*/
+	.menu-music > ul {
+		display: flex;
+		flex-flow: column;
+		padding: 0;
+	}
+
 	.screen-m {display: none;}
 	.screen-l {display: block;}
 }
 
+/**********************************************************************************
+ * Desktop, large
+ **********************************************************************************/
 @media screen and (min-width: 80em) {
+	.menu-main > ul {
+		margin-right: 1%;
+	}
+
 	.screen-m {display: none;}
 	.screen-l {display: none;}
 	.screen-xl {display: block;}
