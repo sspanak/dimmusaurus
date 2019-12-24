@@ -53,6 +53,10 @@ header .menu a:hover, .header-container .toggle-wrapper > a:hover {
 	vertical-align: middle;
 }
 
+.toggle-language-label {
+	display: none;
+}
+
 /*==============  Menus ==============*/
 header .menu-music {
 	height: 0;
@@ -340,9 +344,33 @@ header .menu-music > ul {
 		font-size: 1em;
 	}
 
-/*============== No buttons on large screens ==============*/
+/*============== No main menu button on large screens ==============*/
 	.header-container .toggle-main-menu-wrapper a {
 		display: none;
+	}
+
+/*============== Language Menu ==============*/
+	.header-container .toggle-language-wrapper {
+		align-items: flex-end;
+	}
+
+	.header-container .toggle-language-wrapper > a {
+		border-bottom: 0 none;
+		border-radius: 4px;
+		border-right: 1px solid #666;
+		border-top: 1px solid #444;
+		font-size: 1em;
+		margin: 4px 6px;
+		padding: 6px 8px;
+	}
+
+	.toggle-language-label {
+		display: inline;
+	}
+
+	.menu-language-choice {
+		min-width: 300px;
+		width: auto;
 	}
 
 /*============== Main Menu ==============*/
@@ -371,7 +399,6 @@ header .menu-music > ul {
 
 	.menu-main > ul > li {
 		padding: 0;
-		vertical-align: top;
 	}
 
 	.menu-main > ul > li > a {
@@ -382,11 +409,11 @@ header .menu-music > ul {
 		padding: 6px 8px;
 	}
 
-	.menu-main > ul > li > a:hover {
+	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
 		border-color: #888;
 	}
 
-	.menu-main > ul > li > a .icon {
+	.menu-main > ul > li > a .icon, .header-container .toggle-language-wrapper .icon {
 		margin: 0 4px 0 2px;
 	}
 /*============== Music Menu ==============*/
