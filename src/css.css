@@ -28,7 +28,6 @@ header .logo {
 
 .content {
 	background-color: #fff;
-	min-height: 50vh;
 }
 
 /**********************************************************************************
@@ -61,10 +60,14 @@ header .logo {
 }
 
 .player .track-progress-bar .track-progress {
-	background:#ececec;
+	background: #ececec;
 	border-radius: inherit;
 	height: 100%;
 	width: 22%;
+}
+
+.player .track-progress-bar .track-progress, .player .progress-time {
+	color: #ececec;
 }
 
 .player .playlist {
@@ -78,6 +81,14 @@ header .logo {
 	padding: 0 4px;
 	position: relative;
 	vertical-align: top;
+}
+
+/**********************************************************************************
+ * Footer
+ **********************************************************************************/
+footer {
+	height: 2.5em;
+	margin-bottom: 2em;
 }
 
 /*==============  Buttons ==============*/
@@ -215,6 +226,7 @@ header .menu li > a {
 
 /*============== Content ==============*/
 	.content {
+		height: calc(100vh - 64px - 75px - 2em); /* 100 - header-height - padding - footer */
 		margin: 25px 0 50px;
 	}
 
@@ -340,6 +352,7 @@ header .menu li > a {
 
 /*============== Content ==============*/
 	.content {
+		height: calc(100vh - 164px - 90px - 2em); /* 100 - header-height - padding - footer */
 		margin: 40px 0 50px;
 	}
 
@@ -493,6 +506,7 @@ header .menu li > a {
 		flex-flow: column;
 		padding: 0;
 	}
+
 
 	.screen-m {display: none;}
 	.screen-l {display: block;}
