@@ -6,6 +6,8 @@
  **********************************************************************************/
 .shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
 .shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
+.menu-open{height: auto !important;}
+
 img {border: 0 none;}
 body {
 	background: #ececec;
@@ -26,8 +28,6 @@ footer {
 	position: fixed;
 	width: 100%;
 }
-
-.menu-open{height: auto !important;}
 
 /*==============  Buttons ==============*/
 header .menu a, .header-container .toggle-wrapper > a {
@@ -58,7 +58,7 @@ header .menu a:hover, .header-container .toggle-wrapper > a:hover {
 }
 
 /*==============  Menus ==============*/
-header .menu-music {
+.menu-music {
 	height: 0;
 	overflow: hidden;
 }
@@ -67,7 +67,17 @@ header .menu-music > ul {
 	margin-top: 0;
 }
 
+header .menu li {
+	list-style-type: none;
+}
+
+header .menu li > a {
+	border-bottom: 1px solid #666;
+	text-align: left;
+}
+
 /*============== Language Menu ==============*/
+.menu-language-choice {display: none;}
 .menu-language-choice a .flag {
 	background: url(img/ikoni.png) no-repeat;
 	border-radius: 3px;
@@ -146,13 +156,11 @@ header .menu-music > ul {
 	}
 
 	header .menu li {
-		list-style-type: none;
 		margin: 0;
 		padding: 0;
 	}
 
 	header .menu li > a {
-		border-bottom: 1px solid #666;
 		display: block;
 		font-size: 1.15em;
 		padding: 12px 8px;
@@ -211,15 +219,34 @@ header .menu-music > ul {
 		overflow: visible;
 	}
 
+/*============== Buttons ==============*/
+	.toggle-wrapper {
+		align-items: center;
+		display: flex;
+		width: calc(50vw - 257px); /* (100vw - LogoWidth) / 2 */
+	}
+
+	.toggle-language-wrapper {
+		justify-content: flex-start;
+		order: 1;
+	}
+
+	.toggle-main-menu-wrapper {
+		justify-content: flex-end;
+		order: 5;
+	}
+
 /*============== Logo ==============*/
+	.header-container .logo > img {
+		height: 100%;
+	}
+
 	.header-container .logo-text, .header-container .logo {
 		display: inline-block;
 	}
 
 	.header-container .logo-text {
 		font-size: 3em;
-		height: 100px;
-		line-height: 100px;
 		width: 175px;
 	}
 
@@ -244,32 +271,7 @@ header .menu-music > ul {
 		width: 164px;
 	}
 
-	.header-container .logo > img {
-		height: 100%;
-	}
-
-/*============== Buttons ==============*/
-	.toggle-wrapper {
-		align-items: center;
-		display: flex;
-		width: calc(50vw - 257px); /* (100vw - LogoWidth) / 2 */
-	}
-
-	.toggle-language-wrapper {
-		justify-content: flex-start;
-		order: 1;
-	}
-
-	.toggle-main-menu-wrapper {
-		justify-content: flex-end;
-		order: 5;
-	}
-
-	.toggle-wrapper > a {
-		margin: 0 20px;
-	}
-
-/*============== Menus ==============*/
+	/*============== Menus ==============*/
 	.menu-wrapper {
 		display: inline-flex;
 		width: 50%;
@@ -279,41 +281,25 @@ header .menu-music > ul {
 		justify-content: flex-end;
 	}
 
-	.menu-language-choice, .menu-main {
-		display: none;
-	}
-
-	.menu-language-choice, .menu-main {
-		width: 80%;
-	}
-
 	.menu-language-choice > ul, .menu-main > ul {
 		margin: 0 0 12px 0;
 		padding: 0;
 	}
 
 	header .menu li {
-		list-style-type: none;
 		margin: 0;
 		padding: 0 12px 2px 12px;
 	}
 
-	header .menu li > a {
-		border-bottom: 1px solid #666;
+	header .menu li {
 		display: block;
-		font-size: 1.1em;
-		padding: 12px 8px;
-		text-align: left;
-	}
-
-	.menu-main li > a .icon {
-		margin: 0 10px 0 6px;
 	}
 
 	.menu-main li > a .fa-chevron-down {
 		font-size: 0.5em;
 		vertical-align: middle;
 	}
+
 
 /*============== Content ==============*/
 	.content {
@@ -324,12 +310,48 @@ header .menu-music > ul {
 }
 
 
+@media screen and (min-width: 48em) and (max-width: 63.99em) {
+	.header-container .logo-text {
+		height: 124px;
+		line-height: 124px;
+	}
+
+/*============== Buttons ==============*/
+	.toggle-wrapper > a {
+		margin: 0 20px;
+	}
+
+/*============== Menus ==============*/
+	.menu-main {
+		display: none;
+	}
+
+	.menu-language-choice, .menu-main {
+		width: 80%;
+	}
+
+	header .menu li > a {
+		display: block;
+		font-size: 1.1em;
+		padding: 12px 8px;
+	}
+
+	.menu-main li > a .icon {
+		margin: 0 10px 0 6px;
+	}
+}
+
+
 /**********************************************************************************
  * Desktop, small
  **********************************************************************************/
 @media screen and (min-width: 64em) {
 	.header-container {
 		height: 131px;
+	}
+
+	.header-super-wrapper {
+		display: flex;
 	}
 
 	header .menu a, .header-container .toggle-wrapper > a {
@@ -342,6 +364,11 @@ header .menu-music > ul {
 
 	header .menu li > a {
 		font-size: 1em;
+	}
+
+	.header-container .logo-text {
+		height: 100px;
+		line-height: 100px;
 	}
 
 /*============== No main menu button on large screens ==============*/
@@ -368,9 +395,18 @@ header .menu-music > ul {
 		display: inline;
 	}
 
+	.language-choice-wrapper {
+		display: block;
+	}
+
 	.menu-language-choice {
+		display: inline-block;
 		min-width: 300px;
-		width: auto;
+	}
+
+	.menu-language-choice li > a, .menu-music li > a{
+		display: block;
+		padding: 12px 8px;
 	}
 
 /*============== Main Menu ==============*/
@@ -394,7 +430,8 @@ header .menu-music > ul {
 	}
 
 	.menu-main > ul {
-		margin: 0 10px 0 0;
+		margin-bottom: 0;
+		padding-right: 10px;
 	}
 
 	.menu-main > ul > li {
