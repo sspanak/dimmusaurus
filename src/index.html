@@ -54,7 +54,7 @@
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
 					<a
 						href="javascript:;"
-						onClick="$('.menu-main').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						onClick="$('.menu-main').toggleClass('menu-closed');$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
 						title="Menu">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
@@ -64,7 +64,7 @@
 				<div class="toggle-wrapper toggle-language-wrapper">
 					<a
 						href="javascript:;"
-						onClick="$('.menu-language-choice').toggle();$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						onClick="$('.menu-language-choice').toggleClass('menu-closed');$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
 						title="Change Language">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
@@ -75,7 +75,7 @@
 
 			<div class="header-super-wrapper">
 				<div class="menu-wrapper language-choice-wrapper">
-					<div class="menu menu-language-choice shadow-bottom">
+					<div class="menu menu-language-choice menu-closed shadow-bottom">
 						<ul>
 							<li>
 								<a href="javascript:;">
@@ -101,7 +101,7 @@
 						</ul>
 					</div>
 				</div><div class="menu-wrapper menu-main-wrapper"> <!-- the space ruins the alignment -->
-					<div class="menu menu-main shadow-bottom">
+					<div class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>
 								<a>
@@ -116,7 +116,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="javascript:;" onClick="$('.menu-music').toggleClass('menu-open');">
+								<a href="javascript:;" onClick="$('.menu-music').toggleClass('menu-closed');">
 									<i class="icon fas fa-music"></i>
 									Музика
 									<i class="fas fa-chevron-down"></i>
@@ -124,7 +124,7 @@
 							</li>
 						</ul>
 
-						<div class="menu menu-music shadow-bottom">
+						<div class="menu menu-music menu-closed shadow-bottom">
 							<ul>
 								<li>
 									<a>(2014) III</a>

@@ -6,7 +6,11 @@
  **********************************************************************************/
 .shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
 .shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
-.menu-open{height: auto !important;}
+.menu-closed {
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+}
 
 img {border: 0 none;}
 body {
@@ -58,11 +62,6 @@ header .menu a:hover, .header-container .toggle-wrapper > a:hover {
 }
 
 /*==============  Menus ==============*/
-.menu-music {
-	height: 0;
-	overflow: hidden;
-}
-
 header .menu-music > ul {
 	margin-top: 0;
 }
@@ -77,7 +76,6 @@ header .menu li > a {
 }
 
 /*============== Language Menu ==============*/
-.menu-language-choice {display: none;}
 .menu-language-choice a .flag {
 	background: url(img/ikoni.png) no-repeat;
 	border-radius: 3px;
@@ -142,17 +140,9 @@ header .menu li > a {
 	}
 
 /*============== Menus ==============*/
-	.menu-language-choice, .menu-main {
-		display: none;
-		margin-top: -22px;
-	}
-
 	.menu-language-choice > ul, .menu-main > ul {
+		margin: 0 auto;
 		padding: 24px 0 12px 0;
-	}
-
-	.menu-main > ul {
-		margin-bottom: 0;
 	}
 
 	header .menu li {
@@ -322,10 +312,6 @@ header .menu li > a {
 	}
 
 /*============== Menus ==============*/
-	.menu-main {
-		display: none;
-	}
-
 	.menu-language-choice, .menu-main {
 		width: 80%;
 	}
@@ -421,6 +407,7 @@ header .menu li > a {
 		box-shadow: none;
 		display: inline-flex;
 		flex-flow: wrap;
+		height: auto;
 		justify-content: flex-end;
 		width: 80%;
 	}
