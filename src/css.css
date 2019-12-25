@@ -8,8 +8,8 @@
 .shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
 .menu-closed {
 	height: 0;
-	padding: 0;
 	overflow: hidden;
+	padding: 0;
 }
 
 img {border: 0 none;}
@@ -25,6 +25,11 @@ body {
 
 header .logo {
 	background: #fafafa;
+}
+
+.content {
+	background-color: #fff;
+	min-height: 50vh;
 }
 
 footer {
@@ -418,7 +423,7 @@ header .menu li > a {
 
 	.menu-main > ul {
 		margin-bottom: 0;
-		padding-right: 10px;
+		margin-right: 6px;
 	}
 
 	.menu-main > ul > li {
@@ -452,11 +457,12 @@ header .menu li > a {
 }
 
 /**********************************************************************************
- * Desktop, large
+ * Desktop, large (only making use of the wider spaces)
  **********************************************************************************/
 @media screen and (min-width: 80em) {
-	.menu-main > ul {
-		margin-right: 1%;
+	.menu-main > ul, .header-container .toggle-language-wrapper > a {
+		margin-left: 2%;
+		margin-right: 2%;
 	}
 
 	.screen-m {display: none;}
