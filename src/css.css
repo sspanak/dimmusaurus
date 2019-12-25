@@ -11,14 +11,13 @@
 	overflow: hidden;
 	padding: 0;
 }
-
 img {border: 0 none;}
 body {
 	background: #ececec;
 	background-image: url(img/fon-ececec.png);
 }
 
-.header-container, footer, .menu {
+.header-container, footer, .menu, .player {
 	background-color: #333;
 	color: #ccc;
 }
@@ -32,10 +31,53 @@ header .logo {
 	min-height: 50vh;
 }
 
-footer {
+/**********************************************************************************
+ * Player
+ **********************************************************************************/
+
+.player {
 	bottom: 0;
+	height: 2em;
 	position: fixed;
 	width: 100%;
+}
+
+.player .player-controls {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.player .track-progress-bar-container {
+	display: inline-block;
+	padding: 0 25px;
+}
+
+.player .track-progress-bar {
+	background: #888;
+	border-radius: 2px;
+	display: inline-block;
+	height: 5px;
+	width: 200px;
+}
+
+.player .track-progress-bar .track-progress {
+	background:#ececec;
+	border-radius: inherit;
+	height: 100%;
+	width: 22%;
+}
+
+.player .playlist {
+	margin-left: 10px;
+}
+
+.player .playlist > .fa-play {
+	background: #333;
+	font-size: 0.35em;
+	left: -1.9em;
+	padding: 0 4px;
+	position: relative;
+	vertical-align: top;
 }
 
 /*==============  Buttons ==============*/
@@ -266,7 +308,7 @@ header .menu li > a {
 		width: 164px;
 	}
 
-	/*============== Menus ==============*/
+/*============== Menus ==============*/
 	.menu-wrapper {
 		display: inline-flex;
 		width: 50%;
