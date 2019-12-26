@@ -31,73 +31,16 @@ header .logo {
 }
 
 /**********************************************************************************
- * Player
+ * Components
  **********************************************************************************/
-
-.player {
-	bottom: 0;
-	height: 2em;
-	position: fixed;
-	width: 100%;
-}
-
-.player .player-controls {
-	display: inline-block;
-	margin: 0 5px;
-}
-
-.player .track-progress-bar-container {
-	display: inline-block;
-	padding: 0 25px;
-}
-
-.player .track-progress-bar {
-	background: #888;
-	border-radius: 2px;
-	display: inline-block;
-	height: 5px;
-	width: 200px;
-}
-
-.player .track-progress-bar .track-progress {
-	background: #ececec;
-	border-radius: inherit;
-	height: 100%;
-	width: 22%;
-}
-
-.player .track-progress-bar .track-progress, .player .progress-time {
-	color: #ececec;
-}
-
-.player .playlist {
-	margin-left: 10px;
-}
-
-.player .playlist > .fa-play {
-	background: #333;
-	font-size: 0.35em;
-	left: -1.9em;
-	padding: 0 4px;
-	position: relative;
-	vertical-align: top;
-}
-
-/**********************************************************************************
- * Footer
- **********************************************************************************/
-footer {
-	height: 2.5em;
-	margin-bottom: 2em;
-}
 
 /*==============  Buttons ==============*/
-header .menu a, .header-container .toggle-wrapper > a {
+header .menu a, .header-container .toggle-wrapper > a, footer a {
 	color: #ccc;
 	text-decoration: none;
 }
 
-header .menu a:hover, .header-container .toggle-wrapper > a:hover {
+header .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover {
 	color: white;
 }
 
@@ -147,6 +90,82 @@ header .menu li > a {
 .menu-language-choice a .flag-bg{background-position:-464px 0;}
 .menu-language-choice a .flag-en{background-position:-464px -18px;}
 .menu-language-choice a .flag-fr{background-position:-488px 0;}
+
+
+/*==============  Player ==============*/
+.player {
+	align-items: center;
+	bottom: 0;
+	border-top: 1px solid #666;
+	display: flex;
+	height: 2em;
+	position: fixed;
+	width: 100%;
+}
+
+.player .player-controls {
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.player .track-progress-bar-container {
+	display: inline-block;
+	padding: 0 25px;
+}
+
+.player .track-progress-bar {
+	background: #888;
+	border-radius: 2px;
+	display: inline-block;
+	height: 5px;
+	width: 200px;
+}
+
+.player .track-progress-bar .track-progress {
+	background: #ececec;
+	border-radius: inherit;
+	height: 100%;
+	width: 22%;
+}
+
+.player .track-progress-bar .track-progress, .player .progress-time {
+	color: #ececec;
+}
+
+.player .playlist {
+	margin-left: 10px;
+}
+
+.player .playlist > .fa-play {
+	background: #333;
+	font-size: 0.35em;
+	left: -1.9em;
+	padding: 0 4px;
+	position: relative;
+	vertical-align: top;
+}
+
+/*==============  Footer ==============*/
+footer {
+	align-items: center;
+	display: flex;
+	height: 2.5em;
+	margin-bottom: 2em; /* make room for the player */
+}
+
+footer .social {
+	width: 75%;
+}
+
+footer .copyright {
+	display: flex;
+	justify-content: flex-end;
+	width: 25%;
+}
+
+footer .copyright-copy, footer .copyright-last-year {
+	margin-right: 3px;
+}
 
 /**********************************************************************************
  * Any Phone screen
@@ -233,6 +252,12 @@ header .menu li > a {
 	.screen-xs {
 		display: block;
 	}
+
+/*============== Footer ==============*/
+	footer {padding: 0 10px;}
+	footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
+	footer .social-icons a {font-size: 1.7em;}
+	footer .social-icons a:not(:last-child) {margin-right: 5px;}
 }
 
 
@@ -241,16 +266,18 @@ header .menu li > a {
  * Just making use of the wider horizontal space.
  **********************************************************************************/
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
-	.menu-mobile {
-		margin-right: 16px;
-	}
+	.menu-mobile {margin-right: 16px;}
 
 	header .menu li > a {
 		margin: 0 24px;
 		padding: 10px 8px;
 	}
 
-/*============== Content ==============*/
+	footer {padding: 0 15px;}
+	footer .social-icons a:not(:last-child) {margin-right: 10px;}
+	footer .copyright-first-year, footer .copyright-ds {display: inline;}
+
+/*============== Debug ==============*/
 	.screen-s {
 		display: block;
 	}
