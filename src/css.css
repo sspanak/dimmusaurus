@@ -154,7 +154,12 @@ footer {
 }
 
 footer .social {
+	align-items: center;
+	display: flex;
 	width: 75%;
+}
+footer .social-icons a:not(:last-child) {
+	border-right: 1px solid #555;
 }
 
 footer .copyright {
@@ -162,7 +167,6 @@ footer .copyright {
 	justify-content: flex-end;
 	width: 25%;
 }
-
 footer .copyright-copy, footer .copyright-last-year {
 	margin-right: 3px;
 }
@@ -254,10 +258,12 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 /*============== Footer ==============*/
-	footer {padding: 0 10px;}
 	footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
-	footer .social-icons a {font-size: 1.7em;}
-	footer .social-icons a:not(:last-child) {margin-right: 5px;}
+	footer .social-icons a {
+		font-size: 1.8em;
+		padding: 0 10px;
+	}
+	footer .copyright {margin-right: 5px;}
 }
 
 
@@ -273,8 +279,8 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 10px 8px;
 	}
 
-	footer {padding: 0 15px;}
-	footer .social-icons a:not(:last-child) {margin-right: 10px;}
+	footer .social-icons a {padding: 0 15px;}
+	footer .copyright{margin-right: 15px;}
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
 
 /*============== Debug ==============*/
@@ -383,6 +389,18 @@ footer .copyright-copy, footer .copyright-last-year {
 		margin: 40px 0 50px;
 	}
 
+/*============== Footer ==============*/
+	footer .social-label {display: none;}
+	footer .social-icons a {
+		font-size: 1.7em;
+		padding: 0 15px;
+	}
+	footer .copyright{
+		font-size: 0.93em;
+		margin-right: 15px;
+	}
+
+
 	.screen-m {display: block;}
 }
 
@@ -427,11 +445,11 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: flex;
 	}
 
-	header .menu a, .header-container .toggle-wrapper > a {
+	header .menu a, .header-container .toggle-wrapper > a, footer a {
 		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
-	header .menu a:hover, .header-container .toggle-wrapper > a:hover {
+	header .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a {
 		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
@@ -532,6 +550,18 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: flex;
 		flex-flow: column;
 		padding: 0;
+	}
+
+	/*============== Footer ==============*/
+	footer .social-label {
+		display: block;
+		font-size: 0.85em;
+		margin-left: 10px;
+	}
+	footer .social-icons a {font-size: 1.3em;}
+	footer .copyright{
+		font-size: 0.85em;
+		margin-right: 10px;
 	}
 
 
