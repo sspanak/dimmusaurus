@@ -78,7 +78,7 @@ header .menu li > a {
 
 /*============== Language Menu ==============*/
 .menu-language-choice a .flag {
-	background: url(img/ikoni.png) no-repeat;
+	background: url(img/znamena.png) no-repeat;
 	border-radius: 3px;
 	display: inline-block;
 	height: 18px;
@@ -87,9 +87,9 @@ header .menu li > a {
 	width: 24px;
 }
 
-.menu-language-choice a .flag-bg{background-position:-464px 0;}
-.menu-language-choice a .flag-en{background-position:-464px -18px;}
-.menu-language-choice a .flag-fr{background-position:-488px 0;}
+.menu-language-choice a .flag-bg{background-position:0 0;}
+.menu-language-choice a .flag-en{background-position:-48px 0;}
+.menu-language-choice a .flag-fr{background-position:-24px 0;}
 
 
 /*==============  Player ==============*/
