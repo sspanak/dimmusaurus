@@ -19,14 +19,11 @@
 			href="https://unpkg.com/purecss@1.0.1/build/base-min.css"
 			crossorigin="anonymous">
 
-		<link rel="stylesheet" href="css.css?version=4">
+		<link rel="stylesheet" href="css.css?version=5">
 
 		<script src="https://kit.fontawesome.com/72096b0630.js" crossorigin="anonymous"></script>
 
-		<script
-			src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-			crossorigin="anonymous"></script>
+		<script src="js.js"></script>
 	</head>
 
 	<body>
@@ -48,7 +45,7 @@
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
 					<a
 						href="javascript:;"
-						onClick="$('.menu-main').toggleClass('menu-closed');$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						onClick="toggleClass('.menu-main', 'menu-closed');toggleClass(this, 'selected');"
 						title="Menu">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
@@ -58,7 +55,7 @@
 				<div class="toggle-wrapper toggle-language-wrapper">
 					<a
 						href="javascript:;"
-						onClick="$('.menu-language-choice').toggleClass('menu-closed');$(this).toggleClass('selected');$(this).siblings('a').removeClass('selected');"
+						onClick="toggleClass('.menu-language-choice', 'menu-closed');toggleClass(this, 'selected');"
 						title="Change Language">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
@@ -110,7 +107,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="javascript:;" onClick="$('.menu-music').toggleClass('menu-closed');">
+								<a href="javascript:;" onClick="toggleClass('.menu-music', 'menu-closed');">
 									<i class="icon fas fa-music"></i>
 									Музика
 									<i class="fas fa-chevron-down"></i>
