@@ -10,3 +10,8 @@ function toggleClass(selector, className) {
 		$element.className = $element.className.replace(className, '');
 	}
 }
+
+
+function togglePlaylist() {
+	toggleClass('.menu-playlist', 'menu-closed');
+}

@@ -40,7 +40,7 @@ header .logo-text {
  **********************************************************************************/
 
 /*==============  Buttons ==============*/
-header .menu a, .header-container .toggle-wrapper > a, footer a {
+header .menu a, .header-container .toggle-wrapper > a, footer a, .player a {
 	color: #ccc;
 	text-decoration: none;
 }
@@ -103,19 +103,25 @@ header .menu li > a {
 	bottom: 0;
 	border-top: 1px solid #666;
 	display: flex;
-	height: 2em;
+	height: 2.5em;
 	position: fixed;
 	width: 100%;
 }
 
-.player .player-controls {
+.player .track-progress-bar-container, .player .player-controls {
 	display: inline-block;
-	margin: 0 5px;
 }
 
-.player .track-progress-bar-container {
-	display: inline-block;
-	padding: 0 25px;
+.player .track-title-wrapper {
+	align-items: center;
+	display: flex;
+	height: 100%;
+}
+
+.player .track-title-wrapper .track-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 
 .player .track-progress-bar {
@@ -137,25 +143,21 @@ header .menu li > a {
 	color: #ececec;
 }
 
-.player .playlist {
-	margin-left: 10px;
-}
-
-.player .playlist > .fa-play {
+/*.player .playlist > .fa-play {
 	background: #333;
 	font-size: 0.35em;
-	left: -1.9em;
-	padding: 0 4px;
+	left: -4em;
+	padding: 2px 4px;
 	position: relative;
 	vertical-align: top;
 }
-
+*/
 /*==============  Footer ==============*/
 footer {
 	align-items: center;
 	display: flex;
 	height: 2.5em;
-	margin-bottom: 2em; /* make room for the player */
+	margin-bottom: 2.5em; /* make room for the player */
 }
 
 footer .social {
@@ -254,12 +256,27 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Content ==============*/
 	.content {
-		height: calc(100vh - 64px - 75px - 2em); /* 100 - header-height - padding - footer */
+		height: calc(100vh - 64px - 75px - 2.5em); /* 100 - header-height - padding - footer */
 		margin: 25px 0 50px;
 	}
 
 	.screen-xs {
 		display: block;
+	}
+
+/*============== Player ==============*/
+	.player .track-progress-bar-container, .player .player-controls .fa-volume-up {display: none;}
+	.player .fas {font-size: 1.6em;}
+
+	.player .playlist {
+		padding: 0 10px;
+		width: 22px;
+	}
+	.player .track-title-wrapper {width: calc(100% - 172px);}
+	.player .player-controls {width: 130px;}
+	.player .player-controls a {
+		border-left: 1px solid #555;
+		padding: 0 10px;
 	}
 
 /*============== Footer ==============*/
@@ -390,7 +407,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Content ==============*/
 	.content {
-		height: calc(100vh - 164px - 90px - 2em); /* 100 - header-height - padding - footer */
+		height: calc(100vh - 164px - 90px - 2.5em); /* 100 - header-height - padding - footer */
 		margin: 40px 0 50px;
 	}
 
