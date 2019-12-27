@@ -15,3 +15,7 @@ function toggleClass(selector, className) {
 function togglePlaylist() {
 	toggleClass('.menu-playlist', 'menu-closed');
 }
+
+function toggleMute() {
+	console.log('toggle volume');
+}

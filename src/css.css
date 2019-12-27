@@ -67,6 +67,7 @@ header .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hove
 	display: none;
 }
 
+
 /*==============  Menus ==============*/
 header .menu-music > ul {
 	margin-top: 0;
@@ -80,6 +81,7 @@ header .menu li > a {
 	border-bottom: 1px solid #666;
 	text-align: left;
 }
+
 
 /*============== Language Menu ==============*/
 .menu-language-choice a .flag {
@@ -134,7 +136,7 @@ header .menu li > a {
 	width: 22%;
 }
 
-.player .track-progress-bar .track-progress, .player .progress-time {
+.player .track-progress-bar .track-progress {
 	color: #ececec;
 }
 
@@ -149,6 +151,8 @@ header .menu li > a {
 	vertical-align: top;
 }
 */
+
+
 /*==============  Footer ==============*/
 footer {
 	align-items: center;
@@ -185,6 +189,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		overflow: visible;
 	}
 
+
 /*============== Logo ==============*/
 	.header-container .logo {
 		border-radius: 0 42px 42px 42px;
@@ -205,6 +210,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: none;
 	}
 
+
 /*============== Buttons ==============*/
 	.toggle-wrapper {
 		float: right;
@@ -223,6 +229,7 @@ footer .copyright-copy, footer .copyright-last-year {
 	.header-container .toggle-wrapper > a > .fa-chevron-down, .header-container .toggle-wrapper > a > .fa-chevron-up {
 		display: none;
 	}
+
 
 /*============== Menus ==============*/
 	.menu-language-choice > ul, .menu-main > ul {
@@ -251,22 +258,22 @@ footer .copyright-copy, footer .copyright-last-year {
 		vertical-align: middle;
 	}
 
+
 /*============== Content ==============*/
 	.content {
 		height: calc(100vh - 64px - 75px - 3em); /* 100 - header-height - padding - player */
 		margin: 25px 0 50px;
 	}
 
-	.screen-xs {
-		display: block;
-	}
 
 /*============== Player ==============*/
 	.player {height: 3em;}
-	.player .track-progress-bar-container, .player .player-controls .fa-volume-up {display: none;}
-	.player .fas {font-size: 1.7em;}
+	.player .track-progress-bar-container, .player .player-controls .volume {display: none;}
+	.player .fas:not(.fa-chevron-up) {font-size: 1.7em;}
+	.player .track-title {margin-right: 5px;}
 
 	.player .playlist, .player .player-controls a {padding: 0 10px;}
+
 
 /*============== Footer ==============*/
 	footer {margin-bottom: 3em;}
@@ -276,6 +283,12 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 0 10px;
 	}
 	footer .copyright {margin-right: 5px;}
+
+
+/*============== Debug ==============*/
+	.screen-xs {
+		display: block;
+	}
 }
 
 
@@ -296,12 +309,22 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 	.player {height: 2.5em;}
-	.player .playlist, .player .player-controls a  {padding: 0 15px;}
+	.player .playlist, .player .player-controls a {padding: 0 15px;}
+	.player .track-progress-bar {display: none;}
+	.player .track-progress-bar-container{
+		display: inline-flex;
+		padding: 0 10px;
+	}
+	.player .total-time::before {
+		content: "/";
+		margin: 5px;
+	}
 
 	footer {margin-bottom: 2.5em;}
 	footer .social-icons a {padding: 0 15px;}
 	footer .copyright{margin-right: 15px;}
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
+
 
 /*============== Debug ==============*/
 	.screen-s {
@@ -321,6 +344,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		overflow: visible;
 	}
 
+
 /*============== Buttons ==============*/
 	.toggle-wrapper {
 		align-items: center;
@@ -337,6 +361,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		justify-content: flex-end;
 		order: 5;
 	}
+
 
 /*============== Logo ==============*/
 	.header-container .logo > img {
@@ -372,6 +397,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		text-align: center;
 		width: 164px;
 	}
+
 
 /*============== Menus ==============*/
 	.menu-wrapper {
@@ -409,6 +435,20 @@ footer .copyright-copy, footer .copyright-last-year {
 		margin: 40px 0 50px;
 	}
 
+
+/*============== Player ==============*/
+	.player .track-progress-bar-container {padding: 0 10px;}
+	.player .track-progress-bar {display: none;}
+	.player .total-time::before {
+		content: "/";
+		margin: 5px;
+	}
+
+	.player .fas:not(.fa-chevron-up) {font-size: 1.6em;}
+	.player .playlist, .player .player-controls a {padding: 0 15px;}
+	.player .player-controls .fa-volume-mute {color: #888;}
+
+
 /*============== Footer ==============*/
 	footer .social-label {display: none;}
 	footer .social-icons a {
@@ -421,6 +461,7 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 
+/*============== Debug ==============*/
 	.screen-m {display: block;}
 }
 
@@ -431,10 +472,12 @@ footer .copyright-copy, footer .copyright-last-year {
 		line-height: 124px;
 	}
 
+
 /*============== Buttons ==============*/
 	.toggle-wrapper > a {
 		margin: 0 20px;
 	}
+
 
 /*============== Menus ==============*/
 	.menu-language-choice, .menu-main {
@@ -483,10 +526,10 @@ footer .copyright-copy, footer .copyright-last-year {
 		line-height: 100px;
 	}
 
-/*============== No main menu button on large screens ==============*/
 	.header-container .toggle-main-menu-wrapper a {
-		display: none;
+		display: none; /* No main menu button on large screens */
 	}
+
 
 /*============== Language Menu ==============*/
 	.header-container .toggle-language-wrapper {
@@ -520,6 +563,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: block;
 		padding: 12px 8px;
 	}
+
 
 /*============== Main Menu ==============*/
 	.menu-main-wrapper {
@@ -566,6 +610,8 @@ footer .copyright-copy, footer .copyright-last-year {
 	.menu-main > ul > li > a .icon, .header-container .toggle-language-wrapper .icon {
 		margin: 0 4px 0 2px;
 	}
+
+
 /*============== Music Menu ==============*/
 	.menu-music > ul {
 		display: flex;
@@ -573,7 +619,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 0;
 	}
 
-	/*============== Footer ==============*/
+/*============== Footer ==============*/
 	footer .social-label {
 		display: block;
 		font-size: 0.85em;
@@ -586,6 +632,7 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 
+/*============== Debug ==============*/
 	.screen-m {display: none;}
 	.screen-l {display: block;}
 }
@@ -599,6 +646,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		margin-right: 2%;
 	}
 
+/*============== Debug ==============*/
 	.screen-m {display: none;}
 	.screen-l {display: none;}
 	.screen-xl {display: block;}
