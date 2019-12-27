@@ -73,11 +73,11 @@ header .menu-music > ul {
 	margin-top: 0;
 }
 
-header .menu li {
+.menu li {
 	list-style-type: none;
 }
 
-header .menu li > a {
+.menu li > a {
 	border-bottom: 1px solid #666;
 	text-align: left;
 }
@@ -97,6 +97,13 @@ header .menu li > a {
 .menu-language-choice a .flag-bg{background-position:0 0;}
 .menu-language-choice a .flag-en{background-position:-48px 0;}
 .menu-language-choice a .flag-fr{background-position:-24px 0;}
+
+
+/*============== Playlist Menu ==============*/
+.menu-playlist{
+	position: fixed;
+	bottom: 2.5em;
+}
 
 
 /*==============  Player ==============*/
