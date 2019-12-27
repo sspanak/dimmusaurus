@@ -109,16 +109,11 @@ header .menu li > a {
 }
 
 .player .track-progress-bar-container, .player .player-controls {
-	display: inline-block;
+	display: inline-flex;
 }
 
-.player .track-title-wrapper {
-	align-items: center;
-	display: flex;
-	height: 100%;
-}
-
-.player .track-title-wrapper .track-title {
+.player .track-title {
+	flex: auto;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -142,6 +137,8 @@ header .menu li > a {
 .player .track-progress-bar .track-progress, .player .progress-time {
 	color: #ececec;
 }
+
+.player .player-controls a {border-left: 1px solid #555;}
 
 /*.player .playlist > .fa-play {
 	background: #333;
@@ -256,7 +253,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Content ==============*/
 	.content {
-		height: calc(100vh - 64px - 75px - 2.5em); /* 100 - header-height - padding - footer */
+		height: calc(100vh - 64px - 75px - 3em); /* 100 - header-height - padding - player */
 		margin: 25px 0 50px;
 	}
 
@@ -265,21 +262,14 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 /*============== Player ==============*/
+	.player {height: 3em;}
 	.player .track-progress-bar-container, .player .player-controls .fa-volume-up {display: none;}
-	.player .fas {font-size: 1.6em;}
+	.player .fas {font-size: 1.7em;}
 
-	.player .playlist {
-		padding: 0 10px;
-		width: 22px;
-	}
-	.player .track-title-wrapper {width: calc(100% - 172px);}
-	.player .player-controls {width: 130px;}
-	.player .player-controls a {
-		border-left: 1px solid #555;
-		padding: 0 10px;
-	}
+	.player .playlist, .player .player-controls a {padding: 0 10px;}
 
 /*============== Footer ==============*/
+	footer {margin-bottom: 3em;}
 	footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
 	footer .social-icons a {
 		font-size: 1.8em;
@@ -301,6 +291,14 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 10px 8px;
 	}
 
+	.content {
+		height: calc(100vh - 64px - 75px - 2.5em); /* 100 - header-height - padding - player */
+	}
+
+	.player {height: 2.5em;}
+	.player .playlist, .player .player-controls a  {padding: 0 15px;}
+
+	footer {margin-bottom: 2.5em;}
 	footer .social-icons a {padding: 0 15px;}
 	footer .copyright{margin-right: 15px;}
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
@@ -407,7 +405,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Content ==============*/
 	.content {
-		height: calc(100vh - 164px - 90px - 2.5em); /* 100 - header-height - padding - footer */
+		height: calc(100vh - 164px - 90px - 2.5em); /* 100 - header-height - padding - player */
 		margin: 40px 0 50px;
 	}
 
