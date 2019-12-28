@@ -44,7 +44,7 @@ function toggleClass(selector, className) {
 
 
 function togglePlaylist() {
-	toggleClass('.menu-playlist', 'menu-closed');
+	toggleClass('.menu-playlist-wrapper', 'menu-closed');
 }
 
 function toggleMute() {
