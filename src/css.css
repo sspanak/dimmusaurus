@@ -45,7 +45,7 @@ header .logo-text {
 	text-decoration: none;
 }
 
-.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover,
+.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
 .menu .selected {
 	color: white;
 }
@@ -128,6 +128,7 @@ header .menu-music > ul {
 .player .track-progress-bar {
 	background: #888;
 	border-radius: 2px;
+	cursor: pointer;
 	display: inline-block;
 	height: 5px;
 }
@@ -523,11 +524,11 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: flex;
 	}
 
-	.menu a, .header-container .toggle-wrapper > a, footer a {
+	.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
 		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
-	.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a {
+	.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a, .player a {
 		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
