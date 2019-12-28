@@ -1,5 +1,9 @@
-/*==============  Debug ==============*/
-.screen-test {display: none; text-align: center;}
+/**********************************************************************************
+ * Debug
+ **********************************************************************************/
+.content:not(.content-bio) {
+	display: none;
+}
 
 /**********************************************************************************
  * General / Reset styles
@@ -292,12 +296,6 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 0 10px;
 	}
 	footer .copyright {margin-right: 5px;}
-
-
-/*============== Debug ==============*/
-	.screen-xs {
-		display: block;
-	}
 }
 
 
@@ -333,12 +331,6 @@ footer .copyright-copy, footer .copyright-last-year {
 	footer .social-icons a {padding: 0 15px;}
 	footer .copyright{margin-right: 15px;}
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
-
-
-/*============== Debug ==============*/
-	.screen-s {
-		display: block;
-	}
 }
 
 
@@ -469,10 +461,6 @@ footer .copyright-copy, footer .copyright-last-year {
 		font-size: 0.93em;
 		margin-right: 15px;
 	}
-
-
-/*============== Debug ==============*/
-	.screen-m {display: block;}
 }
 
 
@@ -663,11 +651,6 @@ footer .copyright-copy, footer .copyright-last-year {
 		font-size: 0.85em;
 		margin-right: 10px;
 	}
-
-
-/*============== Debug ==============*/
-	.screen-m {display: none;}
-	.screen-l {display: block;}
 }
 
 /**********************************************************************************
@@ -683,9 +666,4 @@ footer .copyright-copy, footer .copyright-last-year {
 		margin-right: 8%;
 		width: 42%;
 	}
-
-/*============== Debug ==============*/
-	.screen-m {display: none;}
-	.screen-l {display: none;}
-	.screen-xl {display: block;}
 }
