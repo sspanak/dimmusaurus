@@ -274,7 +274,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Content ==============*/
 	.content {
-		height: calc(100vh - 64px - 75px - 3em); /* 100 - header-height - padding - player */
+		min-height: calc(100vh - 64px - 75px - 3em); /* 100 - header-height - padding - player */
 		margin: 25px 0 50px;
 	}
 
@@ -312,7 +312,7 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 	.content {
-		height: calc(100vh - 64px - 75px - 2.5em); /* 100 - header-height - padding - player */
+		min-height: calc(100vh - 64px - 75px - 2.5em); /* 100 - header-height - padding - player */
 	}
 
 	.player {height: 2.5em;}
@@ -434,7 +434,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Content ==============*/
 	.content {
-		height: calc(100vh - 164px - 90px - 2.5em); /* 100 - header-height - padding - player */
+		min-height: calc(100vh - 164px - 90px - 2.5em); /* 100 - header-height - padding - player */
 		margin: 40px 0 50px;
 	}
 
