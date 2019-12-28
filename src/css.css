@@ -77,7 +77,6 @@ header .logo-text {
 
 .menu li > a {
 	border-bottom: 1px solid #666;
-	text-align: left;
 }
 
 header .menu-music > ul {
@@ -267,12 +266,11 @@ footer .copyright-copy, footer .copyright-last-year {
 
 
 	.menu li > a {
-		font-size: 1.15em;
 		padding: 12px 8px;
-		text-align: left;
 	}
 
 	.menu:not(.menu-playlist) li > a {
+		font-size: 1.15em;
 		display: block;
 	}
 
