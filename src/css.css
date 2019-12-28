@@ -40,16 +40,13 @@ header .logo-text {
  **********************************************************************************/
 
 /*==============  Buttons ==============*/
-header .menu a, .header-container .toggle-wrapper > a, footer a, .player a {
+.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
 	color: #ccc;
 	text-decoration: none;
 }
 
-header .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover {
-	color: white;
-}
-
-.header-container .toggle-wrapper > .selected, .header-container .menu > .selected {
+.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover,
+.menu .selected {
 	color: white;
 }
 
@@ -101,8 +98,8 @@ header .menu-music > ul {
 
 /*============== Playlist Menu ==============*/
 .menu-playlist{
-	position: fixed;
 	bottom: 2.5em;
+	position: fixed;
 }
 
 
@@ -239,16 +236,21 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Menus ==============*/
 	.menu-language-choice > ul, .menu-main > ul {
-		margin: 0 auto;
+		margin: 0;
 		padding: 24px 0 12px 0;
 	}
 
-	header .menu li {
+	.menu-playlist > ul {
+		margin: 0;
+		padding: 0 5px;
+	}
+
+	.menu li {
 		margin: 0;
 		padding: 0;
 	}
 
-	header .menu li > a {
+	.menu li > a {
 		display: block;
 		font-size: 1.15em;
 		padding: 12px 8px;
@@ -305,7 +307,7 @@ footer .copyright-copy, footer .copyright-last-year {
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
 	.menu-mobile {margin-right: 16px;}
 
-	header .menu li > a {
+	.menu li > a {
 		margin: 0 24px;
 		padding: 10px 8px;
 	}
@@ -420,13 +422,15 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 0;
 	}
 
-	header .menu li {
-		margin: 0;
-		padding: 0 12px 2px 12px;
+	.menu-playlist > ul {
+		margin: 0 0 12px 0;
+		padding: 0 5px;
 	}
 
-	header .menu li {
+	.menu li {
 		display: block;
+		margin: 0;
+		padding: 0 12px 2px 12px;
 	}
 
 	.menu-main li > a .fa-chevron-down {
@@ -472,7 +476,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 
 /**********************************************************************************
- * Tablet size only
+ * Tablet-only
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
 	.header-container .logo-text {
@@ -492,7 +496,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		width: 80%;
 	}
 
-	header .menu li > a {
+	.menu li > a {
 		display: block;
 		font-size: 1.1em;
 		padding: 12px 8px;
@@ -519,15 +523,15 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: flex;
 	}
 
-	header .menu a, .header-container .toggle-wrapper > a, footer a {
+	.menu a, .header-container .toggle-wrapper > a, footer a {
 		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
-	header .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a {
+	.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a {
 		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
-	header .menu li > a {
+	.menu li > a {
 		font-size: 1em;
 	}
 
@@ -570,7 +574,7 @@ footer .copyright-copy, footer .copyright-last-year {
 		min-width: 300px;
 	}
 
-	.menu-language-choice li > a, .menu-music li > a{
+	.menu-language-choice li > a, .menu-music li > a, .menu-playlist li > a {
 		display: block;
 		padding: 12px 8px;
 	}
