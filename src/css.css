@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Debug
  **********************************************************************************/
-.content:not(.content-bio) {
+.content:not(.content-404) {
 	display: none;
 }
 
@@ -16,6 +16,7 @@
 	overflow: hidden;
 	padding: 0;
 }
+
 img {border: 0 none;}
 body {
 	background: #ececec;
@@ -28,21 +29,13 @@ body {
 	color: #ccc;
 }
 
-header .logo {
-	background: #fafafa;
-}
+header .logo {background: #fafafa;}
+header .logo-text {font-family: 'Griffy', cursive;}
 
-header .logo-text {
-	font-family: 'Griffy', cursive;
-}
+header, .content-wrapper {background-color: rgba(255, 255, 255, 0.5);}
 
-header, .content-wrapper {
-	background-color: rgba(255, 255, 255, 0.5);
-}
-
-.content article {
-	text-align: justify;
-}
+.content article {text-align: justify;}
+.content a {color: #225682;}
 
 /**********************************************************************************
  * Components
@@ -200,6 +193,14 @@ footer .copyright-copy, footer .copyright-last-year {
 	margin-right: 3px;
 }
 
+
+/**********************************************************************************
+ * Page styles
+ **********************************************************************************/
+.content-404 {text-align: center;}
+
+
+
 /**********************************************************************************
  * Any Phone screen
  **********************************************************************************/
@@ -296,7 +297,7 @@ footer .copyright-copy, footer .copyright-last-year {
 /*============== Content ==============*/
 	/* 100% - header-height - padding - footer - player */
 	.content-wrapper {min-height: calc(100vh - 64px - 2.5em - 3em);}
-	.content {padding: 0.67em 1em;}
+	.content {padding: 1.33em 1em 0.67em;}
 
 
 /*============== Player ==============*/
