@@ -597,23 +597,24 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Main Menu ==============*/
 	.menu-main-wrapper {
+		display: flex;
 		position: relative;
 		top: -37px;
 	}
 
 	.menu-main {
-		align-content: flex-start;
 		background-color: transparent;
 		box-shadow: none;
-		display: inline-flex;
-		flex-flow: wrap;
+		display: block;
 		height: auto;
-		justify-content: flex-end;
-		width: 80%;
+		min-width: 380px;
+		text-align: right;
+		width: inherit;
 	}
 
 	.menu-main > ul, .menu-main > ul > li, .menu-main > ul > li > a {
 		display: inline-block;
+		text-align: initial;
 	}
 
 	.menu-main > ul {
@@ -646,7 +647,8 @@ footer .copyright-copy, footer .copyright-last-year {
 	.menu-music > ul {
 		display: flex;
 		flex-flow: column;
-		padding: 0;
+		padding: 0 0 12px 0;
+		text-align: initial;
 	}
 
 /*============== Playlist Menu ==============*/
