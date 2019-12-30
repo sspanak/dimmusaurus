@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Debug
  **********************************************************************************/
-.content:not(.content-lyrics) {
+.content:not(.content-home) {
 	display: none;
 }
 
@@ -36,6 +36,15 @@ header, .content-wrapper {background-color: rgba(255, 255, 255, 0.5);}
 
 .content article {text-align: justify;}
 .content a {color: #225682;}
+.content a:visited {color: #562282;}
+
+hr {
+	border-bottom-style: none;
+	border-color: #ccc;
+	border-top-style: solid;
+	height: 0;
+	margin: 1em 0;
+}
 
 /**********************************************************************************
  * Components
@@ -198,7 +207,7 @@ footer .copyright-copy, footer .copyright-last-year {
  * Pages styles
  **********************************************************************************/
 .content h1 {
-	border-bottom: 1px solid #888;
+	border-bottom: 1px solid #aaa;
 	padding: 0 0.5em 0.2em 0.1em;
 	border-bottom-right-radius: 0.8em;
 }
@@ -217,6 +226,9 @@ footer .copyright-copy, footer .copyright-last-year {
 	display: inline-block;
 	text-align: left;
 }
+
+.content-home h3 {margin-top: 1.5em;}
+.content-home article .tune-link {font-style: italic;}
 
 
 /**********************************************************************************
