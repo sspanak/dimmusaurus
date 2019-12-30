@@ -115,10 +115,13 @@ header .menu-music > ul {
 .menu-playlist {
 	border-radius: 10px;
 	border-top: 1px solid #888;
-	margin: 10px 10px 0 0;
+	margin: 12px 6px 0 0;
 	overflow-y: auto;
 }
-.menu-playlist li > a {display: flex;}
+.menu-playlist li > a {
+	display: flex;
+	cursor: pointer;
+}
 .menu-playlist li > a .playlist-title {flex: auto;}
 
 
