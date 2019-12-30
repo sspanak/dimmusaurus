@@ -119,8 +119,8 @@ header .menu-music > ul {
 	overflow-y: auto;
 }
 .menu-playlist li > a {
-	display: flex;
 	cursor: pointer;
+	display: flex;
 }
 .menu-playlist li > a .playlist-title {flex: auto;}
 
@@ -245,18 +245,18 @@ footer .copyright-copy, footer .copyright-last-year {
 .content-tune h2 a {text-decoration: none;}
 .content-tune h5 {margin: 0.5em 0.5em 1.33em;}
 .content-tune .tune-links {
-	padding: 0 5px;
 	margin: 0;
+	padding: 0 5px;
 }
 .content-tune .tune-links li {
-	margin-bottom: 10px;
 	display: inline-block;
+	margin-bottom: 10px;
 }
 .content-tune .tune-links a {
 	border-bottom: 1px solid #225682;
-	text-decoration: none;
-	padding: 5px 10px;
 	border-bottom-left-radius: 10px;
+	padding: 5px 10px;
+	text-decoration: none;
 }
 .content-tune .tune-links a .fas {
 	font-size: 1.3em;
@@ -383,7 +383,10 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Pages ==============*/
 	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: center;}
-	.content-tune .tune-links li {margin: 10px 0; display: inline-block;}
+	.content-tune .tune-links li {
+		display: inline-block;
+		margin: 10px 0;
+	}
 }
 
 
