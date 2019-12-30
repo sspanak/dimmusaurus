@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Debug
  **********************************************************************************/
-.content:not(.content-tune) {
+.content:not(.content-discography) {
 	display: none;
 }
 
@@ -244,14 +244,17 @@ footer .copyright-copy, footer .copyright-last-year {
 }
 .content-tune h2 a {text-decoration: none;}
 .content-tune h5 {margin: 0.5em 0.5em 1.33em;}
+
 .content-tune .tune-links {
 	margin: 0;
 	padding: 0 5px;
 }
+
 .content-tune .tune-links li {
 	display: inline-block;
 	margin-bottom: 10px;
 }
+
 .content-tune .tune-links a {
 	border-bottom: 1px solid #225682;
 	border-bottom-left-radius: 10px;
@@ -261,6 +264,40 @@ footer .copyright-copy, footer .copyright-last-year {
 .content-tune .tune-links a .fas {
 	font-size: 1.3em;
 	margin: 5px;
+}
+
+
+/*============== Discography ==============*/
+.content-discography .album-title {
+	margin: 0;
+	text-align: center;
+}
+
+.content-discography .album-contents-wrapper {display: flex;}
+
+.content-discography .album-cover {
+	height: 10em;
+	overflow: hidden;
+	width: 11em;
+}
+.content-discography .album-cover .fas {
+	color: #333;
+	font-size: 11em;
+	position: relative;
+	top: 24px;
+}
+
+.content-discography .album-tracks {
+	flex: auto;
+	margin: 2em 0 0 2.5em;
+	padding-left: 0;
+	text-align: left;
+}
+.content-discography .album-tracks li {margin: 4px 0;}
+.content-discography .album-tracks a {
+	display: inline-block;
+	vertical-align: top;
+	width: 85%;
 }
 
 
@@ -387,6 +424,14 @@ footer .copyright-copy, footer .copyright-last-year {
 		display: inline-block;
 		margin: 10px 0;
 	}
+
+	.content-discography .album-contents-wrapper {flex-flow: column;}
+	.content-discography .album-cover {
+		min-width: 11em;
+		text-align: center;
+		width: auto;
+	}
+	.content-discography .album-tracks {margin-right: 1.5em;}
 }
 
 
@@ -428,6 +473,8 @@ footer .copyright-copy, footer .copyright-last-year {
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
 
 	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: unset;}
+
+	.content-discography .album-contents-wrapper {flex-flow: row;}
 }
 
 
