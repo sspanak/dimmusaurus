@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Debug
  **********************************************************************************/
-.content:not(.content-home) {
+.content:not(.content-tune) {
 	display: none;
 }
 
@@ -77,7 +77,7 @@ hr {
 
 
 /*==============  Menus ==============*/
-.menu li {
+.menu li, .content-tune .tune-links li {
 	list-style-type: none;
 }
 
@@ -208,12 +208,14 @@ footer .copyright-copy, footer .copyright-last-year {
  **********************************************************************************/
 .content h1 {
 	border-bottom: 1px solid #888;
-	padding: 0 0.5em 0.2em 0.1em;
 	border-bottom-right-radius: 0.8em;
+	padding: 0 0.5em 0.2em 0.1em;
 }
 
 .content-404 {text-align: center;}
 
+
+/*============== Lyrics ==============*/
 .content-lyrics .lyrics-wrapper {
 	margin: 0 0.4em;
 	text-align: center;
@@ -227,8 +229,36 @@ footer .copyright-copy, footer .copyright-last-year {
 	text-align: left;
 }
 
+/*============== Home ==============*/
 .content-home h3 {margin-top: 1.5em;}
 .content-home article .tune-link {font-style: italic;}
+
+
+/*============== Tune ==============*/
+.content-tune h2 {
+	font-weight: normal;
+	margin: 0.4em auto;
+}
+.content-tune h2 a {text-decoration: none;}
+.content-tune h5 {margin: 0.5em 0.5em 1.33em;}
+.content-tune .tune-links {
+	padding: 0 5px;
+	margin: 0;
+}
+.content-tune .tune-links li {
+	margin-bottom: 10px;
+	display: inline-block;
+}
+.content-tune .tune-links a {
+	border-bottom: 1px solid #225682;
+	text-decoration: none;
+	padding: 5px 10px;
+	border-bottom-left-radius: 10px;
+}
+.content-tune .tune-links a .fas {
+	font-size: 1.3em;
+	margin: 5px;
+}
 
 
 /**********************************************************************************
@@ -305,8 +335,8 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 
 	.menu:not(.menu-playlist) li > a {
-		font-size: 1.15em;
 		display: block;
+		font-size: 1.15em;
 	}
 
 	.menu-main li > a .icon {
@@ -347,6 +377,10 @@ footer .copyright-copy, footer .copyright-last-year {
 		padding: 0 10px;
 	}
 	footer .copyright {margin-right: 5px;}
+
+/*============== Pages ==============*/
+	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: center;}
+	.content-tune .tune-links li {margin: 10px 0; display: inline-block;}
 }
 
 
@@ -386,6 +420,8 @@ footer .copyright-copy, footer .copyright-last-year {
 	footer .social-icons a {padding: 0 15px;}
 	footer .copyright{margin-right: 15px;}
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
+
+	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: unset;}
 }
 
 
@@ -577,20 +613,31 @@ footer .copyright-copy, footer .copyright-last-year {
  * Desktop, small
  **********************************************************************************/
 @media screen and (min-width: 64em) {
+/*============== Link animations for desktop ==============*/
+	.menu a,
+	.header-container .toggle-wrapper > a,
+	footer a,
+	.player a,
+	.content-tune a {
+		transition: border-color .3s ease-out, color .3s ease-out;
+	}
+
+	.menu a:hover,
+	.header-container .toggle-wrapper > a:hover,
+	footer a:hover,
+	.player a:hover,
+	.content-tune a:hover {
+		transition: border-color .2s ease-in, color .2s ease-in;
+	}
+
+
+/*============== General ==============*/
 	.header-container {
 		height: 131px;
 	}
 
 	.header-super-wrapper {
 		display: flex;
-	}
-
-	.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
-		transition: border-color .3s ease-out, color .3s ease-out;
-	}
-
-	.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a, .player a {
-		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
 	.menu li > a {
@@ -745,6 +792,11 @@ footer .copyright-copy, footer .copyright-last-year {
 	}
 	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
 	.content-lyrics .english-translation-link {display: none;}
+
+	.content-tune .tune-links a:hover {
+		border-color: #0e64ad;
+		color: #0e64ad;
+	}
 }
 
 
