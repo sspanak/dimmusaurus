@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Debug
  **********************************************************************************/
-.content:not(.content-bio) {
+.content:not(.content-lyrics) {
 	display: none;
 }
 
@@ -202,7 +202,21 @@ footer .copyright-copy, footer .copyright-last-year {
 	padding: 0 0.5em 0.2em 0.1em;
 	border-bottom-right-radius: 0.8em;
 }
+
 .content-404 {text-align: center;}
+
+.content-lyrics .lyrics-wrapper {
+	margin: 2.5em 0.4em 0;
+	text-align: center;
+}
+.content-lyrics .english-translation-link {
+	display: block;
+	margin: 1em;
+}
+.content-lyrics .lyrics {
+	display: inline-block;
+	text-align: left;
+}
 
 
 /**********************************************************************************
@@ -709,7 +723,18 @@ footer .copyright-copy, footer .copyright-last-year {
 		font-size: 0.85em;
 		margin-right: 10px;
 	}
+
+/*============== Pages ==============*/
+	.lyrics-super-wrapper {display: flex;}
+	.content-lyrics .lyrics-wrapper {
+		display: flex;
+		flex-flow: column;
+		text-align: left;
+	}
+	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
+	.content-lyrics .english-translation-link {display: none;}
 }
+
 
 /**********************************************************************************
  * Desktop, large (only making use of the wider spaces)
