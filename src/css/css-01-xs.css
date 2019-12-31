@@ -1,0 +1,132 @@
+/**********************************************************************************
+ * XS sized screen - Any phone, but focused on portrait mode
+ **********************************************************************************/
+@media screen and (max-width: 47.99em) {
+	.header-container {
+		clear: both;
+		height: 64px;
+		overflow: visible;
+	}
+
+
+/*============== Logo ==============*/
+	.header-container .logo {
+		border-radius: 0 42px 42px 42px;
+		float: left;
+		height: 80px;
+		margin-left: -10px;
+		margin-top: -8px;
+		padding: 5px 4px 2px 10px;
+		width: 80px;
+	}
+
+	.header-container .logo > img {
+		height: 100%;
+		width: 100%;
+	}
+
+	.header-container .logo-text {
+		display: none;
+	}
+
+
+/*============== Buttons ==============*/
+	.toggle-wrapper {
+		float: right;
+	}
+
+	.toggle-wrapper > a {
+		line-height: 64px;
+		margin: 0 16px;
+	}
+
+	.toggle-wrapper > .selected {
+		border-bottom: 2px solid;
+		line-height: 62px;
+	}
+
+	.header-container .toggle-wrapper > a > .fa-chevron-down, .header-container .toggle-wrapper > a > .fa-chevron-up {
+		display: none;
+	}
+
+
+/*============== Menus ==============*/
+	.menu-language-choice > ul, .menu-main > ul {
+		margin: 0;
+		padding: 24px 0 12px 0;
+	}
+
+	.menu-playlist > ul {
+		margin: 0;
+		padding: 0 5px;
+	}
+
+	.menu li {
+		margin: 0;
+		padding: 0;
+	}
+
+
+	.menu li > a {
+		padding: 12px 8px;
+	}
+
+	.menu:not(.menu-playlist) li > a {
+		display: block;
+		font-size: 1.15em;
+	}
+
+	.menu-main li > a .icon {
+		margin: 0 10px 0 6px;
+	}
+
+	.menu-main li > a .fa-chevron-down {
+		font-size: 0.5em;
+		vertical-align: middle;
+	}
+
+	.menu-playlist-wrapper {bottom: 3em;}
+	.menu-playlist {max-height: calc(80vh - 3em);}
+
+	.menu-playlist li > a .playlist-time {margin-left: 5px;}
+
+
+/*============== Content ==============*/
+	/* 100% - header-height - padding - footer - player */
+	.content-wrapper {min-height: calc(100vh - 64px - 2.5em - 3em);}
+	.content {padding: 1.33em 1em 0.67em;}
+
+
+/*============== Player ==============*/
+	.player {height: 3em;}
+	.player .track-progress-bar-container, .player .player-controls .volume {display: none;}
+	.player .fas:not(.fa-chevron-up) {font-size: 1.7em;}
+	.player .track-title {margin-right: 5px;}
+
+	.player .playlist, .player .player-controls a {padding: 0 10px;}
+
+
+/*============== Footer ==============*/
+	footer {margin-bottom: 3em;}
+	footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
+	footer .social-icons a {
+		font-size: 1.8em;
+		padding: 0 10px;
+	}
+	footer .copyright {margin-right: 5px;}
+
+/*============== Pages ==============*/
+	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: center;}
+	.content-tune .tune-links li {
+		display: inline-block;
+		margin: 10px 0;
+	}
+
+	.content-discography .album-contents-wrapper {flex-flow: column;}
+	.content-discography .album-cover {
+		min-width: 11em;
+		text-align: center;
+		width: auto;
+	}
+	.content-discography .album-tracks {margin-right: 1.5em;}
+}

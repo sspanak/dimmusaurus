@@ -1,0 +1,301 @@
+/**********************************************************************************
+ * Debug
+ **********************************************************************************/
+.content:not(.content-discography) {
+	display: none;
+}
+
+/**********************************************************************************
+ * General / Reset styles
+ **********************************************************************************/
+.shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
+.shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
+
+.menu-closed {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+img {border: 0 none;}
+body {
+	background: #ececec;
+	background-image: url(img/fon-ececec.png);
+	font-family: "Noto Sans", sans-serif;
+}
+
+.header-container, footer, .menu, .player {
+	background-color: #333;
+	color: #ccc;
+}
+
+header .logo {background: #fafafa;}
+header .logo-text {font-family: 'Griffy', cursive;}
+
+header, .content-wrapper {background-color: rgba(255, 255, 255, 0.5);}
+
+.content article {text-align: justify;}
+.content a {color: #225682;}
+.content a:visited {color: #562282;}
+
+hr {
+	border-bottom-style: none;
+	border-color: #ccc;
+	border-top-style: solid;
+	height: 0;
+	margin: 1em 0;
+}
+
+/**********************************************************************************
+ * Components
+ **********************************************************************************/
+
+/*==============  Buttons ==============*/
+.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
+	color: #ccc;
+	text-decoration: none;
+}
+
+.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
+.menu .selected {
+	color: white;
+}
+
+.header-container .toggle-wrapper > a {
+	display: inline-block;
+	font-size: 2em;
+}
+
+.header-container .toggle-wrapper > a .fa-chevron-down, .header-container .toggle-wrapper > a .fa-chevron-up {
+	font-size: 0.3em;
+	vertical-align: middle;
+}
+
+.toggle-language-label {
+	display: none;
+}
+
+
+/*==============  Menus ==============*/
+.menu li, .content-tune .tune-links li {
+	list-style-type: none;
+}
+
+.menu li > a {
+	border-bottom: 1px solid #666;
+}
+
+header .menu-music > ul {
+	margin-top: 0;
+}
+
+/*============== Language Menu ==============*/
+.menu-language-choice a .flag {
+	background: url(img/znamena.png) no-repeat;
+	border-radius: 3px;
+	display: inline-block;
+	height: 18px;
+	margin: 0 2px;
+	vertical-align: middle;
+	width: 24px;
+}
+
+.menu-language-choice a .flag-bg{background-position:0 0;}
+.menu-language-choice a .flag-en{background-position:-48px 0;}
+.menu-language-choice a .flag-fr{background-position:-24px 0;}
+
+
+/*============== Playlist Menu ==============*/
+.menu-playlist-wrapper {
+	background: #333;
+	border-right: 1px solid #666;
+	border-top: 1px solid #666;
+	position: fixed;
+}
+.menu-playlist {
+	border-radius: 10px;
+	border-top: 1px solid #888;
+	margin: 12px 6px 0 0;
+	overflow-y: auto;
+}
+.menu-playlist li > a {
+	cursor: pointer;
+	display: flex;
+}
+.menu-playlist li > a .playlist-title {flex: auto;}
+
+
+/*==============  Player ==============*/
+.player {
+	align-items: center;
+	border-top: 1px solid #666;
+	bottom: 0;
+	display: flex;
+	height: 2.5em;
+	position: fixed;
+	width: 100%;
+}
+
+.player .track-progress-bar-container, .player .player-controls {
+	display: inline-flex;
+}
+
+.player .track-title {
+	flex: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.player .track-progress-bar {
+	background: #888;
+	border-radius: 2px;
+	cursor: pointer;
+	display: inline-block;
+	height: 5px;
+}
+
+.player .track-progress-bar .track-progress {
+	background: #ececec;
+	border-radius: inherit;
+	height: 100%;
+	width: 22%;
+}
+
+.player .track-progress-bar .track-progress {
+	color: #ececec;
+}
+
+.player .player-controls a {border-left: 1px solid #555;}
+
+/*.player .playlist > .fa-play {
+	background: #333;
+	font-size: 0.35em;
+	left: -4em;
+	padding: 2px 4px;
+	position: relative;
+	vertical-align: top;
+}
+*/
+
+
+/*==============  Footer ==============*/
+footer {
+	align-items: center;
+	display: flex;
+	height: 2.5em;
+	margin-bottom: 2.5em; /* make room for the player */
+}
+
+footer .social {
+	align-items: center;
+	display: flex;
+	width: 75%;
+}
+footer .social-icons a:not(:last-child) {
+	border-right: 1px solid #555;
+}
+
+footer .copyright {
+	display: flex;
+	justify-content: flex-end;
+	width: 25%;
+}
+footer .copyright-copy, footer .copyright-last-year {
+	margin-right: 3px;
+}
+
+
+/**********************************************************************************
+ * Pages styles
+ **********************************************************************************/
+.content h1 {
+	border-bottom: 1px solid #888;
+	border-bottom-right-radius: 0.8em;
+	padding: 0 0.5em 0.2em 0.1em;
+}
+
+.content-404 {text-align: center;}
+
+
+/*============== Lyrics ==============*/
+.content-lyrics .lyrics-wrapper {
+	margin: 0 0.4em;
+	text-align: center;
+}
+.content-lyrics .english-translation-link {
+	display: block;
+	margin: 1em;
+}
+.content-lyrics .lyrics {
+	display: inline-block;
+	text-align: left;
+}
+
+/*============== Home ==============*/
+.content-home h3 {margin-top: 1.5em;}
+.content-home article .tune-link {font-style: italic;}
+
+
+/*============== Tune ==============*/
+.content-tune h2 {
+	font-weight: normal;
+	margin: 0.4em auto;
+}
+.content-tune h2 a {text-decoration: none;}
+.content-tune h5 {margin: 0.5em 0.5em 1.33em;}
+
+.content-tune .tune-links {
+	margin: 0;
+	padding: 0 5px;
+}
+
+.content-tune .tune-links li {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.content-tune .tune-links a {
+	border-bottom: 1px solid #225682;
+	border-bottom-left-radius: 10px;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+.content-tune .tune-links a .fas {
+	font-size: 1.3em;
+	margin: 5px;
+}
+
+
+/*============== Discography ==============*/
+.content-discography .album-title {
+	margin: 0;
+	text-align: center;
+}
+
+.content-discography .album-contents-wrapper {display: flex;}
+
+.content-discography .album-cover {
+	height: 10em;
+	overflow: hidden;
+	width: 11em;
+}
+.content-discography .album-cover .fas {
+	color: #333;
+	font-size: 11em;
+	position: relative;
+	top: 24px;
+}
+
+.content-discography .album-tracks {
+	flex: auto;
+	margin: 2em 0 0 2.5em;
+	padding-left: 0;
+	text-align: left;
+}
+.content-discography .album-tracks li {margin: 4px 0;}
+.content-discography .album-tracks a {
+	display: inline-block;
+	vertical-align: top;
+	width: 85%;
+}

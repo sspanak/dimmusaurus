@@ -1,0 +1,14 @@
+/**********************************************************************************
+ * XL sized screen - Large desktop or laptop (only making use of the wider spaces)
+ **********************************************************************************/
+@media screen and (min-width: 80em) {
+	.menu-main > ul, .header-container .toggle-language-wrapper > a {
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.player .track-progress-bar-container {
+		margin-right: 8%;
+		width: 42%;
+	}
+}

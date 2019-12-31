@@ -1,0 +1,41 @@
+/**********************************************************************************
+ * S sized screen - Phone in landscape orientation or small tablet.
+ * Just making use of the wider horizontal space.
+ **********************************************************************************/
+@media screen and (min-width: 35.5em) and (max-width: 47.99em) {
+	.menu-mobile {margin-right: 16px;}
+
+	.menu li > a {
+		margin: 0 24px;
+		padding: 10px 8px;
+	}
+
+	.menu-playlist-wrapper {bottom: 2.5em;}
+	.menu-playlist {height: calc(80vh - 2.5em);}
+	.menu-playlist li > a .playlist-time {margin-left: 10px;}
+
+	 /* 100% - header-height - footer - player */
+	.content-wrapper {min-height: calc(100vh - 64px - 2.5em - 2.5em);}
+	.content {padding: 0.67em 1.5em;}
+
+	.player {height: 2.5em;}
+	.player .playlist, .player .player-controls a {padding: 0 15px;}
+	.player .track-progress-bar {display: none;}
+	.player .track-progress-bar-container{
+		display: inline-flex;
+		padding: 0 10px;
+	}
+	.player .total-time::before {
+		content: "/";
+		margin: 5px;
+	}
+
+	footer {margin-bottom: 2.5em;}
+	footer .social-icons a {padding: 0 15px;}
+	footer .copyright{margin-right: 15px;}
+	footer .copyright-first-year, footer .copyright-ds {display: inline;}
+
+	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: unset;}
+
+	.content-discography .album-contents-wrapper {flex-flow: row;}
+}

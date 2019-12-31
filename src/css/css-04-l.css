@@ -1,0 +1,189 @@
+/**********************************************************************************
+ * L sized screen - Small desktop or a laptop
+ **********************************************************************************/
+@media screen and (min-width: 64em) {
+/*============== Link animations for desktop ==============*/
+	.menu a,
+	.header-container .toggle-wrapper > a,
+	footer a,
+	.player a,
+	.content-tune a {
+		transition: border-color .3s ease-out, color .3s ease-out;
+	}
+
+	.menu a:hover,
+	.header-container .toggle-wrapper > a:hover,
+	footer a:hover,
+	.player a:hover,
+	.content-tune a:hover {
+		transition: border-color .2s ease-in, color .2s ease-in;
+	}
+
+
+/*============== General ==============*/
+	.header-container {
+		height: 131px;
+	}
+
+	.header-super-wrapper {
+		display: flex;
+	}
+
+	.menu li > a {
+		font-size: 1em;
+	}
+
+	.header-container .logo-text {
+		font-size: 3.8em;
+		height: 100px;
+		line-height: 100px;
+	}
+
+	.header-container .toggle-main-menu-wrapper a {
+		display: none; /* No main menu button on large screens */
+	}
+
+	.menu-language-choice li > a, .menu-music li > a {display: block;}
+	.menu-language-choice li > a, .menu-music li > a, .menu-playlist li > a {padding: 12px 8px;}
+
+
+/*============== Language Menu ==============*/
+	.header-container .toggle-language-wrapper {
+		align-items: flex-end;
+	}
+
+	.header-container .toggle-language-wrapper > a {
+		border-bottom: 0 none;
+		border-radius: 4px;
+		border-right: 1px solid #666;
+		border-top: 1px solid #444;
+		font-size: 1em;
+		margin: 4px 6px;
+		padding: 6px 8px;
+	}
+
+	.toggle-language-label {
+		display: inline;
+	}
+
+	.language-choice-wrapper {
+		display: block;
+	}
+
+	.menu-language-choice {
+		display: inline-block;
+		min-width: 300px;
+	}
+
+
+/*============== Main Menu ==============*/
+	.menu-main-wrapper {
+		display: flex;
+		position: relative;
+		top: -37px;
+	}
+
+	.menu-main {
+		background-color: transparent;
+		box-shadow: none;
+		display: block;
+		height: auto;
+		min-width: 380px;
+		text-align: right;
+		width: inherit;
+	}
+
+	.menu-main > ul, .menu-main > ul > li, .menu-main > ul > li > a {
+		display: inline-block;
+		text-align: initial;
+	}
+
+	.menu-main > ul {
+		margin-bottom: 0;
+		margin-right: 6px;
+	}
+
+	.menu-main > ul > li {
+		padding: 0;
+	}
+
+	.menu-main > ul > li > a {
+		border-bottom: 0 none;
+		border-left: 1px solid #666;
+		border-radius: 4px;
+		border-top: 1px solid #444;
+		padding: 6px 8px;
+	}
+
+	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
+		border-color: #888;
+	}
+
+	.menu-main > ul > li > a .icon, .header-container .toggle-language-wrapper .icon {
+		margin: 0 4px 0 2px;
+	}
+
+
+/*============== Music Menu ==============*/
+	.menu-music > ul {
+		display: flex;
+		flex-flow: column;
+		padding: 0 0 12px 0;
+		text-align: initial;
+	}
+
+/*============== Playlist Menu ==============*/
+	.menu-playlist li > a {font-size: 0.9em;}
+
+
+/*============== Content ==============*/
+	.content {
+		font-size: 0.95em;
+		max-width: 68em;
+		padding: 0.7em 2.1em;
+	}
+
+
+/*============== Player ==============*/
+	.player .track-title, .player .track-progress-bar-container {font-size: 0.9em;}
+	.player .fas:not(.fa-chevron-up) {font-size: 1.2em;}
+
+	.player .track-progress-bar-container {
+		align-items: center;
+		flex: auto;
+		padding: 0 10px;
+		width: 38%;
+	}
+	.player .track-progress-bar {
+		flex: auto;
+		margin: 0 8px;
+	}
+	.player .total-time::before {content: ""; margin: 0 auto;}
+
+/*============== Footer ==============*/
+	footer .social-label {
+		display: block;
+		font-size: 0.85em;
+		margin-left: 10px;
+	}
+	footer .social-icons a {font-size: 1.3em;}
+	footer .copyright{
+		font-size: 0.85em;
+		margin-right: 10px;
+	}
+
+/*============== Pages ==============*/
+	.lyrics-super-wrapper {display: flex;}
+	.content-lyrics .lyrics-wrapper {
+		display: flex;
+		flex-flow: column;
+		text-align: left;
+	}
+	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
+	.content-lyrics .english-translation-link {display: none;}
+
+	.content-tune .tune-links a:hover {
+		border-color: #0e64ad;
+		color: #0e64ad;
+	}
+}
