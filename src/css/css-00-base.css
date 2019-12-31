@@ -1,7 +1,7 @@
 /**********************************************************************************
  * Debug
  **********************************************************************************/
-.content:not(.content-discography) {
+.content:not(.content-bio) {
 	display: none;
 }
 
@@ -209,7 +209,7 @@ footer .copyright-copy, footer .copyright-last-year {
 /**********************************************************************************
  * Pages styles
  **********************************************************************************/
-.content h1 {
+.content .content-heading {
 	border-bottom: 1px solid #888;
 	border-bottom-right-radius: 0.8em;
 	padding: 0 0.5em 0.2em 0.1em;
@@ -235,17 +235,17 @@ footer .copyright-copy, footer .copyright-last-year {
 }
 
 /*============== Home ==============*/
-.content-home h3 {margin-top: 1.5em;}
+.content-home article .news-title {margin-top: 1.5em;}
 .content-home article .tune-link {font-style: italic;}
 
 
 /*============== Tune ==============*/
-.content-tune h2 {
+.content-tune .tune-title {
 	font-weight: normal;
 	margin: 0.4em auto;
 }
-.content-tune h2 a {text-decoration: none;}
-.content-tune h5 {margin: 0.5em 0.5em 1.33em;}
+.content-tune .tune-title a {text-decoration: none;}
+.content-tune .tune-release-date {margin: 0.5em 0.5em 1.33em;}
 
 .content-tune .tune-links {
 	margin: 0;
