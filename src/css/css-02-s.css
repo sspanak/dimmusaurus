@@ -38,4 +38,5 @@
 	.content-tune h2, .content-tune h5, .content-tune .tune-links {text-align: unset;}
 
 	.content-discography .album-contents-wrapper {flex-flow: row;}
+	.content-discography .album-cover {margin-right: 1.33em;}
 }
