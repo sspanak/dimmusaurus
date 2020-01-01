@@ -44,7 +44,6 @@
 	}
 
 	.menu-language-choice li > a, .menu-music li > a {display: block;}
-	.menu-language-choice li > a, .menu-music li > a, .menu-playlist li > a {padding: 12px 8px;}
 
 
 /*============== Language Menu ==============*/
@@ -99,8 +98,8 @@
 	}
 
 	.menu-main > ul {
-		margin-bottom: 0;
 		margin-right: 6px;
+		padding-bottom: 0;
 	}
 
 	.menu-main > ul > li {
@@ -119,6 +118,7 @@
 		border-color: #888;
 	}
 
+	/* expanded menus button spacing */
 	.menu-main > ul > li > a .icon, .header-container .toggle-language-wrapper .icon {
 		margin: 0 4px 0 2px;
 	}
@@ -128,7 +128,6 @@
 	.menu-music > ul {
 		display: flex;
 		flex-flow: column;
-		padding: 0 0 12px 0;
 		text-align: initial;
 	}
 
@@ -167,7 +166,7 @@
 		margin-left: 10px;
 	}
 	footer .social-icons a {font-size: 1.3em;}
-	footer .copyright{
+	footer .copyright {
 		font-size: 0.85em;
 		margin-right: 10px;
 	}

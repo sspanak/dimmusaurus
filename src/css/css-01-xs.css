@@ -51,38 +51,17 @@
 
 
 /*============== Menus ==============*/
-	.menu-language-choice > ul, .menu-main > ul {
-		margin: 0;
-		padding: 24px 0 12px 0;
-	}
-
-	.menu-playlist > ul {
-		margin: 0;
-		padding: 0 5px;
-	}
+	.menu-language-choice > ul, .menu-main > ul {padding-top: 24px;}
+	.menu-music > ul {padding-left: 1em;}
 
 	.menu li {
 		margin: 0;
 		padding: 0;
 	}
 
-
-	.menu li > a {
-		padding: 12px 8px;
-	}
-
 	.menu:not(.menu-playlist) li > a {
 		display: block;
 		font-size: 1.15em;
-	}
-
-	.menu-main li > a .icon {
-		margin: 0 10px 0 6px;
-	}
-
-	.menu-main li > a .fa-chevron-down {
-		font-size: 0.5em;
-		vertical-align: middle;
 	}
 
 	.menu-playlist-wrapper {bottom: 3em;}
