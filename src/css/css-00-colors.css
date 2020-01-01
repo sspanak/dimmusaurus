@@ -1,0 +1,84 @@
+body {background: #ececec;}
+header .logo {background: #fafafa;}
+header, .content-wrapper {background-color: rgba(255, 255, 255, 0.5);}
+hr {border-color: #ccc;}
+
+.content a {color: #225682;}
+.content a:visited {color: #562282;}
+.content .content-heading {border-bottom: 1px solid #888;}
+.content-tune .tune-links a {border-bottom: 1px solid #225682;}
+.content-discography .album-cover .fas {color: #333;}
+.content-tune .tune-links a:hover {
+	border-color: #0e64ad;
+	color: #0e64ad;
+}
+
+footer .social-icons a:not(:last-child) {border-right: 1px solid #555;}
+
+.header-container, footer, .menu, .player {
+	background-color: #333;
+	color: #ccc;
+}
+
+.menu-playlist-wrapper {
+	background: #333;
+	border-right: 1px solid #666;
+	border-top: 1px solid #666;
+}
+
+.menu li > a {border-bottom: 1px solid #666;}
+
+.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
+.menu .selected {
+	color: white;
+}
+.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
+	color: #ccc;
+}
+
+.menu-playlist {border-top: 1px solid #888;}
+
+.player {border-top: 1px solid #666;}
+.player .track-progress-bar {background: #888;}
+.player .track-progress-bar .track-progress {background: #ececec;}
+.player .player-controls a {border-left: 1px solid #555;}
+.player .player-controls .fa-volume-mute {color: #888;}
+
+.shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
+.shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
+
+/**
+ * Link animations and special effects for desktop
+ */
+@media screen and (min-width: 64em) {
+	.menu a,
+	.header-container .toggle-wrapper > a,
+	footer a,
+	.player a,
+	.content-tune a {
+		transition: border-color .3s ease-out, color .3s ease-out;
+	}
+
+	.menu a:hover,
+	.header-container .toggle-wrapper > a:hover,
+	footer a:hover,
+	.player a:hover,
+	.content-tune a:hover {
+		transition: border-color .2s ease-in, color .2s ease-in;
+	}
+
+
+	.header-container .toggle-language-wrapper > a {
+		border-right: 1px solid #666;
+		border-top: 1px solid #444;
+	}
+
+	.menu-main > ul > li > a {
+		border-left: 1px solid #666;
+		border-top: 1px solid #444;
+	}
+
+	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
+		border-color: #888;
+	}
+}

@@ -8,9 +8,6 @@
 /**********************************************************************************
  * General / Reset styles
  **********************************************************************************/
-.shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
-.shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
-
 .menu-closed {
 	height: 0;
 	overflow: hidden;
@@ -19,28 +16,17 @@
 
 img {border: 0 none;}
 body {
-	background: #ececec;
 	background-image: url(img/fon-ececec.png);
 	font-family: "Noto Sans", sans-serif;
 }
 
-.header-container, footer, .menu, .player {
-	background-color: #333;
-	color: #ccc;
-}
 
-header .logo {background: #fafafa;}
 header .logo-text {font-family: 'Griffy', cursive;}
 
-header, .content-wrapper {background-color: rgba(255, 255, 255, 0.5);}
-
 .content article {text-align: justify;}
-.content a {color: #225682;}
-.content a:visited {color: #562282;}
 
 hr {
 	border-bottom-style: none;
-	border-color: #ccc;
 	border-top-style: solid;
 	height: 0;
 	margin: 1em 0;
@@ -52,13 +38,7 @@ hr {
 
 /*==============  Buttons ==============*/
 .menu a, .header-container .toggle-wrapper > a, footer a, .player a {
-	color: #ccc;
 	text-decoration: none;
-}
-
-.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
-.menu .selected {
-	color: white;
 }
 
 .header-container .toggle-wrapper > a {
@@ -87,7 +67,6 @@ hr {
 }
 
 .menu li > a {
-	border-bottom: 1px solid #666;
 	padding: 12px 8px;
 }
 
@@ -116,19 +95,13 @@ hr {
 
 
 /*============== Playlist Menu ==============*/
-.menu-playlist-wrapper {
-	background: #333;
-	border-right: 1px solid #666;
-	border-top: 1px solid #666;
-	position: fixed;
-}
-.menu-playlist > ul {padding: 0 5px;}
+.menu-playlist-wrapper {position: fixed;}
 .menu-playlist {
 	border-radius: 10px;
-	border-top: 1px solid #888;
 	margin: 12px 6px 0 0;
 	overflow-y: auto;
 }
+.menu-playlist > ul {padding: 0 5px;}
 .menu-playlist li > a {
 	cursor: pointer;
 	display: flex;
@@ -139,7 +112,6 @@ hr {
 /*==============  Player ==============*/
 .player {
 	align-items: center;
-	border-top: 1px solid #666;
 	bottom: 0;
 	display: flex;
 	height: 2.5em;
@@ -160,7 +132,6 @@ hr {
 
 .player .track-progress-bar-container {padding: 0 10px;}
 .player .track-progress-bar {
-	background: #888;
 	border-radius: 2px;
 	cursor: pointer;
 	display: inline-block;
@@ -168,17 +139,10 @@ hr {
 }
 
 .player .track-progress-bar .track-progress {
-	background: #ececec;
 	border-radius: inherit;
 	height: 100%;
 	width: 22%;
 }
-
-.player .track-progress-bar .track-progress {
-	color: #ececec;
-}
-
-.player .player-controls a {border-left: 1px solid #555;}
 
 
 /*==============  Footer ==============*/
@@ -193,9 +157,6 @@ footer .social {
 	align-items: center;
 	display: flex;
 	width: 75%;
-}
-footer .social-icons a:not(:last-child) {
-	border-right: 1px solid #555;
 }
 
 footer .copyright {
@@ -212,7 +173,6 @@ footer .copyright-copy, footer .copyright-last-year {
  * Pages styles
  **********************************************************************************/
 .content .content-heading {
-	border-bottom: 1px solid #888;
 	border-bottom-right-radius: 0.8em;
 	padding: 0 0.5em 0.2em 0.1em;
 	overflow: hidden;
@@ -260,7 +220,6 @@ footer .copyright-copy, footer .copyright-last-year {
 }
 
 .content-tune .tune-links a {
-	border-bottom: 1px solid #225682;
 	border-bottom-left-radius: 10px;
 	padding: 5px 10px;
 	text-decoration: none;
@@ -286,7 +245,6 @@ footer .copyright-copy, footer .copyright-last-year {
 	width: 11em;
 }
 .content-discography .album-cover .fas {
-	color: #333;
 	font-size: 11em;
 	position: relative;
 	top: 24px;

@@ -2,24 +2,6 @@
  * L sized screen - Small desktop or a laptop
  **********************************************************************************/
 @media screen and (min-width: 64em) {
-/*============== Link animations for desktop ==============*/
-	.menu a,
-	.header-container .toggle-wrapper > a,
-	footer a,
-	.player a,
-	.content-tune a {
-		transition: border-color .3s ease-out, color .3s ease-out;
-	}
-
-	.menu a:hover,
-	.header-container .toggle-wrapper > a:hover,
-	footer a:hover,
-	.player a:hover,
-	.content-tune a:hover {
-		transition: border-color .2s ease-in, color .2s ease-in;
-	}
-
-
 /*============== General ==============*/
 	.header-container {
 		height: 131px;
@@ -54,8 +36,6 @@
 	.header-container .toggle-language-wrapper > a {
 		border-bottom: 0 none;
 		border-radius: 4px;
-		border-right: 1px solid #666;
-		border-top: 1px solid #444;
 		font-size: 1em;
 		margin: 4px 6px;
 		padding: 6px 8px;
@@ -108,14 +88,8 @@
 
 	.menu-main > ul > li > a {
 		border-bottom: 0 none;
-		border-left: 1px solid #666;
 		border-radius: 4px;
-		border-top: 1px solid #444;
 		padding: 6px 8px;
-	}
-
-	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
-		border-color: #888;
 	}
 
 	/* expanded menus button spacing */
@@ -179,9 +153,4 @@
 	}
 	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
 	.content-lyrics .english-translation-link {display: none;}
-
-	.content-tune .tune-links a:hover {
-		border-color: #0e64ad;
-		color: #0e64ad;
-	}
 }

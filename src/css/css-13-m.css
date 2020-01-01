@@ -103,7 +103,6 @@
 
 	.player .fas:not(.fa-chevron-up) {font-size: 1.6em;}
 	.player .playlist, .player .player-controls a {padding: 0 15px;}
-	.player .player-controls .fa-volume-mute {color: #888;}
 
 
 /*============== Footer ==============*/
