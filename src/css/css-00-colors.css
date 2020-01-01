@@ -1,48 +1,71 @@
-body {background: #ececec;}
-header .logo {background: #fafafa;}
-header, .content-wrapper {background-color: rgba(255, 255, 255, 0.5);}
-hr {border-color: #ccc;}
+:root {
+	--body-background-color: #ececec;
+	--body-background-mask: rgba(255, 255, 255, 0.5);
+	--body-text-color: #000;
 
-.content a {color: #225682;}
-.content a:visited {color: #562282;}
-.content .content-heading {border-bottom: 1px solid #888;}
-.content-tune .tune-links a {border-bottom: 1px solid #225682;}
-.content-discography .album-cover .fas {color: #333;}
-.content-tune .tune-links a:hover {
-	border-color: #0e64ad;
-	color: #0e64ad;
+	--link-color: #225682;
+	--link-hovered-color: #0e64ad;
+	--link-visited-color: #562282;
+
+	--menu-background-color: #333;
+	--menu-text-color: #ccc;
+	--menu-icon-inactive-color: #888;
+
+
+	--menu-separator-strong: #666;
+	--menu-separator-medium: #555;
+	--menu-separator-soft: #444;
 }
 
-footer .social-icons a:not(:last-child) {border-right: 1px solid #555;}
+body {
+	background: var(--body-background-color);
+	color: var(--body-text-color);
+}
+header, .content-wrapper {background-color: var(--body-background-mask);}
+header .logo {background: #fafafa;} /* this must never change */
+hr {border-color: var(--menu-text-color);}
+
+.content a {color: var(--link-color);}
+.content a:hover {color: var(--link-hovered-color);}
+.content a:visited {color: var(--link-visited-color);}
+.content .content-heading {border-bottom: 1px solid var(--menu-icon-inactive-color);}
+.content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
+.content-discography .album-cover .fas {color: var(--menu-background-color);}
+.content-tune .tune-links a:hover {
+	border-color: var(--link-hovered-color);
+	color: var(--link-hovered-color);
+}
+
+footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
 
 .header-container, footer, .menu, .player {
-	background-color: #333;
-	color: #ccc;
+	background-color: var(--menu-background-color);
+	color: var(--menu-text-color);
 }
 
 .menu-playlist-wrapper {
-	background: #333;
-	border-right: 1px solid #666;
-	border-top: 1px solid #666;
+	background: var(--menu-background-color);
+	border-right: 1px solid var(--menu-separator-strong);
+	border-top: 1px solid var(--menu-separator-strong);
 }
 
-.menu li > a {border-bottom: 1px solid #666;}
+.menu li > a {border-bottom: 1px solid var(--menu-separator-strong);}
 
 .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
 .menu .selected {
 	color: white;
 }
 .menu a, .header-container .toggle-wrapper > a, footer a, .player a {
-	color: #ccc;
+	color: var(--menu-text-color);
 }
 
-.menu-playlist {border-top: 1px solid #888;}
+.menu-playlist {border-top: 1px solid var(--menu-icon-inactive-color);}
 
-.player {border-top: 1px solid #666;}
-.player .track-progress-bar {background: #888;}
-.player .track-progress-bar .track-progress {background: #ececec;}
-.player .player-controls a {border-left: 1px solid #555;}
-.player .player-controls .fa-volume-mute {color: #888;}
+.player {border-top: 1px solid var(--menu-separator-strong);}
+.player .track-progress-bar {background: var(--menu-icon-inactive-color);}
+.player .track-progress-bar .track-progress {background: var(--body-background-color);}
+.player .player-controls a {border-left: 1px solid var(--menu-separator-medium);}
+.player .player-controls .fa-volume-mute {color: var(--menu-icon-inactive-color);}
 
 .shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
 .shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
@@ -69,16 +92,16 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid #555;}
 
 
 	.header-container .toggle-language-wrapper > a {
-		border-right: 1px solid #666;
-		border-top: 1px solid #444;
+		border-right: 1px solid var(--menu-separator-strong);
+		border-top: 1px solid var(--menu-separator-soft);
 	}
 
 	.menu-main > ul > li > a {
-		border-left: 1px solid #666;
-		border-top: 1px solid #444;
+		border-left: 1px solid var(--menu-separator-strong);
+		border-top: 1px solid var(--menu-separator-soft);
 	}
 
 	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
-		border-color: #888;
+		border-color: var(--menu-icon-inactive-color);
 	}
 }
