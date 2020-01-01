@@ -158,6 +158,7 @@ hr {
 	white-space: nowrap;
 }
 
+.player .track-progress-bar-container {padding: 0 10px;}
 .player .track-progress-bar {
 	background: #888;
 	border-radius: 2px;
@@ -178,16 +179,6 @@ hr {
 }
 
 .player .player-controls a {border-left: 1px solid #555;}
-
-/*.player .playlist > .fa-play {
-	background: #333;
-	font-size: 0.35em;
-	left: -4em;
-	padding: 2px 4px;
-	position: relative;
-	vertical-align: top;
-}
-*/
 
 
 /*==============  Footer ==============*/

@@ -96,7 +96,6 @@
 
 
 /*============== Player ==============*/
-	.player .track-progress-bar-container {padding: 0 10px;}
 	.player .total-time::before {
 		content: "/";
 		margin: 5px;

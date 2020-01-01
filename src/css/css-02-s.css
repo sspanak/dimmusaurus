@@ -21,10 +21,7 @@
 	.player {height: 2.5em;}
 	.player .playlist, .player .player-controls a {padding: 0 15px;}
 	.player .track-progress-bar {display: none;}
-	.player .track-progress-bar-container{
-		display: inline-flex;
-		padding: 0 10px;
-	}
+	.player .track-progress-bar-container {display: inline-flex;}
 	.player .total-time::before {
 		content: "/";
 		margin: 5px;
@@ -32,7 +29,7 @@
 
 	footer {margin-bottom: 2.5em;}
 	footer .social-icons a {padding: 0 15px;}
-	footer .copyright{margin-right: 15px;}
+	footer .copyright {margin-right: 15px;}
 	footer .copyright-first-year, footer .copyright-ds {display: inline;}
 
 	.content-tune .tune-title, .content-tune .tune-release-date, .content-tune .tune-links {text-align: unset;}

@@ -150,7 +150,6 @@
 	.player .track-progress-bar-container {
 		align-items: center;
 		flex: auto;
-		padding: 0 10px;
 		width: 38%;
 	}
 	.player .track-progress-bar {
