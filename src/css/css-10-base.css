@@ -77,18 +77,15 @@ hr {
 	padding: 0 0 12px 0;
 }
 
-.menu li > a {
-	padding: 12px 8px;
-}
+.menu li > a {padding: 12px 8px;}
+.menu-music li:first-child a {padding-top: 0;}
 
-.menu li > a .icon {
-	margin: 0 10px 0 6px;
-}
-
+.menu li > a .icon {margin: 0 10px 0 6px;}
 .menu-main li > a .fa-chevron-down {
 	font-size: 0.5em;
 	vertical-align: middle;
 }
+
 
 /*============== Language Menu ==============*/
 .menu-language-choice a .flag {
@@ -185,8 +182,8 @@ footer .copyright-copy, footer .copyright-last-year {
  **********************************************************************************/
 .content .content-heading {
 	border-bottom-right-radius: 0.8em;
-	padding: 0 0.5em 0.2em 0.1em;
 	overflow: hidden;
+	padding: 0 0.5em 0.2em 0.1em;
 	text-overflow: ellipsis;
 }
 

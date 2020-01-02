@@ -105,6 +105,8 @@
 		flex-flow: column;
 		text-align: initial;
 	}
+	.menu-music li:first-child a {padding-top: 12px;}
+
 
 /*============== Playlist Menu ==============*/
 	.menu-playlist li > a {font-size: 0.9em;}
