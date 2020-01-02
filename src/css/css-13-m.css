@@ -28,6 +28,10 @@
 	}
 
 
+/*============== Breadcrumbs ==============*/
+	.breadcrumbs {text-align: center;}
+
+
 /*============== Logo ==============*/
 	.header-container .logo > img {
 		height: 100%;
