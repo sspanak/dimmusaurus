@@ -35,6 +35,9 @@ hr {
 /**********************************************************************************
  * Components
  **********************************************************************************/
+ .menu li, .content-tune .tune-links li, .breadcrumbs li {
+	list-style-type: none;
+}
 
 /*==============  Buttons ==============*/
 .menu a, .header-container .toggle-wrapper > a, footer a, .player a {
@@ -56,14 +59,21 @@ hr {
 }
 
 
+/*==============  Breadcrumbs ==============*/
+.breadcrumbs ul {
+	display: inline-block;
+	font-size: 0.9em;
+	margin: 0 6px;
+	padding: 0;
+}
+.breadcrumbs li {display: inline;}
+.breadcrumbs li span::after {content: " / ";}
+.breadcrumbs li .fas {padding-right: 0.25em;}
+
 /*==============  Menus ==============*/
 .menu > ul {
 	margin: 0;
 	padding: 0 0 12px 0;
-}
-
-.menu li, .content-tune .tune-links li {
-	list-style-type: none;
 }
 
 .menu li > a {
