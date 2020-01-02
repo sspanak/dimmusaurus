@@ -15,6 +15,9 @@
 	--menu-separator-strong: #666;
 	--menu-separator-medium: #555;
 	--menu-separator-soft: #444;
+
+	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
+	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
 }
 
 body {
@@ -67,8 +70,8 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 .player .player-controls a {border-left: 1px solid var(--menu-separator-medium);}
 .player .player-controls .fa-volume-mute {color: var(--menu-icon-inactive-color);}
 
-.shadow-top {box-shadow: 0 -3px 5px rgba(50, 50, 50, 0.57);}
-.shadow-bottom {box-shadow: 0 3px 5px rgba(50, 50, 50, 0.57);}
+.shadow-top {box-shadow: var(--shadow-top);}
+.shadow-bottom {box-shadow: var(--shadow-bottom);}
 
 /**
  * Link animations and special effects for desktop
@@ -96,6 +99,8 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 		border-top: 1px solid var(--menu-separator-soft);
 	}
 
+	.menu-main {box-shadow: none;}
+
 	.menu-main > ul > li > a {
 		border-left: 1px solid var(--menu-separator-strong);
 		border-top: 1px solid var(--menu-separator-soft);
@@ -104,4 +109,6 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
 		border-color: var(--menu-icon-inactive-color);
 	}
+
+	.menu-music {box-shadow: var(--shadow-bottom);}
 }
