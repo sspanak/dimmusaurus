@@ -130,7 +130,9 @@
 		width: 38%;
 	}
 	.player .track-progress-bar {
+		border-radius: 0.45em;
 		flex: auto;
+		height: 0.9em;
 		margin: 0 8px;
 	}
 	.player .total-time::before {content: ""; margin: 0 auto;}

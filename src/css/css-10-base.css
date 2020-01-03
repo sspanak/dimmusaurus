@@ -140,10 +140,8 @@ hr {
 
 .player .track-progress-bar-container {padding: 0 10px;}
 .player .track-progress-bar {
-	border-radius: 2px;
 	cursor: pointer;
 	display: inline-block;
-	height: 5px;
 }
 
 .player .track-progress-bar .track-progress {
