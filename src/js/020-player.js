@@ -25,7 +25,9 @@ const Player = new class extends UiElement { // eslint-disable-line
 			this._show();
 
 			// we need to use addEventListener, because this is the only way of getting mouse coordinates
-			this.select(this.selectors.progressBar).$element.addEventListener('mouseup', (event) => this.seek(event));
+			if (this.select(this.selectors.progressBar)) {
+				this.$element.addEventListener('mouseup', (event) => this.seek(event));
+			}
 		};
 	}
 
@@ -134,7 +136,11 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	seek(event) {
-		const pbRect = this.select(this.selectors.progressBar).$element.getBoundingClientRect();
+		if (!this.select(this.selectors.progressBar)) {
+			return;
+		}
+
+		const pbRect = this.$element.getBoundingClientRect();
 		const seekTarget = 1 - (pbRect.width - (event.clientX - pbRect.x)) / pbRect.width;
 
 		this._movePlayhead(seekTarget * 100); // @todo: don't do it here, make the playback update it automatically
@@ -151,9 +157,13 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	_movePlayhead(percentFromStart) {
+		if (!this.select(this.selectors.playhead)) {
+			return;
+		}
+
 		let percent = Number.parseInt(percentFromStart, 10);
 		percent = Number.isNaN(percent) ? 0 : percent;
 
-		this.select(this.selectors.playhead).$element.style.width = `${percent}%`;
+		this.$element.style.width = `${percent}%`;
 	}
 };
