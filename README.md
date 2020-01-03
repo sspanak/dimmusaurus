@@ -10,6 +10,7 @@ A website for Dimmu Saurus, reincarnation 7.
   * Python 3 + Django 3
 * Code style
   * csslint
+  * eslint
   * html tidy
 * Makefile compatible with `bash`
 
@@ -22,9 +23,12 @@ TODO: Not yet available
 #### Linting
 Linting is meant to be done using globally installed tools.
 
-* Install html tidy using the means of your operating system.
-* Install npm.
+* Install html tidy by the means of your operating system.
+* Install npm by the means of your operating system. Then install the linters.
   * `npm install -g csslint`
+  * `npm install -g eslint`
+
+ You might as well install them in the project instead of globally.
 
 ### Building
 * `make images`
