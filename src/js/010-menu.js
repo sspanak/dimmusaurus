@@ -3,7 +3,7 @@ const Menu = new class extends UiElement { // eslint-disable-line
 		super();
 
 		this.closedMenuClass = 'menu-closed';
-		this.selectedMenuButtonClass = 'selected';
+		this.selectedButtonClass = 'selected';
 		this.selectors = {
 			language: '.menu-language-choice',
 			languageButton: '.toggle-language-wrapper a',
@@ -21,8 +21,8 @@ const Menu = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.music).addClass(this.closedMenuClass);
 		this.select(this.selectors.playlist).addClass(this.closedMenuClass);
 
-		this.select(this.selectors.languageButton).removeClass(this.selectedMenuButtonClass);
-		this.select(this.selectors.mainButton).removeClass(this.selectedMenuButtonClass);
+		this.select(this.selectors.languageButton).removeClass(this.selectedButtonClass);
+		this.select(this.selectors.mainButton).removeClass(this.selectedButtonClass);
 	}
 
 
@@ -30,9 +30,9 @@ const Menu = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.language).toggleClass(this.closedMenuClass);
 
 		if (this.hasClass(this.closedMenuClass)) {
-			this.select(this.selectors.languageButton).removeClass(this.selectedMenuButtonClass);
+			this.select(this.selectors.languageButton).removeClass(this.selectedButtonClass);
 		} else {
-			this.select(this.selectors.languageButton).addClass(this.selectedMenuButtonClass);
+			this.select(this.selectors.languageButton).addClass(this.selectedButtonClass);
 		}
 	}
 
@@ -41,9 +41,9 @@ const Menu = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.main).toggleClass(this.closedMenuClass);
 
 		if (this.hasClass(this.closedMenuClass)) {
-			this.select(this.selectors.mainButton).removeClass(this.selectedMenuButtonClass);
+			this.select(this.selectors.mainButton).removeClass(this.selectedButtonClass);
 		} else {
-			this.select(this.selectors.mainButton).addClass(this.selectedMenuButtonClass);
+			this.select(this.selectors.mainButton).addClass(this.selectedButtonClass);
 		}
 	}
 
