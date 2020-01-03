@@ -6,7 +6,8 @@ default:
 
 ui:
 	make css
-	cp src/{js.js,index.html,reset.css} dist
+	make js
+	cp src/{index.html,reset.css} dist
 
 css:
 	cat src/css/css-*.css > dist/css.css
@@ -14,7 +15,7 @@ css:
 	rm dist/css.css
 
 js:
-	@echo Not implemented yet.
+	cat src/js/*.js > dist/ds.js
 
 images:
 	mkdir -p dist/img

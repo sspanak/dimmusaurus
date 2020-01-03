@@ -31,7 +31,7 @@
 
 		<link rel="stylesheet" href="ds.min.css?version=34">
 
-		<script src="js.js?version=3"></script>
+		<script src="ds.js?version=4"></script>
 	</head>
 
 	<body>
@@ -49,8 +49,8 @@
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
 					<a
 						href="javascript:;"
-						onClick="toggleClass('.menu-main', 'menu-closed');toggleClass(this, 'selected');"
-						title="Menu">
+						onClick="Menu.toggleMenuMain()"
+						title="Main Menu">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
 					</a>
@@ -59,7 +59,7 @@
 				<div class="toggle-wrapper toggle-language-wrapper">
 					<a
 						href="javascript:;"
-						onClick="toggleClass('.menu-language-choice', 'menu-closed');toggleClass(this, 'selected');"
+						onClick="Menu.toggleMenuLanguage()"
 						title="Change Language">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
@@ -111,7 +111,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="javascript:;" onClick="toggleClass('.menu-music', 'menu-closed');">
+								<a href="javascript:;" onClick="Menu.toggleMenuMusic();">
 									<i class="icon fas fa-music"></i>
 									Музика
 									<i class="fas fa-chevron-down"></i>
@@ -151,7 +151,7 @@
 
 		</header>
 
-		<div class="content-wrapper">
+		<div class="content-wrapper" onclick="Menu.closeAll();">
 			<div class="content content-home">
 				<article>
 					<h1 class="content-heading">Home Page</h1>
@@ -215,7 +215,7 @@
 
 			<div class="content content-bio">
 
-				<nav class="breadcrumbs" aria-label="breadcrumb">
+				<nav class="breadcrumbs" aria-label="breadcrumbs">
 					<ul>
 						<li>
 							<span><a href="/home"><i class="icon fas fa-home"></i>Начало</a></span>
@@ -255,7 +255,7 @@
 
 			<div class="content content-discography">
 
-				<nav class="breadcrumbs" aria-label="breadcrumb">
+				<nav class="breadcrumbs" aria-label="breadcrumbs">
 					<ul>
 						<li>
 							<span><a href="/home"><i class="icon fas fa-home"></i>Начало</a></span>
@@ -353,7 +353,7 @@
 
 			<div class="content content-tune">
 
-				<nav class="breadcrumbs" aria-label="breadcrumb">
+				<nav class="breadcrumbs" aria-label="breadcrumbs">
 					<ul>
 						<li>
 							<span><a href="/home"><i class="icon fas fa-home"></i>Начало</a></span>
@@ -407,7 +407,7 @@
 
 			<div class="content content-lyrics">
 
-				<nav class="breadcrumbs" aria-label="breadcrumb">
+				<nav class="breadcrumbs" aria-label="breadcrumbs">
 					<ul>
 						<li>
 							<span><a href="/home"><i class="icon fas fa-home"></i>Начало</a></span>
@@ -563,13 +563,13 @@
 			<a
 				id="pl-playlist-toggle"
 				href="javascript:;"
-				onClick="togglePlaylist()"
+				onClick="Menu.togglePlaylist()"
 				class="playlist"><i class="fas fa-chevron-up"></i></a>
 
 				<div class="track-title">
 					<a
 						href="javascript:;"
-						onClick="togglePlaylist()">
+						onClick="Menu.togglePlaylist()">
 					Le temps de chasseurs est venu encore une fois
 					</a>
 				</div>
