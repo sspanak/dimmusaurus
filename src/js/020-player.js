@@ -8,21 +8,23 @@ const Player = new class extends UiElement { // eslint-disable-line
 		};
 
 		this.selectors = {
-			volume: '.player-controls .volume' ,
+			player: '.player',
+			playhead: '.track-progress-bar .track-progress',
+			playlist: '.menu-playlist-wrapper',
 			progressBar: '.track-progress-bar',
-			playhead: '.track-progress-bar .track-progress'
+			tunePlayButton: '.content-tune .tune-play',
+			volume: '.player-controls .volume'
 		};
 
 		this._init();
 	}
 
 	_init() {
-		if (!this._isSupported()) {
-			return;
-		}
-
 		window.onload = () => {
-			this._show();
+			if (!this._isSupported()) {
+				this._hide();
+				return;
+			}
 
 			// we need to use addEventListener, because this is the only way of getting mouse coordinates
 			if (this.select(this.selectors.progressBar)) {
@@ -40,19 +42,35 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {Boolean}
 	 */
 	_isSupported() {
-		return true;
+		try {
+			const dummyTag = document.createElement('audio');
+			const canPlay = dummyTag.canPlayType('audio/ogg; codecs="vorbis"');
+			dummyTag.remove();
+
+			return canPlay === 'probably' || canPlay === 'maybe';
+		} catch (e) {
+			return false;
+		}
 	}
 
 
 	/**
 	 * show
-	 * Display the player and readjust other UI elements for it to fit properly.
+	 * Hide the player and readjust other UI elements for it to fit properly.
 	 *
 	 * @param void
 	 * @return {void}
 	 */
-	_show() {
-
+	_hide() {
+		this.select(this.selectors.player).hide();
+		this.select(this.selectors.playlist).hide();
+		this.select(this.selectors.tunePlayButton).hide();
+		if (this.select('footer')) {
+			this.setStyle({
+				marginTop: this.getStyle().marginBottom,
+				marginBottom: 0
+			});
+		}
 	}
 
 

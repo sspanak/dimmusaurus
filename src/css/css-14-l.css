@@ -113,6 +113,9 @@
 
 
 /*============== Content ==============*/
+	.content-wrapper {
+		min-height: calc(100vh - 167px - 2.5em - 2.5em); /* 100% - header-height - footer - player */
+	}
 	.content {
 		font-size: 0.95em;
 		max-width: 68em;

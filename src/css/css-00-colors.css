@@ -28,6 +28,7 @@ header, .content-wrapper {background-color: var(--body-background-mask);}
 header .logo {background: #fafafa;} /* this must never change */
 hr {border-color: var(--menu-text-color);}
 
+.content-wrapper {box-shadow: 0 3em 3em var(--body-background-mask);} /* mask the gap when there is no player */
 .content a {color: var(--link-color);}
 .content a:hover {color: var(--link-hovered-color);}
 .content a:visited {color: var(--link-visited-color);}

@@ -46,4 +46,32 @@ class UiElement { // eslint-disable-line no-unused-vars
 			this.removeClass(className);
 		}
 	}
+
+
+	hide() {
+		return this.setStyle({ display: 'none' });
+	}
+
+
+	getStyle() {
+		if (typeof this.$element !== 'object') {
+			return {};
+		}
+
+		return window.getComputedStyle(this.$element);
+	}
+
+
+	setStyle(newStyle) {
+		if (typeof this.$element !== 'object' || typeof newStyle !== 'object') {
+			return false;
+		}
+
+		// we don't use ... operator, since we are aiming for older browsers here
+		for (const rule in newStyle) {
+			this.$element.style[rule] = newStyle[rule];
+		}
+
+		return true;
+	}
 }
