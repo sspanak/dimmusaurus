@@ -5,6 +5,8 @@ const Menu = new class extends UiElement { // eslint-disable-line
 		this.closedMenuClass = 'menu-closed';
 		this.selectedButtonClass = 'selected';
 		this.selectors = {
+			content: '.content-wrapper',
+			headerSuperWrapper: '.header-super-wrapper',
 			language: '.menu-language-choice',
 			languageButton: '.toggle-language-wrapper a',
 			main: '.menu-main',
@@ -33,6 +35,15 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			this.select(this.selectors.musicButton).addEventListener('click', (event) => {
 				event.stopPropagation();
 				this.toggleMenuMusic();
+			});
+
+			// close all
+			this.select(this.selectors.headerSuperWrapper).addEventListener('click', (event) => {
+				event.stopPropagation();
+				this.closeAll();
+			});
+			this.select(this.selectors.content).addEventListener('click', () => {
+				this.closeAll();
 			});
 		});
 	}
