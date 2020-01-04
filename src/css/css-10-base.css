@@ -32,6 +32,8 @@ hr {
 	margin: 1em 0;
 }
 
+footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet */
+
 /**********************************************************************************
  * Components
  **********************************************************************************/
@@ -144,10 +146,8 @@ hr {
 	display: inline-block;
 }
 
-.player .track-progress-bar .track-progress {
+.player .track-progress, .player .track-progress-bar-background {
 	border-radius: inherit;
-	height: 100%;
-	width: 22%;
 }
 
 

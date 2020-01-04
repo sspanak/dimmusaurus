@@ -130,11 +130,20 @@
 		width: 38%;
 	}
 	.player .track-progress-bar {
-		border-radius: 0.45em;
+		border-radius: 0.5em;
 		flex: auto;
-		height: 0.9em;
+		height: 1em;
 		margin: 0 8px;
 	}
+	.player .track-progress-bar-background {
+		height: 0.5em;
+		margin-top: 0.25em;
+	}
+	.player .track-progress {
+		height: 100%;
+		width: 0;
+	}
+
 	.player .total-time::before {content: ""; margin: 0 auto;}
 
 /*============== Footer ==============*/
