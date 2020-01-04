@@ -10,9 +10,12 @@ ui:
 	cp src/{index.html,reset.css} dist
 
 css:
-	cat src/css/css-*.css > dist/css.css
-	sed -r "s@\s*([,;:>{}])\s*@\1@g" dist/css.css | tr --delete '\n\t' | sed -r -e "s@\/\*+[^\/]+\*\/@@g" > dist/ds.min.css
-	rm dist/css.css
+	cat src/css/*.css \
+		| sed -r -e "s@\s*([,;:>{}])\s*@\1@g" \
+		| tr --delete '\n\t' \
+		| sed -r -e "s@\/\*+[^\/]+\*\/@@g" \
+		| sed -r -e "s@\/\*[^\*]+\*\/@@g" \
+		> dist/ds.min.css
 
 js:
 	cat src/js/*.js > dist/ds.js
