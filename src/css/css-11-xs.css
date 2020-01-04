@@ -75,7 +75,7 @@
 
 
 /*============== Content ==============*/
-	/* 100% - header-height - padding - footer - player */
+	/* 100% - header-height - footer - player */
 	.content-wrapper {min-height: calc(100vh - 64px - 2.5em - 3em);}
 	.content {padding: 1.33em 0.67em;}
 
