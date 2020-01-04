@@ -22,9 +22,10 @@ const Player = new class extends UiElement { // eslint-disable-line
 	_init() {
 		window.onload = () => {
 			if (!this._isSupported()) {
-				this._hide();
 				return;
 			}
+
+			this._show();
 
 			// we need to use addEventListener, because this is the only way of getting mouse coordinates
 			if (this.select(this.selectors.progressBar)) {
@@ -56,21 +57,13 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 	/**
 	 * show
-	 * Hide the player and readjust other UI elements for it to fit properly.
+	 * Show the player and readjust other UI elements for it to fit properly.
 	 *
 	 * @param void
 	 * @return {void}
 	 */
-	_hide() {
-		this.select(this.selectors.player).hide();
-		this.select(this.selectors.playlist).hide();
-		this.select(this.selectors.tunePlayButton).hide();
-		if (this.select('footer')) {
-			this.setStyle({
-				marginTop: this.getStyle().marginBottom,
-				marginBottom: 0
-			});
-		}
+	_show() {
+		this.select('body').removeClass('unsupported-player');
 	}
 
 
