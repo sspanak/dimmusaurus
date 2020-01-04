@@ -49,7 +49,6 @@
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
 					<a
 						href="javascript:;"
-						onclick="Menu.toggleMenuMain()"
 						title="Main Menu">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
@@ -59,7 +58,6 @@
 				<div class="toggle-wrapper toggle-language-wrapper">
 					<a
 						href="javascript:;"
-						onclick="Menu.toggleMenuLanguage()"
 						title="Change Language">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
@@ -111,7 +109,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="javascript:;" onclick="Menu.toggleMenuMusic();">
+								<a id="music-button" href="javascript:;">
 									<i class="icon fas fa-music"></i>
 									Музика
 									<i class="fas fa-chevron-down"></i>
@@ -151,7 +149,7 @@
 
 		</header>
 
-		<div class="content-wrapper" onclick="Menu.closeAll();">
+		<div class="content-wrapper">
 			<div class="content content-home">
 				<article>
 					<h1 class="content-heading">Home Page</h1>
@@ -566,13 +564,10 @@
 			<a
 				id="pl-playlist-toggle"
 				href="javascript:;"
-				onclick="Menu.togglePlaylist()"
 				class="playlist"><i class="fas fa-chevron-up"></i></a>
 
 				<div class="track-title">
-					<a
-						href="javascript:;"
-						onclick="Menu.togglePlaylist()">
+					<a href="javascript:;">
 					Le temps de chasseurs est venu encore une fois
 					</a>
 				</div>
@@ -591,7 +586,7 @@
 
 			<div class="player-controls">
 				<a
-					onclick="Player.toggleMute()"
+					onclick="Player.toggleMute(this)"
 					class="volume fas fa-volume-up"
 					href="javascript:;"></a><a
 

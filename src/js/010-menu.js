@@ -10,8 +10,31 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			main: '.menu-main',
 			mainButton: '.toggle-main-menu-wrapper a',
 			music: '.menu-music',
+			musicButton: '#music-button',
 			playlist: '.menu-playlist-wrapper'
 		};
+
+		this._init();
+	}
+
+
+	_init() {
+		window.addEventListener('load', () => {
+			this.select(this.selectors.languageButton).addEventListener('click', (event) => {
+				event.stopPropagation();
+				this.toggleMenuLanguage();
+			});
+
+			this.select(this.selectors.mainButton).addEventListener('click', (event) => {
+				event.stopPropagation();
+				this.toggleMenuMain();
+			});
+
+			this.select(this.selectors.musicButton).addEventListener('click', (event) => {
+				event.stopPropagation();
+				this.toggleMenuMusic();
+			});
+		});
 	}
 
 
@@ -50,10 +73,5 @@ const Menu = new class extends UiElement { // eslint-disable-line
 
 	toggleMenuMusic() {
 		this.select(this.selectors.music).toggleClass(this.closedMenuClass);
-	}
-
-
-	togglePlaylist() {
-		this.select(this.selectors.playlist).toggleClass(this.closedMenuClass);
 	}
 };

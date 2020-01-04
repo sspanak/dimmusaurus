@@ -11,7 +11,9 @@ const Player = new class extends UiElement { // eslint-disable-line
 			player: '.player',
 			playhead: '.track-progress-bar .track-progress',
 			playlist: '.menu-playlist-wrapper',
+			playlistButton: '#pl-playlist-toggle',
 			progressBar: '.track-progress-bar',
+			trackTitle: '.player .track-title',
 			tunePlayButton: '.content-tune .tune-play',
 			volume: '.player-controls .volume'
 		};
@@ -20,7 +22,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 	}
 
 	_init() {
-		window.onload = () => {
+		window.addEventListener('load', () => {
 			if (!this._isSupported()) {
 				return;
 			}
@@ -31,7 +33,17 @@ const Player = new class extends UiElement { // eslint-disable-line
 			if (this.select(this.selectors.progressBar)) {
 				this.$element.addEventListener('mouseup', (event) => this.seek(event));
 			}
-		};
+
+			// toggle playlist both from the button and track title
+			this.select(this.selectors.playlistButton).addEventListener('click', (event) => {
+				event.stopPropagation();
+				this.togglePlaylist();
+			});
+			this.select(this.selectors.trackTitle).addEventListener('click', (event) => {
+				event.stopPropagation();
+				this.togglePlaylist();
+			});
+		});
 	}
 
 
@@ -175,6 +187,18 @@ const Player = new class extends UiElement { // eslint-disable-line
 		let percent = Number.parseInt(percentFromStart, 10);
 		percent = Number.isNaN(percent) ? 0 : percent;
 
-		this.$element.style.width = `${percent}%`;
+		this.setStyle({ width: `${percent}%` });
+	}
+
+
+	/**
+	 * togglePlaylist
+	 * Self-explanatory
+	 *
+	 * @param  {void}
+	 * @return {void}
+	 */
+	togglePlaylist() {
+		this.select(this.selectors.playlist).toggleClass(Menu.closedMenuClass); // eslint-disable-line no-undef
 	}
 };

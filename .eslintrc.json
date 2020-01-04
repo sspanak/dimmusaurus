@@ -59,6 +59,7 @@
         "object-curly-newline": ["error", { "minProperties": 5, "multiline": true }],
         "object-curly-spacing": ["error", "always"],
         "padded-blocks": ["error", "never"],
+        "sort-keys": "error",
 
         "no-useless-constructor": "error",
         "no-useless-rename": "error",
