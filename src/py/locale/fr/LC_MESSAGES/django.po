@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 16:21+0200\n"
+"POT-Creation-Date: 2020-01-05 17:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,39 +18,51 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/py/main/templates/main/__root.html:61
+#: src/py/main/templates/main/__root.html:63
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/py/main/templates/main/__root.html:70
+#: src/py/main/templates/main/__root.html:72
 msgid "Change Language"
 msgstr "Choisir la langue préférée"
 
-#: src/py/main/templates/main/__root.html:112 src/py/main/views.py:14
+#: src/py/main/templates/main/__root.html:112
+msgid "home/"
+msgstr "accueil/"
+
+#: src/py/main/templates/main/__root.html:114 src/py/main/views.py:10
 msgid "Home"
 msgstr "Accueil"
 
 #: src/py/main/templates/main/__root.html:118
+msgid "biography/"
+msgstr "biographie/"
+
+#: src/py/main/templates/main/__root.html:120
 msgid "Biography"
-msgstr ""
+msgstr "Biographie"
 
-#: src/py/main/templates/main/__root.html:124
+#: src/py/main/templates/main/__root.html:126
 msgid "Music"
-msgstr ""
+msgstr "Musique"
 
-#: src/py/main/templates/main/__root.html:260
+#: src/py/main/templates/main/__root.html:150
+msgid "music/"
+msgstr "musique/"
+
+#: src/py/main/templates/main/__root.html:262
 msgid "Follow"
 msgstr "Suivez"
 
-#: src/py/main/templates/main/__root.html:264
+#: src/py/main/templates/main/__root.html:266
 msgid "Dimmu Saurus Bandcamp page"
 msgstr "Dimmu Saurus sur Bandcamp"
 
-#: src/py/main/templates/main/__root.html:268
+#: src/py/main/templates/main/__root.html:270
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: src/py/main/templates/main/__root.html:272
+#: src/py/main/templates/main/__root.html:274
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
@@ -62,14 +74,10 @@ msgstr "Bienvenus"
 msgid "News"
 msgstr "Nouvelles"
 
-#: src/py/main/urls.py:8
-msgid "home/"
-msgstr "accueil/"
-
-#: src/py/main/views.py:16
+#: src/py/main/views.py:12
 msgid "Home Page"
 msgstr "Accueil"
 
-#: src/py/main/views.py:17
+#: src/py/main/views.py:13
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"

@@ -1,10 +1,11 @@
 {% extends 'main/index.html' %}
+{% load i18n %}
 
 {% block welcome_block %}
 	<p>
 		Welcome the Black Blues Dimosaur's den (latin: <i>Dimmu Saurus</i>). It is a garage project for blues, rock and metal music, without any rules or limitations. The way real music should be.
 	</p>
 	<p>
-		If you are a fan of this kind of music, then jump straight ahead to the <a href="/music">discography</a> to hear a song. Or if you are interested in the project's background and how it came to be, read more <a href="/biography">about Dimmu Saurus</a>.
+		If you are a fan of this kind of music, then jump straight ahead to the <a href="/{% trans 'music/' %}">discography</a> to hear a song. Or if you are interested in the project's background and how it came to be, read more <a href="/{% trans 'biography/' %}">about Dimmu Saurus</a>.
 	</p>
 {% endblock %}

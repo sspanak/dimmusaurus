@@ -9,8 +9,11 @@ def render_page(request):
         request,
         'main/' + gettext('Home').lower() + '.html',
         {
-            'page_title': gettext('Home Page'),
-            'page_desription': gettext('Music from the garage... without rules or restrictions'),
+            'page': {
+                'url': 'home/',
+                'title': gettext('Home Page'),
+                'description': gettext('Music from the garage... without rules or restrictions'),
+            }
         }
     )
 
