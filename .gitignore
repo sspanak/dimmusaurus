@@ -6,3 +6,4 @@ src/py/static/*
 *__pycache__*
 *.html.py
 *.sqlite3
+*.mo

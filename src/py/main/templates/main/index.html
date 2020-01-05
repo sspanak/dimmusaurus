@@ -1,13 +1,14 @@
-{% extends 'main/__root.html' %}
+{% extends "main/__root.html" %}
+{% load i18n %}
 
 {% block content_block %}
 	<div class="content content-home">
 		<article>
-			<h1 class="content-heading">{{page_name}}</h1>
+			<h1 class="content-heading">{% trans "Welcome" %}</h1>
 			{% block welcome_block %}{% endblock %}
 		</article>
 
-		<h1 class="content-heading">{{news_title}}</h1>
+		<h1 class="content-heading">{% trans "News" %}</h1>
 		{% block news_block %}{% endblock %}
 	</div>
 

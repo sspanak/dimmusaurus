@@ -4,20 +4,21 @@ A website for Dimmu Saurus, reincarnation 7.
 ### Technologies
 * Frontend
   * Plain HTML
-  * Plain CSS and PureCSS for (resetting the styles)
+  * Plain CSS and PureCSS 1.0.1 for (resetting the styles)
   * Plain ES6
 * Backend
-  * Python 3
-  * Django 3
+  * Python 3.8
+  * Django 3.0.2
+  * gettext 0.15 _(required by Django for translations)
 * Code style
-  * npm; Note that npm is NOT needed to run the project, it is just for installing the linters
+  * npm _(Note that npm is NOT needed to run the project, it is just for installing the linters)_
   * csslint
   * eslint
   * html tidy
 * Makefile compatible with `bash`
 
 ### Setup
-All the source code is in `src/` folder, hence all development should happen there. There is a `Makefile` to build the project in `dist/`. `make` commands are available below.
+All the source code is in `src/` folder, hence all development should happen there. There is a `Makefile` to build the .css and .js. `make` commands are available below.
 
 #### Python, Django and database setup
 * Install Python 3.8 by the means of your operating system.

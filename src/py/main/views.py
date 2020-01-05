@@ -1,34 +1,34 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
+from django.utils.translation import gettext, activate
+
+
+def render_page(request):
+    return render(
+        request,
+        'main/' + gettext('Home').lower() + '.html',
+        {
+            'page_title': gettext('Home Page'),
+            'page_desription': gettext('Music from the garage... without rules or restrictions'),
+        }
+    )
 
 
 def index(request):
-    return HttpResponse("Determine language here then redirect to appropriate view")
+    return HttpResponse('Determine language here then redirect to appropriate view')
 
 
 def начало(request):
-    context = {
-        'page_name': 'Начало',
-        'news_title': 'Новини'
-    }
-
-    return render(request, 'main/начало.html', context)
+    activate('bg')
+    return render_page(request)
 
 
 def home(request):
-    context = {
-        'page_name': 'Home',
-        'news_title': 'News'
-    }
-
-    return render(request, 'main/home.html', context)
+    activate('en')
+    return render_page(request)
 
 
 def accueil(request):
-    context = {
-        'page_name': 'Accueil',
-        'news_title': 'Nouvelles'
-    }
-
-    return render(request, 'main/accueil.html', context)
+    activate('fr')
+    return render_page(request)

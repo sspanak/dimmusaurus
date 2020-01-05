@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-05 16:21+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: src/py/main/templates/main/__root.html:61
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: src/py/main/templates/main/__root.html:70
+msgid "Change Language"
+msgstr "Choisir la langue préférée"
+
+#: src/py/main/templates/main/__root.html:112 src/py/main/views.py:14
+msgid "Home"
+msgstr "Accueil"
+
+#: src/py/main/templates/main/__root.html:118
+msgid "Biography"
+msgstr ""
+
+#: src/py/main/templates/main/__root.html:124
+msgid "Music"
+msgstr ""
+
+#: src/py/main/templates/main/__root.html:260
+msgid "Follow"
+msgstr "Suivez"
+
+#: src/py/main/templates/main/__root.html:264
+msgid "Dimmu Saurus Bandcamp page"
+msgstr "Dimmu Saurus sur Bandcamp"
+
+#: src/py/main/templates/main/__root.html:268
+msgid "Dimmu Saurus on Facebook"
+msgstr "Page Facebook"
+
+#: src/py/main/templates/main/__root.html:272
+msgid "Dimmu Saurus Youtube channel"
+msgstr "Chaîne Youtube"
+
+#: src/py/main/templates/main/index.html:7
+msgid "Welcome"
+msgstr "Bienvenus"
+
+#: src/py/main/templates/main/index.html:11
+msgid "News"
+msgstr "Nouvelles"
+
+#: src/py/main/urls.py:8
+msgid "home/"
+msgstr "accueil/"
+
+#: src/py/main/views.py:16
+msgid "Home Page"
+msgstr "Accueil"
+
+#: src/py/main/views.py:17
+msgid "Music from the garage... without rules or restrictions"
+msgstr "Musique garage... sans règles et sans restrictions"

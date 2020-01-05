@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-05 16:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/py/main/templates/main/__root.html:61
+msgid "Main Menu"
+msgstr "Главно меню"
+
+#: src/py/main/templates/main/__root.html:70
+msgid "Change Language"
+msgstr "Избор на език"
+
+#: src/py/main/templates/main/__root.html:112 src/py/main/views.py:14
+msgid "Home"
+msgstr "Начало"
+
+#: src/py/main/templates/main/__root.html:118
+msgid "Biography"
+msgstr "Биография"
+
+#: src/py/main/templates/main/__root.html:124
+msgid "Music"
+msgstr "Музика"
+
+#: src/py/main/templates/main/__root.html:260
+msgid "Follow"
+msgstr "Последвай"
+
+#: src/py/main/templates/main/__root.html:264
+msgid "Dimmu Saurus Bandcamp page"
+msgstr "Димозавър в Bandcamp"
+
+#: src/py/main/templates/main/__root.html:268
+msgid "Dimmu Saurus on Facebook"
+msgstr "Димозавър във Facebook"
+
+#: src/py/main/templates/main/__root.html:272
+msgid "Dimmu Saurus Youtube channel"
+msgstr "Канал на Димозавър в Youtube"
+
+#: src/py/main/templates/main/index.html:7
+msgid "Welcome"
+msgstr "Добре дошли"
+
+#: src/py/main/templates/main/index.html:11
+msgid "News"
+msgstr "Новини"
+
+#: src/py/main/urls.py:8
+msgid "home/"
+msgstr "начало/"
+
+#: src/py/main/views.py:16
+msgid "Home Page"
+msgstr "Начална страница"
+
+#: src/py/main/views.py:17
+msgid "Music from the garage... without rules or restrictions"
+msgstr "Музика от гаража... без ограничения и без правила"
