@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>
+			{% if page_name %}
+				{{page_name}}
+			{% else %}
+				Dimmu Saurus
+			{% endif %}
+		</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="shortcut icon" href="img/favicon.ico">
+
+		<link
+			rel="stylesheet"
+			href="static/reset.css">
+
+<!-- 		<link
+			rel="stylesheet"
+			href="https://unpkg.com/purecss@1.0.1/build/base-min.css"
+			crossorigin="anonymous"> -->
+
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Griffy|Noto+Sans:400,400i,700,700i&amp;display=swap&amp;subset=cyrillic">
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+			integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
+			crossorigin="anonymous">
+
+		<link rel="stylesheet" href="static/ds.min.css">
+
+		<script src="static/ds.min.js"></script>
+	</head>
+
+	<body class="unsupported-player">
+		<header>
+			<div class="header-container shadow-bottom">
+
+				<div class="logo-text logo-text-left">Dimmu</div>
+
+				<div class="logo shadow-bottom">
+					<img src="static/img/dimmu-saurus-250-krio.png" alt="Dimmu Saurus" />
+				</div>
+
+				<div class="logo-text logo-text-right">Saurus</div>
+
+				<div class="toggle-wrapper toggle-main-menu-wrapper">
+					<a
+						href="javascript:;"
+						title="Main Menu">
+						<i class="fas fa-bars"></i>
+						<i class="fas fa-chevron-down"></i>
+					</a>
+				</div>
+
+				<div class="toggle-wrapper toggle-language-wrapper">
+					<a
+						href="javascript:;"
+						title="Change Language">
+						<i class="fas fa-language"></i>
+						<span class="toggle-language-label">Language</span>
+						<i class="fas fa-chevron-down"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="header-super-wrapper">
+				<div class="menu-wrapper language-choice-wrapper">
+					<nav class="menu menu-language-choice menu-closed shadow-bottom">
+						<ul>
+
+							<li>
+								<a href="javascript:;">
+									<span class="icon flag flag-bg"></span>
+									Български
+								</a>
+							</li>
+
+							<li>
+								<a href="javascript:;">
+									<span class="icon flag flag-en"></span>
+									English
+								</a>
+							</li>
+
+							<li>
+								<a href="javascript:;">
+									<span class="icon flag flag-fr"></span>
+									Français
+								</a>
+							</li>
+
+						</ul>
+					</nav>
+				</div><div class="menu-wrapper menu-main-wrapper"> <!-- the space ruins the alignment -->
+					<nav class="menu menu-main menu-closed shadow-bottom">
+						<ul>
+							<li>
+								<a>
+									<i class="icon fas fa-home"></i>
+									Начало
+								</a>
+							</li>
+							<li>
+								<a>
+									<i class="icon fas fa-book"></i>
+									Биография
+								</a>
+							</li>
+							<li>
+								<a id="music-button" href="javascript:;">
+									<i class="icon fas fa-music"></i>
+									Музика
+									<i class="fas fa-chevron-down"></i>
+								</a>
+							</li>
+						</ul>
+
+						<nav class="menu menu-music menu-closed">
+							<ul>
+								<li>
+									<a>(2014) III</a>
+								</li>
+								<li>
+									<a>(2013) Битка на баира</a>
+								</li>
+								<li>
+									<a>(2013) Пътят, който всички...</a>
+								</li>
+								<li>
+									<a>(2010) Яхния от мисли</a>
+								</li>
+								<li>
+									<a>(2006) Зона Чернобил</a>
+								</li>
+								<li>
+									<a>Всички албуми</a>
+								</li>
+								<li>
+									<a>Кавъри</a>
+								</li>
+							</ul>
+						</nav>
+
+					</nav>
+				</div>
+			</div>
+
+		</header>
+
+		<div class="content-wrapper">
+			{% block content_block %}{% endblock %}
+		</div>
+
+		<div class="menu-playlist-wrapper shadow-top menu-closed">
+			<div class="menu menu-playlist">
+				<ul>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Патката бяла</span>
+							<span class="playlist-time">10:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)" class="selected">
+							<span class="playlist-title">Баба меца си изгуби кеца</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Кондю яде спанак</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Don't leave me, Kage, you played the best shit you've ever fucking played</span>
+							<span class="playlist-time">10:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Има марулка, има трушийка и ще пийнем ракийка</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Да изорем дружно нивите, момчета!</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Ох вел</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Коньовишки жентълмен</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">жунгла е тука</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">дай му жега с паста за зъби корега</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">аре ве, докога ще пиша, не стана ли достатъчно високо това?</span>
+							<span class="playlist-time">10:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Небостъргач ли строим тука?</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">и осван това ми писна от тая песен, дето я слушам</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+					<li>
+						<a onclick="Player.selectTrack(666)">
+							<span class="playlist-title">Фред Герлах си пускам - Банат</span>
+							<span class="playlist-time">1:23</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Whitespace ruins alignment, so <a> tags had to be compressed -->
+		<footer class="shadow-top">
+			<div class="social">
+				<div class="social-label">Follow:</div>
+				<div class="social-icons">
+					<a
+						class="bandcamp-link"
+						title="Dimmu Saurus Bandcamp page"
+						href="http://bandcamp.com"
+						target="_blank"><i class="fab fa-bandcamp"></i></a><a
+						class="facebook-link"
+						title="Dimmu Saurus on Facebook"
+						href="https://www.facebook.com/dimmusaurus/"
+						target="_blank"><i class="fab fa-facebook-square"></i></a><a
+						class="youtube-link"
+						title="Dimmu Saurus Youtube channel"
+						href="https://www.youtube.com/playlist?list=PLBugGYGZgZWcA8ePOBLDdyD1__D7WWxMI"
+						target="_blank"><i class="fab fa-youtube"></i></a>
+				</div>
+			</div>
+
+			<div class="copyright">
+				<span class="copyright-copy">&copy;</span>
+				<span class="copyright-first-year">2004-</span>
+				<span class="copyright-last-year">{% now "Y" %}</span>
+				<span class="copyright-ds">Димозавъръ</span>
+			</div>
+		</footer>
+
+
+		<div class="player shadow-top">
+			<a
+				id="pl-playlist-toggle"
+				href="javascript:;"
+				class="playlist"><i class="fas fa-chevron-up"></i></a>
+
+				<div class="track-title">
+					<a href="javascript:;">
+					Le temps de chasseurs est venu encore une fois
+					</a>
+				</div>
+
+			<div class="track-progress-bar-container">
+				<span class="progress-time">02:16</span>
+
+				<div class="track-progress-bar">
+					<div class="track-progress-bar-background">
+						<div class="track-progress"></div>
+					</div>
+				</div>
+
+				<span class="total-time">10:38</span>
+			</div>
+
+			<div class="player-controls">
+				<a
+					onclick="Player.toggleMute(this)"
+					class="volume fas fa-volume-up"
+					href="javascript:;"></a><a
+
+					onclick="Player.previous()"
+					id="pl-previous"
+					class="fas fa-step-backward"
+					href="javascript:;"></a><a
+
+					onclick="Player.play()"
+					id="pl-play"
+					class="fas fa-play"
+					href="javascript:;"></a><a
+
+					onclick="Player.next()"
+					id="pl-next"
+					class="fas fa-step-forward"
+					href="javascript:;"></a>
+			</div>
+		</div>
+
+	</body>
+
+</html>

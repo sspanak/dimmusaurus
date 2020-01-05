@@ -2,3 +2,7 @@
 *.sublime-workspace
 *.zip
 dist/*
+src/py/static/*
+*__pycache__*
+*.html.py
+*.sqlite3

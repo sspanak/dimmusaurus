@@ -53,7 +53,7 @@
         "key-spacing": ["error", { "afterColon": true, "beforeColon": false }],
         "keyword-spacing": "error",
         "linebreak-style": ["error", "unix"],
-        "max-len": ["error", { "code": 130 }],
+        "max-len": ["error", { "code": 120 }],
         "no-lonely-if": "error",
         "no-whitespace-before-property": "error",
         "object-curly-newline": ["error", { "minProperties": 5, "multiline": true }],
