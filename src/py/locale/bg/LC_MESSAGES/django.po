@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-05 17:12+0200\n"
+"POT-Creation-Date: 2020-01-05 18:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,58 +26,75 @@ msgstr "Главно меню"
 msgid "Change Language"
 msgstr "Избор на език"
 
-#: src/py/main/templates/main/__root.html:112
+#: src/py/main/templates/main/__root.html:118
 msgid "home/"
 msgstr "начало/"
 
-#: src/py/main/templates/main/__root.html:114 src/py/main/views.py:10
+#: src/py/main/templates/main/__root.html:120
 msgid "Home"
 msgstr "Начало"
 
-#: src/py/main/templates/main/__root.html:118
+#: src/py/main/templates/main/__root.html:124
+#: src/py/main/templates/main/accueil.html:9
+#: src/py/main/templates/main/home.html:9
+#: src/py/main/templates/main/index.html:6
+#: src/py/main/templates/main/начало.html:7
 msgid "biography/"
 msgstr "биография/"
 
-#: src/py/main/templates/main/__root.html:120
+#: src/py/main/templates/main/__root.html:126
 msgid "Biography"
 msgstr "Биография"
 
-#: src/py/main/templates/main/__root.html:126
+#: src/py/main/templates/main/__root.html:132
 msgid "Music"
 msgstr "Музика"
 
-#: src/py/main/templates/main/__root.html:150
+#: src/py/main/templates/main/__root.html:156
+#: src/py/main/templates/main/accueil.html:9
+#: src/py/main/templates/main/home.html:9
+#: src/py/main/templates/main/index.html:5
+#: src/py/main/templates/main/начало.html:7
 msgid "music/"
 msgstr "музика/"
 
-#: src/py/main/templates/main/__root.html:262
+#: src/py/main/templates/main/__root.html:268
 msgid "Follow"
 msgstr "Последвай"
 
-#: src/py/main/templates/main/__root.html:266
+#: src/py/main/templates/main/__root.html:272
 msgid "Dimmu Saurus Bandcamp page"
 msgstr "Димозавър в Bandcamp"
 
-#: src/py/main/templates/main/__root.html:270
+#: src/py/main/templates/main/__root.html:276
 msgid "Dimmu Saurus on Facebook"
 msgstr "Димозавър във Facebook"
 
-#: src/py/main/templates/main/__root.html:274
+#: src/py/main/templates/main/__root.html:280
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Канал на Димозавър в Youtube"
 
-#: src/py/main/templates/main/index.html:7
+#: src/py/main/templates/main/index.html:10
 msgid "Welcome"
 msgstr "Добре дошли"
 
-#: src/py/main/templates/main/index.html:11
+#: src/py/main/templates/main/index.html:12
+msgid "Welcome the Black Blues Dimosaur's den (latin: <i>Dimmu Saurus</i>). It is a garage project for blues, rock and metal music, without any rules or limitations. The way real music should be."
+msgstr "Добре дошли в бърлогата на Черния Димозавър (латински: <i>Dimmu Saurus</i>). Това е гаражен проект за блус, рок и метъл без ограничения и без правила – каквато трябва да бъде истинската музика."
+
+#: src/py/main/templates/main/index.html:17
+#, python-format
+msgid "If you are a fan of this kind of music, then jump straight ahead to the <a href=\"/%(url_music)s\">discography</a> to hear a song. Or if you are interested in the project's background and how it came to be, read more <a href=\"/%(url_biography)s\">about Dimmu Saurus</a>."
+msgstr "Ако харесвате такава музика, продължете към <a href=\"/%(url_music)s\">дискографията</a>, за да чуете някоя песен. А ако сте любопитни да разберете нещо повече за проекта, прочетете <a href=\"/%(url_biography)s\">историята на Димозавъръ</a>."
+
+#: src/py/main/templates/main/index.html:24
 msgid "News"
 msgstr "Новини"
 
-#: src/py/main/views.py:12
+#: src/py/main/views.py:14
 msgid "Home Page"
 msgstr "Начална страница"
 
-#: src/py/main/views.py:13
+#: src/py/main/views.py:15
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Музика от гаража... без ограничения и без правила"

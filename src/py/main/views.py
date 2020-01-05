@@ -7,7 +7,7 @@ from django.utils.translation import gettext, activate
 def render_page(request):
     return render(
         request,
-        'main/' + gettext('Home').lower() + '.html',
+        'main/index.html',
         {
             'page': {
                 'url': 'home/',
