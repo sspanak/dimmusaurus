@@ -1,7 +1,7 @@
 *.sublime-project
 *.sublime-workspace
 *.zip
-dist/*
+ui-demo/*
 src/py/static/*
 *__pycache__*
 *.html.py
