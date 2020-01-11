@@ -42,6 +42,11 @@ footer .social,
 	max-height: 250px;
 }
 
+.content-discography .album-contents-wrapper {
+	-webkit-flex-flow: column;
+}
+
+
 
 @media screen and (min-width: 48em) {
 	.header-container,
@@ -115,5 +120,10 @@ footer .social,
 	  -webkit-flex: auto;
 	  -ms-flex: auto;
 	  flex: auto;
+	}
+
+	.menu-music > ul,
+	.content-lyrics .lyrics-wrapper {
+		 -webkit-flex-flow: column;
 	}
 }
