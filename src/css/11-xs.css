@@ -35,19 +35,9 @@
 
 
 /*============== Buttons ==============*/
-	.toggle-wrapper {
-		float: right;
-	}
-
-	.toggle-wrapper > a {
-		line-height: 64px;
-		margin: 0 16px;
-	}
-
-	.toggle-wrapper > .selected {
-		border-bottom: 2px solid;
-		line-height: 62px;
-	}
+	.toggle-wrapper {float: right;}
+	.toggle-wrapper > a {margin: 10px 16px 0;}
+	.toggle-wrapper > .selected {border-bottom: 2px solid;}
 
 	.header-container .toggle-wrapper > a > .fa-chevron-down, .header-container .toggle-wrapper > a > .fa-chevron-up {
 		display: none;

@@ -46,6 +46,7 @@ footer .social,
 @media screen and (min-width: 48em) {
 	.header-container,
 	.toggle-wrapper,
+	.header-container .logo-text,
 	.content-wrapper,
 	.lyrics-super-wrapper,
 	.content-lyrics .lyrics-wrapper {
@@ -65,12 +66,18 @@ footer .social,
 	}
 
 
+	.header-container .logo-text {
+		-webkit-align-items: center;
+	}
+
+
 	.toggle-language-wrapper {
 		-webkit-justify-content: flex-start;
 		-webkit-order: 1;
 	}
 
 	.header-container .logo-text-left {
+		-webkit-justify-content: flex-end;
 		-webkit-order: 2;
 	}
 
@@ -80,6 +87,7 @@ footer .social,
 	}
 
 	.header-container .logo-text-right {
+		-webkit-justify-content: flex-end;
 		-webkit-order: 4;
 	}
 
