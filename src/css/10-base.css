@@ -155,13 +155,12 @@ footer {
 footer .social {
 	align-items: center;
 	display: flex;
-	width: 75%;
+	flex: auto;
 }
 
 footer .copyright {
 	display: flex;
 	justify-content: flex-end;
-	width: 25%;
 }
 footer .copyright-copy, footer .copyright-last-year {
 	margin-right: 3px;

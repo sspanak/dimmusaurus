@@ -1,0 +1,111 @@
+/* Keeping these rules separate, because:
+  1) there is going to be legacy.css file anyway
+  2) they can be easily removed in the feature
+*/
+
+footer,
+footer .social,
+footer .copyright,
+.player,
+.menu-playlist li > a {
+	-webkit-align-items: center;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
+
+.player .track-progress-bar-container, .player .player-controls {
+	display: -webkit-inline-box;
+	display: -moz-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+}
+
+footer .copyright {
+	-webkit-justify-content: flex-end;
+	width: 40%;
+}
+
+footer .social,
+.player .track-title,
+.content-discography .album-tracks,
+.menu-playlist li > a .playlist-title {
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
+}
+
+.menu-playlist {
+	max-height: 250px;
+}
+
+
+@media screen and (min-width: 48em) {
+	.header-container,
+	.toggle-wrapper,
+	.content-wrapper,
+	.lyrics-super-wrapper,
+	.content-lyrics .lyrics-wrapper {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.menu-wrapper {
+		display: -webkit-inline-box;
+		display: -moz-inline-box;
+		display: -webkit-inline-flex;
+		display: -ms-inline-flexbox;
+		display: inline-flex;
+	}
+
+
+	.toggle-language-wrapper {
+		-webkit-justify-content: flex-start;
+		-webkit-order: 1;
+	}
+
+	.header-container .logo-text-left {
+		-webkit-order: 2;
+	}
+
+
+	.header-container .logo {
+		-webkit-order: 3;
+	}
+
+	.header-container .logo-text-right {
+		-webkit-order: 4;
+	}
+
+	.toggle-main-menu-wrapper {
+		-webkit-justify-content: flex-end;
+		-webkit-order: 5;
+	}
+}
+
+
+@media screen and (min-width: 64em) {
+	.header-super-wrapper, .menu-music > ul,
+	.menu-main-wrapper,
+	.lyrics-super-wrapper,
+	.content-lyrics .lyrics-wrapper {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -webkit-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+
+	.player .track-progress-bar-container,
+	.player .track-progress-bar {
+	  -webkit-flex: auto;
+	  -ms-flex: auto;
+	  flex: auto;
+	}
+}

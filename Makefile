@@ -27,8 +27,9 @@ clean-ui:
 	rm -r ui-demo/*
 
 css-ui:
-	cat src/css/*.css > ui-demo/ds.css
-	npm run --silent build-legacy-css > ui-demo/ds.legacy.css
+	cat src/css/{[0-9]*.css,dev-demo.css} > ui-demo/ds.css
+	cp src/css/legacy.css ui-demo/ds.legacy.css
+	npm run --silent build-legacy-css >> ui-demo/ds.legacy.css
 
 css-prod:
 	bash -c build-tools/build-css-prod.sh
