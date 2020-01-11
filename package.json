@@ -1,0 +1,27 @@
+{
+  "name": "dimmusaurus",
+  "version": "7.0.0",
+  "description": "A website for Dimmu Saurus, reincarnation 7.",
+  "main": "index.js",
+  "scripts": {
+  	"build-legacy-css": "node ./build-tools/build-legacy-css-theme.js src/css/00-colors.css",
+    "build-legacy-js": "./node_modules/.bin/babel --presets=@babel/env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sspanak/dimmusaurus.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sspanak/dimmusaurus/issues"
+  },
+  "homepage": "https://github.com/sspanak/dimmusaurus#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.7"
+  }
+}

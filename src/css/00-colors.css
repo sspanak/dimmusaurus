@@ -100,7 +100,10 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 		border-top: 1px solid var(--menu-separator-soft);
 	}
 
-	.menu-main {box-shadow: none;}
+	.menu-main {
+		background-color: transparent;
+		box-shadow: none;
+	}
 
 	.menu-main > ul > li > a {
 		border-left: 1px solid var(--menu-separator-strong);

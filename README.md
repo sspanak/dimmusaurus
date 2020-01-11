@@ -13,15 +13,26 @@ The goal of this project is to be as simple and as small as possible. It is a fi
   * Django 3.0.2
   * gettext 0.15 _(required by Django for translations)_
 * Code style
-  * npm _(Note that npm is NOT needed to run the project, it is just for installing the linters)_
-  * csslint
-  * eslint
+  * nodejs 12.14+
+    * csslint
+    * eslint
   * html tidy
   * pycodestyle
-* Makefile compatible with `bash`
+* Building
+  * nodejs 12.14+
+    * babel 7 is used for generating JS for older browsers
+    * there is a helper node script for building the legacy CSS.
+  * make _(There is a Makefile compatible with `bash`)_
 
 ### Development Setup
-All the source code is in `src/` folder, hence all development should happen there. There is a `Makefile` to build the `.css` and `.js`. A list of all `make` commands is available [below](#available-make-commands). You must use the standard `manage.py` that comes with Django to setup and run the website locally. Detailed instructions are available under [Running](#running).
+#### Project overview
+ * `build-tools` contains helper scripts needed for building and minifying the code. They are meant to be run by the `Makefile`. Normally, you don't have to modify them.
+ * `img` constains all the images
+ * `ui-demo` is the build directory for the demo site. It also servers as temporary directory when building and minifying the code for usage in Django.
+ * `src/` contains all the source code, hence all development should happen there. There is a `Makefile` to build the `.css` and `.js`. A list of all `make` commands is available [below](#available-make-commands). You must use the standard `manage.py` that comes with Django to setup and run the website locally. Detailed instructions are available under [Running](#running).
+   * `src/js`: contains the javascript source
+   * `src/css`: contains the css source
+   * `src/py`: contains the Django project source. `src/py/static` is the default Django static folder and is going to be populated when you build the JS, the CSS and the images using `Makefile`.
 
 #### Python, Django and database setup
 * Install Python 3.8 by the means of your operating system.

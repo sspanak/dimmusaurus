@@ -28,27 +28,17 @@ clean-ui:
 
 css-ui:
 	cat src/css/*.css > ui-demo/ds.css
+	npm run --silent build-legacy-css > ui-demo/ds.legacy.css
 
 css-prod:
-	cat src/css/[0-9]*.css \
-		| sed -r -e "s@\s*([,;:>{}])\s*@\1@g" \
-		| tr --delete '\n\t' \
-		| sed -r -e "s@\/\*+[^\/]+\*\/@@g" \
-		| sed -r -e "s@\/\*[^\*]+\*\/@@g" \
-		> ui-demo/ds.min.css
+	bash -c build-tools/build-css-prod.sh
 
 js-ui:
 	cat src/js/*.js	> ui-demo/ds.js
+	npm run --silent build-legacy-js -- ui-demo/ds.js > ui-demo/ds.legacy.js
 
 js-prod:
-	cat src/js/[0-9]*.js \
-	| sed -r -e "s@\/\/[^\n]+@@g" \
-	| tr --delete '\n\t' \
-	| sed -r -e "s@Logger\.[^;]+;@@g" \
-	| sed -r -e "s@\/\*+[^\/]+\*\/@@g" \
-	| sed -r -e "s@\/\*[^\*]+\*\/@@g" \
-	| sed -r -e "s@\s*([{}(),:;=+\-\*\\\?|&!])\s*@\1@g" \
-	> ui-demo/ds.min.js
+	bash -c build-tools/build-js-prod.sh
 
 images:
 	mkdir -p ui-demo/img

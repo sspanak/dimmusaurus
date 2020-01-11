@@ -31,7 +31,39 @@
 
 		<link rel="stylesheet" href="ds.css?version=39">
 
-		<script src="ds.js?version=8"></script>
+		<script>
+			function isOldBrowser() {
+				"use strict";
+
+				try {
+					if (typeof Symbol === 'undefined') throw new Error;
+					eval('class C {}');
+					eval('var a = (x) => x+1');
+				} catch (e) {
+					return true;
+				}
+
+				return false;
+			}
+
+
+			var js = document.createElement('script');
+
+			if (isOldBrowser()) {
+				// modern JS is completely incompatible with older browser, so we use a transpiled version
+				js.src = 'ds.legacy.js';
+
+				// most CSS can be reused, so we just add the extra legacy rules
+				var css = document.createElement('link');
+				css.rel = 'stylesheet';
+				css.href = 'ds.legacy.css';
+				document.head.appendChild(css);
+			} else {
+				js.src = 'ds.js';
+			}
+
+			document.head.appendChild(js);
+		</script>
 	</head>
 
 	<body class="unsupported-player">

@@ -7,3 +7,4 @@ src/py/static/*
 *.html.py
 *.sqlite3
 *.mo
+node_modules
