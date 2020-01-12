@@ -12,6 +12,8 @@ The goal of this project is to be as simple and as small as possible. It is a fi
   * Python 3.8 + Pip
   * Django 3.0.2
   * gettext 0.15 _(required by Django for translations)_
+  * python-markdown2 _(you may have it by default)_
+  * django-markdown-deux
 * Code style
   * nodejs 12.14+
     * csslint
@@ -34,12 +36,6 @@ The goal of this project is to be as simple and as small as possible. It is a fi
    * `src/css`: contains the css source
    * `src/py`: contains the Django project source. `src/py/static` is the default Django static folder and is going to be populated when you build the JS, the CSS and the images using `Makefile`.
 
-#### Python, Django and database setup
-* Install Python 3.8 by the means of your operating system.
-* Install Django 3.0
-  * Just do: `python -m pip install Django`.
-  * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out Django docs how to do this.
-
 #### Linters setup
 Linting is meant to be done using globally installed tools. However, depending on your IDE, you may choose to install them locally.
 
@@ -51,6 +47,19 @@ Linting is meant to be done using globally installed tools. However, depending o
 * Install Python linter: `pip install pycodestyle`
 
  You might as well install them in the project instead of globally.
+
+#### Frontend setup
+* Install npm 12.14+.
+* In the main project directory run: `npm install`.
+
+#### Python, Django and database setup
+* Install Python 3.8 by the means of your operating system.
+* Install Django 3.0
+  * Just do: `python -m pip install Django`.
+  * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out Django docs how to do this.
+  * `gettext` is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install version 0.15 or higher.
+* `pip install django-markdown-deux`: enables usage of `.md` files as templates.
+* `pip install markdown2`. Required for converting markdown bits from the database and by `django-markdown-deux`. _(Your Python version may include it by default)_
 
 ### Running
 
