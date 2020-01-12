@@ -1,7 +1,9 @@
 {% load i18n %}
 
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}">
 
 	<head>
 		<meta charset="utf-8">
@@ -116,7 +118,7 @@
 
 							{% language 'bg' %}
 							<li>
-								<a href="{% trans page.url %}">
+								<a href="{% trans page.url %}" lang="bg">
 									<span class="icon flag flag-bg"></span>
 									Български
 								</a>
@@ -125,7 +127,7 @@
 
 							{% language 'en' %}
 							<li>
-								<a href="{% trans page.url %}">
+								<a href="{% trans page.url %}" lang="en">
 									<span class="icon flag flag-en"></span>
 									English
 								</a>
@@ -134,7 +136,7 @@
 
 							{% language 'fr' %}
 							<li>
-								<a href="{% trans page.url %}">
+								<a href="{% trans page.url %}" lang="fr">
 									<span class="icon flag flag-fr"></span>
 									Français
 								</a>
