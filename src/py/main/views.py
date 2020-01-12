@@ -1,11 +1,10 @@
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.template import loader
-from django.utils.translation import gettext, activate
+from django.conf import settings
+from django.shortcuts import render, redirect
+from django.utils.translation import gettext, activate, get_language
 
 
 def render_page(request):
-    return render(
+    response = render(
         request,
         'main/index.html',
         {
@@ -17,9 +16,20 @@ def render_page(request):
         }
     )
 
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, get_language())
+    return response
+
 
 def index(request):
-    return HttpResponse('Determine language here then redirect to appropriate view')
+    browser_language = getattr(request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
+    if browser_language == 'bg':
+        return redirect('начало')
+    elif browser_language == 'fr':
+        return redirect('accueil')
+    else:
+        return redirect('home')
+
+    return response
 
 
 def начало(request):

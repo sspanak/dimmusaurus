@@ -43,6 +43,10 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # From the docs,
+    # locale should come after: SessionMiddleware, CacheMiddleware
+    # and before: CommonMiddleware.
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -116,6 +120,12 @@ USE_TZ = True
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale')
+]
+
+LANGUAGES = [
+    ('bg', 'Български'),
+    ('en', 'English'),
+    ('fr', 'Français'),
 ]
 
 
