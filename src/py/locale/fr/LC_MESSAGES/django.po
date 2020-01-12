@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-12 15:23+0200\n"
+"POT-Creation-Date: 2020-01-12 16:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,13 @@ msgstr "C'est quoi Dimmu Saurus?"
 #: src/py/bio/views.py:18
 msgid "The story of Dimmu Saurus project"
 msgstr "L'histoire de Dimmu Saurus"
+
+#. Translators: 404 page text
+#: src/py/main/templates/404.html:9
+msgid ""
+"There is nothing to see here. Please continue browsing or go to <a href=\"/"
+"\">Home page</a>."
+msgstr "Il n'y a rien à voir ici. Veuillez continuer à naviguer ou retourner au <a href=\"/\">page accueil</a>."
 
 #: src/py/main/templates/main/__root.html:96
 msgid "Main Menu"
