@@ -5,8 +5,8 @@
 	{% trans 'music/' as url_music %}
 	{% trans 'biography/' as url_biography %}
 	<div class="content content-home">
+		<h1 class="content-heading">{% trans "Welcome" %}</h1>
 		<article>
-			<h1 class="content-heading">{% trans "Welcome" %}</h1>
 				<p>
 					{% blocktrans trimmed %}
 						Welcome the Black Blues Dimosaur's den (latin: <i>Dimmu Saurus</i>). It is a garage project for blues, rock and metal music, without any rules or limitations. The way real music should be.
@@ -22,5 +22,4 @@
 		<h1 class="content-heading">{% trans "News" %}</h1>
 		{% block news_block %}{% endblock %}
 	</div>
-
 {% endblock %}
