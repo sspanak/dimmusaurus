@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load static %}
 
 {% get_current_language as LANGUAGE_CODE %}
 
@@ -20,13 +21,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<base href="//127.0.0.1:3666/">
-
-		<link rel="shortcut icon" href="static/img/favicon.ico">
+		<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
 
 		<link
 			rel="stylesheet"
-			href="static/reset.css">
+			href="{% static 'reset.css' %}">
 <!-- 		<link
 			rel="stylesheet"
 			href="https://unpkg.com/purecss@1.0.1/build/base-min.css"
@@ -42,7 +41,7 @@
 			integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
 			crossorigin="anonymous">
 
-		<link rel="stylesheet" href="static/ds.min.css">
+		<link rel="stylesheet" href="{% static 'ds.min.css' %}">
 
 				<script>
 			function isOldBrowser() {
@@ -64,15 +63,15 @@
 
 			if (isOldBrowser()) {
 				// modern JS is completely incompatible with older browser, so we use a transpiled version
-				js.src = 'static/ds.legacy.min.js';
+				js.src = '{% static "ds.legacy.min.js" %}';
 
 				// most CSS can be reused, so we just add the extra legacy rules
 				var css = document.createElement('link');
 				css.rel = 'stylesheet';
-				css.href = 'static/ds.legacy.min.css';
+				css.href = '{% static "ds.legacy.min.css" %}';
 				document.head.appendChild(css);
 			} else {
-				js.src = 'static/ds.min.js';
+				js.src = '{% static "ds.min.js" %}';
 			}
 
 			document.head.appendChild(js);
@@ -86,7 +85,7 @@
 				<div class="logo-text logo-text-left">Dimmu</div>
 
 				<div class="logo shadow-bottom">
-					<img src="static/img/dimmu-saurus-250-krio.png" alt="Dimmu Saurus" />
+					<img src="{% static 'img/dimmu-saurus-250-krio.png' %}" alt="Dimmu Saurus" />
 				</div>
 
 				<div class="logo-text logo-text-right">Saurus</div>
@@ -105,7 +104,7 @@
 						href="javascript:;"
 						title="{% trans 'Change Language' %}">
 						<i class="fas fa-language"></i>
-						<span class="toggle-language-label">Language / Език</span>
+						<span class="toggle-language-label">Language</span>
 						<i class="fas fa-chevron-down"></i>
 					</a>
 				</div>
@@ -118,7 +117,7 @@
 
 							{% language 'bg' %}
 							<li>
-								<a href="{% trans page.url %}" lang="bg">
+								<a href="/{% trans page.url %}" lang="bg">
 									<span class="icon flag flag-bg"></span>
 									Български
 								</a>
@@ -127,7 +126,7 @@
 
 							{% language 'en' %}
 							<li>
-								<a href="{% trans page.url %}" lang="en">
+								<a href="/{% trans page.url %}" lang="en">
 									<span class="icon flag flag-en"></span>
 									English
 								</a>
@@ -136,7 +135,7 @@
 
 							{% language 'fr' %}
 							<li>
-								<a href="{% trans page.url %}" lang="fr">
+								<a href="/{% trans page.url %}" lang="fr">
 									<span class="icon flag flag-fr"></span>
 									Français
 								</a>
