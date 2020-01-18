@@ -196,7 +196,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Home ==============*/
 .content-home article .news-title {margin-top: 1.5em;}
-.content-home article .tune-link {font-style: italic;}
+.content-home .news a {font-style: italic;}
 
 
 /*============== Tune ==============*/
