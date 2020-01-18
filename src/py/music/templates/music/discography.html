@@ -1,5 +1,7 @@
 {% extends "main/__root.html" %}
 {% load i18n %}
+{% load markdown_deux_tags %}
+
 
 {% block content_block %}
 <div class="content content-discography">
@@ -36,7 +38,7 @@
 					{% endblocktrans %}
 				</p>
 			{% else %}
-				<p>Това е първият албум на Dimmu Saurus, съдържащ песни композирани преди 2006 година. Музиката е прeдимно електронен рок и метъл без вокали, с изключение на С.М.Р.А.Д., която е първата истинска и зла песен на Димозавъра.</p>
+				{% markdown %}{{ page_albums.0.description }}{% endmarkdown %}
 			{% endif %}
 	</article>
 

@@ -7,7 +7,7 @@ urlpatterns = [
     path('music/', views.discography, name='discography'),
     path('musique/', views.discographie, name='discographie'),
 
-    path('музика/албуми/', views.албум, name='албум'),
-    path('music/albums/', views.album_en, name='album_en'),
-    path('musique/albums/', views.album_fr, name='album_fr'),
+    re_path('музика/албуми/(?P<album_id>[^\-]+)', views.албум, name='албум'),
+    re_path('music/albums/(?P<album_id>[^\-]+)', views.album_en, name='album_en'),
+    re_path('musique/albums/(?P<album_id>[^\-]+)', views.album_fr, name='album_fr'),
 ]

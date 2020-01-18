@@ -1,5 +1,6 @@
+{% for a in page_albums %}
 <div class="album">
-	<h3 class="album-title">(2010) Яхния от мисли</h3>
+	<h3 class="album-title">{{ a.album.release_date|date:"(Y)" }} {{ a.title }}</h3>
 
 	<div class="album-contents-wrapper">
 		<div class="album-cover">
@@ -70,3 +71,4 @@
 	</div>
 
 </div>
+{% endfor %}

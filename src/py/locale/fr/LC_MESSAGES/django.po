@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-18 17:46+0200\n"
+"POT-Creation-Date: 2020-01-18 21:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "Home"
 msgstr "Accueil"
 
 #. Translators: Biography page title
-#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:16
+#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:19
 #: src/py/main/templates/main/__root.html:159
 msgid "Biography"
 msgstr "Biographie"
@@ -42,7 +42,7 @@ msgid "About Dimmu Saurus"
 msgstr "C'est quoi Dimmu Saurus?"
 
 #. Translators: Biography page description
-#: src/py/bio/views.py:18
+#: src/py/bio/views.py:21
 msgid "The story of Dimmu Saurus project"
 msgstr "L'histoire de Dimmu Saurus"
 
@@ -69,12 +69,14 @@ msgid "biography/"
 msgstr "biographie/"
 
 #: src/py/main/templates/main/__root.html:165
-#: src/py/music/templates/music/discography.html:11
+#: src/py/music/templates/music/discography.html:13
+#: src/py/music/templates/music/discography.html:16
 msgid "Music"
 msgstr "Musique"
 
 #: src/py/main/templates/main/__root.html:174
 #: src/py/main/templates/main/index.html:5
+#: src/py/music/templates/music/discography.html:16
 msgid "music/"
 msgstr "musique/"
 
@@ -82,23 +84,23 @@ msgstr "musique/"
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: src/py/main/templates/main/__root.html:192
-msgid "Cover Versions"
-msgstr "Reprises"
+#: src/py/main/templates/main/__root.html:178
+msgid "music/albums/"
+msgstr "musique/albums/"
 
-#: src/py/main/templates/main/__root.html:301
+#: src/py/main/templates/main/__root.html:290
 msgid "Follow"
 msgstr "Suivez"
 
-#: src/py/main/templates/main/__root.html:305
+#: src/py/main/templates/main/__root.html:294
 msgid "Dimmu Saurus Bandcamp page"
 msgstr "Dimmu Saurus sur Bandcamp"
 
-#: src/py/main/templates/main/__root.html:309
+#: src/py/main/templates/main/__root.html:298
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: src/py/main/templates/main/__root.html:313
+#: src/py/main/templates/main/__root.html:302
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
@@ -133,19 +135,19 @@ msgstr ""
 msgid "News"
 msgstr "Nouvelles"
 
-#: src/py/main/templates/main/news.html:17
+#: src/py/main/templates/main/news.html:15
 msgid "No news are available at this time."
 msgstr "Il n'y a pas des nouvelles maintenant."
 
-#: src/py/main/views.py:19
+#: src/py/main/views.py:22
 msgid "Home Page"
 msgstr "Accueil"
 
-#: src/py/main/views.py:20
+#: src/py/main/views.py:23
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
 
-#: src/py/music/templates/music/discography.html:19
+#: src/py/music/templates/music/discography.html:29
 msgid ""
 "Dimmu Saurus' music is result of series of experiments with his guitar and "
 "his computer. They lead to almost anything you can imagine – from Blues to "
@@ -158,18 +160,22 @@ msgstr ""
 "transforme en black metal en combinaison avec un orchestre classique. Bien "
 "sur, on n'a pas oublié la musique électronique. "
 
-#: src/py/music/templates/music/discography.html:24
+#: src/py/music/templates/music/discography.html:34
 msgid "All the music is available for listening and downloading for free."
 msgstr ""
 "La discographie complète est disponible gratuitement de télécharger et "
 "d'écouter."
 
+#: src/py/music/views.py:17
+msgid "Track list and information."
+msgstr "Liste des titres et information."
+
 #. Translators: Discography page title
-#: src/py/music/views.py:16
+#: src/py/music/views.py:28
 msgid "Discography"
 msgstr "Discographie"
 
 #. Translators: Discography page description
-#: src/py/music/views.py:18
+#: src/py/music/views.py:30
 msgid "Dimmu Saurus Discography"
 msgstr "Dimmu Saurus – Discographie"

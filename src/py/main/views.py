@@ -3,27 +3,30 @@ from django.shortcuts import render, redirect
 from django.utils.translation import gettext, activate, get_language
 
 from .models import News
+from music.models import AlbumDetails
 
 
 def render_page(request):
-    language_code = get_language()
+    lang = get_language()
 
-    news = News.objects.filter(language=language_code).order_by('-pub_date')[:10]
+    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
+    news = News.objects.filter(language=lang).order_by('-pub_date')[:10]
 
     response = render(
         request,
         'main/index.html',
         {
+            'albums': albums,
+            'news': news,
             'page': {
                 'url': 'home/',
                 'title': gettext('Home Page'),
                 'description': gettext('Music from the garage... without rules or restrictions'),
             },
-            'news': news
         }
     )
 
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language_code)
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
 
 

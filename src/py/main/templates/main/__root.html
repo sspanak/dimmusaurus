@@ -173,24 +173,13 @@
 								<li>
 									<a href="/{% trans 'music/' %}">{% trans 'All Albums' %}</a>
 								</li>
+								{% for a_info in albums %}
 								<li>
-									<a>(2014) III</a>
+									<a href="/{% trans 'music/albums/' %}{{ a_info.album.id }}-{{ a_info.slug }}">
+										{{ a_info.album.release_date|date:"(Y)" }} {{ a_info.title }}
+									</a>
 								</li>
-								<li>
-									<a>(2013) Битка на баира</a>
-								</li>
-								<li>
-									<a>(2013) Пътят, който всички...</a>
-								</li>
-								<li>
-									<a>(2010) Яхния от мисли</a>
-								</li>
-								<li>
-									<a>(2006) Зона Чернобил</a>
-								</li>
-								<li>
-									<a>{% trans 'Cover Versions' %}</a>
-								</li>
+								{% endfor %}
 							</ul>
 						</nav>
 

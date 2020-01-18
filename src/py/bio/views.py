@@ -2,14 +2,19 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext, activate, get_language
 
+from music.models import AlbumDetails
+
 
 def render_page(request):
-    language = get_language()
+    lang = get_language()
+
+    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
 
     response = render(
         request,
-        'bio/bio-%s.md' % language,
+        'bio/bio-%s.md' % lang,
         {
+            'albums': albums,
             'page': {
                 'url': 'biography/',
                 # Translators: Biography page title
@@ -20,7 +25,7 @@ def render_page(request):
         }
     )
 
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
 
 
