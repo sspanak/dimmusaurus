@@ -8,7 +8,17 @@
 			<li>
 				<span><a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a></span>
 			</li>
-			<li><i class="fas fa-music"></i>{% trans 'Music' %}</li>
+
+			{% if not page.single_album %}
+				<li><i class="fas fa-music"></i>{% trans 'Music' %}</li>
+			{% else %}
+				<li>
+					<span><a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a></span>
+				</li>
+
+				<li><i class="fas fa-compact-disc"></i>{{ page.title }}</li>
+			{% endif %}
+
 		</ul>
 	</nav>
 
@@ -26,12 +36,13 @@
 					{% endblocktrans %}
 				</p>
 			{% else %}
-				<p>Album descrition</p>
+				<p>Това е първият албум на Dimmu Saurus, съдържащ песни композирани преди 2006 година. Музиката е прeдимно електронен рок и метъл без вокали, с изключение на С.М.Р.А.Д., която е първата истинска и зла песен на Димозавъра.</p>
 			{% endif %}
-		</p>
 	</article>
 
 	<hr>
+
+	{% include "music/albums.html" %}
 
 </div>
 {% endblock %}
