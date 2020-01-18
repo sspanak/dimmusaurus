@@ -2,8 +2,14 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext, activate, get_language
 
+from .models import News
+
 
 def render_page(request):
+    language_code = get_language()
+
+    news = News.objects.filter(language=language_code).order_by('-pub_date')[:10]
+
     response = render(
         request,
         'main/index.html',
@@ -12,11 +18,12 @@ def render_page(request):
                 'url': 'home/',
                 'title': gettext('Home Page'),
                 'description': gettext('Music from the garage... without rules or restrictions'),
-            }
+            },
+            'news': news
         }
     )
 
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, get_language())
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language_code)
     return response
 
 

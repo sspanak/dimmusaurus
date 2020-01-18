@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-12 16:22+0200\n"
+"POT-Creation-Date: 2020-01-18 16:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,7 +49,9 @@ msgstr "Основаване и история на проекта Димоза�
 msgid ""
 "There is nothing to see here. Please continue browsing or go to <a href=\"/"
 "\">Home page</a>."
-msgstr "Тук няма нещо за гледане. Моля продължете напред или се върнете на <a href=\"/\">главната страница</a>."
+msgstr ""
+"Тук няма нещо за гледане. Моля продължете напред или се върнете на <a href="
+"\"/\">главната страница</a>."
 
 #: src/py/main/templates/main/__root.html:96
 msgid "Main Menu"
@@ -120,10 +122,14 @@ msgstr ""
 msgid "News"
 msgstr "Новини"
 
-#: src/py/main/views.py:13
+#: src/py/main/templates/main/news.html:15
+msgid "No news are available at this time."
+msgstr "В момента няма новини."
+
+#: src/py/main/views.py:19
 msgid "Home Page"
 msgstr "Начална страница"
 
-#: src/py/main/views.py:14
+#: src/py/main/views.py:20
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Музика от гаража... без ограничения и без правила"

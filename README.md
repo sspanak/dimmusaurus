@@ -67,6 +67,7 @@ Linting is meant to be done using globally installed tools. However, depending o
 * `make` - builds and minifies the `css` and the `js`, and copies them and the images to the Django `static` folder.
 * `cd src/py`
 * `django-admin compilemessages` - builds all translations from `.po` files
+* `python manage.py migrate` - runs database migrations
 * `python manage.py runserver [a-port-of-your-choice]` - runs the server
 
 The site will be available on 127.0.0.1:8000, or at the port you have chosen.

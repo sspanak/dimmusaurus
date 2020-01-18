@@ -1,0 +1,21 @@
+{% load markdown_deux_tags %}
+{% load i18n %}
+
+{% block content_block %}
+
+	{% for n in news %}
+		<article>
+			<h3 class="news-title">{{ n.title }}</h3>
+			<h4>{{ n.pub_date }}</h4>
+
+			{% markdown %}{{ n.body }}{% endmarkdown %}
+		</article>
+
+		{% if not forloop.last %} <hr> {% endif %}
+	{% empty %}
+		<p>
+			{% trans 'No news are available at this time.' %}
+		</p>
+	{% endfor %}
+
+{% endblock %}

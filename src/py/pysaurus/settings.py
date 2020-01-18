@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Sofia'
 
 USE_I18N = True
 
@@ -138,3 +138,12 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+MARKDOWN_DEUX_STYLES = {
+    'default': {
+        "extras": {
+            "code-friendly": None,
+        },
+        "safe_mode": False,  # enable links in Markdown
+    }
+}
