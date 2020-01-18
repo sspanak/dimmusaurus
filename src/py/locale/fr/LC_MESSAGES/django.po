@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-18 16:37+0200\n"
+"POT-Creation-Date: 2020-01-18 17:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,13 @@ msgstr ""
 
 #: src/py/bio/templates/bio/index.html:9
 #: src/py/main/templates/main/__root.html:151
+#: src/py/music/templates/music/discography.html:9
 msgid "home/"
 msgstr "accueil/"
 
 #: src/py/bio/templates/bio/index.html:9
 #: src/py/main/templates/main/__root.html:153
+#: src/py/music/templates/music/discography.html:9
 msgid "Home"
 msgstr "Accueil"
 
@@ -67,13 +69,22 @@ msgid "biography/"
 msgstr "biographie/"
 
 #: src/py/main/templates/main/__root.html:165
+#: src/py/music/templates/music/discography.html:11
 msgid "Music"
 msgstr "Musique"
 
-#: src/py/main/templates/main/__root.html:189
+#: src/py/main/templates/main/__root.html:174
 #: src/py/main/templates/main/index.html:5
 msgid "music/"
 msgstr "musique/"
+
+#: src/py/main/templates/main/__root.html:174
+msgid "All Albums"
+msgstr "Toute la discographie"
+
+#: src/py/main/templates/main/__root.html:192
+msgid "Cover Versions"
+msgstr "Reprises"
 
 #: src/py/main/templates/main/__root.html:301
 msgid "Follow"
@@ -122,7 +133,7 @@ msgstr ""
 msgid "News"
 msgstr "Nouvelles"
 
-#: src/py/main/templates/main/news.html:15
+#: src/py/main/templates/main/news.html:17
 msgid "No news are available at this time."
 msgstr "Il n'y a pas des nouvelles maintenant."
 
@@ -133,3 +144,32 @@ msgstr "Accueil"
 #: src/py/main/views.py:20
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
+
+#: src/py/music/templates/music/discography.html:19
+msgid ""
+"Dimmu Saurus' music is result of series of experiments with his guitar and "
+"his computer. They lead to almost anything you can imagine – from Blues to "
+"Heavy Metal, some Black and Thrash here and there, and last but not least – "
+"several Classical and Electronic tunes."
+msgstr ""
+"La musique de Dimmu Saurus est un mélange de presque tous les genres "
+"musicaux. C'est le résultat des expériences menées avec sa guitare et un "
+"petit logiciel. En conséquence on peut écouter de blues ou rock qui se "
+"transforme en black metal en combinaison avec un orchestre classique. Bien "
+"sur, on n'a pas oublié la musique électronique. "
+
+#: src/py/music/templates/music/discography.html:24
+msgid "All the music is available for listening and downloading for free."
+msgstr ""
+"La discographie complète est disponible gratuitement de télécharger et "
+"d'écouter."
+
+#. Translators: Discography page title
+#: src/py/music/views.py:16
+msgid "Discography"
+msgstr "Discographie"
+
+#. Translators: Discography page description
+#: src/py/music/views.py:18
+msgid "Dimmu Saurus Discography"
+msgstr "Dimmu Saurus – Discographie"

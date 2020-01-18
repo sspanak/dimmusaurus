@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-18 16:37+0200\n"
+"POT-Creation-Date: 2020-01-18 17:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,13 @@ msgstr ""
 
 #: src/py/bio/templates/bio/index.html:9
 #: src/py/main/templates/main/__root.html:151
+#: src/py/music/templates/music/discography.html:9
 msgid "home/"
 msgstr "начало/"
 
 #: src/py/bio/templates/bio/index.html:9
 #: src/py/main/templates/main/__root.html:153
+#: src/py/music/templates/music/discography.html:9
 msgid "Home"
 msgstr "Начало"
 
@@ -67,13 +69,22 @@ msgid "biography/"
 msgstr "биография/"
 
 #: src/py/main/templates/main/__root.html:165
+#: src/py/music/templates/music/discography.html:11
 msgid "Music"
 msgstr "Музика"
 
-#: src/py/main/templates/main/__root.html:189
+#: src/py/main/templates/main/__root.html:174
 #: src/py/main/templates/main/index.html:5
 msgid "music/"
 msgstr "музика/"
+
+#: src/py/main/templates/main/__root.html:174
+msgid "All Albums"
+msgstr "Всички албуми"
+
+#: src/py/main/templates/main/__root.html:192
+msgid "Cover Versions"
+msgstr "Кавъри"
 
 #: src/py/main/templates/main/__root.html:301
 msgid "Follow"
@@ -122,7 +133,7 @@ msgstr ""
 msgid "News"
 msgstr "Новини"
 
-#: src/py/main/templates/main/news.html:15
+#: src/py/main/templates/main/news.html:17
 msgid "No news are available at this time."
 msgstr "В момента няма новини."
 
@@ -133,3 +144,29 @@ msgstr "Начална страница"
 #: src/py/main/views.py:20
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Музика от гаража... без ограничения и без правила"
+
+#: src/py/music/templates/music/discography.html:19
+msgid ""
+"Dimmu Saurus' music is result of series of experiments with his guitar and "
+"his computer. They lead to almost anything you can imagine – from Blues to "
+"Heavy Metal, some Black and Thrash here and there, and last but not least – "
+"several Classical and Electronic tunes."
+msgstr ""
+"Музиката на Димозавъръ е смесица от почти всички музикални жанрове. Тя е "
+"крайния резултат от многобройни експерименти с китарата и компютъра му, "
+"довели до какво ли не – от блус до хеви метъл, чат-пат – блек и трашец, а "
+"тук-таме и малко класика и електроника. "
+
+#: src/py/music/templates/music/discography.html:24
+msgid "All the music is available for listening and downloading for free."
+msgstr "Всички парчета могат да се слушат и свалят напълно свободно. "
+
+#. Translators: Discography page title
+#: src/py/music/views.py:16
+msgid "Discography"
+msgstr "Дискография"
+
+#. Translators: Discography page description
+#: src/py/music/views.py:18
+msgid "Dimmu Saurus Discography"
+msgstr "Дискография на Dimmu Saurus"

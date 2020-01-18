@@ -1,0 +1,37 @@
+{% extends "main/__root.html" %}
+{% load i18n %}
+
+{% block content_block %}
+<div class="content content-discography">
+	<nav class="breadcrumbs" aria-label="breadcrumbs">
+		<ul>
+			<li>
+				<span><a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a></span>
+			</li>
+			<li><i class="fas fa-music"></i>{% trans 'Music' %}</li>
+		</ul>
+	</nav>
+
+	<h1 class="content-heading">{{ page.title }}</h1>
+	<article>
+			{% if not page.single_album %}
+				<p>
+					{% blocktrans trimmed %}
+						 Dimmu Saurus' music is result of series of experiments with his guitar and his computer. They lead to almost anything you can imagine – from Blues to Heavy Metal, some Black and Thrash here and there, and last but not least – several Classical and Electronic tunes.
+					{% endblocktrans %}
+				</p>
+				<p>
+					{% blocktrans trimmed %}
+						All the music is available for listening and downloading for free.
+					{% endblocktrans %}
+				</p>
+			{% else %}
+				<p>Album descrition</p>
+			{% endif %}
+		</p>
+	</article>
+
+	<hr>
+
+</div>
+{% endblock %}

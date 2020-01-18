@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'markdown_deux',
-    'main', 'bio',  # The Website!
+    'main', 'bio', 'music'  # The Website!
 ]
 
 MIDDLEWARE = [
