@@ -1,8 +1,8 @@
 from django.conf import settings
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
-from .models import AlbumDetails
+from .models import AlbumDetails, SongLyrics
 
 
 def render_albums(request, album_id=None):
@@ -21,7 +21,8 @@ def render_albums(request, album_id=None):
             'page_albums': [selected_album],
             'page': {
                 'url': 'music/albums/',
-                'url_slug': '%s/switch_language' % selected_album.album.id,
+                'url_slug': selected_album.album.id,
+                'url_slug_operation': '/switch_language/',
                 'title': selected_album.title,
                 'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),
                 'single_album': True,
@@ -71,15 +72,28 @@ def render_lyrics(request, song_id):
     lang = get_language()
 
     albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
+    lyrics = get_object_or_404(SongLyrics, song__id=song_id)
+    try:
+        this_song = lyrics.song.songdescription_set.filter(language=lang)[0]
+        this_album = lyrics.song.album.albumdetails_set.filter(language=lang)[0]
+        this_song_title = this_song.title or lyrics.song.original_title
+    except IndexError:
+        raise Http404
 
     context = {
         'albums': albums,
+        'lyrics': lyrics,
+        'song': this_song,
+        'song_title': this_song_title,
+        'album': this_album,
         'page': {
                 'url': 'music/songs/',
+                'url_slug': '%d-%s' % (lyrics.song.id, lyrics.song.slug),
+                'url_slug_operation': '/lyrics/',
                 # Translators: Lyrics page title
-                'title': gettext('Song Lyrics'),
+                'title': '%s | %s' % (this_song_title, gettext('Song Lyrics')),
                 # Translators: Lyrics page description
-                'description': '%s. %s' % ('XXX', gettext('Song lyrics and English translation.')),
+                'description': '%s. %s' % (this_song_title, gettext('Song lyrics and English translation.')),
             }
     }
 
@@ -90,7 +104,6 @@ def render_lyrics(request, song_id):
 
 
 def random_invalid_route(request):
-
     browser_language = getattr(request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
     if browser_language == 'bg':
         redirect = HttpResponseRedirect('/музика/')
