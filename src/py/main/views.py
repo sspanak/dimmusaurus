@@ -33,11 +33,11 @@ def render_page(request):
 def index(request):
     browser_language = getattr(request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
     if browser_language == 'bg':
-        return redirect('/начало')
+        return redirect('/начало/')
     elif browser_language == 'fr':
-        return redirect('/accueil')
+        return redirect('/accueil/')
     else:
-        return redirect('/home')
+        return redirect('/home/')
 
 
 def начало(request):
