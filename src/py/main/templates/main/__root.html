@@ -117,7 +117,7 @@
 
 							{% language 'bg' %}
 							<li>
-								<a href="/{% trans page.url %}" lang="bg">
+								<a href="/{% trans page.url %}{{ page.url_slug }}" lang="bg">
 									<span class="icon flag flag-bg"></span>
 									Български
 								</a>
@@ -126,7 +126,7 @@
 
 							{% language 'en' %}
 							<li>
-								<a href="/{% trans page.url %}" lang="en">
+								<a href="/{% trans page.url %}{{ page.url_slug }}" lang="en">
 									<span class="icon flag flag-en"></span>
 									English
 								</a>
@@ -135,7 +135,7 @@
 
 							{% language 'fr' %}
 							<li>
-								<a href="/{% trans page.url %}" lang="fr">
+								<a href="/{% trans page.url %}{{ page.url_slug }}" lang="fr">
 									<span class="icon flag flag-fr"></span>
 									Français
 								</a>

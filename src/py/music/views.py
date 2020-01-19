@@ -20,7 +20,8 @@ def render_albums(request, album_id=None):
             'albums': albums,
             'page_albums': [selected_album],
             'page': {
-                'url': 'music/albums/%d-%s' % (selected_album.album.id, selected_album.slug),
+                'url': 'music/albums/',
+                'url_slug': '%s/switch_language' % selected_album.album.id,
                 'title': selected_album.title,
                 'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),
                 'single_album': True,
@@ -46,6 +47,7 @@ def render_albums(request, album_id=None):
     return response
 
 
+# ######### All Albums Overview ######### #
 def дискография(request):
     activate('bg')
     return render_albums(request)
@@ -61,6 +63,7 @@ def discographie(request):
     return render_albums(request)
 
 
+# ######### Single Album View ######### #
 def албум(request, album_id):
     activate('bg')
     return render_albums(request, album_id)
