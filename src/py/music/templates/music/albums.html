@@ -1,10 +1,30 @@
+{% load i18n %}
+
 {% for a in page_albums %}
+{% if not page.single_album or a.description %}
+<hr>
+{% endif %}
+
 <div class="album">
-	<h3 class="album-title">{{ a.album.release_date|date:"(Y)" }} {{ a.title }}</h3>
+	<h3 class="album-title">
+		{% if page.single_album %}
+			{{ a.album.release_date|date:"(Y)" }} {{ a.title }}
+		{% else %}
+			<a href="/{% trans 'music/albums/' %}{{ a.album.id }}-{{ a.slug }}">
+				{{ a.album.release_date|date:"(Y)" }} {{ a.title }}
+			</a>
+		{% endif %}
+	</h3>
 
 	<div class="album-contents-wrapper">
 		<div class="album-cover">
-			<i class="fas fa-compact-disc"></i>
+			{% if page.single_album %}
+				<i class="fas fa-compact-disc"></i>
+			{% else %}
+				<a href="/{% trans 'music/albums/' %}{{ a.album.id }}-{{ a.slug }}">
+					<i class="fas fa-compact-disc"></i>
+				</a>
+			{% endif %}
 		</div>
 
 		<ol class="album-tracks">

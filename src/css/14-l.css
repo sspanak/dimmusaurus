@@ -116,8 +116,12 @@
 	}
 	.content {
 		font-size: 0.95em;
-		max-width: 68em;
 		padding: 0.7em 2.1em;
+		width: 68em;
+	}
+	.content-404 {
+		max-width: 68em;
+		width: auto;
 	}
 
 

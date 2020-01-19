@@ -96,8 +96,12 @@
 	}
 
 	.content {
-		max-width: 65em;
 		padding: 0.67em 2em;
+		width: 65em;
+	}
+	.content-404 {
+		max-width: 65em;
+		width: auto;
 	}
 
 
