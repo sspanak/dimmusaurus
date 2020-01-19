@@ -10,7 +10,7 @@
 		{% if page.single_album %}
 			{{ a.album.release_date|date:"(Y)" }} {{ a.title }}
 		{% else %}
-			<a href="/{% trans 'music/albums/' %}{{ a.album.id }}-{{ a.slug }}">
+			<a href="/{% trans 'music/albums/' %}{{ a.album_id }}-{{ a.slug }}">
 				{{ a.album.release_date|date:"(Y)" }} {{ a.title }}
 			</a>
 		{% endif %}
@@ -21,7 +21,7 @@
 			{% if page.single_album %}
 				<i class="fas fa-compact-disc"></i>
 			{% else %}
-				<a href="/{% trans 'music/albums/' %}{{ a.album.id }}-{{ a.slug }}">
+				<a href="/{% trans 'music/albums/' %}{{ a.album_id }}-{{ a.slug }}">
 					<i class="fas fa-compact-disc"></i>
 				</a>
 			{% endif %}

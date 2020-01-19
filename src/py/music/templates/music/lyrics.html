@@ -14,10 +14,10 @@
 				<span><a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a></span>
 			</li>
 			<li>
-				<span><a href="/{% trans 'music/albums/' %}{{ album.album.id }}-{{ album.slug }}"><i class="fas fa-compact-disc"></i>{{ album.title }}</a></span>
+				<span><a href="/{% trans 'music/albums/' %}{{ album.album_id }}-{{ album.slug }}"><i class="fas fa-compact-disc"></i>{{ album.title }}</a></span>
 			</li>
 			<li>
-				<span><a href="/{% trans 'music/songs/' %}{{ lyrics.song.id }}-{{ lyrics.song.slug }}"><i class="fas fa-guitar"></i>{{ song_title }}</a></span>
+				<span><a href="/{% trans 'music/songs/' %}{{ lyrics.song_id }}-{{ lyrics.song.slug }}"><i class="fas fa-guitar"></i>{{ song_title }}</a></span>
 			</li>
 			<li><i class="fas fa-file-alt"></i>{% trans 'lyrics'|title %}</li>
 		</ul>

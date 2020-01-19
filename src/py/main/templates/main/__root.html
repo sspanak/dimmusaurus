@@ -175,7 +175,7 @@
 								</li>
 								{% for a_info in albums %}
 								<li>
-									<a href="/{% trans 'music/albums/' %}{{ a_info.album.id }}-{{ a_info.slug }}">
+									<a href="/{% trans 'music/albums/' %}{{ a_info.album_id }}-{{ a_info.slug }}">
 										{{ a_info.album.release_date|date:"(Y)" }} {{ a_info.title }}
 									</a>
 								</li>

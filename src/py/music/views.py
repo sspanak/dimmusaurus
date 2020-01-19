@@ -2,7 +2,7 @@ from django.conf import settings
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
-from .models import AlbumDetails, SongLyrics
+from .models import AlbumDetails, SongLyrics, Song
 
 
 def render_albums(request, album_id=None):
@@ -11,17 +11,14 @@ def render_albums(request, album_id=None):
     albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
 
     if album_id:
-        try:
-            selected_album = albums.filter(album__id=album_id)[0]
-        except IndexError:
-            raise Http404
+        selected_album = get_object_or_404(albums, album__id=album_id)
 
         context = {
             'albums': albums,
             'page_albums': [selected_album],
             'page': {
                 'url': 'music/albums/',
-                'url_slug': selected_album.album.id,
+                'url_slug': selected_album.album_id,
                 'url_slug_operation': '/switch_language/',
                 'title': selected_album.title,
                 'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),
@@ -73,12 +70,10 @@ def render_lyrics(request, song_id):
 
     albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
     lyrics = get_object_or_404(SongLyrics, song__id=song_id)
-    try:
-        this_song = lyrics.song.songdescription_set.filter(language=lang)[0]
-        this_album = lyrics.song.album.albumdetails_set.filter(language=lang)[0]
-        this_song_title = this_song.title or lyrics.song.original_title
-    except IndexError:
-        raise Http404
+    this_song = get_object_or_404(lyrics.song.songdescription_set, language=lang)
+    this_album = get_object_or_404(lyrics.song.album.albumdetails_set, language=lang)
+
+    this_song_title = this_song.title or lyrics.song.original_title
 
     context = {
         'albums': albums,
@@ -88,7 +83,7 @@ def render_lyrics(request, song_id):
         'album': this_album,
         'page': {
                 'url': 'music/songs/',
-                'url_slug': '%d-%s' % (lyrics.song.id, lyrics.song.slug),
+                'url_slug': '%d-%s' % (lyrics.song_id, lyrics.song.slug),
                 'url_slug_operation': '/lyrics/',
                 # Translators: Lyrics page title
                 'title': '%s | %s' % (this_song_title, gettext('Song Lyrics')),

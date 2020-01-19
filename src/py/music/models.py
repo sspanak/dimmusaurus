@@ -20,7 +20,7 @@ class AlbumDetails(models.Model):
         unique_together = ('album', 'language')
 
     def __str__(self):
-        return '%d | %s | %s' % (self.album.id, self.language, self.title)
+        return '%d | %s | %s' % (self.album_id, self.language, self.title)
 
 
 class Song(models.Model):
@@ -46,7 +46,7 @@ class SongDescription(models.Model):
         unique_together = ('song', 'language')
 
     def __str__(self):
-        return '%d | %s | %s' % (self.song.id, self.language, self.title)
+        return '%d | %s | %s' % (self.song_id, self.language, self.title)
 
 
 class SongFile(models.Model):
@@ -66,7 +66,7 @@ class SongFile(models.Model):
         unique_together = ('song', 'file_type')
 
     def __str__(self):
-        return '%d | %s' % (self.song.id, self.file_path)
+        return '%d | %s' % (self.song_id, self.file_path)
 
 
 class SongLyrics(models.Model):
@@ -77,4 +77,4 @@ class SongLyrics(models.Model):
     english_lyrics = models.TextField('english lyrics', null=True, blank=True)
 
     def __str__(self):
-        return '%d | %s' % (self.song.id, self.title)
+        return '%d | %s' % (self.song_id, self.title)
