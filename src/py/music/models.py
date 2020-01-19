@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 class Album(models.Model):
@@ -11,9 +12,12 @@ class Album(models.Model):
 class AlbumDetails(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     description = models.TextField(null=True, blank=True)
-    language = models.CharField(max_length=2)
+    language = models.CharField(max_length=2, choices=settings.LANGUAGES)
     slug = models.SlugField(allow_unicode=True)
     title = models.CharField(max_length=255)
+
+    class Meta:
+        unique_together = ('album', 'language')
 
     def __str__(self):
         return '%d | %s | %s' % (self.album.id, self.language, self.title)
