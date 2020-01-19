@@ -67,6 +67,28 @@ def render_song(request, song_id):
     return response
 
 
+def render_lyrics(request, song_id):
+    lang = get_language()
+
+    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
+
+    context = {
+        'albums': albums,
+        'page': {
+                'url': 'music/songs/',
+                # Translators: Lyrics page title
+                'title': gettext('Song Lyrics'),
+                # Translators: Lyrics page description
+                'description': '%s. %s' % ('XXX', gettext('Song lyrics and English translation.')),
+            }
+    }
+
+    response = render(request, 'music/lyrics.html', context)
+
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+    return response
+
+
 def random_invalid_route(request):
 
     browser_language = getattr(request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
@@ -127,3 +149,19 @@ def song(request, song_id):
 def chanson(request, song_id):
     activate('fr')
     return render_song(request, song_id)
+
+
+# ######### Lyrics View ######### #
+def текст(request, song_id):
+    activate('bg')
+    return render_lyrics(request, song_id)
+
+
+def lyrics(request, song_id):
+    activate('en')
+    return render_lyrics(request, song_id)
+
+
+def paroles(request, song_id):
+    activate('fr')
+    return render_lyrics(request, song_id)

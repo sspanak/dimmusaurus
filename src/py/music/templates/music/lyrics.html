@@ -1,0 +1,41 @@
+{% extends "main/__root.html" %}
+{% load i18n %}
+{% load markdown_deux_tags %}
+
+{% block content_block %}
+<div class="content content-lyrics">
+
+	<nav class="breadcrumbs" aria-label="breadcrumbs">
+		<ul>
+			<li>
+				<span><a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a></span>
+			</li>
+			<li>
+				<span><a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a></span>
+			</li>
+			<li>
+				<span><a href="/{% trans 'music/albums/' %}xxx-xxx"><i class="fas fa-compact-disc"></i>[[Яхния от мисли]]</a></span>
+			</li>
+			<li>
+				<span><a href="/{% trans 'music/songs/' %}xxx-xxx"><i class="fas fa-guitar"></i>[[Момчето от делтата на Мисисипи]]</a></span>
+			</li>
+			<li><i class="fas fa-file-alt"></i>{{page.title}}</li>
+		</ul>
+	</nav>
+
+	<h1 class="content-heading">{{page.title}}</h1>
+
+	<div class="lyrics-super-wrapper">
+		<div class="lyrics-wrapper">
+			<h3>[[Спонтанно механично разпръскване на аромати у дома]]</h3>
+			<a class="english-translation-link" href="#english_lyrics">English translation below</a>
+			<div class="lyrics">{% markdown %}ORIGINALISH{% endmarkdown %}</div>
+		</div>
+
+		<div class="lyrics-wrapper">
+			<h3 id="english_lyrics">[[Spontaneous mechanic dipersion of fragrances at home]]</h3>
+			<div class="lyrics">{% markdown %}ENGRISH{% endmarkdown %}</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
