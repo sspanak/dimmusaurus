@@ -14,21 +14,21 @@
 				<span><a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a></span>
 			</li>
 			<li>
-				<span><a href="/{% trans 'music/albums/' %}/xxx-xxx"><i class="fas fa-compact-disc"></i>[[Яхния от мисли]]</a></span>
+				<span><a href="/{% trans 'music/albums/' %}{{ song_album.album_id }}-{{ song_album.slug }}"><i class="fas fa-compact-disc"></i>{{ song_album.title }}</a></span>
 			</li>
 			<li>
-				<i class="fas fa-guitar"></i>[[Жълтият блус]]
+				<i class="fas fa-guitar"></i>{{ song_title }}
 			</li>
 		</ul>
 	</nav>
 
-	<h1 class="content-heading">{{ page.title }}</h1>
+	<h1 class="content-heading">{% trans 'Song Details' %}</h1>
 	<div>
 		<h2 class="tune-title">
-			<a href="/{% trans 'music/songs/' %}xxx-xxx/download">Жълтият блус</a> – 3:25
+			<a href="/{% trans 'music/songs/' %}{{song.id}}-{{song.slug}}/download">{{ song_title }}</a> – {{ song.duration }}
 		</h2>
 
-		<h5 class="tune-release-date">19 октомври 2014</h5>
+		<h5 class="tune-release-date">{{song.release_date}}</h5>
 
 		<ul class="tune-links">
 			<li class="tune-play">
@@ -38,15 +38,17 @@
 				</a>
 			</li>
 
+			{% if song.songlyrics %}
 			<li class="tune-lyrics">
-				<a href="/{% trans 'music/songs/' %}xxx-xxx/lyrics">
+				<a href="/{% trans 'music/songs/' %}{{ song.id }}-{{ song.slug }}{% trans '/lyrics/' %}">
 					{% comment %}Translators: LYRICS button on song page.{% endcomment %}
 					<i class="fas fa-file-alt"></i><span>{% trans 'lyrics' %}</span>
 				</a>
 			</li>
+			{% endif %}
 
 			<li class="tune-download">
-				<a href="/{% trans 'music/songs/' %}xxx-xxx/download">
+				<a href="/{% trans 'music/songs/' %}{{ song.id }}-{{ song.slug }}{% trans '/download/' %}">
 					{% comment %}Translators: DOWNLOAD button on song page.{% endcomment %}
 					<i class="fas fa-file-download"></i><span>{% trans 'download' %}</span>
 				</a>
@@ -58,7 +60,11 @@
 	<hr>
 
 	<article>
-		{% markdown %}XXXX{% endmarkdown %}
+	{% if song.original_title != song_title %}
+		<p>&quot;{{ song_title }}&quot;, {% trans 'originally titled' %}: &quot;{{ song.original_title }}&quot;</p>
+	{% endif %}
+
+	{% markdown %}{{song_description.description}}{% endmarkdown %}
 	</article>
 </div>
 {% endblock %}

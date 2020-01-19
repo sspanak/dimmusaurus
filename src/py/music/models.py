@@ -1,3 +1,4 @@
+from re import sub
 from django.db import models
 from django.conf import settings
 
@@ -31,6 +32,10 @@ class Song(models.Model):
     slug = models.SlugField(allow_unicode=True)
     original_title = models.CharField('original title', max_length=255)
     youtube = models.URLField('youtube link', null=True, blank=True)
+
+    @property
+    def duration(self):
+        return sub('^0', '', self.length.strftime('%M:%S'))
 
     def __str__(self):
         return '%d | %s' % (self.id, self.original_title)

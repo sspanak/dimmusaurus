@@ -48,14 +48,24 @@ def render_song(request, song_id):
     lang = get_language()
 
     albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
+    song = get_object_or_404(Song, pk=song_id)
+    song_album = get_object_or_404(song.album.albumdetails_set, language=lang)
+    song_description = get_object_or_404(song.songdescription_set, language=lang)
+    song_title = song_description.title or song.original_title
 
     context = {
         'albums': albums,
+        'song': song,
+        'song_album': song_album,
+        'song_description': song_description,
+        'song_title': song_title,
         'page': {
                 'url': 'music/songs/',
-                'title': 'XXX',
+                'url_slug': '%d-%s' % (song.id, song.slug),
+                # Translators: Song page title
+                'title': '%s | %s' % (song_title, gettext('Song Details')),
                 # Translators: Song page description
-                'description': '%s. %s' % ('XXX', gettext('Detailed information and song lyrics. Download link.')),
+                'description': '%s. %s' % (song_title, gettext('Detailed information and song lyrics. Download link.')),
             }
     }
 
