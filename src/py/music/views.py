@@ -28,7 +28,6 @@ def render_albums(request, album_id=None):
             }
         }
     else:
-
         context = {
             'albums': albums,
             'page_albums': albums,
@@ -56,8 +55,9 @@ def render_song(request, song_id):
         'albums': albums,
         'page': {
                 'url': 'music/songs/',
-                # 'title': gettext('Discography'),
-                # 'description': gettext('Dimmu Saurus Discography'),
+                'title': 'XXX',
+                # Translators: Song page description
+                'description': '%s. %s' % ('XXX', gettext('Detailed information and song lyrics. Download link.')),
             }
     }
 

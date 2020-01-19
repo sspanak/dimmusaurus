@@ -1,1 +1,64 @@
-<h1> Песня </h1>
+{% extends "main/__root.html" %}
+{% load i18n %}
+{% load markdown_deux_tags %}
+
+{% block content_block %}
+<div class="content content-tune">
+
+	<nav class="breadcrumbs" aria-label="breadcrumbs">
+		<ul>
+			<li>
+				<span><a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a></span>
+			</li>
+			<li>
+				<span><a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a></span>
+			</li>
+			<li>
+				<span><a href="/{% trans 'music/albums/' %}/xxx-xxx"><i class="fas fa-compact-disc"></i>[[Яхния от мисли]]</a></span>
+			</li>
+			<li>
+				<i class="fas fa-guitar"></i>[[Жълтият блус]]
+			</li>
+		</ul>
+	</nav>
+
+	<h1 class="content-heading">{{ page.title }}</h1>
+	<div>
+		<h2 class="tune-title">
+			<a href="/{% trans 'music/songs/' %}xxx-xxx/download">Жълтият блус</a> – 3:25
+		</h2>
+
+		<h5 class="tune-release-date">19 октомври 2014</h5>
+
+		<ul class="tune-links">
+			<li class="tune-play">
+				<a href="javascript:;">
+					{% comment %}Translators: LISTEN button on song page.{% endcomment %}
+					<i class="fas fa-headphones"></i><span>{% trans 'listen' %}</span>
+				</a>
+			</li>
+
+			<li class="tune-lyrics">
+				<a href="/{% trans 'music/songs/' %}xxx-xxx/lyrics">
+					{% comment %}Translators: LYRICS button on song page.{% endcomment %}
+					<i class="fas fa-file-alt"></i><span>{% trans 'lyrics' %}</span>
+				</a>
+			</li>
+
+			<li class="tune-download">
+				<a href="/{% trans 'music/songs/' %}xxx-xxx/download">
+					{% comment %}Translators: DOWNLOAD button on song page.{% endcomment %}
+					<i class="fas fa-file-download"></i><span>{% trans 'download' %}</span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<hr>
+
+	<article>
+		{% markdown %}XXXX{% endmarkdown %}
+	</article>
+</div>
+{% endblock %}
