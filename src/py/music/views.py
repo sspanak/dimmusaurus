@@ -2,13 +2,14 @@ from django.conf import settings
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
-from .models import AlbumDetails, SongLyrics, Song
+from .models import AlbumDetails, SongLyrics, Song, SongDescription
 
 
 def render_albums(request, album_id=None):
     lang = get_language()
 
-    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
+    albums = AlbumDetails.objects.select_related('album').filter(language=lang).order_by('-album__release_date')
+    # songs = albums.
 
     if album_id:
         selected_album = get_object_or_404(albums, album__id=album_id)
@@ -48,10 +49,13 @@ def render_song(request, song_id):
     lang = get_language()
 
     albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
-    song = get_object_or_404(Song, pk=song_id)
-    song_album = get_object_or_404(song.album.albumdetails_set, language=lang)
-    song_description = get_object_or_404(song.songdescription_set, language=lang)
-    song_title = song_description.title or song.original_title
+    song_description = get_object_or_404(
+        SongDescription.objects.select_related('song').filter(language=lang),
+        song__id=song_id
+    )
+    song = song_description.song
+    song_album = get_object_or_404(song.album.album_details, language=lang)
+    song_title = song_description.translated_title
 
     context = {
         'albums': albums,
@@ -61,6 +65,7 @@ def render_song(request, song_id):
         'song_title': song_title,
         'page': {
                 'url': 'music/songs/',
+                # we can't use absolute_url here, because translations won't work
                 'url_slug': '%d-%s' % (song.id, song.slug),
                 # Translators: Song page title
                 'title': '%s | %s' % (song_title, gettext('Song Details')),
@@ -79,21 +84,20 @@ def render_lyrics(request, song_id):
     lang = get_language()
 
     albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
-    lyrics = get_object_or_404(SongLyrics, song__id=song_id)
-    this_song = get_object_or_404(lyrics.song.songdescription_set, language=lang)
-    this_album = get_object_or_404(lyrics.song.album.albumdetails_set, language=lang)
 
-    this_song_title = this_song.title or lyrics.song.original_title
+    lyrics = get_object_or_404(SongLyrics.objects.select_related('song'), song__id=song_id)
+    this_album = get_object_or_404(lyrics.song.album.album_details, language=lang)
+    this_song_title = get_object_or_404(lyrics.song.song_descriptions, language=lang).translated_title
 
     context = {
         'albums': albums,
         'lyrics': lyrics,
-        'song': this_song,
         'song_title': this_song_title,
         'album': this_album,
         'page': {
                 'url': 'music/songs/',
-                'url_slug': '%d-%s' % (lyrics.song_id, lyrics.song.slug),
+                # we can't use absolute_url here, because translations won't work
+                'url_slug': '%d-%s' % (lyrics.song.id, lyrics.song.slug),
                 'url_slug_operation': '/lyrics/',
                 # Translators: Lyrics page title
                 'title': '%s | %s' % (this_song_title, gettext('Song Lyrics')),

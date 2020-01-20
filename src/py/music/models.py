@@ -1,6 +1,7 @@
 from re import sub
 from django.db import models
 from django.conf import settings
+from django.utils.translation import gettext
 
 
 class Album(models.Model):
@@ -11,7 +12,7 @@ class Album(models.Model):
 
 
 class AlbumDetails(models.Model):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='album_details')
     description = models.TextField(null=True, blank=True)
     language = models.CharField(max_length=2, choices=settings.LANGUAGES)
     slug = models.SlugField(allow_unicode=True)
@@ -20,12 +21,15 @@ class AlbumDetails(models.Model):
     class Meta:
         unique_together = ('album', 'language')
 
+    def get_absolute_url(self):
+        return '/%s%d-%s' % (gettext('music/albums/'), self.album_id, self.slug)
+
     def __str__(self):
         return '%d | %s | %s' % (self.album_id, self.language, self.title)
 
 
 class Song(models.Model):
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='songs')
     is_hidden = models.BooleanField('is hidden')
     length = models.TimeField()
     release_date = models.DateField('release date')
@@ -37,15 +41,22 @@ class Song(models.Model):
     def duration(self):
         return sub('^0', '', self.length.strftime('%M:%S'))
 
+    def get_absolute_url(self):
+        return '/%s%d-%s' % (gettext('music/songs/'), self.id, self.slug)
+
     def __str__(self):
         return '%d | %s' % (self.id, self.original_title)
 
 
 class SongDescription(models.Model):
-    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, related_name='song_descriptions')
     description = models.TextField()
     language = models.CharField(max_length=2, choices=settings.LANGUAGES)
     title = models.CharField(max_length=255, null=True, blank=True)
+
+    @property
+    def translated_title(self):
+        return self.title or self.song.original_title
 
     class Meta:
         unique_together = ('song', 'language')
@@ -55,7 +66,7 @@ class SongDescription(models.Model):
 
 
 class SongFile(models.Model):
-    song = models.ForeignKey(Song, on_delete=models.CASCADE)
+    song = models.ForeignKey(Song, on_delete=models.CASCADE, related_name='song_files')
     file_path = models.CharField('file path', max_length=255)
     file_type = models.CharField(
         'file type',
@@ -75,7 +86,7 @@ class SongFile(models.Model):
 
 
 class SongLyrics(models.Model):
-    song = models.OneToOneField(Song, on_delete=models.CASCADE)
+    song = models.OneToOneField(Song, on_delete=models.CASCADE, related_name='song_lyrics')
     title = models.CharField('original title', max_length=255)
     lyrics = models.TextField()
     english_title = models.CharField('english title', max_length=255, null=True, blank=True)
