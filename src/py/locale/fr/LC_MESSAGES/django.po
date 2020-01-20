@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-19 21:09+0200\n"
+"POT-Creation-Date: 2020-01-20 22:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,11 +92,7 @@ msgstr "musique/"
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: src/py/main/templates/main/__root.html:178
-#: src/py/music/templates/music/albums.html:13
-#: src/py/music/templates/music/albums.html:24
-#: src/py/music/templates/music/lyrics.html:17
-#: src/py/music/templates/music/song.html:17
+#: src/py/main/templates/main/__root.html:178 src/py/music/models.py:25
 msgid "music/albums/"
 msgstr "musique/albums/"
 
@@ -159,6 +155,10 @@ msgstr "Accueil"
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
 
+#: src/py/music/models.py:45
+msgid "music/songs/"
+msgstr "musique/chansons/"
+
 #: src/py/music/templates/music/discography.html:31
 msgid ""
 "Dimmu Saurus' music is result of series of experiments with his guitar and "
@@ -178,13 +178,6 @@ msgstr ""
 "La discographie complète est disponible gratuitement de télécharger et "
 "d'écouter."
 
-#: src/py/music/templates/music/lyrics.html:20
-#: src/py/music/templates/music/song.html:28
-#: src/py/music/templates/music/song.html:43
-#: src/py/music/templates/music/song.html:51
-msgid "music/songs/"
-msgstr "musique/chansons/"
-
 #. Translators: LYRICS button on song page.
 #: src/py/music/templates/music/lyrics.html:22
 #: src/py/music/templates/music/song.html:45
@@ -192,12 +185,12 @@ msgid "lyrics"
 msgstr "paroles"
 
 #. Translators: Lyrics page title
-#: src/py/music/templates/music/lyrics.html:26 src/py/music/views.py:99
+#: src/py/music/templates/music/lyrics.html:26 src/py/music/views.py:114
 msgid "Song Lyrics"
 msgstr "Paroles de chanson"
 
 #. Translators: Song page title
-#: src/py/music/templates/music/song.html:25 src/py/music/views.py:66
+#: src/py/music/templates/music/song.html:25 src/py/music/views.py:82
 msgid "Song Details"
 msgstr "Détails du chanson"
 
@@ -224,26 +217,26 @@ msgstr "télécharger"
 msgid "originally titled"
 msgstr "titre original"
 
-#: src/py/music/views.py:24
+#: src/py/music/views.py:35
 msgid "Track list and information."
 msgstr "Liste des titres et information."
 
 #. Translators: Discography page title
-#: src/py/music/views.py:35
+#: src/py/music/views.py:47
 msgid "Discography"
 msgstr "Discographie"
 
 #. Translators: Discography page description
-#: src/py/music/views.py:37
+#: src/py/music/views.py:49
 msgid "Dimmu Saurus Discography"
 msgstr "Dimmu Saurus – Discographie"
 
 #. Translators: Song page description
-#: src/py/music/views.py:68
+#: src/py/music/views.py:84
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Information, paroles et téléchargement du chanson."
 
 #. Translators: Lyrics page description
-#: src/py/music/views.py:101
+#: src/py/music/views.py:116
 msgid "Song lyrics and English translation."
 msgstr "Paroles du chanson et traduction anglaise."

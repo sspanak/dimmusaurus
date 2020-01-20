@@ -2,6 +2,8 @@ from django.conf import settings
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
+from django.db.models import Prefetch
+
 from .models import AlbumDetails, SongLyrics, Song, SongDescription
 
 
@@ -9,13 +11,21 @@ def render_albums(request, album_id=None):
     lang = get_language()
 
     albums = AlbumDetails.objects.select_related('album').filter(language=lang).order_by('-album__release_date')
-    # songs = albums.
+    songs = SongDescription.objects.select_related('song').filter(language=lang).order_by('song__id')
+    songs = songs.only(
+        'song__id',
+        'song__album_id',
+        'song__original_title',
+        'song__length',
+        'title'
+    )
 
     if album_id:
         selected_album = get_object_or_404(albums, album__id=album_id)
 
         context = {
             'albums': albums,
+            'song_descriptions': songs,
             'page_albums': [selected_album],
             'page': {
                 'url': 'music/albums/',
@@ -29,6 +39,7 @@ def render_albums(request, album_id=None):
     else:
         context = {
             'albums': albums,
+            'song_descriptions': songs,
             'page_albums': albums,
             'page': {
                 'url': 'music/',

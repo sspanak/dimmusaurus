@@ -28,13 +28,15 @@
 		</div>
 
 		<ol class="album-tracks">
-			{% for song in a.album.songs.select_related %}
-				<li>
-					<a class="track-title" href="{{ song.get_absolute_url }}">
-						[[ SONG_TITLE ]]
-					</a>
-					<span class="track-length"> {{ song.duration }} </span>
-				</li>
+			{% for sd in song_descriptions %}
+				{% if sd.song.album_id == a.album_id %}
+					<li>
+						<a class="track-title" href="{{ sd.song.get_absolute_url }}">
+							{{ sd.translated_title }}
+						</a>
+						<span class="track-length"> {{ sd.song.duration }} </span>
+					</li>
+				{% endif %}
 			{% endfor %}
 		</ol>
 	</div>
