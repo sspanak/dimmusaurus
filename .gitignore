@@ -8,3 +8,4 @@ src/py/static/*
 *.sqlite3
 *.mo
 node_modules
+db/*

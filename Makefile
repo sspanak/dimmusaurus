@@ -49,3 +49,9 @@ js-prod:
 images:
 	mkdir -p ui-demo/img
 	cp img/{*.png,*.ico} ui-demo/img
+
+db-backup:
+	bash -c build-tools/db-export.sh
+
+db-import:
+	bash -c 'build-tools/db-import.sh db/ds.db.tar'
