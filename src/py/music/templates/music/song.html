@@ -25,7 +25,7 @@
 	<h1 class="content-heading">{% trans 'Song Details' %}</h1>
 	<div>
 		<h2 class="tune-title">
-			<a href="{{ song.get_absolute_url }}/download">{{ song_title }}</a> – {{ song.duration }}
+			<a href="{{ song.get_download_url }}">{{ song_title }}</a> – {{ song.duration }}
 		</h2>
 
 		<h5 class="tune-release-date">{{song.release_date}}</h5>
@@ -40,7 +40,7 @@
 
 			{% if song.song_lyrics %}
 			<li class="tune-lyrics">
-				<a href="{{ song.get_absolute_url }}{% trans '/lyrics/' %}">
+				<a href="{{ song.get_lyrics_url }}">
 					{% comment %}Translators: LYRICS button on song page.{% endcomment %}
 					<i class="fas fa-file-alt"></i><span>{% trans 'lyrics' %}</span>
 				</a>
@@ -48,7 +48,7 @@
 			{% endif %}
 
 			<li class="tune-download">
-				<a href="{{ song.get_absolute_url }}{% trans '/download/' %}">
+				<a href="{{ song.get_download_url }}">
 					{% comment %}Translators: DOWNLOAD button on song page.{% endcomment %}
 					<i class="fas fa-file-download"></i><span>{% trans 'download' %}</span>
 				</a>

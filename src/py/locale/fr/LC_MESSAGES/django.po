@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-21 15:48+0200\n"
+"POT-Creation-Date: 2020-01-21 16:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,10 +92,6 @@ msgstr "musique/"
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: src/py/main/templates/main/__root.html:178 src/py/music/models.py:25
-msgid "music/albums/"
-msgstr "musique/albums/"
-
 #: src/py/main/templates/main/__root.html:290
 msgid "Follow"
 msgstr "Suivez"
@@ -155,9 +151,21 @@ msgstr "Accueil"
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
 
+#: src/py/music/models.py:25
+msgid "music/albums/"
+msgstr "musique/albums/"
+
 #: src/py/music/models.py:45
 msgid "music/songs/"
 msgstr "musique/chansons/"
+
+#: src/py/music/models.py:48
+msgid "/lyrics/"
+msgstr "/paroles/"
+
+#: src/py/music/models.py:51
+msgid "/download/"
+msgstr "/telecharger/"
 
 #: src/py/music/templates/music/discography.html:31
 msgid ""
@@ -198,15 +206,6 @@ msgstr "Détails du chanson"
 #: src/py/music/templates/music/song.html:37
 msgid "listen"
 msgstr "lecture"
-
-# Dynamic
-#: src/py/music/templates/music/song.html:43
-msgid "/lyrics/"
-msgstr "/paroles/"
-
-#: src/py/music/templates/music/song.html:51
-msgid "/download/"
-msgstr "/telecharger/"
 
 #. Translators: DOWNLOAD button on song page.
 #: src/py/music/templates/music/song.html:53

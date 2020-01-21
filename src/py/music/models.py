@@ -22,7 +22,7 @@ class AlbumDetails(models.Model):
         unique_together = ('album', 'language')
 
     def get_absolute_url(self):
-        return '/%s%d-%s' % (gettext('music/albums/'), self.album_id, self.slug)
+        return '/%s%d-%s/' % (gettext('music/albums/'), self.album_id, self.slug)
 
     def __str__(self):
         return '%d | %s | %s' % (self.album_id, self.language, self.title)
@@ -42,7 +42,13 @@ class Song(models.Model):
         return sub('^0', '', self.length.strftime('%M:%S'))
 
     def get_absolute_url(self):
-        return '/%s%d-%s' % (gettext('music/songs/'), self.id, self.slug)
+        return '/%s%d-%s/' % (gettext('music/songs/'), self.id, self.slug)
+
+    def get_lyrics_url(self):
+        return '%s%s' % (self.get_absolute_url()[:-1], gettext('/lyrics/'))
+
+    def get_download_url(self):
+        return '%s%s' % (self.get_absolute_url()[:-1], gettext('/download/'))
 
     def __str__(self):
         return '%d | %s' % (self.id, self.original_title)
