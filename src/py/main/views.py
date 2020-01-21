@@ -4,20 +4,18 @@ from django.utils.translation import gettext, activate, get_language
 
 from .models import News
 from music.models import AlbumDetails
+from music.shortcuts import get_music_menu_album_list
 
 
 def render_page(request):
     lang = get_language()
 
-    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
-    news = News.objects.filter(language=lang).order_by('-pub_date')[:10]
-
     response = render(
         request,
         'main/index.html',
         {
-            'albums': albums,
-            'news': news,
+            'albums': get_music_menu_album_list(language=lang),
+            'news': News.objects.filter(language=lang).order_by('-pub_date')[:10],
             'page': {
                 'url': 'home/',
                 'title': gettext('Home Page'),

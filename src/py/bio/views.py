@@ -3,18 +3,17 @@ from django.shortcuts import render, redirect
 from django.utils.translation import gettext, activate, get_language
 
 from music.models import AlbumDetails
+from music.shortcuts import get_music_menu_album_list
 
 
 def render_page(request):
     lang = get_language()
 
-    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
-
     response = render(
         request,
         'bio/bio-%s.md' % lang,
         {
-            'albums': albums,
+            'albums': get_music_menu_album_list(lang),
             'page': {
                 'url': 'biography/',
                 # Translators: Biography page title
