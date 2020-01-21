@@ -16,6 +16,11 @@ pystatic:
 	mv ui-demo/{*.css,*.js} src/py/static
 	mv ui-demo/img src/py/static
 
+	# Create a dummy song for download test
+	mkdir -p src/py/static/download
+	touch src/py/static/download/10-smrad.ogg
+	echo 'asdasdd' >> src/py/static/download/10-smrad.ogg
+
 ui:
 	cp src/reset.css ui-demo
 	cp src/demo.html ui-demo/index.html

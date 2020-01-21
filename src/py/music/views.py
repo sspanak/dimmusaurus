@@ -1,10 +1,10 @@
+from os import path
 from django.conf import settings
-from django.http import Http404, HttpResponseRedirect
+from django.http import Http404, HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
-from django.db.models import Prefetch
 
-from .models import AlbumDetails, SongLyrics, Song, SongDescription
+from .models import SongDescription, SongFile, SongLyrics
 from .shortcuts import get_music_menu_album_list
 
 
@@ -142,6 +142,31 @@ def random_invalid_route(request):
 
     redirect.status_code = 301
     return redirect
+
+
+def download(request, song_id):
+    file = get_object_or_404(
+        SongFile.objects.select_related('song').only('song__slug', 'file_name', 'file_type'),
+        song_id=song_id
+    )
+
+    try:
+        file_size = path.getsize(file.get_absolute_path())
+        file_contents = open(file.get_absolute_path(), 'rb').read()
+    except OSError as e:
+        return Http404
+
+    response = HttpResponse(file_contents)
+    if file.file_type == 'ogg' or file.file_type == 'opus':
+        response['Content-Type'] = 'audio/ogg'
+    elif file.file_type == 'aac':
+        response['Content-Type'] = 'audio/mp4'
+    else:
+        response['Content-Type'] = 'application/octet-stream'
+    response['Content-Disposition'] = 'attachment; filename=%s.%s' % (file.song.slug, file.file_type)
+    response['Content-Length'] = file_size
+
+    return response
 
 
 # ######### All Albums Overview ######### #

@@ -23,6 +23,12 @@ urlpatterns = [
     re_path(r'^music/songs/(?P<song_id>\d+)[^\/]*/lyrics/$', views.lyrics, name='lyrics'),
     re_path(r'^musique/chansons/(?P<song_id>\d+)[^\/]*/paroles/$', views.paroles, name='paroles'),
 
+    # Downloads
+    # We serve the files to force the browser download them instead of playing them
+    re_path(r'^музика/песни/(?P<song_id>\d+)[^\/]*/изтегли/$', views.download, name='download'),
+    re_path(r'^music/songs/(?P<song_id>\d+)[^\/]*/download/$', views.download, name='download'),
+    re_path(r'^musique/chansons/(?P<song_id>\d+)[^\/]*/telecharger/$', views.download, name='download'),
+
     # non-existing but meaninful URLs
     re_path(r'^(?:музика/песни|music/songs|musique/chansons)/*$', views.random_invalid_route, name='music_index'),
     re_path(r'^(?:музика/албуми|music/albums|musique/albums)/*$', views.random_invalid_route, name='music_index'),

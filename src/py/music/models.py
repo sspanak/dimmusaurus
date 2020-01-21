@@ -73,7 +73,7 @@ class SongDescription(models.Model):
 
 class SongFile(models.Model):
     song = models.ForeignKey(Song, on_delete=models.CASCADE, related_name='song_files')
-    file_path = models.CharField('file path', max_length=255)
+    file_name = models.CharField('file name', max_length=255)
     file_type = models.CharField(
         'file type',
         max_length=35,
@@ -87,8 +87,11 @@ class SongFile(models.Model):
     class Meta:
         unique_together = ('song', 'file_type')
 
+    def get_absolute_path(self):
+        return '%s/download/%s' % (settings.STATICFILES_DIRS[0], self.file_name)
+
     def __str__(self):
-        return '%d | %s' % (self.song_id, self.file_path)
+        return '%d | %s' % (self.song_id, self.file_name)
 
 
 class SongLyrics(models.Model):
