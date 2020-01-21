@@ -119,7 +119,7 @@ def render_lyrics(request, song_id):
                 'url_slug': '%d-%s' % (lyrics.song.id, lyrics.song.slug),
                 'url_slug_operation': '/lyrics/',
                 # Translators: Lyrics page title
-                'title': '%s | %s' % (this_song_title, gettext('Song Lyrics')),
+                'title': '%s | %s' % (this_song_title, gettext('Lyrics')),
                 # Translators: Lyrics page description
                 'description': '%s. %s' % (this_song_title, gettext('Song lyrics and English translation.')),
             }

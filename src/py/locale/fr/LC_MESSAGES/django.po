@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-20 22:55+0200\n"
+"POT-Creation-Date: 2020-01-21 15:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "Home"
 msgstr "Accueil"
 
 #. Translators: Biography page title
-#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:21
+#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:20
 #: src/py/main/templates/main/__root.html:159
 msgid "Biography"
 msgstr "Biographie"
@@ -46,7 +46,7 @@ msgid "About Dimmu Saurus"
 msgstr "C'est quoi Dimmu Saurus?"
 
 #. Translators: Biography page description
-#: src/py/bio/views.py:23
+#: src/py/bio/views.py:22
 msgid "The story of Dimmu Saurus project"
 msgstr "L'histoire de Dimmu Saurus"
 
@@ -147,11 +147,11 @@ msgstr "Nouvelles"
 msgid "No news are available at this time."
 msgstr "Il n'y a pas des nouvelles maintenant."
 
-#: src/py/main/views.py:23
+#: src/py/main/views.py:21
 msgid "Home Page"
 msgstr "Accueil"
 
-#: src/py/main/views.py:24
+#: src/py/main/views.py:22
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
 
@@ -184,13 +184,13 @@ msgstr ""
 msgid "lyrics"
 msgstr "paroles"
 
-#. Translators: Lyrics page title
-#: src/py/music/templates/music/lyrics.html:26 src/py/music/views.py:114
+#. Translators: Lyrics page big heading
+#: src/py/music/templates/music/lyrics.html:27
 msgid "Song Lyrics"
 msgstr "Paroles de chanson"
 
 #. Translators: Song page title
-#: src/py/music/templates/music/song.html:25 src/py/music/views.py:82
+#: src/py/music/templates/music/song.html:25 src/py/music/views.py:87
 msgid "Song Details"
 msgstr "Détails du chanson"
 
@@ -217,26 +217,31 @@ msgstr "télécharger"
 msgid "originally titled"
 msgstr "titre original"
 
-#: src/py/music/views.py:35
+#: src/py/music/views.py:37
 msgid "Track list and information."
 msgstr "Liste des titres et information."
 
 #. Translators: Discography page title
-#: src/py/music/views.py:47
+#: src/py/music/views.py:49
 msgid "Discography"
 msgstr "Discographie"
 
 #. Translators: Discography page description
-#: src/py/music/views.py:49
+#: src/py/music/views.py:51
 msgid "Dimmu Saurus Discography"
 msgstr "Dimmu Saurus – Discographie"
 
 #. Translators: Song page description
-#: src/py/music/views.py:84
+#: src/py/music/views.py:89
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Information, paroles et téléchargement du chanson."
 
+#. Translators: Lyrics page title
+#: src/py/music/views.py:122
+msgid "Lyrics"
+msgstr "Paroles"
+
 #. Translators: Lyrics page description
-#: src/py/music/views.py:116
+#: src/py/music/views.py:124
 msgid "Song lyrics and English translation."
 msgstr "Paroles du chanson et traduction anglaise."
