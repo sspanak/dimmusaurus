@@ -5,18 +5,20 @@ from django.utils.translation import gettext, activate, get_language
 from django.db.models import Prefetch
 
 from .models import AlbumDetails, SongLyrics, Song, SongDescription
+from .shortcuts import get_music_menu_album_list
 
 
 def render_albums(request, album_id=None):
     lang = get_language()
 
-    albums = AlbumDetails.objects.select_related('album').filter(language=lang).order_by('-album__release_date')
+    albums = get_music_menu_album_list(lang)
     songs = SongDescription.objects.select_related('song').filter(language=lang).order_by('song__id')
     songs = songs.only(
         'song__id',
         'song__album_id',
         'song__original_title',
         'song__length',
+        'song__slug',
         'title'
     )
 
@@ -59,17 +61,20 @@ def render_albums(request, album_id=None):
 def render_song(request, song_id):
     lang = get_language()
 
-    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
     song_description = get_object_or_404(
-        SongDescription.objects.select_related('song').filter(language=lang),
+        SongDescription.objects.select_related('song', 'song__album').filter(language=lang),
         song__id=song_id
     )
     song = song_description.song
-    song_album = get_object_or_404(song.album.album_details, language=lang)
-    song_title = song_description.translated_title
 
+    song_album = get_object_or_404(
+        song.album.album_details.only('album_id', 'slug', 'title'),
+        language=lang
+    )
+
+    song_title = song_description.translated_title
     context = {
-        'albums': albums,
+        'albums': get_music_menu_album_list(lang),
         'song': song,
         'song_album': song_album,
         'song_description': song_description,
@@ -86,7 +91,6 @@ def render_song(request, song_id):
     }
 
     response = render(request, 'music/song.html', context)
-
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
     return response
 
@@ -94,14 +98,18 @@ def render_song(request, song_id):
 def render_lyrics(request, song_id):
     lang = get_language()
 
-    albums = AlbumDetails.objects.filter(language=lang).select_related('album').order_by('-album__release_date')
-
-    lyrics = get_object_or_404(SongLyrics.objects.select_related('song'), song__id=song_id)
-    this_album = get_object_or_404(lyrics.song.album.album_details, language=lang)
-    this_song_title = get_object_or_404(lyrics.song.song_descriptions, language=lang).translated_title
+    lyrics = get_object_or_404(SongLyrics.objects.select_related('song', 'song__album'), song__id=song_id)
+    this_album = get_object_or_404(
+        lyrics.song.album.album_details.only('album_id', 'slug', 'title'),
+        language=lang
+    )
+    this_song_title = get_object_or_404(
+        lyrics.song.song_descriptions.only('title', 'song__original_title'),
+        language=lang
+    ).translated_title
 
     context = {
-        'albums': albums,
+        'albums': get_music_menu_album_list(lang),
         'lyrics': lyrics,
         'song_title': this_song_title,
         'album': this_album,
