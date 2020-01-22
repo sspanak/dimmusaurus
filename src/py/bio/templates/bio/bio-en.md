@@ -3,7 +3,7 @@
 
 {% block bio_block %}{% markdown %}
 
-Dimmu Saurus (bulgarian: *Димозавъръ*) is a musical project dedicated to blues, metal, rock and classical music, and other fun genres. It was founded in Stara Zagora, Bulgaria, and currently consists of one member – myself, the Black Dimosaur (my portrait is hanging on top of the page).
+Dimmu Saurus (Bulgarian: *Димозавъръ*) is a musical project dedicated to blues, metal, rock and classical music, and other fun genres. It was founded in Stara Zagora, Bulgaria, and currently consists of one member – myself, the Black Dimosaur (my portrait is hanging on top of the page).
 
 I created this project, because I wanted to write music that does not follow any rules, nor that it suffers from any censorship or restrictions. The way all music should be.
 
@@ -18,15 +18,15 @@ And after adding my vocals, there was no doubt in success. I have recorded the e
 
 ### Rok boys
 
-A few weeks later – in 26 November, same year, a friend of mine, my brother and me of course, we founded a rock band by the name Rok Boys. I was the drummer and also provided backing vocals, although I am the leading one on three songs. On the same day and the one after, we recorded 16 songs. During the recording session we decided to replace Vladko in India with a large hard pillow and later – with a shoe box. This way my drums sounded extremely solid and unique in a way never achieved by any other band.
+A few weeks later – in November 26, same year, a friend of mine, my brother and me of course, we founded a rock band by the name Rok Boys. I was the drummer and also provided backing vocals, although I am the leading one on three songs. On the same day and the one after, we recorded 16 songs. During the recording session we decided to replace Vladko in India with a large hard pillow and later – with a shoe box. This way my drums sounded extremely solid and unique in a way never achieved by any other band.
 
-Next week or more precisely on 6 December, my father took back his old guitar from a friend, who borrowed it a long time ago. In consequence my brother and I started playing all day and all night long. Although, considering we are still band members, we decided that I should stick with drums and obviously – he was going to be the guitarist.
+Next week or more precisely on December 6, my father took back his old guitar from a friend, who borrowed it a long time ago. In consequence my brother and I started playing all day and all night long. Although, considering we are still band members, we decided that I should stick with drums and obviously – he was going to be the guitarist.
 
 After the winter holidays the band obtained new instruments – a little drum and a synthesizer, which naturally led us to the recording of six new songs, and thus – our first album was born. We called it “1 самостоятелен”, meaning “1 independent”. After that, the band went on a hiatus.
 
 ### Music Master
 
-Despite the short life of the band, my brother and I decided not to give up making music, so we created one of our own and named it Music Master. While the Rok Boys were taking a breath after the furious start, on 20 December 1998 we recorded our first song, “Bad Boys”. I kept playing the drums and he remained the guitarist. Only this time he was the leading singer.
+Despite the short life of the band, my brother and I decided not to give up making music, so we created one of our own and named it Music Master. While the Rok Boys were taking a breath after the furious start, on December 20, 1998 we recorded our first song, “Bad Boys”. I kept playing the drums and he remained the guitarist. Only this time he was the leading singer.
 
 We finished our first album in the end of March 1999 and we named it simply “Music Master 1”. It included 16 songs. In the end of the summer we started recording our second album titled “MM2 – The Spider” and finished it at the end of autumn. Next year we recorded a third album, including 10 songs, using our new personal computer. Unfortunately, it was destroyed because the computer failed.
 
@@ -34,11 +34,11 @@ The following years the band grew less and less active. In 2001 we recorded a si
 
 ### Birth of Dimmu Saurus
 
-Let’s get back in time to the year 2000. It was 12 of June and I was browsing a CD that came with a computer magazine. It wasn’t long before I stumbled upon a music notation program named Melody Assistant. I immediately started exploring it and wrote my first piece of music the very same day. I named it “Kefos”, which could be approximately translated as “Joy”. As the time passed, I discovered more and more possibilities to create music. Of course, the ideas in my head also grew more complex and the resulting tunes were becoming more and more harmonic and in consequence other people besides me began to realize that the sounds coming from my computer are music. Despite of this, I decided to keep these first ideas in the archive and not to publish them on the Internet.
+Let’s get back in time to the year 2000. It was June 12, and I was browsing a CD that came with a computer magazine. It wasn’t long before I stumbled upon a music notation program named Melody Assistant. I immediately started exploring it and wrote my first piece of music the very same day. I named it “Kefos”, which approximately translates as “Joy”. As time passed, I continued discovering more and more features of the program which naturally translated into more and more complex compositions. Of course, the decreasing disharmony lead to the fact that other people finally realized that the sounds coming out of my computer were music. Despite of this, I decided not to publish these primordial ideas on the Internet. They belong in the archive.
 
-In the year 2001 I decided to make a song which can be listened and enjoyed by others. By this time I was also very much influenced by the idea of tracker music and tried to do something like this. And so the song “I feel worse” was born. I used a song originally performed by Billy Idol to create the instruments and rhythms.
+In the year 2001, I decided to make a song that is listenable, and potentially enjoyable by the others. By this time I was also very much influenced by the idea of tracker music, so I began experimenting. I used a song originally performed by Billy Idol to create the instruments and rhythms. Later, in June 2002, “I feel worse” was born.
 
-The following two years I fell into a creative crisis and music was about to remain in the past for me. At this time I also stopped playing the guitar.
+The following two years I fell into a creative crisis and music almost became a thing of the past. At this time, I also stopped playing the guitar.
 
 ### Renaissance
 
