@@ -38,6 +38,15 @@
 				</a>
 			</li>
 
+			{% if song.youtube %}
+			<li class="tune-youtube">
+				<a href="{{ song.youtube }}" rel="nofollow" target="_blank">
+					{% comment %}Translators: Youtube button on song page.{% endcomment %}
+					<i class="fab fa-youtube"></i><span>{% trans 'watch' %}</span>
+				</a>
+			</li>
+			{% endif %}
+
 			{% if song.song_lyrics %}
 			<li class="tune-lyrics">
 				<a href="{{ song.get_lyrics_url }}">

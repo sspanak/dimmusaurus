@@ -222,7 +222,7 @@ footer .copyright-copy, footer .copyright-last-year {
 	padding: 5px 10px;
 	text-decoration: none;
 }
-.content-tune .tune-links a .fas {
+.content-tune .tune-links .fas, .content-tune .tune-links .fab {
 	font-size: 1.3em;
 	margin: 5px;
 }

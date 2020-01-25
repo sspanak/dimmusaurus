@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-22 23:08+0200\n"
+"POT-Creation-Date: 2020-01-25 10:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -185,7 +185,7 @@ msgstr "Всички парчета могат да се слушат и сва�
 
 #. Translators: LYRICS button on song page.
 #: src/py/music/templates/music/lyrics.html:22
-#: src/py/music/templates/music/song.html:45
+#: src/py/music/templates/music/song.html:54
 msgid "lyrics"
 msgstr "текст"
 
@@ -195,7 +195,7 @@ msgid "Song Lyrics"
 msgstr "Текст на песен"
 
 #. Translators: Song page title
-#: src/py/music/templates/music/song.html:25 src/py/music/views.py:87
+#: src/py/music/templates/music/song.html:25 src/py/music/views.py:89
 msgid "Song Details"
 msgstr "Подробности за песен"
 
@@ -204,12 +204,17 @@ msgstr "Подробности за песен"
 msgid "listen"
 msgstr "слушай"
 
+#. Translators: Youtube button on song page.
+#: src/py/music/templates/music/song.html:45
+msgid "watch"
+msgstr "гледай"
+
 #. Translators: DOWNLOAD button on song page.
-#: src/py/music/templates/music/song.html:53
+#: src/py/music/templates/music/song.html:62
 msgid "download"
 msgstr "изтеглѝ"
 
-#: src/py/music/templates/music/song.html:64
+#: src/py/music/templates/music/song.html:73
 msgid "originally titled"
 msgstr "оригинално заглавие"
 
@@ -228,16 +233,16 @@ msgid "Dimmu Saurus Discography"
 msgstr "Дискография на Dimmu Saurus"
 
 #. Translators: Song page description
-#: src/py/music/views.py:89
+#: src/py/music/views.py:91
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Подробности за песента и текст. Връзка за сваляне."
 
 #. Translators: Lyrics page title
-#: src/py/music/views.py:122
+#: src/py/music/views.py:124
 msgid "Lyrics"
 msgstr "Текст"
 
 #. Translators: Lyrics page description
-#: src/py/music/views.py:124
+#: src/py/music/views.py:126
 msgid "Song lyrics and English translation."
 msgstr "Текст на песента и английски превод."
