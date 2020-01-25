@@ -12,7 +12,7 @@ def render_albums(request, album_id=None):
     lang = get_language()
 
     albums = get_music_menu_album_list(lang)
-    songs = SongDescription.objects.select_related('song').filter(language=lang).order_by('song__id')
+    songs = SongDescription.objects.select_related('song').filter(language=lang).order_by('song__release_date')
     songs = songs.only(
         'song__id',
         'song__album_id',
