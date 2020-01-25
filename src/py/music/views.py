@@ -12,7 +12,8 @@ def render_albums(request, album_id=None):
     lang = get_language()
 
     albums = get_music_menu_album_list(lang)
-    songs = SongDescription.objects.select_related('song').filter(language=lang).order_by('song__release_date')
+    songs = SongDescription.objects.select_related('song').filter(language=lang)
+    songs = songs.order_by('song__album_order', 'song__release_date')
     songs = songs.only(
         'song__id',
         'song__album_id',
@@ -159,7 +160,7 @@ def download(request, song_id):
         file_size = path.getsize(file.get_absolute_path())
         file_contents = open(file.get_absolute_path(), 'rb').read()
     except OSError as e:
-        return Http404
+        raise Http404
 
     response = HttpResponse(file_contents)
     if file.file_type == 'ogg' or file.file_type == 'opus':

@@ -36,6 +36,7 @@ class Song(models.Model):
     slug = models.SlugField(allow_unicode=True)
     original_title = models.CharField('original title', max_length=255)
     youtube = models.URLField('youtube link', null=True, blank=True)
+    album_order = models.PositiveSmallIntegerField('album order', default=0)
 
     @property
     def duration(self):
