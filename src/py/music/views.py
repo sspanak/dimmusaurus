@@ -66,6 +66,8 @@ def render_song(request, song_id):
         song__id=song_id
     )
     song = song_description.song
+    if song.is_hidden:
+        raise Http404
 
     song_album = get_object_or_404(
         song.album.album_details.only('album_id', 'slug', 'title'),

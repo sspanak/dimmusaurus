@@ -29,12 +29,17 @@
 
 		<ol class="album-tracks">
 			{% for sd in song_descriptions %}
+
 				{% if sd.song.album_id == a.album_id %}
 					<li>
-						<a class="track-title" href="{{ sd.song.get_absolute_url }}">
-							{{ sd.translated_title }}
-						</a>
-						<span class="track-length"> {{ sd.song.duration }} </span>
+						{% if sd.song.is_hidden %}
+							<span class="track-title">???</span>
+						{% else %}
+							<a class="track-title" href="{{ sd.song.get_absolute_url }}">
+								{{ sd.translated_title }}
+							</a>
+							<span class="track-length"> {{ sd.song.duration }} </span>
+						{% endif %}
 					</li>
 				{% endif %}
 			{% endfor %}
