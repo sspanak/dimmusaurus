@@ -200,7 +200,7 @@ msgstr "Paroles de chanson"
 #. Translators: Song page title
 #: src/py/music/templates/music/song.html:25 src/py/music/views.py:89
 msgid "Song Details"
-msgstr "Détails du chanson"
+msgstr "Détails de la chanson"
 
 #. Translators: LISTEN button on song page.
 #: src/py/music/templates/music/song.html:37
@@ -238,7 +238,7 @@ msgstr "Dimmu Saurus – Discographie"
 #. Translators: Song page description
 #: src/py/music/views.py:91
 msgid "Detailed information and song lyrics. Download link."
-msgstr "Information, paroles et téléchargement du chanson."
+msgstr "Information, paroles et téléchargement de la chanson."
 
 #. Translators: Lyrics page title
 #: src/py/music/views.py:124
@@ -248,4 +248,4 @@ msgstr "Paroles"
 #. Translators: Lyrics page description
 #: src/py/music/views.py:126
 msgid "Song lyrics and English translation."
-msgstr "Paroles du chanson et traduction anglaise."
+msgstr "Paroles de la chanson et traduction anglaise."
