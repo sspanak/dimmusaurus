@@ -80,6 +80,7 @@ There are `make db-backup` and `make db-import` commands, for exporting and impo
 * `django-admin compilemessages` - builds all translations from `.po` files
 * `python manage.py migrate` - runs database migrations
 * `python manage.py runserver [a-port-of-your-choice]` - runs the server
+* Open `cd src/py/pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT` and `ALLOWED_HOSTS` properly. `SITE_HOST` contains only an IP address or a domain name, without `http(s)://`. `SITE_PORT` can be an empty string, but it must be, for example, `:3666`, if you choose to run on port 3666.
 
 The site will be available on 127.0.0.1:8000, or at the port you have chosen.
 

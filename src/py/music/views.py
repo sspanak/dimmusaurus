@@ -30,6 +30,7 @@ def render_albums(request, album_id=None):
             'song_descriptions': songs,
             'page_albums': [selected_album],
             'page': {
+                'base_url': 'http://%s%s' % (settings.SITE_HOST, settings.SITE_PORT),
                 'url': 'music/albums/',
                 'url_slug': selected_album.album_id,
                 'url_slug_operation': '/switch_language/',
@@ -82,6 +83,7 @@ def render_song(request, song_id):
         'song_description': song_description,
         'song_title': song_title,
         'page': {
+                'base_url': 'http://%s%s' % (settings.SITE_HOST, settings.SITE_PORT),
                 'url': 'music/songs/',
                 # we can't use absolute_url here, because translations won't work
                 'url_slug': '%d-%s' % (song.id, song.slug),
@@ -116,6 +118,7 @@ def render_lyrics(request, song_id):
         'song_title': this_song_title,
         'album': this_album,
         'page': {
+                'base_url': 'http://%s%s' % (settings.SITE_HOST, settings.SITE_PORT),
                 'url': 'music/songs/',
                 # we can't use absolute_url here, because translations won't work
                 'url_slug': '%d-%s' % (lyrics.song.id, lyrics.song.slug),

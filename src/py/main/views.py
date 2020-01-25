@@ -17,6 +17,7 @@ def render_page(request):
             'albums': get_music_menu_album_list(language=lang),
             'news': News.objects.filter(language=lang).order_by('-pub_date')[:10],
             'page': {
+                'base_url': 'http://%s%s' % (settings.SITE_HOST, settings.SITE_PORT),
                 'url': 'home/',
                 'title': gettext('Home Page'),
                 'description': gettext('Music from the garage... without rules or restrictions'),
