@@ -110,7 +110,7 @@ msgstr "Chaîne Youtube"
 
 #: src/py/main/templates/main/index.html:8
 msgid "Welcome"
-msgstr "Bienvenus"
+msgstr "Bienvenue"
 
 #: src/py/main/templates/main/index.html:11
 msgid ""
@@ -118,7 +118,7 @@ msgid ""
 "garage project for blues, rock and metal music, without any rules or "
 "limitations. The way real music should be."
 msgstr ""
-"Bienvenus à l'antre de Blues Dinosaure Noir (en latin: <i>Dimmu Saurus</i>). "
+"Bienvenue à l'antre de Blues Dinosaure Noir (en latin: <i>Dimmu Saurus</i>). "
 "Dimmu Saurus est un projet de musique garage, dédié à la création de blues, "
 "metal et rock, sans règles ou restrictions."
 
