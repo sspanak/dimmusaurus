@@ -70,7 +70,7 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 .player .track-progress-bar-background {background: var(--menu-separator-strong);}
 .player .track-progress {background: var(--menu-text-color);}
 .player .player-controls a {border-left: 1px solid var(--menu-separator-medium);}
-.player .player-controls .fa-volume-mute {color: var(--menu-icon-inactive-color);}
+.player .player-controls .disabled {color: var(--menu-icon-inactive-color);}
 
 .shadow-top {box-shadow: var(--shadow-top);}
 .shadow-bottom {box-shadow: var(--shadow-bottom);}

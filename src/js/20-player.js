@@ -1,11 +1,13 @@
+/* eslint no-undef: 0 */
 const Player = new class extends UiElement { // eslint-disable-line
 	constructor() {
 		super();
 
 		this.playlist = [];
-		this.currentTrack = 0;
+		this.currentTrack = -1;
 
 		this.classes = {
+			disabled: 'disabled',
 			muted: 'fa-volume-mute',
 			selected: 'selected',
 			unmuted: 'fa-volume-up'
@@ -13,6 +15,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.selectors = {
 			audio: '.player audio',
+			next: '#pl-next',
 			player: '.player',
 			playhead: '.track-progress-bar .track-progress',
 			playlist: '.menu-playlist-wrapper',
@@ -20,6 +23,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 			playlistList: '#playlist-list',
 			playlistTrackPrefix: '#playlist-track-',
 			playlistUnavailableLabel: '#playlist-unavailable-label',
+			previous: '#pl-previous',
 			progressBar: '.track-progress-bar',
 			progressTime: '.player .progress-time',
 			totalTime: '.player .total-time',
@@ -103,10 +107,12 @@ const Player = new class extends UiElement { // eslint-disable-line
 		if (this.hasClass(this.classes.unmuted)) {
 			this.removeClass(this.classes.unmuted);
 			this.addClass(this.classes.muted);
+			this.addClass(this.classes.disabled);
 
 			console.debug('sounds off');
 		} else {
 			this.removeClass(this.classes.muted);
+			this.removeClass(this.classes.disabled);
 			this.addClass(this.classes.unmuted);
 
 			console.debug('sounds on');
@@ -134,6 +140,9 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	stop() {
+		if (this.currentTrack === -1) {
+			Logger.warn('Trying to stop playback, but no track is selected.');
+		}
 		this.seek(0);
 		console.debug(`stop ${this.currentTrack}`);
 	}
@@ -147,7 +156,15 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	next() {
-		console.debug('jump to next song');
+		this.select(this.selectors.next);
+		if (this.hasClass(this.classes.disabled)) {
+			return;
+		}
+
+		this.selectTrack(this.currentTrack + 1);
+		if (this.currentTrack !== -1) {
+			this.play();
+		}
 	}
 
 
@@ -159,7 +176,15 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	previous() {
-		console.debug('jump to previous song');
+		this.select(this.selectors.previous);
+		if (this.hasClass(this.classes.disabled)) {
+			return;
+		}
+
+		this.selectTrack(this.currentTrack - 1);
+		if (this.currentTrack !== -1) {
+			this.play();
+		}
 	}
 
 
@@ -186,24 +211,29 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return void
 	 */
 	selectTrack(trackId) {
-		this.stop();
+		if (this.currentTrack !== -1) {
+			this.stop();
+		}
 
 		const $items = this.selectAll(`[id^='${this.selectors.playlistTrackPrefix.replace('#', '')}']`);
 		this.removeClassAll($items, 'selected');
 		this.select(this.selectors.trackTitle).setHTML('');
 		this.select(this.selectors.totalTime).setHTML('--:--');
 
-		const track = this.playlist.filter(t => trackId === t.id)[0];
+		const track = this.playlist[trackId];
 		if (!track) {
 			this.currentTrack = -1;
 			return;
 		}
 
+		this.currentTrack = trackId;
+
 		this.select(`${this.selectors.playlistTrackPrefix}${trackId}`).addClass(this.classes.selected);
 		this.select(this.selectors.trackTitle).setHTML(track.title);
-		this.select(this.selectors.totalTime).setHTML(this._addLeadingZeros(track.duration));
-
-		this.currentTrack = trackId;
+		this.select(this.selectors.totalTime).setHTML(addLeadingZeros(track.duration));
+		this.disableNextWhenLastSong();
+		this.disablePreviousWhenFirstSong();
+		this.seek(0);
 	}
 
 
@@ -267,8 +297,30 @@ const Player = new class extends UiElement { // eslint-disable-line
 		const minutes = Math.floor((currentTime - seconds) / 60);
 
 		this.select(this.selectors.progressTime).setHTML(
-			this._addLeadingZeros(`${minutes}:${seconds}`)
+			addLeadingZeros(`${minutes}:${seconds}`)
 		);
+	}
+
+
+	disableNextWhenLastSong() {
+		this.select(this.selectors.next);
+
+		if (this.currentTrack === this.playlist.length - 1) {
+			this.addClass(this.classes.disabled);
+		} else {
+			this.removeClass(this.classes.disabled);
+		}
+	}
+
+
+	disablePreviousWhenFirstSong() {
+		this.select(this.selectors.previous);
+
+		if (this.currentTrack === 0) {
+			this.addClass(this.classes.disabled);
+		} else {
+			this.removeClass(this.classes.disabled);
+		}
 	}
 
 
@@ -295,11 +347,11 @@ const Player = new class extends UiElement { // eslint-disable-line
 		axios.get('/api/music/playlist/')
 			.then(data => {
 				this.playlist = [];
-				let track = null;
+				let track = -1;
 				if (data && data.data && data.data.playlist && Array.isArray(data.data.playlist)) {
 					this.playlist = data.data.playlist.reverse();
 					this._displayPlaylist(this.playlist);
-					track = this.playlist[0].id;
+					track = 0;
 				}
 				this.selectTrack(track);
 			})
@@ -327,49 +379,15 @@ const Player = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.playlist).removeClass('playlist-unavailable');
 
 		let playlistTemplate = '';
-		playlist.forEach(item => {
-			playlistTemplate += this._getPlaylistItemTemplate(item.id, item.title, item.duration);
+		playlist.forEach((item, index) => {
+			playlistTemplate += getPlaylistItemTemplate(
+				index,
+				item.title,
+				item.duration,
+				this.selectors.playlistTrackPrefix
+			);
 		});
 
 		this.select(this.selectors.playlistList).setHTML(playlistTemplate);
-	}
-
-
-	/**
-	 * _getPlaylistItemTemplate
-	 *
-	 * @param  {number} id
-	 * @param  {string} name
-	 * @param  {string} duration
-	 * @return {string} HTML
-	 */
-	_getPlaylistItemTemplate(id, name, duration) {
-		const itemId = `${this.selectors.playlistTrackPrefix.replace('#', '')}${id}`;
-		return `
-			<li>
-				<a id="${itemId}" onclick="Player.selectTrack(${id});Player.play();">
-					<span class="playlist-title">${name}</span>
-					<span class="playlist-time">${duration}</span>
-				</a>
-			</li>
-		`;
-	}
-
-
-	/**
-	 * _addLeadingZeros
-	 * Forces time format to "mm:ss", prepending leading zeros when necessary.
-	 * Input could be any: "3:5", "03:5", "3:05", "03:05". In all cases the result would be: "03:05".
-	 *
-	 * @param {string} time
-	 * @return {string}
-	 */
-	_addLeadingZeros(time) {
-		if (typeof time !== 'string') {
-			return time;
-		}
-
-		const timeParts = time.split(':');
-		return `${timeParts[0].toString().padStart(2, '0')}:${timeParts[1].toString().padStart(2, '0')}`;
 	}
 };
