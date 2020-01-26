@@ -211,6 +211,10 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return void
 	 */
 	selectTrack(trackId) {
+		if (this.currentTrack === trackId) {
+			return;
+		}
+
 		if (this.currentTrack !== -1) {
 			this.stop();
 		}
