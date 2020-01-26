@@ -1,27 +1,19 @@
+from django.db import connection
 from os import path
 from django.conf import settings
-from django.http import Http404, HttpResponseRedirect, HttpResponse
+from django.http import Http404, HttpResponseRedirect, HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
-from .shortcuts import get_music_menu_album_list
+from .shortcuts import get_music_menu_album_list, get_all_songs
 
 
 def render_albums(request, album_id=None):
     lang = get_language()
 
     albums = get_music_menu_album_list(lang)
-    songs = SongDescription.objects.select_related('song').filter(language=lang)
-    songs = songs.order_by('song__album_order', 'song__release_date')
-    songs = songs.only(
-        'song__id',
-        'song__album_id',
-        'song__original_title',
-        'song__length',
-        'song__slug',
-        'title'
-    )
+    songs = get_all_songs(lang)
 
     if album_id:
         selected_album = get_object_or_404(albums, album__id=album_id)
@@ -237,3 +229,36 @@ def lyrics(request, song_id):
 def paroles(request, song_id):
     activate('fr')
     return render_lyrics(request, song_id)
+
+
+# ######### API ######### #
+def playlist(request):
+    song_descriptions = get_all_songs(get_language()).filter(song__is_hidden=0)
+    song_descriptions = song_descriptions.only(
+        'song__id',
+        'song__original_title',
+        'song__length',
+        'title'
+    )
+    song_descriptions = song_descriptions.prefetch_related('song__song_files')
+
+    playlist = []
+    for sd in song_descriptions:
+        if not sd.song.song_files.exists():
+            continue
+
+        # Extracting the files like this, because sd.song.song_files.values_list() causes
+        # an additional query for each song
+        files = map(lambda file: {
+            'file_name': file.file_name,
+            'file_type': file.file_type
+        }, sd.song.song_files.all())
+
+        playlist.append({
+            'id': sd.song_id,
+            'title': sd.translated_title,
+            'duration': sd.song.duration,
+            'files': list(files)
+        })
+
+    return JsonResponse({'playlist': playlist})
