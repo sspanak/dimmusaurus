@@ -125,6 +125,8 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	width: 100%;
 }
 
+.player audio {display: none;}
+
 .player .track-progress-bar-container, .player .player-controls {
 	display: inline-flex;
 }

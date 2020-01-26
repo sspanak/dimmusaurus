@@ -10,6 +10,7 @@
 	--menu-background-color: #333;
 	--menu-text-color: #ccc;
 	--menu-icon-inactive-color: #888;
+	--menu-item-hovered: white;
 
 
 	--menu-separator-strong: #666;
@@ -57,7 +58,7 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 .menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
 .menu .selected {
-	color: white;
+	color: var(--menu-item-hovered);
 }
 .menu a, .header-container .toggle-wrapper > a, footer a, .player a {
 	color: var(--menu-text-color);

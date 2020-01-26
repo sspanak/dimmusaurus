@@ -7,7 +7,24 @@ class UiElement { // eslint-disable-line no-unused-vars
 	}
 
 
+	selectAll(selector) {
+		let $elements = [];
+		if (typeof selector === 'string') {
+			this.selector = selector;
+			$elements = document.querySelectorAll(selector);
+		}
+
+		if ($elements.length === 0) {
+			Logger.error(`Could not select elements: ${selector}.`);
+		}
+
+		return $elements;
+	}
+
+
 	select(selector) {
+		this.$element = null;
+
 		if (typeof selector === 'string') {
 			this.selector = selector;
 			this.$element = document.querySelector(selector);
@@ -17,7 +34,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 		}
 
 		if (!this.$element) {
-			Logger.error(`Could not select element ${selector}.`);
+			Logger.error(`Could not select element: ${selector}.`);
 		}
 
 		return this;
@@ -73,6 +90,26 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 		this.$element.className = this.$element.className.concat(` ${className}`);
 		return true;
+	}
+
+
+	addClassAll($elements, className) {
+		if (!Array.isArray($elements) && !($elements instanceof NodeList)) {
+			Logger.warn('Calling addClassAll() without selected $elements.');
+			return;
+		}
+
+		$elements.forEach($e => this.select($e).addClass(className));
+	}
+
+
+	removeClassAll($elements, className) {
+		if (!Array.isArray($elements) && !($elements instanceof NodeList)) {
+			Logger.warn('Calling removeClassAll() without selected $elements.');
+			return;
+		}
+
+		$elements.forEach($e => this.select($e).removeClass(className));
 	}
 
 
@@ -143,5 +180,15 @@ class UiElement { // eslint-disable-line no-unused-vars
 		}
 
 		this.$element.innerHTML = newHTML;
+	}
+
+
+	getHTML() {
+		if (!this.$element) {
+			Logger.warn('Getting the HTML when there is no selected $element.');
+			return '';
+		}
+
+		return this.$element.innerHTML;
 	}
 }

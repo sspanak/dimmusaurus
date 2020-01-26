@@ -3,20 +3,26 @@ const Player = new class extends UiElement { // eslint-disable-line
 		super();
 
 		this.playlist = [];
+		this.currentTrack = 0;
 
 		this.classes = {
 			muted: 'fa-volume-mute',
+			selected: 'selected',
 			unmuted: 'fa-volume-up'
 		};
 
 		this.selectors = {
+			audio: '.player audio',
 			player: '.player',
 			playhead: '.track-progress-bar .track-progress',
 			playlist: '.menu-playlist-wrapper',
 			playlistButton: '#pl-playlist-toggle',
 			playlistList: '#playlist-list',
+			playlistTrackPrefix: '#playlist-track-',
 			playlistUnavailableLabel: '#playlist-unavailable-label',
 			progressBar: '.track-progress-bar',
+			progressTime: '.player .progress-time',
+			totalTime: '.player .total-time',
 			trackTitle: '.player .track-title',
 			tunePlayButton: '.content-tune .tune-play',
 			volume: '.player-controls .volume'
@@ -36,7 +42,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 			// we need to use addEventListener, because this is the only way of getting mouse coordinates
 			if (this.select(this.selectors.progressBar)) {
-				this.$element.addEventListener('mouseup', (event) => this.seek(event));
+				this.$element.addEventListener('mouseup', (event) => this.onProgressBarClick(event));
 			}
 
 			// toggle playlist both from the button and track title
@@ -44,10 +50,10 @@ const Player = new class extends UiElement { // eslint-disable-line
 				event.stopPropagation();
 				this.togglePlaylist();
 			});
-			this.select(this.selectors.trackTitle).addEventListener('click', (event) => {
-				event.stopPropagation();
-				this.togglePlaylist();
-			});
+			// this.select(this.selectors.trackTitle).addEventListener('click', (event) => {
+			// 	event.stopPropagation();
+			// 	this.togglePlaylist();
+			// });
 		});
 	}
 
@@ -116,7 +122,20 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	play() {
-		console.debug('play the current song');
+		console.debug(`play ${this.currentTrack}`);
+	}
+
+
+	/**
+	 * stop
+	 * Stops playing the currently selected song.
+	 *
+	 * @param {void}
+	 * @return {void}
+	 */
+	stop() {
+		this.seek(0);
+		console.debug(`stop ${this.currentTrack}`);
 	}
 
 
@@ -145,6 +164,21 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 
 	/**
+	 * seek
+	 * Seeks to a different time point of the currently playing song.
+	 *
+	 * @param  {number} percent
+	 * @return {void}
+	 */
+	seek(percent) {
+		this._movePlayhead(percent);
+		this._setPlaybackTime(percent);
+
+		// @todo: seek the audio too
+	}
+
+
+	/**
 	 * selectTrack
 	 * Finds a given track in the playlist and sets it ready for playing.
 	 *
@@ -152,18 +186,37 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return void
 	 */
 	selectTrack(trackId) {
-		console.debug(`play song ${trackId}`);
+		this.stop();
+
+		const $items = this.selectAll(`[id^='${this.selectors.playlistTrackPrefix.replace('#', '')}']`);
+		this.removeClassAll($items, 'selected');
+		this.select(this.selectors.trackTitle).setHTML('');
+		this.select(this.selectors.totalTime).setHTML('--:--');
+
+		const track = this.playlist.filter(t => trackId === t.id)[0];
+		if (!track) {
+			this.currentTrack = -1;
+			return;
+		}
+
+		this.select(`${this.selectors.playlistTrackPrefix}${trackId}`).addClass(this.classes.selected);
+		this.select(this.selectors.trackTitle).setHTML(track.title);
+		this.select(this.selectors.totalTime).setHTML(this._addLeadingZeros(track.duration));
+
+		this.currentTrack = trackId;
 	}
 
 
 	/**
-	 * seek
-	 * Seeks to a different time point of the currently playing song.
+	 * onProgressBarClick
+	 * Detects the click position on the progress bar, calculates the seek percentage from it,
+	 * then uses this.seek() to seek the song and update the UI.
+	 *
 	 *
 	 * @param {Event} event
 	 * @return {void}
 	 */
-	seek(event) {
+	onProgressBarClick(event) {
 		if (!this.select(this.selectors.progressBar)) {
 			return;
 		}
@@ -171,9 +224,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 		const pbRect = this.$element.getBoundingClientRect();
 		const seekTarget = 1 - (pbRect.width - (event.clientX - pbRect.x)) / pbRect.width;
 
-		this._movePlayhead(seekTarget * 100); // @todo: don't do it here, make the playback update it automatically
-
-		console.debug(`seek to ${seekTarget * 100} %`);
+		this.seek(seekTarget * 100);
 	}
 
 
@@ -193,6 +244,31 @@ const Player = new class extends UiElement { // eslint-disable-line
 		percent = Number.isNaN(percent) ? 0 : percent;
 
 		this.setStyle({ width: `${percent}%` });
+	}
+
+
+	/**
+	 * _setPlaybackTime
+	 * Updates the HTML element that contains the playback time.
+	 *
+	 * @param {number} percentFromStart
+	 * @return {void}
+	 */
+	_setPlaybackTime(percentFromStart) {
+		const uiTime = this.select(this.selectors.totalTime).getHTML().split(':');
+		let totalTime = Number.parseInt(uiTime[1]) + 60 * Number.parseInt(uiTime[0]);
+		if (Number.isNaN(totalTime)) {
+			Logger.warn('Failed parsing total time while trying to set playback time. Assuming it is 0.');
+			totalTime = 0;
+		}
+
+		const currentTime = percentFromStart / 100 * totalTime;
+		const seconds = Math.floor(currentTime % 60);
+		const minutes = Math.floor((currentTime - seconds) / 60);
+
+		this.select(this.selectors.progressTime).setHTML(
+			this._addLeadingZeros(`${minutes}:${seconds}`)
+		);
 	}
 
 
@@ -218,9 +294,14 @@ const Player = new class extends UiElement { // eslint-disable-line
 	_getPlaylist() {
 		axios.get('/api/music/playlist/')
 			.then(data => {
-				this._displayPlaylist(
-					data && data.data && data.data.playlist ? data.data.playlist : []
-				);
+				this.playlist = [];
+				let track = null;
+				if (data && data.data && data.data.playlist && Array.isArray(data.data.playlist)) {
+					this.playlist = data.data.playlist.reverse();
+					this._displayPlaylist(this.playlist);
+					track = this.playlist[0].id;
+				}
+				this.selectTrack(track);
 			})
 			.catch(error => {
 				Logger.error(`Failed fetching the playlist. ${error}.`);
@@ -263,13 +344,32 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {string} HTML
 	 */
 	_getPlaylistItemTemplate(id, name, duration) {
+		const itemId = `${this.selectors.playlistTrackPrefix.replace('#', '')}${id}`;
 		return `
 			<li>
-				<a onclick="Player.selectTrack(${id})">
+				<a id="${itemId}" onclick="Player.selectTrack(${id});Player.play();">
 					<span class="playlist-title">${name}</span>
 					<span class="playlist-time">${duration}</span>
 				</a>
 			</li>
 		`;
+	}
+
+
+	/**
+	 * _addLeadingZeros
+	 * Forces time format to "mm:ss", prepending leading zeros when necessary.
+	 * Input could be any: "3:5", "03:5", "3:05", "03:05". In all cases the result would be: "03:05".
+	 *
+	 * @param {string} time
+	 * @return {string}
+	 */
+	_addLeadingZeros(time) {
+		if (typeof time !== 'string') {
+			return time;
+		}
+
+		const timeParts = time.split(':');
+		return `${timeParts[0].toString().padStart(2, '0')}:${timeParts[1].toString().padStart(2, '0')}`;
 	}
 };
