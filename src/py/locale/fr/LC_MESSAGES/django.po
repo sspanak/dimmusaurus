@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 10:13+0200\n"
+"POT-Creation-Date: 2020-01-26 13:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:151
+#: src/py/main/templates/main/__root.html:184
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -27,7 +27,7 @@ msgid "home/"
 msgstr "accueil/"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:153
+#: src/py/main/templates/main/__root.html:186
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -35,8 +35,8 @@ msgid "Home"
 msgstr "Accueil"
 
 #. Translators: Biography page title
-#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:20
-#: src/py/main/templates/main/__root.html:159
+#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:21
+#: src/py/main/templates/main/__root.html:192
 msgid "Biography"
 msgstr "Biographie"
 
@@ -46,7 +46,7 @@ msgid "About Dimmu Saurus"
 msgstr "C'est quoi Dimmu Saurus?"
 
 #. Translators: Biography page description
-#: src/py/bio/views.py:22
+#: src/py/bio/views.py:23
 msgid "The story of Dimmu Saurus project"
 msgstr "L'histoire de Dimmu Saurus"
 
@@ -59,20 +59,20 @@ msgstr ""
 "Il n'y a rien à voir ici. Veuillez continuer à naviguer ou retourner au <a "
 "href=\"/\">page accueil</a>."
 
-#: src/py/main/templates/main/__root.html:96
+#: src/py/main/templates/main/__root.html:120
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/py/main/templates/main/__root.html:105
+#: src/py/main/templates/main/__root.html:129
 msgid "Change Language"
 msgstr "Choisir la langue préférée"
 
-#: src/py/main/templates/main/__root.html:157
+#: src/py/main/templates/main/__root.html:190
 #: src/py/main/templates/main/index.html:6
 msgid "biography/"
 msgstr "biographie/"
 
-#: src/py/main/templates/main/__root.html:165
+#: src/py/main/templates/main/__root.html:198
 #: src/py/music/templates/music/discography.html:15
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -80,7 +80,7 @@ msgstr "biographie/"
 msgid "Music"
 msgstr "Musique"
 
-#: src/py/main/templates/main/__root.html:174
+#: src/py/main/templates/main/__root.html:207
 #: src/py/main/templates/main/index.html:5
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -88,23 +88,23 @@ msgstr "Musique"
 msgid "music/"
 msgstr "musique/"
 
-#: src/py/main/templates/main/__root.html:174
+#: src/py/main/templates/main/__root.html:207
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: src/py/main/templates/main/__root.html:290
+#: src/py/main/templates/main/__root.html:232
+msgid "Playlist unavailable. Refresh the page to try again."
+msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
+
+#: src/py/main/templates/main/__root.html:241
 msgid "Follow"
 msgstr "Suivez"
 
-#: src/py/main/templates/main/__root.html:294
-msgid "Dimmu Saurus Bandcamp page"
-msgstr "Dimmu Saurus sur Bandcamp"
-
-#: src/py/main/templates/main/__root.html:298
+#: src/py/main/templates/main/__root.html:254
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: src/py/main/templates/main/__root.html:302
+#: src/py/main/templates/main/__root.html:259
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
@@ -143,11 +143,11 @@ msgstr "Nouvelles"
 msgid "No news are available at this time."
 msgstr "Il n'y a pas des nouvelles maintenant."
 
-#: src/py/main/views.py:21
+#: src/py/main/views.py:22
 msgid "Home Page"
 msgstr "Accueil"
 
-#: src/py/main/views.py:22
+#: src/py/main/views.py:23
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
 
@@ -155,15 +155,15 @@ msgstr "Musique garage... sans règles et sans restrictions"
 msgid "music/albums/"
 msgstr "musique/albums/"
 
-#: src/py/music/models.py:45
+#: src/py/music/models.py:46
 msgid "music/songs/"
 msgstr "musique/chansons/"
 
-#: src/py/music/models.py:48
+#: src/py/music/models.py:49
 msgid "/lyrics/"
 msgstr "/paroles/"
 
-#: src/py/music/models.py:51
+#: src/py/music/models.py:52
 msgid "/download/"
 msgstr "/telecharger/"
 
@@ -198,7 +198,7 @@ msgid "Song Lyrics"
 msgstr "Paroles de chanson"
 
 #. Translators: Song page title
-#: src/py/music/templates/music/song.html:25 src/py/music/views.py:89
+#: src/py/music/templates/music/song.html:25 src/py/music/views.py:84
 msgid "Song Details"
 msgstr "Détails de la chanson"
 
@@ -221,31 +221,34 @@ msgstr "télécharger"
 msgid "originally titled"
 msgstr "titre original"
 
-#: src/py/music/views.py:37
+#: src/py/music/views.py:31
 msgid "Track list and information."
 msgstr "Liste des titres et information."
 
 #. Translators: Discography page title
-#: src/py/music/views.py:49
+#: src/py/music/views.py:43
 msgid "Discography"
 msgstr "Discographie"
 
 #. Translators: Discography page description
-#: src/py/music/views.py:51
+#: src/py/music/views.py:45
 msgid "Dimmu Saurus Discography"
 msgstr "Dimmu Saurus – Discographie"
 
 #. Translators: Song page description
-#: src/py/music/views.py:91
+#: src/py/music/views.py:86
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Information, paroles et téléchargement de la chanson."
 
 #. Translators: Lyrics page title
-#: src/py/music/views.py:124
+#: src/py/music/views.py:120
 msgid "Lyrics"
 msgstr "Paroles"
 
 #. Translators: Lyrics page description
-#: src/py/music/views.py:126
+#: src/py/music/views.py:122
 msgid "Song lyrics and English translation."
 msgstr "Paroles de la chanson et traduction anglaise."
+
+#~ msgid "Dimmu Saurus Bandcamp page"
+#~ msgstr "Dimmu Saurus sur Bandcamp"

@@ -130,4 +130,18 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 		this.$element.addEventListener(eventType, callback);
 	}
+
+	setHTML(newHTML) {
+		if (!this.$element) {
+			Logger.warn('Calling setHTML() without selected $element.');
+			return;
+		}
+
+		if (typeof newHTML !== 'string') {
+			Logger.error(`setHTML() got invalid input. Expecting string, but got ${typeof newHTML}.`);
+			return;
+		}
+
+		this.$element.innerHTML = newHTML;
+	}
 }

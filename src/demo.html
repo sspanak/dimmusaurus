@@ -31,6 +31,8 @@
 
 		<link rel="stylesheet" href="ds.css?version=39">
 
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
 		<script>
 			function isOldBrowser() {
 				"use strict";
@@ -480,7 +482,10 @@
 
 		<div class="menu-playlist-wrapper shadow-top menu-closed">
 			<div class="menu menu-playlist">
-				<ul>
+				<div id="playlist-unavailable-label" class="playlist-unavailable-label">
+					Playlist unavailable. Refresh the page to try again.
+				</div>
+				<ul id="playlist-list">
 					<li>
 						<a onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Патката бяла</span>

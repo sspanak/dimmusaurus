@@ -65,7 +65,9 @@
 
 		<link rel="stylesheet" href="{% static 'ds.min.css' %}">
 
-				<script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+		<script>
 			function isOldBrowser() {
 				"use strict";
 
@@ -224,94 +226,12 @@
 			{% block content_block %}{% endblock %}
 		</div>
 
-		<div class="menu-playlist-wrapper shadow-top menu-closed">
+		<div class="menu-playlist-wrapper shadow-top menu-closed playlist-unavailable">
 			<div class="menu menu-playlist">
-				<ul>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Патката бяла</span>
-							<span class="playlist-time">10:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)" class="selected">
-							<span class="playlist-title">Баба меца си изгуби кеца</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Кондю яде спанак</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Don't leave me, Kage, you played the best shit you've ever fucking played</span>
-							<span class="playlist-time">10:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Има марулка, има трушийка и ще пийнем ракийка</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Да изорем дружно нивите, момчета!</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Ох вел</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Коньовишки жентълмен</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">жунгла е тука</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">дай му жега с паста за зъби корега</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">аре ве, докога ще пиша, не стана ли достатъчно високо това?</span>
-							<span class="playlist-time">10:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Небостъргач ли строим тука?</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">и осван това ми писна от тая песен, дето я слушам</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-					<li>
-						<a onclick="Player.selectTrack(666)">
-							<span class="playlist-title">Фред Герлах си пускам - Банат</span>
-							<span class="playlist-time">1:23</span>
-						</a>
-					</li>
-				</ul>
+				<div id="playlist-unavailable-label" class="playlist-unavailable-label">
+					{% trans 'Playlist unavailable. Refresh the page to try again.' %}
+				</div>
+				<ul id="playlist-list"></ul>
 			</div>
 		</div>
 

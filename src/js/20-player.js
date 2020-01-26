@@ -2,6 +2,8 @@ const Player = new class extends UiElement { // eslint-disable-line
 	constructor() {
 		super();
 
+		this.playlist = [];
+
 		this.classes = {
 			muted: 'fa-volume-mute',
 			unmuted: 'fa-volume-up'
@@ -12,6 +14,8 @@ const Player = new class extends UiElement { // eslint-disable-line
 			playhead: '.track-progress-bar .track-progress',
 			playlist: '.menu-playlist-wrapper',
 			playlistButton: '#pl-playlist-toggle',
+			playlistList: '#playlist-list',
+			playlistUnavailableLabel: '#playlist-unavailable-label',
 			progressBar: '.track-progress-bar',
 			trackTitle: '.player .track-title',
 			tunePlayButton: '.content-tune .tune-play',
@@ -27,6 +31,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 				return;
 			}
 
+			this._getPlaylist();
 			this._show();
 
 			// we need to use addEventListener, because this is the only way of getting mouse coordinates
@@ -200,5 +205,71 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 */
 	togglePlaylist() {
 		this.select(this.selectors.playlist).toggleClass(Menu.closedMenuClass); // eslint-disable-line no-undef
+	}
+
+
+	/**
+	 * _getPlaylist
+	 * Fetches the playlist from the backend and displays if there were no errors.
+	 * In case there were, it will enable the "Playlist unavailable" message.
+	 *
+	 * @return {void}
+	 */
+	_getPlaylist() {
+		axios.get('/api/music/playlist/')
+			.then(data => {
+				this._displayPlaylist(
+					data && data.data && data.data.playlist ? data.data.playlist : []
+				);
+			})
+			.catch(error => {
+				Logger.error(`Failed fetching the playlist. ${error}.`);
+				this._displayPlaylist([]);
+			});
+	}
+
+
+	/**
+	 * _displayPlaylist
+	 * Builds the playlist HTML and injects it into the page.
+	 *
+	 * @param  {{ id: number, title: string, duration: string, files: {file_type, file_name}[] }[]} playlist
+	 * @return {void}
+	 */
+	_displayPlaylist(playlist) {
+		if (!playlist || !playlist.length) {
+			Logger.warn('Displaying empty playlist.');
+
+			this.select(this.selectors.playlist).addClass('playlist-unavailable');
+		}
+
+		this.select(this.selectors.playlist).removeClass('playlist-unavailable');
+
+		let playlistTemplate = '';
+		playlist.forEach(item => {
+			playlistTemplate += this._getPlaylistItemTemplate(item.id, item.title, item.duration);
+		});
+
+		this.select(this.selectors.playlistList).setHTML(playlistTemplate);
+	}
+
+
+	/**
+	 * _getPlaylistItemTemplate
+	 *
+	 * @param  {number} id
+	 * @param  {string} name
+	 * @param  {string} duration
+	 * @return {string} HTML
+	 */
+	_getPlaylistItemTemplate(id, name, duration) {
+		return `
+			<li>
+				<a onclick="Player.selectTrack(${id})">
+					<span class="playlist-title">${name}</span>
+					<span class="playlist-time">${duration}</span>
+				</a>
+			</li>
+		`;
 	}
 };

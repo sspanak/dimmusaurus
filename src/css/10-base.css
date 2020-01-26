@@ -104,6 +104,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	margin: 12px 6px 0 0;
 	overflow-y: auto;
 }
+.menu-playlist .playlist-unavailable-label {display: none; margin: 12px;}
 .menu-playlist > ul {padding: 0 5px;}
 .menu-playlist li > a {
 	cursor: pointer;
@@ -111,6 +112,8 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 .menu-playlist li > a .playlist-title {flex: auto;}
 
+.playlist-unavailable .playlist-unavailable-label {display: block;}
+.playlist-unavailable ul {display: none;}
 
 /*==============  Player ==============*/
 .player {

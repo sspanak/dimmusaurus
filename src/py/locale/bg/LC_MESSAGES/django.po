@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-25 10:13+0200\n"
+"POT-Creation-Date: 2020-01-26 13:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:151
+#: src/py/main/templates/main/__root.html:184
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -27,7 +27,7 @@ msgid "home/"
 msgstr "начало/"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:153
+#: src/py/main/templates/main/__root.html:186
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -35,8 +35,8 @@ msgid "Home"
 msgstr "Начало"
 
 #. Translators: Biography page title
-#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:20
-#: src/py/main/templates/main/__root.html:159
+#: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:21
+#: src/py/main/templates/main/__root.html:192
 msgid "Biography"
 msgstr "Биография"
 
@@ -46,7 +46,7 @@ msgid "About Dimmu Saurus"
 msgstr "Що е то Димозавър?"
 
 #. Translators: Biography page description
-#: src/py/bio/views.py:22
+#: src/py/bio/views.py:23
 msgid "The story of Dimmu Saurus project"
 msgstr "Основаване и история на проекта Димозавъръ (Dimmu Saurus)"
 
@@ -59,20 +59,20 @@ msgstr ""
 "Тук няма нещо за гледане. Моля продължете напред или се върнете на <a href="
 "\"/\">главната страница</a>."
 
-#: src/py/main/templates/main/__root.html:96
+#: src/py/main/templates/main/__root.html:120
 msgid "Main Menu"
 msgstr "Главно меню"
 
-#: src/py/main/templates/main/__root.html:105
+#: src/py/main/templates/main/__root.html:129
 msgid "Change Language"
 msgstr "Избор на език"
 
-#: src/py/main/templates/main/__root.html:157
+#: src/py/main/templates/main/__root.html:190
 #: src/py/main/templates/main/index.html:6
 msgid "biography/"
 msgstr "биография/"
 
-#: src/py/main/templates/main/__root.html:165
+#: src/py/main/templates/main/__root.html:198
 #: src/py/music/templates/music/discography.html:15
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -80,7 +80,7 @@ msgstr "биография/"
 msgid "Music"
 msgstr "Музика"
 
-#: src/py/main/templates/main/__root.html:174
+#: src/py/main/templates/main/__root.html:207
 #: src/py/main/templates/main/index.html:5
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -88,23 +88,23 @@ msgstr "Музика"
 msgid "music/"
 msgstr "музика/"
 
-#: src/py/main/templates/main/__root.html:174
+#: src/py/main/templates/main/__root.html:207
 msgid "All Albums"
 msgstr "Всички албуми"
 
-#: src/py/main/templates/main/__root.html:290
+#: src/py/main/templates/main/__root.html:232
+msgid "Playlist unavailable. Refresh the page to try again."
+msgstr "Няма песни. Опитайте да презаредите страницата отново."
+
+#: src/py/main/templates/main/__root.html:241
 msgid "Follow"
 msgstr "Последвай"
 
-#: src/py/main/templates/main/__root.html:294
-msgid "Dimmu Saurus Bandcamp page"
-msgstr "Димозавър в Bandcamp"
-
-#: src/py/main/templates/main/__root.html:298
+#: src/py/main/templates/main/__root.html:254
 msgid "Dimmu Saurus on Facebook"
 msgstr "Димозавър във Facebook"
 
-#: src/py/main/templates/main/__root.html:302
+#: src/py/main/templates/main/__root.html:259
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Канал на Димозавър в Youtube"
 
@@ -143,11 +143,11 @@ msgstr "Новини"
 msgid "No news are available at this time."
 msgstr "В момента няма новини."
 
-#: src/py/main/views.py:21
+#: src/py/main/views.py:22
 msgid "Home Page"
 msgstr "Начална страница"
 
-#: src/py/main/views.py:22
+#: src/py/main/views.py:23
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Музика от гаража... без ограничения и без правила"
 
@@ -155,15 +155,15 @@ msgstr "Музика от гаража... без ограничения и бе�
 msgid "music/albums/"
 msgstr "музика/албуми/"
 
-#: src/py/music/models.py:45
+#: src/py/music/models.py:46
 msgid "music/songs/"
 msgstr "музика/песни/"
 
-#: src/py/music/models.py:48
+#: src/py/music/models.py:49
 msgid "/lyrics/"
 msgstr "/текст/"
 
-#: src/py/music/models.py:51
+#: src/py/music/models.py:52
 msgid "/download/"
 msgstr "/изтегли/"
 
@@ -195,7 +195,7 @@ msgid "Song Lyrics"
 msgstr "Текст на песен"
 
 #. Translators: Song page title
-#: src/py/music/templates/music/song.html:25 src/py/music/views.py:89
+#: src/py/music/templates/music/song.html:25 src/py/music/views.py:84
 msgid "Song Details"
 msgstr "Подробности за песен"
 
@@ -218,31 +218,34 @@ msgstr "изтеглѝ"
 msgid "originally titled"
 msgstr "оригинално заглавие"
 
-#: src/py/music/views.py:37
+#: src/py/music/views.py:31
 msgid "Track list and information."
 msgstr "Списък с песни и подробности."
 
 #. Translators: Discography page title
-#: src/py/music/views.py:49
+#: src/py/music/views.py:43
 msgid "Discography"
 msgstr "Дискография"
 
 #. Translators: Discography page description
-#: src/py/music/views.py:51
+#: src/py/music/views.py:45
 msgid "Dimmu Saurus Discography"
 msgstr "Дискография на Dimmu Saurus"
 
 #. Translators: Song page description
-#: src/py/music/views.py:91
+#: src/py/music/views.py:86
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Подробности за песента и текст. Връзка за сваляне."
 
 #. Translators: Lyrics page title
-#: src/py/music/views.py:124
+#: src/py/music/views.py:120
 msgid "Lyrics"
 msgstr "Текст"
 
 #. Translators: Lyrics page description
-#: src/py/music/views.py:126
+#: src/py/music/views.py:122
 msgid "Song lyrics and English translation."
 msgstr "Текст на песента и английски превод."
+
+#~ msgid "Dimmu Saurus Bandcamp page"
+#~ msgstr "Димозавър в Bandcamp"
