@@ -42,11 +42,11 @@ The following two years I fell into a creative crisis and music almost became a 
 
 ### Renaissance
 
-Then the story jumps to the summer of 2004, when I started writing music again. The first tune from this period is “Мойто” (“Mine”, or ”My Thing”) and was born without effort, almost by itself. One evening I wanted to hear how a guitar riff I made up will sound if I add drums and bass guitar to it. The next day Deus ex machina started spinning at full speed and through my hands which served only as instrument, the music emerged. While I was writing this tune, I thought to myself – why don’t I make out of this one another song for the others… or for the music player, as I was imagining it back then. This time I really put an effort to do it as I wanted to.
+Then the story jumps to the summer of 2004, when I went back to writing music again. The first tune from this period is “Мойто” (“Mine”, or ”My Thing”) and was born without much effort. One evening I wanted to hear how a guitar riff, that I invented back in 1999 would sound, if drums and bass guitar were playing along. On the next day, Deus ex Machina started spinning at full speed and through my hands, which served only as an instrument, the music emerged. While I was working, I thought to myself, “I want to make a great tune out of this one”. And so I did!
 
-After “Mine” I wrote more tunes, which sounded better and better.
+After “Mine”, I became very productive. In the next two years I wrote eight more tunes, that sounded better and better.
 
-After I finished school in 2006, I began experimenting with different sound techniques – both in recording and music composition. At the end of the summer I decided to turn a poem I wrote a year ago into a black metal song and then – the outstanding blockbuster “С.М.Р.А.Д.” (S.T.I.N.K.) was born. This was my first real song. It was also the first time I used a real guitar instead of computer generated sound. I used my good old acoustic Cremona Rose to do the recording. Of course the sound was distorted as it had to sound evil and “true” like the black metal from the 1990s. The vocals or perhaps – the screaming was also as true as possible.
+In 2006, I began experimenting with different techniques, both in terms of recording and music composition. At the end of the summer, I decided to turn a poem written a year ago, into a black metal song and then, the outstanding blockbuster “С.М.Р.А.Д.” (S.T.I.N.K.) was born. This was my first real song in which I actually sing. It was also the first time I used a real guitar instead of computer generated sound. I played my good old acoustic Cremona Rose for the recording. Of course, I still had to use the computer to add distortion and effects, to make it sound “trve” and evil. I wanted the entire song to be similar to the early Black Metal music from the 1990s. As you can imagine, the vocal part, or shall I say, the screaming part, was also “trve”.
 
 ### Up, up and away
 
