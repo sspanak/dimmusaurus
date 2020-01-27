@@ -14,7 +14,7 @@ The goal of this project is to be as simple and as small as possible. It is a fi
   * gettext 0.15 _(required by Django for translations)_
   * python-markdown2 _(you may have it by default)_
   * django-markdown-deux
-  * sqlite 3.30.1
+  * sqlite 3.30.1 _(included with Python)_
 * Code style
   * nodejs 12.14+
     * csslint
@@ -44,24 +44,24 @@ Linting is meant to be done using globally installed tools. However, depending o
 * Install html tidy by the means of your operating system.
 * Install frontend linters:
   * First, you need to install `npm`. Do so by the means of your operating system.
-  * `npm install -g csslint` (remove `-g` parameter, to install locally)
-  * `npm install -g eslint` (remove `-g` parameter, to install locally)
-* Install Python linter: `pip install pycodestyle`
+  * `$ npm install -g csslint` (remove `-g` parameter, to install locally)
+  * `$ npm install -g eslint` (remove `-g` parameter, to install locally)
+* Install Python linter: `$ pip install pycodestyle`
 
  You might as well install them in the project instead of globally.
 
 #### Frontend setup
 * Install npm 12.14+.
-* In the main project directory run: `npm install`.
+* In the main project directory run: `$ npm install`.
 
 #### Python and Django setup
 * Install Python 3.8 by the means of your operating system.
 * Install Django 3.0
-  * Just do: `python -m pip install Django==3.0.2`.
+  * Just do: `$ python -m pip install Django==3.0.2`.
   * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out Django docs how to do this.
   * `gettext` is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install version 0.15 or higher.
-* `pip install django-markdown-deux`: enables usage of `.md` files as templates.
-* `pip install markdown2`. Required for converting markdown bits from the database and by `django-markdown-deux`. _(Your Python version may include it by default)_
+* `$ pip install django-markdown-deux`: enables usage of `.md` files as templates.
+* `$ pip install markdown2`. Required for converting markdown bits from the database and by `django-markdown-deux`. _(Your Python version may include it by default)_
 
 #### Database setup and management
 The project runs on Sqlite3 that comes with Python, so there is no need to install anything extra. Normally, you do not need to open the database at all, as Django and the build-tools take care of it, but should you need to do so, run: `sqlite src/py/db.sqlite3`.
@@ -75,39 +75,41 @@ There are `make db-backup` and `make db-import` commands, for exporting and impo
 ### Running
 
 #### The entire site
-* `make` - builds and minifies the `css` and the `js`, and copies them and the images to the Django `static` folder.
-* `cd src/py`
-* `django-admin compilemessages` - builds all translations from `.po` files
-* `python manage.py migrate` - runs database migrations
-* `python manage.py runserver [a-port-of-your-choice]` - runs the server
-* Open `cd src/py/pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT` and `ALLOWED_HOSTS` properly. `SITE_HOST` contains only an IP address or a domain name, without `http(s)://`. `SITE_PORT` can be an empty string, but it must be, for example, `:3666`, if you choose to run on port 3666.
+* `$ make` - builds and minifies the `css` and the `js`, and copies them and the images to the Django `static` folder.
+* `$ cd src/py`
+* Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT` and `ALLOWED_HOSTS` properly. 
+  * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there.
+  * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `:3666`.
+* `$ django-admin compilemessages` - builds all translations from `.po` files
+* `$ python manage.py migrate` - runs database migrations
+* `$ python manage.py runserver [a-port-of-your-choice]` - runs the server.
 
 The site will be available on 127.0.0.1:8000, or at the port you have chosen.
 
 #### The UI Demo
-* `make ui` - builds the `css` and the `js`, and copies the images to `ui-demo` folder.
-* `cd ui-demo`
+* `$ make ui` - builds the `css` and the `js`, and copies the images to `ui-demo` folder.
+* `$ cd ui-demo`
 * Open the `index.html`
 
 #### Available make commands
 In case you need to build only one part of the project, the following commands are available:
 
 Django:
-* `make clean`: cleans up the Django `static` folder.
-* `make css-prod`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
-* `make js-prod`: same as `make css-dev` but for javascript.
-* `make pystatic`: Builds both the `css` and the `js`, and copies the images to Django `static` folder, making sure, all resources are ready to use. This is the default `make` target.
+* `$ make clean`: cleans up the Django `static` folder.
+* `$ make css-prod`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
+* `$ make js-prod`: same as `make css-dev` but for javascript.
+* `$ make pystatic`: Builds both the `css` and the `js`, and copies the images to Django `static` folder, making sure, all resources are ready to use. This is the default `make` target.
 
 UI Demo:
-* `make clean-ui`: cleans up the `ui-demo/` folder.
-* `make css-ui`: compiles all css into one file and copies it to the `ui-demo` folder.
-* `make images`: copies the `images` to `ui-demo/` folder. They don't need building, so they are just copied.
-* `make js-ui`: same as `make css-ui`, but for JavaScript.
-* `make ui`: runs all commands to build the frontend demo, including copying the necessary `.html` files.
+* `$ make clean-ui`: cleans up the `ui-demo/` folder.
+* `$ make css-ui`: compiles all css into one file and copies it to the `ui-demo` folder.
+* `$ make images`: copies the `images` to `ui-demo/` folder. They don't need building, so they are just copied.
+* `$ make js-ui`: same as `make css-ui`, but for JavaScript.
+* `$ make ui`: runs all commands to build the frontend demo, including copying the necessary `.html` files.
 
 Database specific commands are:
-* `make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
-* `make db-import`: Looks for a file named `ds.db.tar` in the `db` directory, created using `make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
+* `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
+* `$ make db-import`: Looks for a file named `ds.db.tar` in the `db` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
 
 ### Deployment
 TODO: Not yet available.
