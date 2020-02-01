@@ -5,6 +5,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.playlist = [];
 		this.currentTrack = -1;
+		this.playbackRefreshInterval = 0;
 
 		this.classes = {
 			disabled: 'disabled',
@@ -145,7 +146,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 		}
 
 
-		if (this.select(this.selectors.play).hasClass(this.classes.pause)) {
+		if (this._isPlaying()) {
 			$audio.pause();
 
 			this.select(this.selectors.play).removeClass(this.classes.pause);
@@ -155,6 +156,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 				$play.removeClass(this.classes.disabled);
 				$play.removeClass(this.classes.play);
 				$play.addClass(this.classes.pause);
+				this.onPlayback();
 			});
 
 			$play.addClass(this.classes.disabled);
@@ -174,11 +176,12 @@ const Player = new class extends UiElement { // eslint-disable-line
 			Logger.warn('Trying to stop playback, but no track is selected.');
 		}
 
-		if (this.select(this.selectors.play).hasClass(this.classes.pause)) {
+		if (this._isPlaying()) {
 			this.playToggle();
 		}
 
 		this.seek(0);
+		this._setPlaybackTime('00:00');
 	}
 
 
@@ -245,7 +248,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 		// $audio.currentTime = targetTime;
 
 		this._movePlayhead(percent);
-		this._setPlaybackTime(percent);
+		// this._setPlaybackTime(percent);
 	}
 
 
@@ -268,7 +271,8 @@ const Player = new class extends UiElement { // eslint-disable-line
 		const $items = this.selectAll(`[id^='${this.selectors.playlistTrackPrefix.replace('#', '')}']`);
 		this.removeClassAll($items, 'selected');
 		this.select(this.selectors.trackTitle).setHTML('');
-		this.select(this.selectors.totalTime).setHTML('--:--');
+		this._setTotalTime('--:--');
+		this._setPlaybackTime('00:00');
 
 		const track = this.playlist[trackId];
 		if (!track) {
@@ -289,10 +293,8 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.select(`${this.selectors.playlistTrackPrefix}${trackId}`).addClass(this.classes.selected);
 		this.select(this.selectors.trackTitle).setHTML(track.title);
-		this.select(this.selectors.totalTime).setHTML(addLeadingZeros(track.duration));
 		this.disableNextWhenLastSong();
 		this.disablePreviousWhenFirstSong();
-		this.seek(0);
 	}
 
 
@@ -317,6 +319,33 @@ const Player = new class extends UiElement { // eslint-disable-line
 	}
 
 
+	/**
+	 * onPlayback
+	 * Updates the UI with the track progress every second
+	 */
+	onPlayback() {
+		if (!this.select(this.selectors.audio) || !this._isPlaying()) {
+			if (this.playbackRefreshInterval) {
+				clearInterval(this.playbackRefreshInterval);
+				this.playbackRefreshInterval = 0;
+			}
+
+			return;
+		}
+
+		if (!this.playbackRefreshInterval) {
+			this.playbackRefreshInterval = setInterval(() => this.onPlayback(), 1000);
+		}
+
+		const currentTime = this._getCurrentTime();
+		const totalTime = this._getTotalTime();
+		this._setPlaybackTime(currentTime);
+		this._setTotalTime(totalTime);
+
+		const progress = timeToSeconds(currentTime) / timeToSeconds(totalTime) * 100;
+		this._movePlayhead(progress);
+	}
+
 
 	/**
 	 * _movePlayhead
@@ -330,7 +359,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 			return;
 		}
 
-		let percent = Number.parseInt(percentFromStart, 10);
+		let percent = Number.parseFloat(percentFromStart);
 		percent = Number.isNaN(percent) ? 0 : percent;
 
 		this.setStyle({ width: `${percent}%` });
@@ -341,24 +370,23 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * _setPlaybackTime
 	 * Updates the HTML element that contains the playback time.
 	 *
-	 * @param {number} percentFromStart
+	 * @param {string} percentFromStart
 	 * @return {void}
 	 */
-	_setPlaybackTime(percentFromStart) {
-		const uiTime = this.select(this.selectors.totalTime).getHTML().split(':');
-		let totalTime = Number.parseInt(uiTime[1]) + 60 * Number.parseInt(uiTime[0]);
-		if (Number.isNaN(totalTime)) {
-			Logger.warn('Failed parsing total time while trying to set playback time. Assuming it is 0.');
-			totalTime = 0;
-		}
+	_setPlaybackTime(time) {
+		this.select(this.selectors.progressTime).setHTML(time);
+	}
 
-		const currentTime = percentFromStart / 100 * totalTime;
-		const seconds = Math.floor(currentTime % 60);
-		const minutes = Math.floor((currentTime - seconds) / 60);
 
-		this.select(this.selectors.progressTime).setHTML(
-			addLeadingZeros(`${minutes}:${seconds}`)
-		);
+	/**
+	 * _setTotalTime
+	 * Updates the HTML element that contains the total time.
+	 *
+	 * @param {string} percentFromStart
+	 * @return {void}
+	 */
+	_setTotalTime(time) {
+		this.select(this.selectors.totalTime).setHTML(time);
 	}
 
 
@@ -449,5 +477,42 @@ const Player = new class extends UiElement { // eslint-disable-line
 		});
 
 		this.select(this.selectors.playlistList).setHTML(playlistTemplate);
+	}
+
+
+	/**
+	 * _isPlaying
+	 * Returns the currently playing status of the UI.
+	 *
+	 * @return {Boolean}
+	 */
+	_isPlaying() {
+		return this.select(this.selectors.play).hasClass(this.classes.pause);
+	}
+
+
+	/**
+	 * _getTotalTime
+	 * Returns the duration of the currently loaded audio file.
+	 *
+	 * @return {string} 'MM:SS'
+	 */
+	_getTotalTime() {
+		const $audio = this.select(this.selectors.audio).$element;
+		const sec = $audio !== null ? $audio.duration : null;
+		return secondsToTime(sec);
+	}
+
+
+	/**
+	 * _getCurrentTime
+	 * Returns the current playback position in an audio.
+	 *
+	 * @return {string} 'MM:SS'
+	 */
+	_getCurrentTime() {
+		const $audio = this.select(this.selectors.audio).$element;
+		const sec = $audio !== null ? $audio.currentTime : null;
+		return secondsToTime(sec);
 	}
 };

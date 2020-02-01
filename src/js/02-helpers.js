@@ -38,7 +38,26 @@ function timeToSeconds(time) { // eslint-disable-line no-unused-vars
 		return 0;
 	}
 
-	return timeParts[0] * 60 + timeParts[1];
+	return Number.parseInt(timeParts[0]) * 60 + Number.parseInt(timeParts[1]);
+}
+
+
+/**
+ * secondsToTime
+ * Converts seconds to MM:SS format. Returns "--:--" on non-numeric or negative input.
+ *
+ * @param  {number} seconds
+ * @return {string}
+ */
+function secondsToTime(seconds) { // eslint-disable-line no-unused-vars
+	if (Number.isNaN(seconds) || seconds < 0) {
+		return '--:--';
+	}
+
+	const sec = Math.round(seconds) % 60;
+	const min = Math.floor(Math.round(seconds) / 60);
+
+	return addLeadingZeros(`${min}:${sec}`);
 }
 
 
