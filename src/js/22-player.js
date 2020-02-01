@@ -95,7 +95,6 @@ const Player = new class { // eslint-disable-line
 		}
 
 		this.seek(0);
-		PlayerUi.setPlaybackTime('00:00');
 	}
 
 
@@ -108,6 +107,7 @@ const Player = new class { // eslint-disable-line
 	 */
 	next() {
 		if (PlayerUi.isNextDisabled()) {
+			this.stop();
 			return;
 		}
 
@@ -127,6 +127,7 @@ const Player = new class { // eslint-disable-line
 	 */
 	previous() {
 		if (PlayerUi.isPreviousDisabled()) {
+			this.stop();
 			return;
 		}
 
