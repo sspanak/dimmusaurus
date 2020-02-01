@@ -126,7 +126,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 .player audio {display: none;}
-.player .disabled {cursor: default;} /* disabled controls */
 
 .player .track-progress-bar-container, .player .player-controls {
 	display: inline-flex;
@@ -149,6 +148,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	border-radius: inherit;
 }
 
+.player .disabled {cursor: default;} /* disabled controls */
 
 /*==============  Footer ==============*/
 footer {

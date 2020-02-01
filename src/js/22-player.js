@@ -65,16 +65,30 @@ const Player = new class { // eslint-disable-line
 			return;
 		}
 
+		// pause
 		if (PlayerUi.isPlaying()) {
 			PlayerUi.pause();
 			$audio.pause();
-		} else {
-			$audio.play().then(() => {
+			return;
+		}
+
+		// play
+		$audio.play()
+			.then(() => {
 				PlayerUi.enablePlay().play();
+			})
+			.catch(error => {
+				if (error.code === error.ABORT_ERR) {
+					// A user aborting the audio loading is not an error, so we skip it.
+					Logger.warn('Audio loading aborted');
+					return;
+				}
+
+				Logger.error(error);
+				PlayerUi.fail();
 			});
 
-			PlayerUi.disablePlay();
-		}
+		PlayerUi.disablePlay();
 	}
 
 
@@ -146,7 +160,10 @@ const Player = new class { // eslint-disable-line
 	 * @return {void}
 	 */
 	seek(percent) {
-		const newSeconds = timeToSeconds(PlayerUi.getTotalTime()) / 100 * percent;
+		let newSeconds = timeToSeconds(PlayerUi.getTotalTime()) / 100 * percent;
+		if (Number.isNaN(newSeconds) || newSeconds < 0) {
+			newSeconds = 0;
+		}
 
 		PlayerUi.getAudio().currentTime = newSeconds;
 		PlayerUi.updateProgress();
@@ -185,8 +202,12 @@ const Player = new class { // eslint-disable-line
 
 		this.currentTrack = trackId;
 
-		PlayerUi.setAudioSources(this.playlist[this.currentTrack].files);
-		PlayerUi.selectTrack(trackId, track.title, this.playlist.length);
+		PlayerUi
+			.enableControls()
+			.hideError()
+			.setAudioSources(this.playlist[this.currentTrack].files)
+			.onAudioSourceError(() => PlayerUi.fail())
+			.selectTrack(trackId, track.title, this.playlist.length);
 	}
 
 

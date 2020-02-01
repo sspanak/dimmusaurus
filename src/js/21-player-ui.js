@@ -8,6 +8,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		this.classes = {
 			disabled: 'disabled',
+			error: 'error',
 			muted: 'fa-volume-mute',
 			pause: 'fa-pause',
 			play: 'fa-play',
@@ -17,6 +18,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		this.selectors = {
 			audio: '.player audio',
+			audioSource: '.player audio source',
 			next: '#pl-next',
 			play: '#pl-play',
 			player: '.player',
@@ -54,6 +56,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		// 	event.stopPropagation();
 		// 	this.togglePlaylist();
 		// });
+
+		this.select(this.selectors.audio).addEventListener('error', () => {
+			this.fail();
+		});
 	}
 
 
@@ -66,6 +72,48 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	show() {
 		this.select('body').removeClass('unsupported-player');
+	}
+
+
+	/**
+	 * fail
+	 * Switches to error state, displaying the most common error that a track failed to load.
+	 *
+	 * @return {this}`
+	 */
+	fail() {
+		this.disableControls();
+		this.showError(PLAYER_MSG.errorLoadingTrack);
+
+		return this;
+	}
+
+
+	/**
+	 * showError
+	 * self-explanatory
+	 *
+	 * @param {string}
+	 * @return {this}
+	 */
+	showError(errorMessage) {
+		this.select(this.selectors.trackTitle).setHTML(errorMessage);
+		this.select(this.selectors.trackTitle).addClass(this.classes.error);
+
+		return this;
+	}
+
+	/**
+	 * hideError
+	 * self-explanatory
+	 *
+	 * @return {this}
+	 */
+	hideError() {
+		this.select(this.selectors.trackTitle).removeClass(this.classes.error);
+		this.select(this.selectors.trackTitle).setHTML('');
+
+		return this;
 	}
 
 
@@ -152,6 +200,39 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	}
 
 
+	disableControls() {
+		this.disablePlay();
+
+		[
+			this.selectors.volume,
+			this.selectors.next,
+			this.selectors.previous,
+			this.selectors.progressBar,
+			this.selectors.progressTime,
+			this.selectors.totalTime
+		].forEach(selector => this.select(selector).addClass(this.classes.disabled));
+
+		return this;
+	}
+
+
+	enableControls() {
+		this.enablePlay();
+		this.disablePreviousWhenFirstSong();
+		this.disableNextWhenLastSong();
+
+		[
+			this.selectors.volume,
+			this.selectors.progressBar,
+			this.selectors.progressTime,
+			this.selectors.totalTime
+		].forEach(selector => this.select(selector).removeClass(this.classes.disabled));
+
+		return this;
+	}
+
+
+
 	/**
 	 * handleProgressBarClick
 	 * Detects the click position on the progress bar, calculates the seek percentage from it,
@@ -207,13 +288,15 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	toggleMute() {
 		this.select(this.selectors.volume);
 
+		if (this.hasClass(this.classes.disabled)) {
+			return this;
+		}
+
 		if (this.hasClass(this.classes.unmuted)) {
 			this.removeClass(this.classes.unmuted);
 			this.addClass(this.classes.muted);
-			this.addClass(this.classes.disabled);
 		} else {
 			this.removeClass(this.classes.muted);
-			this.removeClass(this.classes.disabled);
 			this.addClass(this.classes.unmuted);
 		}
 
@@ -433,13 +516,34 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * Sets the source URLs of the <audio> element. Input is the same as for getAudioSourceTemplate().
 	 * On invalid input sources will be simply erased.
 	 *
-	 * @param {Array<PlaylistSourceFile]} playlistFiles [description]
+	 * @param {Array<PlaylistSourceFile]} playlistFiles
 	 * @return {this}
 	 */
 	setAudioSources(playlistFiles) {
 		const sourcesHTML = getAudioSourceTemplate(playlistFiles);
 		this.select(this.selectors.audio).setHTML(sourcesHTML);
 		this.$element.load();
+
+		return this;
+	}
+
+
+	/**
+	 * onAudioSourceError
+	 * Sets an error handler for <source> elements inside <audio>.
+	 * IMPORTANT: this.setAudioSources() should have been called first, to initialize the <source> elements.
+	 *
+	 * @param {Function} callback
+	 * @return {this}
+	 */
+	onAudioSourceError(callback) {
+		if (typeof callback !== 'function') {
+			return this;
+		}
+
+		this.selectAll(this.selectors.audioSource).forEach($source => {
+			$source.addEventListener('error', event => callback(event));
+		});
 
 		return this;
 	}

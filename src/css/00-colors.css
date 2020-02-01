@@ -56,7 +56,7 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 .menu li > a {border-bottom: 1px solid var(--menu-separator-strong);}
 
-.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:hover,
+.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:not(.disabled):hover,
 .menu .selected {
 	color: var(--menu-item-hovered);
 }
@@ -67,10 +67,11 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 .menu-playlist {border-top: 1px solid var(--menu-icon-inactive-color);}
 
 .player {border-top: 1px solid var(--menu-separator-strong);}
+.player .disabled {color: var(--menu-icon-inactive-color);}
+.player .error {color: var(--menu-item-hovered);}
 .player .track-progress-bar-background {background: var(--menu-separator-strong);}
 .player .track-progress {background: var(--menu-text-color);}
 .player .player-controls a {border-left: 1px solid var(--menu-separator-medium);}
-.player .player-controls .disabled {color: var(--menu-icon-inactive-color);}
 
 .shadow-top {box-shadow: var(--shadow-top);}
 .shadow-bottom {box-shadow: var(--shadow-bottom);}
