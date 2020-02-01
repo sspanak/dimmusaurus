@@ -1,7 +1,6 @@
-from django.db import connection
 from os import path
 from django.conf import settings
-from django.http import Http404, HttpResponseRedirect, HttpResponse, JsonResponse
+from django.http import Http404, HttpResponseRedirect, JsonResponse, FileResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
 
@@ -147,24 +146,23 @@ def download(request, song_id):
         SongFile.objects.select_related('song').only('song__slug', 'file_name', 'file_type'),
         song_id=song_id
     )
+    song = get_object_or_404(
+        SongDescription.objects.select_related('song').only('title', 'song__original_title'),
+        song_id=song_id,
+        language=get_language()
+    )
 
     try:
         file_size = path.getsize(file.get_absolute_path())
-        file_contents = open(file.get_absolute_path(), 'rb').read()
+        file_contents = open(file.get_absolute_path(), 'rb')
     except OSError as e:
         raise Http404
 
-    response = HttpResponse(file_contents)
-    if file.file_type == 'ogg' or file.file_type == 'opus':
-        response['Content-Type'] = 'audio/ogg'
-    elif file.file_type == 'aac':
-        response['Content-Type'] = 'audio/mp4'
-    else:
-        response['Content-Type'] = 'application/octet-stream'
-    response['Content-Disposition'] = 'attachment; filename=%s.%s' % (file.song.slug, file.file_type)
-    response['Content-Length'] = file_size
-
-    return response
+    return FileResponse(
+        file_contents,
+        as_attachment=True,
+        filename='Dimmu Saurus - %s.%s' % (song.translated_title.rstrip('.'), file.file_type)
+    )
 
 
 # ######### All Albums Overview ######### #
