@@ -145,8 +145,10 @@ const Player = new class { // eslint-disable-line
 	 * @return {void}
 	 */
 	seek(percent) {
-		console.log(`seek to ${percent}`);
-		PlayerUi.movePlayhead(percent);
+		const newSeconds = timeToSeconds(PlayerUi.getTotalTime()) / 100 * percent;
+
+		PlayerUi.getAudio().currentTime = newSeconds;
+		PlayerUi.updateProgress();
 	}
 
 
