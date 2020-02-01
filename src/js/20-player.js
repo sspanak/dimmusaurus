@@ -9,6 +9,8 @@ const Player = new class extends UiElement { // eslint-disable-line
 		this.classes = {
 			disabled: 'disabled',
 			muted: 'fa-volume-mute',
+			pause: 'fa-pause',
+			play: 'fa-play',
 			selected: 'selected',
 			unmuted: 'fa-volume-up'
 		};
@@ -16,6 +18,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 		this.selectors = {
 			audio: '.player audio',
 			next: '#pl-next',
+			play: '#pl-play',
 			player: '.player',
 			playhead: '.track-progress-bar .track-progress',
 			playlist: '.menu-playlist-wrapper',
@@ -109,26 +112,53 @@ const Player = new class extends UiElement { // eslint-disable-line
 			this.addClass(this.classes.muted);
 			this.addClass(this.classes.disabled);
 
-			console.debug('sounds off');
+			if (this.select(this.selectors.audio)) {
+				this.$element.muted = true;
+			}
 		} else {
 			this.removeClass(this.classes.muted);
 			this.removeClass(this.classes.disabled);
 			this.addClass(this.classes.unmuted);
 
-			console.debug('sounds on');
+			if (this.select(this.selectors.audio)) {
+				this.$element.muted = false;
+			}
 		}
 	}
 
 
 	/**
-	 * play
-	 * Plays the currently selected song.
+	 * playToggle
+	 * Plays or pauses the currently selected song.
 	 *
 	 * @param {void}
 	 * @return {void}
 	 */
-	play() {
-		console.debug(`play ${this.currentTrack}`);
+	playToggle() {
+		if (!this.select(this.selectors.audio)) {
+			return;
+		}
+		const $audio = this.$element;
+		const $play = this.select(this.selectors.play);
+		if ($play.hasClass('disabled')) {
+			return;
+		}
+
+
+		if (this.select(this.selectors.play).hasClass(this.classes.pause)) {
+			$audio.pause();
+
+			this.select(this.selectors.play).removeClass(this.classes.pause);
+			this.select(this.selectors.play).addClass(this.classes.play);
+		} else {
+			$audio.play().then(() => {
+				$play.removeClass(this.classes.disabled);
+				$play.removeClass(this.classes.play);
+				$play.addClass(this.classes.pause);
+			});
+
+			$play.addClass(this.classes.disabled);
+		}
 	}
 
 
@@ -143,8 +173,12 @@ const Player = new class extends UiElement { // eslint-disable-line
 		if (this.currentTrack === -1) {
 			Logger.warn('Trying to stop playback, but no track is selected.');
 		}
+
+		if (this.select(this.selectors.play).hasClass(this.classes.pause)) {
+			this.playToggle();
+		}
+
 		this.seek(0);
-		console.debug(`stop ${this.currentTrack}`);
 	}
 
 
@@ -163,7 +197,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.selectTrack(this.currentTrack + 1);
 		if (this.currentTrack !== -1) {
-			this.play();
+			this.playToggle();
 		}
 	}
 
@@ -183,7 +217,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.selectTrack(this.currentTrack - 1);
 		if (this.currentTrack !== -1) {
-			this.play();
+			this.playToggle();
 		}
 	}
 
@@ -196,10 +230,22 @@ const Player = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	seek(percent) {
+		// if (!this.select(this.selectors.audio)) {
+		// 	return;
+		// }
+
+		// const $audio = this.$element;
+
+		// const totalTime = this.select(this.selectors.totalTime).getHTML();
+		// const targetTime = Math.floor(timeToSeconds(totalTime) / 100 * percent);
+		// if (Number.isNaN(targetTime)) {
+		// 	Logger.error('Calulated seek time is NaN.');
+		// 	return;
+		// }
+		// $audio.currentTime = targetTime;
+
 		this._movePlayhead(percent);
 		this._setPlaybackTime(percent);
-
-		// @todo: seek the audio too
 	}
 
 
@@ -232,6 +278,15 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.currentTrack = trackId;
 
+		if (!this.select(this.selectors.audio)) {
+			Logger.error('Unable to select audio tag and change the track.');
+			return;
+		}
+
+		const sourcesHTML = getAudioSourceTemplate(this.playlist[this.currentTrack].files);
+		this.select(this.selectors.audio).setHTML(sourcesHTML);
+		this.$element.load();
+
 		this.select(`${this.selectors.playlistTrackPrefix}${trackId}`).addClass(this.classes.selected);
 		this.select(this.selectors.trackTitle).setHTML(track.title);
 		this.select(this.selectors.totalTime).setHTML(addLeadingZeros(track.duration));
@@ -260,6 +315,7 @@ const Player = new class extends UiElement { // eslint-disable-line
 
 		this.seek(seekTarget * 100);
 	}
+
 
 
 	/**

@@ -88,6 +88,10 @@ class SongFile(models.Model):
     class Meta:
         unique_together = ('song', 'file_type')
 
+    @property
+    def playlist_url(self):
+        return '%sdownload/%s' % (settings.STATIC_URL, self.file_name)
+
     def get_absolute_path(self):
         return '%s/download/%s' % (settings.STATICFILES_DIRS[0], self.file_name)
 

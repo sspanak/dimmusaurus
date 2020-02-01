@@ -248,7 +248,7 @@ def playlist(request):
         # Extracting the files like this, because sd.song.song_files.values_list() causes
         # an additional query for each song
         files = map(lambda file: {
-            'file_name': file.file_name,
+            'file_name': file.playlist_url,
             'file_type': file.file_type
         }, sd.song.song_files.all())
 

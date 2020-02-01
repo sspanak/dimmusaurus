@@ -12,7 +12,33 @@ function addLeadingZeros(time) { // eslint-disable-line no-unused-vars
 	}
 
 	const timeParts = time.split(':');
+	if (timeParts.length !== 2) {
+		return time;
+	}
+
 	return `${timeParts[0].toString().padStart(2, '0')}:${timeParts[1].toString().padStart(2, '0')}`;
+}
+
+
+
+/**
+ * timeToSeconds
+ * Converts a time string of format MM:SS to a number representing the same time in seconds.
+ *
+ * @param  {string} time
+ * @return {number}
+ */
+function timeToSeconds(time) { // eslint-disable-line no-unused-vars
+	if (typeof time !== 'string') {
+		return 0;
+	}
+
+	const timeParts = time.split(':');
+	if (timeParts.length !== 2) {
+		return 0;
+	}
+
+	return timeParts[0] * 60 + timeParts[1];
 }
 
 
@@ -28,9 +54,24 @@ function addLeadingZeros(time) { // eslint-disable-line no-unused-vars
 function getPlaylistItemTemplate(id, name, duration, htmlIdPrefix) { // eslint-disable-line no-unused-vars
 	const itemId = `${htmlIdPrefix.replace('#', '')}${id}`;
 	return `<li>
-			<a id="${itemId}" onclick="Player.selectTrack(${id});Player.play();">
+			<a id="${itemId}" onclick="Player.selectTrack(${id});Player.playToggle();">
 				<span class="playlist-title">${name}</span>
 				<span class="playlist-time">${duration}</span>
 			</a>
 		</li>`;
+}
+
+
+/**
+ * getAudioSourceTemplate
+ *
+ * @param  {Array<{ file_type: string, file_name: string }>} sources [description]
+ * @return {string} HTML
+ */
+function getAudioSourceTemplate(sources) { // eslint-disable-line no-unused-vars
+	if (!Array.isArray(sources) || !sources.length) {
+		return '';
+	}
+
+	return sources.map(src => `<source src="${src.file_name}" type="audio/${src.file_type}">`).join();
 }
