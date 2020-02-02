@@ -77,9 +77,10 @@ There are `make db-backup` and `make db-import` commands, for exporting and impo
 #### The entire site
 * `$ make` - builds and minifies the `css` and the `js`, and copies them and the images to the Django `static` folder.
 * `$ cd src/py`
-* Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT` and `ALLOWED_HOSTS` properly. 
+* Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT`, `ALLOWED_HOSTS` and `BASE_URL` properly.
   * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there.
-  * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `:3666`.
+  * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `3666`.
+  * `BASE_URL` is used for generating absoulte URLs in templates. Usually, you'd only want to ensure the protocol is correct here.
 * `$ django-admin compilemessages` - builds all translations from `.po` files
 * `$ python manage.py migrate` - runs database migrations
 * `$ python manage.py runserver [a-port-of-your-choice]` - runs the server.
