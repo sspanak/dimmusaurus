@@ -26,9 +26,10 @@ SECRET_KEY = '=j!f(!3i2v0n&4rkg$ae5c_va_@7k+ysuv=!pso5s&5&qz(mm^'
 DEBUG = True
 
 SITE_HOST = '127.0.0.1'
-SITE_PORT = ':3666'
+SITE_PORT = '3666'
 ALLOWED_HOSTS = [SITE_HOST, '[::1]']
 
+BASE_URL = 'http://%s:%s' % (SITE_HOST, SITE_PORT)
 
 # Application definition
 

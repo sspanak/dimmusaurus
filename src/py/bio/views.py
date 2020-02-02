@@ -15,7 +15,7 @@ def render_page(request):
         {
             'albums': get_music_menu_album_list(lang),
             'page': {
-                'base_url': 'http://%s%s' % (settings.SITE_HOST, settings.SITE_PORT),
+                'base_url': settings.BASE_URL,
                 'url': 'biography/',
                 # Translators: Biography page title
                 'title': gettext('Biography'),
