@@ -16,13 +16,13 @@ Back in 1998, when I was in primary school, I recorded my first album on a tape.
 
 And after adding my vocals, there was no doubt in success. I have recorded the eight songs quickly and finished the album.
 
-### Rok boys
+### Rok Boys
 
 A few weeks later – in November 26, same year, a friend of mine, my brother and me of course, we founded a rock band by the name Rok Boys. I was the drummer and also provided backing vocals, although I am the leading one on three songs. On the same day and the one after, we recorded 16 songs. During the recording session we decided to replace Vladko in India with a large hard pillow and later – with a shoe box. This way my drums sounded extremely solid and unique in a way never achieved by any other band.
 
 Next week or more precisely on December 6, my father took back his old guitar from a friend, who borrowed it a long time ago. In consequence my brother and I started playing all day and all night long. Although, considering we are still band members, we decided that I should stick with drums and obviously – he was going to be the guitarist.
 
-After the winter holidays the band obtained new instruments – a little drum and a synthesizer, which naturally led us to the recording of six new songs, and thus – our first album was born. We called it “1 самостоятелен”, meaning “1 independent”. After that, the band went on a hiatus.
+After the winter holidays the band obtained new instruments – a little drum and a synthesizer, which naturally led us to the recording of six new songs, and thus – our first album was born. We called it “1 самостоятелен”, meaning “1 Independent”. After that, the band went on a hiatus.
 
 ### Music Master
 
@@ -48,14 +48,39 @@ After “Mine”, I became very productive. In the next two years I wrote eight 
 
 In 2006, I began experimenting with different techniques, both in terms of recording and music composition. At the end of the summer, I decided to turn a poem written a year ago, into a black metal song and then, the outstanding blockbuster “С.М.Р.А.Д.” (S.T.I.N.K.) was born. This was my first real song in which I actually sing. It was also the first time I used a real guitar instead of computer generated sound. I played my good old acoustic Cremona Rose for the recording. Of course, I still had to use the computer to add distortion and effects, to make it sound “trve” and evil. I wanted the entire song to be similar to the early Black Metal music from the 1990s. As you can imagine, the vocal part, or shall I say, the screaming part, was also “trve”.
 
-### Up, up and away
+### Up, up and away!
 
-Although metal music has many different subgenres and it inspired me a lot, I wanted to explore different music styles. So it was the year 2007 when I discovered the blues music and especially the Delta blues from the end of the 19th and the beginning of the 20th century. Thanks to this whole new world I found, I created a few acoustic songs and recorded them in 2008 and 2009.
+Although metal music has many different subgenres and it had inspired me a lot, I wanted to explore different music styles. And so I did.
 
-At this time I also began experimenting with classical music, slowly but steadily increasing the number of instruments and of course – the complexity of compositions as they manifestations of the majestic and megalomaniac ideas that popped into my mind over time. The first result of these efforts is the suite “Battle for the hill”.
+#### Thought Stew
 
-In the year 2010 I plugged the guitar and in the powerful sound of the amplifier was born “The robot king” – my first song with real electric guitar.
+It was the year 2007, when I dived into blues music and especially Delta blues from the end of the 19th and the beginning of the 20th century. I took my inspiration from the very first blues performers in Ameirca, the ones who were building railroads and picking cotton by hand during the day, and playing the blues by the fire, in the evening. The Blues and also the Rock’n’Roll, which is very similar to from musical perspective, helped me write three of the songs in “Thought Stew” album.
 
-And after this… well, I still don’t consider it to be part of the past.
+Meanwhile, I grew fond of classical music and as a result, I did my first steps in this genre, too.
+
+It was the summer of 2007 when I went back to a very old guitar riff. I don’t even remember when I invented it anymore. It must have been 1998 or so. This riff became the beginning “Nightfall”. Initially, it was going to be a separate tune, but during the following two summers, in 2008 and 2009, the tale grew and grew, and together with “To Mirkwood” and “By the Lake”, it turned into the classical suite “Battle for the Hill”.
+
+And one weekend in-between the blues and the classical, I wrote a techno track.
+
+Of course, I did not abandon metal music. I spent almost the entire 2010 working on the epic seven-minute piece “Robot King”. In that tune I play an electric guitar for the first time. In fact, there are three of them.
+
+The other metal experiment from these years is “I Had a Dream”, from 2012. The song came to be all of a sudden, even to my surprise. It was a winter night and I was at home, when I came up with the music, and on the next day I wrote the lyrics, as well. After completing it, I decided to connect its story to “Dead Man’s Dance” (2008) and to expand it in three more songs that were just ideas at that time. This way I layed out the foundations of the conceptual (and yet unfinished) album “The Road That Everyone...”.
+
+#### The Road That Everyone...
+Actually, the last song from “The Road That Everyone...”, “Bandit’s Song”, is not entirely from this period. I had written the first part back in 2006, but the lyrics were completely different. Just before creating “I Had a Dream”, I had had already started reworking and expanding it, to make it what it is today.
+
+And we have now gotten to the period that starts from the summer of 2011 and ends in May 2013. This is when I gathered all my musical and literature inspiration and wrote two of my most complex and megalomaniac pieces, namely “Bandit’s Song” and “Hunting Time Has Come Again”. Both of them have a little of country-blues, Uriah Heep, Rolling Stones, Deep Purple, classical, but mostly Ferenc Liszt and Rossini.
+
+I was writing the story while I was listening to the rain softly falling on the roof of my attic; while I was walking through the mysterious, but terrifying worlds of Stephen King and my good friend, Tisho; while I was attending Voland’s marvellous shows; while in they grey winter mornings I was walking to work (after all, going to work is a horror); while I was sitting on Danube’s bank on a hot August afternoon.
+
+All this I compiled into almost eighteen minutes of music. Yet, there is one more chapter until it is done.
+
+### Adagio rallentando
+
+The newest period spans from 2014 until nowadays. It has no name yet, but similar to “Thought Stew”, I have written songs in distinct variety of genres, namely, rock, thrash metal and country blues. Nevertheless, they are not as long, complex and grand as the ones from before.
+
+A new step that I made is making of music videos. The most spectacular one is for “Meat in the Prison Cell” (2015), which also happened to be one of my coolest songs.
+
+And after that… well, I am still writing the next musical chapter...
 
 {% endmarkdown %}{% endblock %}
