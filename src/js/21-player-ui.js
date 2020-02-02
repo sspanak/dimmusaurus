@@ -8,8 +8,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		this.classes = {
 			disabled: 'disabled',
-			error: 'error',
-			loading: 'loading',
+			error: 'player-error',
+			loading: 'player-loading',
 			muted: 'fa-volume-mute',
 			pause: 'fa-pause',
 			play: 'fa-play',
@@ -63,10 +63,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		});
 
 		this.select(this.selectors.audio).addEventListener('loadstart', () => {
-			this.select(this.selectors.player).addClass('loading');
+			this.select(this.selectors.player).addClass(this.classes.loading);
 		});
 		this.select(this.selectors.audio).addEventListener('loadeddata', () => {
-			this.select(this.selectors.player).removeClass('loading');
+			this.select(this.selectors.player).removeClass(this.classes.loading);
 		});
 	}
 
@@ -105,9 +105,9 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {this}
 	 */
 	showError(errorMessage) {
-		this.select(this.selectors.player).removeClass('loading');
+		this.select(this.selectors.player).removeClass(this.classes.loading);
+		this.select(this.selectors.player).addClass(this.classes.error);
 		this.select(this.selectors.trackTitle).setHTML(errorMessage);
-		this.select(this.selectors.trackTitle).addClass(this.classes.error);
 
 		return this;
 	}
@@ -119,7 +119,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {this}
 	 */
 	hideError() {
-		this.select(this.selectors.trackTitle).removeClass(this.classes.error);
+		this.select(this.selectors.player).removeClass(this.classes.error);
 		this.select(this.selectors.trackTitle).setHTML('');
 
 		return this;
@@ -214,8 +214,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		[
 			this.selectors.volume,
-			this.selectors.next,
-			this.selectors.previous,
 			this.selectors.progressBar,
 			this.selectors.progressTime,
 			this.selectors.totalTime
@@ -227,8 +225,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 	enableControls() {
 		this.enablePlay();
-		this.disablePreviousWhenFirstSong();
-		this.disableNextWhenLastSong();
 
 		[
 			this.selectors.volume,
@@ -252,6 +248,9 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	handleProgressBarClick(event) {
+		if (this.isPlayingDisabled()) {
+			return;
+		}
 		if (!this.select(this.selectors.progressBar)) {
 			return;
 		}
@@ -320,13 +319,13 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {this}
 	 */
 	play() {
-		const $play = this.select(this.selectors.play);
-		if ($play.hasClass(this.classes.disabled)) {
+		if (this.isPlayingDisabled()) {
 			return this;
 		}
 
-		$play.removeClass(this.classes.play);
-		$play.addClass(this.classes.pause);
+		this.select(this.selectors.play);
+		this.removeClass(this.classes.play);
+		this.addClass(this.classes.pause);
 
 		this.onPlayback();
 
@@ -341,13 +340,13 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {this}
 	 */
 	pause() {
-		const $play = this.select(this.selectors.play);
-		if ($play.hasClass(this.classes.disabled)) {
+		if (this.isPlayingDisabled()) {
 			return this;
 		}
 
-		$play.removeClass(this.classes.pause);
-		$play.addClass(this.classes.play);
+		this.select(this.selectors.play);
+		this.removeClass(this.classes.pause);
+		this.addClass(this.classes.play);
 
 		return this;
 	}

@@ -153,15 +153,18 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	border-radius: inherit;
 }
 
-.player .disabled {cursor: default;} /* disabled controls */
+.player:not(.player-error) .player-controls .disabled {cursor: default;} /* disabled controls */
 
-.player.loading .loading-indicator,
-.player.loading .track-progress-bar-container,
-.player.loading .track-progress-bar {
+.player-loading .loading-indicator,
+.player-loading .track-progress-bar-container,
+.player-loading .track-progress-bar {
 	cursor: wait;
 }
-.player.loading .loading-indicator {display: inline;}
-.player.loading .track-title {display: none;}
+.player-loading .loading-indicator {display: inline;}
+.player-loading .track-title {display: none;}
+
+.player-error .player-controls .disabled,
+.player-error .track-progress-bar {cursor: not-allowed;}
 
 /*==============  Footer ==============*/
 footer {

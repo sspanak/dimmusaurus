@@ -121,7 +121,6 @@ const Player = new class { // eslint-disable-line
 	 */
 	next() {
 		if (PlayerUi.isNextDisabled()) {
-			this.stop();
 			return;
 		}
 
@@ -141,7 +140,6 @@ const Player = new class { // eslint-disable-line
 	 */
 	previous() {
 		if (PlayerUi.isPreviousDisabled()) {
-			this.stop();
 			return;
 		}
 
@@ -160,6 +158,10 @@ const Player = new class { // eslint-disable-line
 	 * @return {void}
 	 */
 	seek(percent) {
+		if (PlayerUi.isPlayingDisabled()) {
+			return;
+		}
+
 		let newSeconds = timeToSeconds(PlayerUi.getTotalTime()) / 100 * percent;
 		if (Number.isNaN(newSeconds) || newSeconds < 0) {
 			newSeconds = 0;

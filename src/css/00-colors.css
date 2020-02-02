@@ -67,11 +67,11 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 .player {border-top: 1px solid var(--menu-separator-strong);}
 .player .disabled {color: var(--menu-icon-inactive-color);}
-.player .error {color: var(--menu-item-hovered);}
 .player .player-controls a {border-left: 1px solid var(--menu-separator-medium);}
 .player .track-progress {background: var(--menu-text-color);}
 .player .track-progress-bar-background {background: var(--menu-separator-strong);}
 .player .loading-indicator {color: var(--body-background-color);}
+.player-error .track-title {color: var(--menu-item-hovered);}
 
 .shadow-top {box-shadow: var(--shadow-top);}
 .shadow-bottom {box-shadow: var(--shadow-bottom);}
@@ -116,7 +116,7 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 	.menu-music {box-shadow: var(--shadow-bottom);}
 
-	.player.loading .track-progress-bar-background {
+	.player-loading .track-progress-bar-background {
 		background-image: linear-gradient(
 			135deg,
 			var(--menu-separator-medium) 25%,
