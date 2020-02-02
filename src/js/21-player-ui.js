@@ -105,6 +105,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {this}
 	 */
 	showError(errorMessage) {
+		this.setPlaybackTime('--:--');
 		this.select(this.selectors.player).removeClass(this.classes.loading);
 		this.select(this.selectors.player).addClass(this.classes.error);
 		this.select(this.selectors.trackTitle).setHTML(errorMessage);
@@ -588,6 +589,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.trackTitle).setHTML(trackTitle);
 		this.disableNextWhenLastSong(trackId, playlistLength);
 		this.disablePreviousWhenFirstSong(trackId);
+		this.setPlaybackTime('00:00');
 
 		return this;
 	}
