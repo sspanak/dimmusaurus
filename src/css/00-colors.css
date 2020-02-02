@@ -5,7 +5,8 @@
 
 	--link-color: #225682;
 	--link-hovered-color: #0e64ad;
-	--link-visited-color: #562282;
+	--link-visited-color: #644280;
+	--link-visited-hovered-color: #6518a7;
 
 	--menu-background-color: #333;
 	--menu-text-color: #ccc;
@@ -33,13 +34,11 @@ hr {border-color: var(--menu-text-color);}
 .content a {color: var(--link-color);}
 .content a:hover {color: var(--link-hovered-color);}
 .content a:visited {color: var(--link-visited-color);}
+.content a:hover:visited {color: var(--link-visited-hovered-color);}
 .content .content-heading {border-bottom: 1px solid var(--menu-icon-inactive-color);}
-.content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
 .content-discography .album-cover .fas {color: var(--menu-background-color);}
-.content-tune .tune-links a:hover {
-	border-color: var(--link-hovered-color);
-	color: var(--link-hovered-color);
-}
+.content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
+.content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
 
 footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
 
@@ -83,16 +82,14 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	.menu a,
 	.header-container .toggle-wrapper > a,
 	footer a,
-	.player a,
-	.content-tune a {
+	.player a {
 		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
 	.menu a:hover,
 	.header-container .toggle-wrapper > a:hover,
 	footer a:hover,
-	.player a:hover,
-	.content-tune a:hover {
+	.player a:hover {
 		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
