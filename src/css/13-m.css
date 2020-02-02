@@ -111,7 +111,7 @@
 		margin: 5px;
 	}
 
-	.player .fas:not(.fa-chevron-up) {font-size: 1.6em;}
+	.player .player-controls {font-size: 1.6em;}
 	.player .playlist, .player .player-controls a {padding: 0 15px;}
 
 

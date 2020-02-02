@@ -126,8 +126,12 @@
 
 
 /*============== Player ==============*/
-	.player .track-title, .player .track-progress-bar-container {font-size: 0.9em;}
-	.player .fas:not(.fa-chevron-up) {font-size: 1.2em;}
+	.player .track-title,
+	.player .loading-indicator,
+	.player .track-progress-bar-container {
+		font-size: 0.9em;
+	}
+	.player .player-controls {font-size: 1.2em;}
 
 	.player .track-progress-bar-container {
 		align-items: center;

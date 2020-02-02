@@ -131,6 +131,11 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	display: inline-flex;
 }
 
+.player .loading-indicator {
+	display: none;
+	flex: auto;
+}
+
 .player .track-title {
 	flex: auto;
 	overflow: hidden;
@@ -149,6 +154,14 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 .player .disabled {cursor: default;} /* disabled controls */
+
+.player.loading .loading-indicator,
+.player.loading .track-progress-bar-container,
+.player.loading .track-progress-bar {
+	cursor: wait;
+}
+.player.loading .loading-indicator {display: inline;}
+.player.loading .track-title {display: none;}
 
 /*==============  Footer ==============*/
 footer {

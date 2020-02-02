@@ -73,8 +73,8 @@
 /*============== Player ==============*/
 	.player {height: 3em;}
 	.player .track-progress-bar-container, .player .player-controls .volume {display: none;}
-	.player .fas:not(.fa-chevron-up) {font-size: 1.7em;}
-	.player .track-title {margin-right: 5px;}
+	.player .player-controls {font-size: 1.7em;}
+	.player .track-title, .player .loading-indicator {margin-right: 5px;}
 
 	.player .playlist, .player .player-controls a {padding: 0 10px;}
 

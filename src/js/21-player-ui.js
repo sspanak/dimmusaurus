@@ -9,6 +9,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.classes = {
 			disabled: 'disabled',
 			error: 'error',
+			loading: 'loading',
 			muted: 'fa-volume-mute',
 			pause: 'fa-pause',
 			play: 'fa-play',
@@ -60,6 +61,13 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.audio).addEventListener('error', () => {
 			this.fail();
 		});
+
+		this.select(this.selectors.audio).addEventListener('loadstart', () => {
+			this.select(this.selectors.player).addClass('loading');
+		});
+		this.select(this.selectors.audio).addEventListener('loadeddata', () => {
+			this.select(this.selectors.player).removeClass('loading');
+		});
 	}
 
 
@@ -97,6 +105,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {this}
 	 */
 	showError(errorMessage) {
+		this.select(this.selectors.player).removeClass('loading');
 		this.select(this.selectors.trackTitle).setHTML(errorMessage);
 		this.select(this.selectors.trackTitle).addClass(this.classes.error);
 
@@ -560,7 +569,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.removeClassAll($items, 'selected');
 		this.select(this.selectors.trackTitle).setHTML('');
 		this.setTotalTime('--:--');
-		this.setPlaybackTime('00:00');
+		this.setPlaybackTime('--:--');
 
 		return this;
 	}
