@@ -168,7 +168,10 @@
 	}
 
 /*============== Pages ==============*/
-	.lyrics-super-wrapper {display: flex;}
+	.lyrics-super-wrapper {
+		display: flex;
+		justify-content: center;
+	}
 	.content-lyrics .lyrics-wrapper {
 		display: flex;
 		flex-flow: column;

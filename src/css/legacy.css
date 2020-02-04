@@ -54,7 +54,6 @@ footer .social,
 	.toggle-wrapper,
 	.header-container .logo-text,
 	.content-wrapper,
-	.lyrics-super-wrapper,
 	.content-lyrics .lyrics-wrapper {
 		display: -webkit-box;
 		display: -moz-box;
@@ -114,6 +113,10 @@ footer .social,
 		display: -webkit-flex;
 		display: -ms-flexbox;
 		display: flex;
+	}
+
+	.lyrics-super-wrapper {
+		-webkit-justify-content: center;
 	}
 
 	.player .track-progress-bar-container,
