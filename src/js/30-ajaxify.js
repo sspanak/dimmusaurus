@@ -22,33 +22,25 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 */
 	run() {
 		this._getInternalLinks().forEach(a => {
-			a.addEventListener('click', event => {
-				event.preventDefault();
-				this._navigate(a.getAttribute('href'));
-			});
+			a.removeEventListener('click', this._handleNavigation);
+			a.addEventListener('click', this._handleNavigation);
 		});
 
-		// @todo: add warnings to language links
-	}
-
-	/**
-	 * _getInternalLinks
-	 *
-	 * @return {<HtmlNode>[]}  An array of all relative links
-	 */
-	_getInternalLinks() {
-		return [...this.selectAll('a')].filter(a => a.getAttribute('href').match(/^\/[^/]/));
+		this._getLanguageLinks().forEach(a => {
+			a.removeEventListener('click', this._handleLanguageChange);
+			a.addEventListener('click', this._handleLanguageChange);
+		});
 	}
 
 
 	/**
-	 * _navigate
+	 * navigate
 	 * Fetches the content for the given URL, parses it, then updates the HTML appropriately.
 	 *
 	 * @param  {string} url
 	 * @return {Promise<void>}
 	 */
-	_navigate(url) {
+	navigate(url) {
 		axios.request({ // eslint-disable-line no-undef
 			headers: { Accept: 'application/json' },
 			method: 'GET',
@@ -58,7 +50,6 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 				try {
 					const { content, description, title, urls } = response.data;
 					this._updatePage(content, description, title, urls);
-
 				} catch (error) {
 					throw new Error(`Could not parse backend response for URL: "${url}". ${error}`);
 				}
@@ -71,6 +62,46 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 				}
 			});
 	}
+
+
+	_handleNavigation(event) {
+		event.preventDefault();
+		Ajaxify.navigate(event.currentTarget.getAttribute('href'));
+	}
+
+
+	_handleLanguageChange(event) {
+		if (!PlayerUi.isPlaying()) {
+			return;
+		}
+
+		if (!confirm(PLAYER_MSG.newLanguageWillInterruptMusic)) {
+			event.preventDefault();
+		}
+	}
+
+
+	/**
+	 * _getInternalLinks
+	 *
+	 * @return {<HtmlNode>[]}  An array of all relative links
+	 */
+	_getInternalLinks() {
+		return [...this.selectAll('a')].filter(a => `${a.getAttribute('href')}`.match(/^\/[^/]/));
+	}
+
+
+	/**
+	 * _getLanguageLinks
+	 *
+	 * @return {<HtmlNode>[]}  An array of all language change links
+	 */
+	_getLanguageLinks() {
+		return [...this.selectAll('a')].filter(
+			a => a.getAttribute('hreflang') !== null && `${a.getAttribute('hreflang')}`.length > 0
+		);
+	}
+
 
 	/**
 	 * _updatePage
@@ -89,7 +120,9 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			this.$element.setAttribute('content', description);
 		}
 
-		// @todo: reajaxify new links
 		// @todo: update all a.hreflang
+
+		// ajaxify any new links
+		this.run();
 	}
 };
