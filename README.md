@@ -41,7 +41,7 @@ The goal of this project is to be as simple and as small as possible. It is a fi
 #### Linters setup
 Linting is meant to be done using globally installed tools. However, depending on your IDE, you may choose to install them locally.
 
-* Install html tidy by the means of your operating system.
+* Install HTML Tidy by the means of your operating system. There are two projects with the same name, but you must use [tidy-html5](https://github.com/htacg/tidy-html5/).
 * Install frontend linters:
   * First, you need to install `npm`. Do so by the means of your operating system.
   * `$ npm install -g csslint` (remove `-g` parameter, to install locally)
