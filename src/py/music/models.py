@@ -49,7 +49,7 @@ class Song(models.Model):
         return '%s%s' % (self.get_absolute_url()[:-1], gettext('/lyrics/'))
 
     def get_download_url(self):
-        return '%s%s' % (self.get_absolute_url()[:-1], gettext('/download/'))
+        return '%s%s%s' % (settings.BASE_URL, self.get_absolute_url()[:-1], gettext('/download/'))
 
     def __str__(self):
         return '%d | %s' % (self.id, self.original_title)
