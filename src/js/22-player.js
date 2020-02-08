@@ -1,15 +1,15 @@
 /* eslint no-undef: 0 */
 const Player = new class { // eslint-disable-line
 	constructor() {
-		this.playlist = [];
 		this.currentTrack = -1;
+		this.playlist = [];
 
 		this._init();
 	}
 
 	_init() {
 		window.addEventListener('load', () => {
-			if (!this._isSupported()) {
+			if (!this.isSupported()) {
 				return;
 			}
 
@@ -27,7 +27,7 @@ const Player = new class { // eslint-disable-line
 	 * @param {void}
 	 * @return {Boolean}
 	 */
-	_isSupported() {
+	isSupported() {
 		try {
 			const dummyTag = document.createElement('audio');
 			const canPlay = dummyTag.canPlayType('audio/ogg; codecs="vorbis"');

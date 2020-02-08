@@ -6,6 +6,7 @@ from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
 from .shortcuts import get_music_menu_album_list, get_all_songs
+from main.shortcuts import render_template
 
 
 def render_albums(request, album_id=None):
@@ -46,10 +47,7 @@ def render_albums(request, album_id=None):
             }
         }
 
-    response = render(request, 'music/discography.html', context)
-
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-    return response
+    return render_template(request, 'music/discography.html', context, lang)
 
 
 def render_song(request, song_id):
@@ -87,9 +85,7 @@ def render_song(request, song_id):
             }
     }
 
-    response = render(request, 'music/song.html', context)
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-    return response
+    return render_template(request, 'music/song.html', context, lang)
 
 
 def render_lyrics(request, song_id):
@@ -123,10 +119,7 @@ def render_lyrics(request, song_id):
             }
     }
 
-    response = render(request, 'music/lyrics.html', context)
-
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-    return response
+    return render_template(request, 'music/lyrics.html', context, lang)
 
 
 def random_invalid_route(request):

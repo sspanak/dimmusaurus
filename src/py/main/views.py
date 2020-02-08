@@ -1,16 +1,15 @@
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.utils.translation import gettext, activate, get_language
 
 from .models import News
-from music.models import AlbumDetails
+from .shortcuts import render_template
 from music.shortcuts import get_music_menu_album_list
 
 
 def render_page(request):
     lang = get_language()
-
-    response = render(
+    return render_template(
         request,
         'main/index.html',
         {
@@ -21,12 +20,10 @@ def render_page(request):
                 'url': 'home/',
                 'title': gettext('Home Page'),
                 'description': gettext('Music from the garage... without rules or restrictions'),
-            },
-        }
+            }
+        },
+        lang
     )
-
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
-    return response
 
 
 def index(request):

@@ -2,14 +2,14 @@ from django.conf import settings
 from django.shortcuts import render, redirect
 from django.utils.translation import gettext, activate, get_language
 
-from music.models import AlbumDetails
+from main.shortcuts import render_template
 from music.shortcuts import get_music_menu_album_list
 
 
 def render_page(request):
     lang = get_language()
 
-    response = render(
+    response = render_template(
         request,
         'bio/bio-%s.md' % lang,
         {
@@ -22,7 +22,8 @@ def render_page(request):
                 # Translators: Biography page description
                 'description': gettext('The story of Dimmu Saurus project'),
             }
-        }
+        },
+        lang
     )
 
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
