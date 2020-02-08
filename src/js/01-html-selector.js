@@ -146,7 +146,6 @@ class UiElement { // eslint-disable-line no-unused-vars
 			return;
 		}
 
-		// we don't use ... operator, since we are aiming for older browsers here
 		for (const rule in newStyle) {
 			this.$element.style[rule] = newStyle[rule];
 		}

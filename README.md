@@ -7,7 +7,7 @@ The goal of this project is to be as simple and as small as possible. It is a fi
 * Frontend
   * Vanilla HTML5
   * Vanilla CSS3 + PureCSS 1.0.1 for (resetting the styles)
-  * Vanilla ES6 _(2018 standard was not used for better browser compatibility... sadly...)_
+  * Vanilla ES2015
 * Backend
   * Python 3.8 + Pip
   * Django 3.0.2
