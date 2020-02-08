@@ -6,10 +6,13 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		this.selectors = {
 			content: '.content-wrapper',
 			description: 'meta[name=description]',
+			languageLinks: 'a[hreflang][rel=alternate]',
+			robotLinks: 'link[hreflang][rel=alternate]',
 			title: 'title'
 		};
 
 		if (Player.isSupported()) { // eslint-disable-line no-undef
+			this._removeBotLinks();
 			this.run();
 		}
 	}
@@ -97,9 +100,18 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {<HtmlNode>[]}  An array of all language change links
 	 */
 	_getLanguageLinks() {
-		return [...this.selectAll('a')].filter(
-			a => a.getAttribute('hreflang') !== null && `${a.getAttribute('hreflang')}`.length > 0
-		);
+		return [...this.selectAll(this.selectors.languageLinks)];
+	}
+
+
+	/**
+	 * _removeBotLinks
+	 * Removes the language <link> tags. They are for robot use, so we don't need them in ajax mode.
+	 *
+	 * @return {void}
+	 */
+	_removeBotLinks() {
+		[...this.selectAll(this.selectors.robotLinks)].forEach(l => l.remove());
 	}
 
 
@@ -120,7 +132,16 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			this.$element.setAttribute('content', description);
 		}
 
-		// @todo: update all a.hreflang
+		if (Array.isArray(urls)) {
+			const languageLinks = this._getLanguageLinks();
+			urls.forEach(({ url, language_code }) => {
+				const $a = languageLinks.find(a => a.hreflang === language_code);
+				if ($a) {
+					$a.setAttribute('href', url);
+				}
+			});
+		}
+
 
 		// ajaxify any new links
 		this.run();
