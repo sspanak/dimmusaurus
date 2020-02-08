@@ -18,7 +18,11 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			history.replaceState(
 				// Setting the initial state is necessary, because
 				// we can use only event.state.url, that we set below, to get back here.
-				{ url: location.pathname },
+				{
+					scroll: 0,
+					title: this.select(this.selectors.title).getHTML(),
+					url: location.pathname
+				},
 				this.select(this.selectors.title).getHTML(),
 				location.pathname
 			);
@@ -61,10 +65,12 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			.then(response => {
 				try {
 					const { content, description, title, urls } = response.data;
-					this._updatePage(content, description, title, urls);
+
 					if (updateHistory) {
-						this._updateHistory(url, title);
+						this._saveScrollPosition();
+						this._pushToHistory(url, title);
 					}
+					this._updatePage(content, description, title, urls);
 				} catch (error) {
 					throw new Error(`Could not parse backend response for URL: "${url}". ${error}`);
 				}
@@ -87,7 +93,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 	_handleHistoryPop(event) {
 		try {
-			Ajaxify.navigate(event.state.url);
+			Ajaxify.navigate(event.state.url).then(() => window.scrollTo(0, event.state.scroll));
 		} catch (error) {
 			Logger.warning(`Navigating normally. The previous URL is not available in popstate event data. ${error}`); // eslint-disable-line no-undef, max-len
 			history.back();
@@ -171,14 +177,30 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 
 	/**
-	 * _updateHistory
+	 * _pushToHistory
 	 * Changes the browser URL and title, without navigating.
 	 *
 	 * @param  {string} url
 	 * @param  {string} title
 	 * @return {void}
 	 */
-	_updateHistory(url, title) {
-		history.pushState({ url }, title, url);
+	_pushToHistory(url, title) {
+		history.pushState({ scroll: 0, title, url }, title, url);
+	}
+
+
+	/**
+	 * _saveScrollPosition
+	 * Saves the current scroll position for the current URL, so that we can restore it when we navigate back.
+	 *
+	 * @return {void}
+	 */
+	_saveScrollPosition() {
+		const stateWithScroll = {
+			scroll: window.pageYOffset,
+			title: history.state.title,
+			url: history.state.url
+		};
+		history.replaceState(stateWithScroll, stateWithScroll.title, stateWithScroll.url);
 	}
 };
