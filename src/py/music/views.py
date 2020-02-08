@@ -70,7 +70,7 @@ def render_albums(request, album_id=None):
             'page': {
                 'base_url': settings.BASE_URL,
                 'url': 'music/albums/',
-                'url_slug': selected_album.album_id,
+                'url_slug': '%d' % selected_album.album_id,
                 'url_slug_operation': '/switch_language/',
                 'title': selected_album.title,
                 'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),

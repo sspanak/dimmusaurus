@@ -19,26 +19,9 @@
 			<meta name="description" content="{{ page.description }}">
 		{% endif %}
 
-		{% language 'bg' %}
-			<link
-			href="{{ page.base_url }}/{% trans page.url %}{{ page.url_slug }}{% trans page.url_slug_operation %}"
-			rel="alternate"
-			hreflang="bg" />
-		{% endlanguage %}
-
-		{% language 'en' %}
-			<link
-			href="{{ page.base_url }}/{% trans page.url %}{{ page.url_slug }}{% trans page.url_slug_operation %}"
-			rel="alternate"
-			hreflang="en" />
-		{% endlanguage %}
-
-		{% language 'fr' %}
-			<link
-			href="{{ page.base_url }}/{% trans page.url %}{{ page.url_slug }}{% trans page.url_slug_operation %}"
-			rel="alternate"
-			hreflang="fr" />
-		{% endlanguage %}
+		{% for url in language_urls %}
+			<link href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate" />
+		{% endfor %}
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -144,41 +127,14 @@
 					<nav class="menu menu-language-choice menu-closed shadow-bottom">
 						<ul>
 
-							{% language 'bg' %}
-							<li>
-								<a
-								href="{{ page.base_url }}/{% trans page.url %}{{ page.url_slug }}{% trans page.url_slug_operation %}"
-								rel="alternate"
-								hreflang="bg">
-									<span class="icon flag flag-bg"></span>
-									Български
-								</a>
-							</li>
-							{% endlanguage %}
-
-							{% language 'en' %}
-							<li>
-								<a
-								href="{{ page.base_url }}/{% trans page.url %}{{ page.url_slug }}{% trans page.url_slug_operation %}"
-								rel="alternate"
-								hreflang="en">
-									<span class="icon flag flag-en"></span>
-									English
-								</a>
-							</li>
-							{% endlanguage %}
-
-							{% language 'fr' %}
-							<li>
-								<a
-								href="{{ page.base_url }}/{% trans page.url %}{{ page.url_slug }}{% trans page.url_slug_operation %}"
-								rel="alternate"
-								hreflang="fr">
-									<span class="icon flag flag-fr"></span>
-									Français
-								</a>
-							</li>
-							{% endlanguage %}
+							{% for url in language_urls %}
+								<li>
+									<a href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate">
+										<span class="icon flag flag-{{ url.language_code }}"></span>
+										{{url.language_name}}
+									</a>
+								</li>
+							{% endfor %}
 
 						</ul>
 					</nav>
