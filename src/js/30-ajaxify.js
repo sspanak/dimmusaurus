@@ -1,5 +1,4 @@
 const Ajaxify = new class extends UiElement { // eslint-disable-line
-
 	constructor() {
 		super();
 
@@ -14,6 +13,15 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		if (Player.isSupported()) { // eslint-disable-line no-undef
 			this._removeBotLinks();
 			this.run();
+
+			window.addEventListener('popstate', event => this._handleHistoryPop(event));
+			history.replaceState(
+				// Setting the initial state is necessary, because
+				// we can use only event.state.url, that we set below, to get back here.
+				{ url: location.pathname },
+				this.select(this.selectors.title).getHTML(),
+				location.pathname
+			);
 		}
 	}
 
@@ -40,11 +48,12 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * navigate
 	 * Fetches the content for the given URL, parses it, then updates the HTML appropriately.
 	 *
-	 * @param  {string} url
+	 * @param  {string}  url
+	 * @param  {boolean} updateHistory
 	 * @return {Promise<void>}
 	 */
-	navigate(url) {
-		axios.request({ // eslint-disable-line no-undef
+	navigate(url, updateHistory) {
+		return axios.request({ // eslint-disable-line no-undef
 			headers: { Accept: 'application/json' },
 			method: 'GET',
 			url
@@ -53,13 +62,16 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 				try {
 					const { content, description, title, urls } = response.data;
 					this._updatePage(content, description, title, urls);
+					if (updateHistory) {
+						this._updateHistory(url, title);
+					}
 				} catch (error) {
 					throw new Error(`Could not parse backend response for URL: "${url}". ${error}`);
 				}
 			})
 			.catch(error => {
 				if (typeof Logger !== 'undefined') {
-					Logger.error(`Could not navigate to URL: "${url}". ${error}.`);
+					Logger.error(`Could not navigate to URL: "${url}". ${error}.`); // eslint-disable-line no-undef
 				} else {
 					location.href = url;
 				}
@@ -69,16 +81,26 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 	_handleNavigation(event) {
 		event.preventDefault();
-		Ajaxify.navigate(event.currentTarget.getAttribute('href'));
+		Ajaxify.navigate(event.currentTarget.getAttribute('href'), true);
+	}
+
+
+	_handleHistoryPop(event) {
+		try {
+			Ajaxify.navigate(event.state.url);
+		} catch (error) {
+			Logger.warning(`Navigating normally. The previous URL is not available in popstate event data. ${error}`); // eslint-disable-line no-undef, max-len
+			history.back();
+		}
 	}
 
 
 	_handleLanguageChange(event) {
-		if (!PlayerUi.isPlaying()) {
+		if (!PlayerUi.isPlaying()) { // eslint-disable-line no-undef
 			return;
 		}
 
-		if (!confirm(PLAYER_MSG.newLanguageWillInterruptMusic)) {
+		if (!confirm(PLAYER_MSG.newLanguageWillInterruptMusic)) { // eslint-disable-line no-undef
 			event.preventDefault();
 		}
 	}
@@ -145,5 +167,18 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 		// ajaxify any new links
 		this.run();
+	}
+
+
+	/**
+	 * _updateHistory
+	 * Changes the browser URL and title, without navigating.
+	 *
+	 * @param  {string} url
+	 * @param  {string} title
+	 * @return {void}
+	 */
+	_updateHistory(url, title) {
+		history.pushState({ url }, title, url);
 	}
 };
