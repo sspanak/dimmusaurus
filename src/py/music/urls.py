@@ -30,9 +30,9 @@ urlpatterns = [
     re_path(r'^musique/chansons/(?P<song_id>\d+)[^\/]*/telecharger/$', views.download, name='download'),
 
     # non-existing but meaninful URLs
-    re_path(r'^(?:музика/песни|music/songs|musique/chansons)/*$', views.random_invalid_route, name='music_index'),
-    re_path(r'^(?:музика/албуми|music/albums|musique/albums)/*$', views.random_invalid_route, name='music_index'),
+    re_path(r'^(?:музика/песни|music/songs|musique/chansons)/*$', views.index, name='music_index'),
+    re_path(r'^(?:музика/албуми|music/albums|musique/albums)/*$', views.index, name='music_index'),
 
     # API (no need of localized URLs)
-    path('api/music/playlist/', views.playlist, name='playlist'),
+    path('music/playlist/', views.playlist, name='playlist'),
 ]
