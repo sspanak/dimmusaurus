@@ -12,8 +12,8 @@ pystatic:
 	cp src/reset.css ui-demo
 	make css-prod
 	make js-prod
+# 	make js-ui && mv ui-demo/ds.js ui-demo/ds.min.js && mv ui-demo/ds.legacy.js ui-demo/ds.legacy.min.js
 	make images
-	mv ui-demo/{*.css,*.js} src/py/static
 	mv ui-demo/img src/py/static
 
 	# Create a dummy song for download test
@@ -38,13 +38,20 @@ css-ui:
 
 css-prod:
 	bash -c build-tools/build-css-prod.sh
+	mv ui-demo/*.css src/py/static
 
 js-ui:
 	cat src/js/*.js	> ui-demo/ds.js
 	npm run --silent build-legacy-js -- ui-demo/ds.js > ui-demo/ds.legacy.js
 
+js-debug-prod:
+	make js-ui
+	mv ui-demo/ds.js src/py/static/ds.min.js
+	mv ui-demo/ds.legacy.js src/py/static/ds.legacy.min.js
+
 js-prod:
 	bash -c build-tools/build-js-prod.sh
+	mv ui-demo/*.js src/py/static
 
 images:
 	mkdir -p ui-demo/img
