@@ -605,10 +605,9 @@
 
 		<div class="player shadow-top">
 			<audio onended="Player.next()"></audio>
-			<a
+			<button
 				id="pl-playlist-toggle"
-				href="javascript:;"
-				class="playlist"><i class="fas fa-chevron-up"></i></a>
+				class="player-button playlist"><i class="fas fa-chevron-up"></i></button>
 
 				<div class="loading-indicator">
 					<i class="fas fa-sync-alt"></i>
@@ -631,25 +630,22 @@
 			</div>
 
 			<div class="player-controls">
-				<a
+				<button
 					onclick="Player.toggleMute(this)"
-					class="volume fas fa-volume-up"
-					href="javascript:;"></a><a
+					id="pl-volume"
+					class="player-button volume fas fa-volume-up"></button><button
 
 					onclick="Player.previous()"
 					id="pl-previous"
-					class="fas fa-step-backward"
-					href="javascript:;"></a><a
+					class="player-button fas fa-step-backward"></button><button
 
 					onclick="Player.playToggle()"
 					id="pl-play"
-					class="fas fa-play"
-					href="javascript:;"></a><a
+					class="player-button fas fa-play"></button><button
 
 					onclick="Player.next()"
 					id="pl-next"
-					class="fas fa-step-forward"
-					href="javascript:;"></a>
+					class="player-button fas fa-step-forward"></button>
 			</div>
 		</div>
 

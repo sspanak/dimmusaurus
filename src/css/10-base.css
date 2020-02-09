@@ -63,11 +63,11 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 /*==============  Buttons ==============*/
-.menu .menu-item, footer a, .player a {
+.menu .menu-item, footer a, .player .player-button {
 	text-decoration: none;
 }
 
-.header-container .header-button, .menu .menu-item {
+.header-container .header-button, .menu .menu-item, .player .player-button {
 	border: none;
 	display: inline-block;
 	padding: 0;

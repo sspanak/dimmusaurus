@@ -86,7 +86,7 @@
 	.player .player-controls {font-size: 1.7em;}
 	.player .track-title, .player .loading-indicator {margin-right: 5px;}
 
-	.player .playlist, .player .player-controls a {padding: 0 10px;}
+	.player .playlist, .player .player-controls .player-button {padding: 0 10px;}
 
 
 /*============== Footer ==============*/

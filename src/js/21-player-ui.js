@@ -35,7 +35,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			totalTime: '.player .total-time',
 			trackTitle: '.player .track-title',
 			tunePlayButton: '.content-tune .tune-play',
-			volume: '.player-controls .volume'
+			volume: '#pl-volume'
 		};
 	}
 

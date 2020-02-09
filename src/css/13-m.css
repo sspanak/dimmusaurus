@@ -125,7 +125,7 @@
 	}
 
 	.player .player-controls {font-size: 1.6em;}
-	.player .playlist, .player .player-controls a {padding: 0 15px;}
+	.player .playlist, .player .player-controls .player-button {padding: 0 15px;}
 
 
 /*============== Footer ==============*/

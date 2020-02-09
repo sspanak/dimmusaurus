@@ -65,11 +65,11 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 .menu li > .menu-item {border-bottom: 1px solid var(--menu-separator-strong);}
 
-.menu .menu-item:hover, .header-container .header-button:hover, footer a:hover, .player a:not(.disabled):hover,
+.menu .menu-item:hover, .header-container .header-button:hover, footer a:hover, .player-button:not(.disabled):hover,
 .menu .selected {
 	color: var(--menu-item-hovered);
 }
-.menu .menu-item, .header-container .header-button, footer a, .player a {
+.menu .menu-item, .header-container .header-button, footer a, .player .player-button {
 	background: none;
 	color: var(--menu-text-color);
 }
@@ -78,10 +78,10 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 .player {border-top: 1px solid var(--menu-separator-strong);}
 .player .disabled {color: var(--menu-icon-inactive-color);}
-.player .player-controls a {border-left: 1px solid var(--menu-separator-medium);}
+.player .loading-indicator {color: var(--body-background-color);}
+.player .player-controls .player-button {border-left: 1px solid var(--menu-separator-medium);}
 .player .track-progress {background: var(--menu-text-color);}
 .player .track-progress-bar-background {background: var(--menu-separator-strong);}
-.player .loading-indicator {color: var(--body-background-color);}
 .player-error .track-title {color: var(--menu-item-hovered);}
 
 .shadow-top {box-shadow: var(--shadow-top);}
@@ -95,14 +95,14 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	.menu .menu-item,
 	.header-container .header-button,
 	footer a,
-	.player a {
+	.player-button {
 		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
 	.menu .menu-item:hover,
 	.header-container .header-button:hover,
 	footer a:hover,
-	.player a:hover {
+	.player-button:hover {
 		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 

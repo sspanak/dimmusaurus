@@ -21,7 +21,7 @@
 	.content {padding: 1em 1.5em 0.67em;}
 
 	.player {height: 2.5em;}
-	.player .playlist, .player .player-controls a {padding: 0 15px;}
+	.player .playlist, .player .player-controls .player-button {padding: 0 15px;}
 	.player .track-progress-bar {display: none;}
 	.player .track-progress-bar-container {display: inline-flex;}
 	.player .total-time::before {
