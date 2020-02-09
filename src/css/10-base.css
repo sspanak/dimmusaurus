@@ -33,7 +33,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .ajax-loader {
 	align-items: center;
 
-	border: 3px outset;
+	border: 3px double;
 	border-radius: 24px 0 0 24px;
 	border-right: none;
 
@@ -41,7 +41,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	height: 2.5em;
 	opacity: 0;
 	padding: 8px 16px;
-	position: absolute;
+	position: fixed;
 	right: 0;
 	width: 0;
 }
@@ -159,17 +159,13 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	display: inline-flex;
 }
 
-.player .loading-indicator {
-	display: none;
-	flex: auto;
-}
-
-.player .track-title {
+.player .track-title, .player .loading-indicator {
 	flex: auto;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+.player .loading-indicator {display: none;}
 
 .player .track-progress-bar-container {padding: 0 10px;}
 .player .track-progress-bar {
@@ -188,7 +184,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .player-loading .track-progress-bar {
 	cursor: wait;
 }
-.player-loading .loading-indicator {display: inline;}
+.player-loading .loading-indicator {display: flex;}
 .player-loading .track-title {display: none;}
 
 .player-error .player-controls .disabled,

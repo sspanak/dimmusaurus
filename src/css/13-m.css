@@ -12,7 +12,7 @@
 /*============== Ajax spinner ==============*/
 	.ajax-loader {
 		border-radius: 24px;
-		border-right: 2px solid;
+		border-right: 3px double;
 		justify-content: center;
 		right: calc(50% - 89px);
 		top: -50px;
