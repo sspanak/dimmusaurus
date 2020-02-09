@@ -29,6 +29,13 @@
 		display: none;
 	}
 
+/*============== Ajax spinner ==============*/
+	.ajax-loader {
+		justify-content: flex-start;
+		top: 83px;
+	}
+	.ajax-loader-spinning {width: 150px;}
+
 
 /*============== Breadcrumbs ==============*/
 	.breadcrumbs ul {margin-top: 16px;}

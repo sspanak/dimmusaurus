@@ -2,7 +2,13 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	constructor() {
 		super();
 
+		this.spinnerDelay = 400; // ms
+		this.spinnerShowTimeout = 0; // setTimeout() ID
+
+		this.classes = { ajaxLoaderSpinning: 'ajax-loader-spinning'	};
+
 		this.selectors = {
+			ajaxLoader: '.ajax-loader',
 			content: '.content-wrapper',
 			description: 'meta[name=description]',
 			languageLinks: 'a[hreflang][rel=alternate]',
@@ -57,6 +63,9 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {Promise<void>}
 	 */
 	navigate(url, updateHistory) {
+		// Show the spinner if loading takes too long, for the user to be entertained.
+		this.spinnerShowTimeout = setTimeout(Ajaxify.showSpinner, this.spinnerDelay);
+
 		return axios.get(`/api${url}`) // eslint-disable-line no-undef
 			.then(response => {
 				try {
@@ -67,6 +76,9 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 						this._pushToHistory(url, title);
 					}
 					this._updatePage(content, description, title, urls);
+
+					clearTimeout(this.spinnerShowTimeout);
+					this.hideSpinner();
 				} catch (error) {
 					throw new Error(`Could not parse backend response for URL: "${url}". ${error}`);
 				}
@@ -78,6 +90,28 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 					location.href = url;
 				}
 			});
+	}
+
+
+	/**
+	 * showSpinner
+	 * Shows the ajax loading spinner
+	 *
+	 * @return {void}
+	 */
+	showSpinner() {
+		Ajaxify.select(Ajaxify.selectors.ajaxLoader).addClass(Ajaxify.classes.ajaxLoaderSpinning);
+	}
+
+
+	/**
+	 * showSpinner
+	 * Hides the ajax loading spinner
+	 *
+	 * @return {void}
+	 */
+	hideSpinner() {
+		Ajaxify.select(Ajaxify.selectors.ajaxLoader).removeClass(Ajaxify.classes.ajaxLoaderSpinning);
 	}
 
 

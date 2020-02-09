@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-08 16:14+0200\n"
+"POT-Creation-Date: 2020-02-09 13:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:189
+#: src/py/main/templates/main/__root.html:145
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -27,7 +27,7 @@ msgid "home/"
 msgstr "начало/"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:191
+#: src/py/main/templates/main/__root.html:147
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -36,7 +36,7 @@ msgstr "Начало"
 
 #. Translators: Biography page title
 #: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:21
-#: src/py/main/templates/main/__root.html:197
+#: src/py/main/templates/main/__root.html:153
 msgid "Biography"
 msgstr "Биография"
 
@@ -59,28 +59,28 @@ msgstr ""
 "Тук няма нещо за гледане. Моля продължете напред или се върнете на <a href="
 "\"/\">главната страница</a>."
 
-#: src/py/main/templates/main/__root.html:72
+#: src/py/main/templates/main/__root.html:55
 msgid "Cannot load this song!"
 msgstr "Песента не можа да зареди!"
 
-#: src/py/main/templates/main/__root.html:73
+#: src/py/main/templates/main/__root.html:56
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Смяната на езика ще спре музиката. Продължавате ли?"
 
-#: src/py/main/templates/main/__root.html:125
+#: src/py/main/templates/main/__root.html:108
 msgid "Main Menu"
 msgstr "Главно меню"
 
-#: src/py/main/templates/main/__root.html:134
+#: src/py/main/templates/main/__root.html:117
 msgid "Change Language"
 msgstr "Избор на език"
 
-#: src/py/main/templates/main/__root.html:195
+#: src/py/main/templates/main/__root.html:151
 #: src/py/main/templates/main/index.html:6
 msgid "biography/"
 msgstr "биография/"
 
-#: src/py/main/templates/main/__root.html:203
+#: src/py/main/templates/main/__root.html:159
 #: src/py/music/templates/music/discography.html:15
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -88,7 +88,7 @@ msgstr "биография/"
 msgid "Music"
 msgstr "Музика"
 
-#: src/py/main/templates/main/__root.html:212
+#: src/py/main/templates/main/__root.html:168
 #: src/py/main/templates/main/index.html:5
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -96,27 +96,28 @@ msgstr "Музика"
 msgid "music/"
 msgstr "музика/"
 
-#: src/py/main/templates/main/__root.html:212
+#: src/py/main/templates/main/__root.html:168
 msgid "All Albums"
 msgstr "Всички албуми"
 
-#: src/py/main/templates/main/__root.html:237
+#: src/py/main/templates/main/__root.html:193
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Няма песни. Опитайте да презаредите страницата отново."
 
-#: src/py/main/templates/main/__root.html:246
+#: src/py/main/templates/main/__root.html:202
 msgid "Follow"
 msgstr "Последвай"
 
-#: src/py/main/templates/main/__root.html:259
+#: src/py/main/templates/main/__root.html:215
 msgid "Dimmu Saurus on Facebook"
 msgstr "Димозавър във Facebook"
 
-#: src/py/main/templates/main/__root.html:264
+#: src/py/main/templates/main/__root.html:220
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Канал на Димозавър в Youtube"
 
-#: src/py/main/templates/main/__root.html:289
+#: src/py/main/templates/main/__root.html:245
+#: src/py/main/templates/main/__root.html:286
 msgid "Loading..."
 msgstr "Зареждане..."
 

@@ -9,6 +9,19 @@
 		overflow: visible;
 	}
 
+/*============== Ajax spinner ==============*/
+	.ajax-loader {
+		border-radius: 24px;
+		border-right: 2px solid;
+		justify-content: center;
+		right: calc(50% - 89px);
+		top: -50px;
+		width: 140px;
+	}
+	.ajax-loader-spinning {
+		top: 160px;
+	}
+
 
 /*============== Buttons ==============*/
 	.toggle-wrapper {
