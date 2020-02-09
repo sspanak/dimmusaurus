@@ -63,16 +63,17 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 /*==============  Buttons ==============*/
-.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
+.menu .menu-item, footer a, .player a {
 	text-decoration: none;
 }
 
-.header-container .toggle-wrapper > a {
+.header-container .header-button, .menu .menu-item {
+	border: none;
 	display: inline-block;
-	font-size: 2em;
+	padding: 0;
 }
 
-.header-container .toggle-wrapper > a .fa-chevron-down, .header-container .toggle-wrapper > a .fa-chevron-up {
+.header-container .header-button .fa-chevron-down, .header-container .header-button .fa-chevron-up {
 	font-size: 0.3em;
 	vertical-align: middle;
 }
@@ -100,18 +101,23 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	padding: 0 0 12px 0;
 }
 
-.menu li > a {padding: 12px 8px;}
-.menu-music li:first-child a {padding-top: 0;}
+.menu li > .menu-item {
+	cursor: pointer;
+	padding: 12px 8px;
+	text-align: left;
+}
+.menu li > .menu-item .icon {margin: 0 10px 0 6px;}
 
-.menu li > a .icon {margin: 0 10px 0 6px;}
-.menu-main li > a .fa-chevron-down {
+.menu-main li > .menu-item .fa-chevron-down {
 	font-size: 0.5em;
 	vertical-align: middle;
 }
 
+.menu-music li:first-child .menu-item {padding-top: 0;}
+
 
 /*============== Language Menu ==============*/
-.menu-language-choice a .flag {
+.menu-language-choice .flag {
 	background: url(img/znamena.png) no-repeat;
 	border-radius: 3px;
 	display: inline-block;
@@ -120,9 +126,9 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	width: 24px;
 }
 
-.menu-language-choice a .flag-bg{background-position:0 0;}
-.menu-language-choice a .flag-en{background-position:-48px 0;}
-.menu-language-choice a .flag-fr{background-position:-24px 0;}
+.menu-language-choice .flag-bg{background-position:0 0;}
+.menu-language-choice .flag-en{background-position:-48px 0;}
+.menu-language-choice .flag-fr{background-position:-24px 0;}
 
 
 /*============== Playlist Menu ==============*/
@@ -134,11 +140,11 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 .menu-playlist .playlist-unavailable-label {display: none; margin: 12px;}
 .menu-playlist > ul {padding: 0 5px;}
-.menu-playlist li > a {
+.menu-playlist .menu-item {
 	cursor: pointer;
 	display: flex;
 }
-.menu-playlist li > a .playlist-title {flex: auto;}
+.menu-playlist .playlist-title {flex: auto;}
 
 .playlist-unavailable .playlist-unavailable-label {display: block;}
 .playlist-unavailable ul {display: none;}

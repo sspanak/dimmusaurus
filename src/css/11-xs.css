@@ -43,10 +43,13 @@
 
 /*============== Buttons ==============*/
 	.toggle-wrapper {float: right;}
-	.toggle-wrapper > a {margin: 10px 16px 0;}
+	.header-button {
+		font-size: 2em;
+		margin: 10px 16px 0;
+	}
 	.toggle-wrapper > .selected {border-bottom: 2px solid;}
 
-	.header-container .toggle-wrapper > a > .fa-chevron-down, .header-container .toggle-wrapper > a > .fa-chevron-up {
+	.header-container .header-button > .fa-chevron-down, .header-container .header-button > .fa-chevron-up {
 		display: none;
 	}
 
@@ -60,7 +63,7 @@
 		padding: 0;
 	}
 
-	.menu:not(.menu-playlist) li > a {
+	.menu:not(.menu-playlist) li > .menu-item {
 		display: block;
 		font-size: 1.15em;
 	}
@@ -68,7 +71,7 @@
 	.menu-playlist-wrapper {bottom: 3em;}
 	.menu-playlist {max-height: calc(80vh - 3em);}
 
-	.menu-playlist li > a .playlist-time {margin-left: 5px;}
+	.menu-playlist .playlist-time {margin-left: 5px;}
 
 
 /*============== Content ==============*/

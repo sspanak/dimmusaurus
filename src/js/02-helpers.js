@@ -73,7 +73,7 @@ function secondsToTime(seconds) { // eslint-disable-line no-unused-vars
 function getPlaylistItemTemplate(id, name, duration, htmlIdPrefix) { // eslint-disable-line no-unused-vars
 	const itemId = `${htmlIdPrefix.replace('#', '')}${id}`;
 	return `<li>
-			<a id="${itemId}" onclick="Player.selectTrack(${id});Player.playToggle();">
+			<a id="${itemId}" class="menu-item" onclick="Player.selectTrack(${id});Player.playToggle();">
 				<span class="playlist-title">${name}</span>
 				<span class="playlist-time">${duration}</span>
 			</a>

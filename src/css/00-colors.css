@@ -63,13 +63,14 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	border-top: 1px solid var(--menu-separator-strong);
 }
 
-.menu li > a {border-bottom: 1px solid var(--menu-separator-strong);}
+.menu li > .menu-item {border-bottom: 1px solid var(--menu-separator-strong);}
 
-.menu a:hover, .header-container .toggle-wrapper > a:hover, footer a:hover, .player a:not(.disabled):hover,
+.menu .menu-item:hover, .header-container .header-button:hover, footer a:hover, .player a:not(.disabled):hover,
 .menu .selected {
 	color: var(--menu-item-hovered);
 }
-.menu a, .header-container .toggle-wrapper > a, footer a, .player a {
+.menu .menu-item, .header-container .header-button, footer a, .player a {
+	background: none;
 	color: var(--menu-text-color);
 }
 
@@ -91,22 +92,22 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
  * Link animations and special effects for desktop
  */
 @media screen and (min-width: 64em) {
-	.menu a,
-	.header-container .toggle-wrapper > a,
+	.menu .menu-item,
+	.header-container .header-button,
 	footer a,
 	.player a {
 		transition: border-color .3s ease-out, color .3s ease-out;
 	}
 
-	.menu a:hover,
-	.header-container .toggle-wrapper > a:hover,
+	.menu .menu-item:hover,
+	.header-container .header-button:hover,
 	footer a:hover,
 	.player a:hover {
 		transition: border-color .2s ease-in, color .2s ease-in;
 	}
 
 
-	.header-container .toggle-language-wrapper > a {
+	.header-container .toggle-language-wrapper > .header-button {
 		border-right: 1px solid var(--menu-separator-strong);
 		border-top: 1px solid var(--menu-separator-soft);
 	}
@@ -116,12 +117,12 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 		box-shadow: none;
 	}
 
-	.menu-main > ul > li > a {
+	.menu-main > ul > li > .menu-item {
 		border-left: 1px solid var(--menu-separator-strong);
 		border-top: 1px solid var(--menu-separator-soft);
 	}
 
-	.menu-main > ul > li > a:hover, .header-container .toggle-language-wrapper > a:hover {
+	.menu-main > ul > li > .menu-item:hover, .header-container .toggle-language-wrapper > .header-button:hover {
 		border-color: var(--menu-icon-inactive-color);
 	}
 

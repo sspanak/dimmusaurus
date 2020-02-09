@@ -8,9 +8,9 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			content: '.content-wrapper',
 			headerSuperWrapper: '.header-super-wrapper',
 			language: '.menu-language-choice',
-			languageButton: '.toggle-language-wrapper a',
+			languageButton: '#language-menu-button',
 			main: '.menu-main',
-			mainButton: '.toggle-main-menu-wrapper a',
+			mainButton: '#main-menu-button',
 			music: '.menu-music',
 			musicButton: '#music-button',
 			playlist: '.menu-playlist-wrapper'

@@ -103,22 +103,18 @@
 				<div class="logo-text logo-text-right">Saurus</div>
 
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
-					<a
-						href="javascript:;"
-						title="{% trans 'Main Menu' %}">
+					<button id="main-menu-button" class="header-button" title="{% trans 'Main Menu' %}">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
-					</a>
+					</button>
 				</div>
 
 				<div class="toggle-wrapper toggle-language-wrapper">
-					<a
-						href="javascript:;"
-						title="{% trans 'Change Language' %}">
+					<button id="language-menu-button" class="header-button" title="{% trans 'Change Language' %}">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
 						<i class="fas fa-chevron-down"></i>
-					</a>
+					</button>
 				</div>
 			</div>
 
@@ -129,7 +125,7 @@
 
 							{% for url in language_urls %}
 								<li>
-									<a href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate">
+									<a class="menu-item" href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate">
 										<span class="icon flag flag-{{ url.language_code }}"></span>
 										{{url.language_name}}
 									</a>
@@ -142,19 +138,19 @@
 					<nav class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>
-								<a href="/{% trans 'home/' %}">
+								<a class="menu-item" href="/{% trans 'home/' %}">
 									<i class="icon fas fa-home"></i>
 									{% trans "Home" %}
 								</a>
 							</li>
 							<li>
-								<a href="/{% trans 'biography/' %}">
+								<a class="menu-item" href="/{% trans 'biography/' %}">
 									<i class="icon fas fa-book"></i>
 									{% trans "Biography" %}
 								</a>
 							</li>
 							<li>
-								<a id="music-button" href="javascript:;">
+								<a id="music-button" class="menu-item">
 									<i class="icon fas fa-music"></i>
 									{% trans "Music" %}
 									<i class="fas fa-chevron-down"></i>
@@ -165,11 +161,11 @@
 						<nav class="menu menu-music menu-closed">
 							<ul>
 								<li>
-									<a href="/{% trans 'music/' %}">{% trans 'All Albums' %}</a>
+									<a class="menu-item" href="/{% trans 'music/' %}">{% trans 'All Albums' %}</a>
 								</li>
 								{% for a_info in albums %}
 								<li>
-									<a href="{{ a_info.get_absolute_url }}">
+									<a class="menu-item" href="{{ a_info.get_absolute_url }}">
 										{{ a_info.album.release_date|date:"(Y)" }} {{ a_info.title }}
 									</a>
 								</li>

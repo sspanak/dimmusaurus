@@ -2,7 +2,7 @@
  * XL sized screen - Large desktop or laptop (only making use of the wider spaces)
  **********************************************************************************/
 @media screen and (min-width: 80em) {
-	.menu-main > ul, .header-container .toggle-language-wrapper > a {
+	.menu-main > ul, .header-container .toggle-language-wrapper > .header-button {
 		margin-left: 2%;
 		margin-right: 2%;
 	}

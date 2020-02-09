@@ -5,14 +5,14 @@
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
 	.menu-mobile {margin-right: 16px;}
 
-	.menu li > a {
+	.menu li > .menu-item {
 		margin: 0 24px;
 		padding: 10px 8px;
 	}
 
 	.menu-playlist-wrapper {bottom: 2.5em;}
 	.menu-playlist {height: calc(80vh - 2.5em);}
-	.menu-playlist li > a .playlist-time {margin-left: 10px;}
+	.menu-playlist .playlist-time {margin-left: 10px;}
 
 	.ajax-loader-spinning {width: 163px;}
 

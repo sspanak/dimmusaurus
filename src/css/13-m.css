@@ -98,7 +98,7 @@
 
 	.menu-playlist-wrapper {bottom: 2.5em;}
 	.menu-playlist {height: calc(60vh - 2.5em);}
-	.menu-playlist li > a .playlist-time {margin-left: 10px;}
+	.menu-playlist .playlist-time {margin-left: 10px;}
 
 
 /*============== Content ==============*/
@@ -151,7 +151,8 @@
 
 
 /*============== Buttons ==============*/
-	.toggle-wrapper > a {
+	.toggle-wrapper > .header-button {
+		font-size: 2em;
 		margin: 0 20px;
 	}
 

@@ -81,22 +81,18 @@
 				<div class="logo-text logo-text-right">Saurus</div>
 
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
-					<a
-						href="javascript:;"
-						title="Main Menu">
+					<button id="main-menu-button" class="header-button" title="Main Menu">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
-					</a>
+					</button>
 				</div>
 
 				<div class="toggle-wrapper toggle-language-wrapper">
-					<a
-						href="javascript:;"
-						title="Change Language">
+					<button id="language-menu-button" class="header-button" title="Change Language">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
 						<i class="fas fa-chevron-down"></i>
-					</a>
+					</button>
 				</div>
 			</div>
 
@@ -105,21 +101,21 @@
 					<nav class="menu menu-language-choice menu-closed shadow-bottom">
 						<ul>
 							<li>
-								<a href="javascript:;" hreflang="bg" rel="alternate">
+								<a class="menu-item" href="javascript:;" hreflang="bg" rel="alternate">
 									<span class="icon flag flag-bg"></span>
 									Български
 								</a>
 							</li>
 
 							<li>
-								<a href="javascript:;" hreflang="en" rel="alternate">
+								<a class="menu-item" href="javascript:;" hreflang="en" rel="alternate">
 									<span class="icon flag flag-en"></span>
 									English
 								</a>
 							</li>
 
 							<li>
-								<a href="javascript:;" hreflang="fr" rel="alternate">
+								<a class="menu-item" href="javascript:;" hreflang="fr" rel="alternate">
 									<span class="icon flag flag-fr"></span>
 									Français
 								</a>
@@ -131,19 +127,19 @@
 					<nav class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>
-								<a>
+								<a class="menu-item">
 									<i class="icon fas fa-home"></i>
 									Начало
 								</a>
 							</li>
 							<li>
-								<a>
+								<a class="menu-item">
 									<i class="icon fas fa-book"></i>
 									Биография
 								</a>
 							</li>
 							<li>
-								<a id="music-button" href="javascript:;">
+								<a id="music-button" class="menu-item">
 									<i class="icon fas fa-music"></i>
 									Музика
 									<i class="fas fa-chevron-down"></i>
@@ -154,25 +150,25 @@
 						<nav class="menu menu-music menu-closed">
 							<ul>
 								<li>
-									<a>(2014) III</a>
+									<a class="menu-item">(2014) III</a>
 								</li>
 								<li>
-									<a>(2013) Битка на баира</a>
+									<a class="menu-item">(2013) Битка на баира</a>
 								</li>
 								<li>
-									<a>(2013) Пътят, който всички...</a>
+									<a class="menu-item">(2013) Пътят, който всички...</a>
 								</li>
 								<li>
-									<a>(2010) Яхния от мисли</a>
+									<a class="menu-item">(2010) Яхния от мисли</a>
 								</li>
 								<li>
-									<a>(2006) Зона Чернобил</a>
+									<a class="menu-item">(2006) Зона Чернобил</a>
 								</li>
 								<li>
-									<a>Всички албуми</a>
+									<a class="menu-item">Всички албуми</a>
 								</li>
 								<li>
-									<a>Кавъри</a>
+									<a class="menu-item">Кавъри</a>
 								</li>
 							</ul>
 						</nav>
@@ -487,85 +483,85 @@
 				</div>
 				<ul id="playlist-list">
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Патката бяла</span>
 							<span class="playlist-time">10:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)" class="selected">
+						<a class="menu-item" onclick="Player.selectTrack(666)" class="selected">
 							<span class="playlist-title">Баба меца си изгуби кеца</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Кондю яде спанак</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Don't leave me, Kage, you played the best shit you've ever fucking played</span>
 							<span class="playlist-time">10:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Има марулка, има трушийка и ще пийнем ракийка</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Да изорем дружно нивите, момчета!</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Ох вел</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Коньовишки жентълмен</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">жунгла е тука</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">дай му жега с паста за зъби корега</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">аре ве, докога ще пиша, не стана ли достатъчно високо това?</span>
 							<span class="playlist-time">10:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Небостъргач ли строим тука?</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">и осван това ми писна от тая песен, дето я слушам</span>
 							<span class="playlist-time">1:23</span>
 						</a>
 					</li>
 					<li>
-						<a onclick="Player.selectTrack(666)">
+						<a class="menu-item" onclick="Player.selectTrack(666)">
 							<span class="playlist-title">Фред Герлах си пускам - Банат</span>
 							<span class="playlist-time">1:23</span>
 						</a>
