@@ -271,6 +271,7 @@ footer .copyright-copy, footer .copyright-last-year {
 
 .content-tune .tune-links a {
 	border-bottom-left-radius: 10px;
+	cursor: pointer;
 	padding: 5px 10px;
 	text-decoration: none;
 }

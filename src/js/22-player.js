@@ -176,11 +176,11 @@ const Player = new class { // eslint-disable-line
 	 * selectTrack
 	 * Finds a given track in the playlist and sets it ready for playing.
 	 *
-	 * @param  {number} trackId
+	 * @param  {number} playlistId
 	 * @return void
 	 */
-	selectTrack(trackId) {
-		if (this.currentTrack === trackId) {
+	selectTrack(playlistId) {
+		if (this.currentTrack === playlistId) {
 			return;
 		}
 
@@ -196,20 +196,33 @@ const Player = new class { // eslint-disable-line
 
 		PlayerUi.resetTrackSelection();
 
-		const track = this.playlist[trackId];
+		const track = this.playlist[playlistId];
 		if (!track) {
 			this.currentTrack = -1;
+			PlayerUi.fail();
 			return;
 		}
 
-		this.currentTrack = trackId;
+		this.currentTrack = playlistId;
 
 		PlayerUi
 			.enableControls()
 			.hideError()
 			.setAudioSources(this.playlist[this.currentTrack].files)
 			.onAudioSourceError(() => PlayerUi.fail())
-			.selectTrack(trackId, track.title, this.playlist.length);
+			.selectTrack(playlistId, track.title, this.playlist.length);
+	}
+
+
+	/**
+	 * selectTrack
+	 * Searches the playlist for a track with the given ID, then attempts to select it.
+	 *
+	 * @param  {number} trackId
+	 * @return void
+	 */
+	selectTrackById(trackId) {
+		this.selectTrack(this.playlist.findIndex(track => track.id === trackId));
 	}
 
 

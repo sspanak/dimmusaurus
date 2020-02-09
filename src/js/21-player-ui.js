@@ -579,16 +579,16 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * selectTrack
 	 * Marks a track as selected in the playlist and puts it in the player.
 	 *
-	 * @param  {number} trackId
+	 * @param  {number} playlistId
 	 * @param  {string} trackTitle
 	 * @param  {number} playlistLength
  	 * @return {this}
 	 */
-	selectTrack(trackId, trackTitle, playlistLength) {
-		this.select(`${this.selectors.playlistTrackPrefix}${trackId}`).addClass(this.classes.selected);
+	selectTrack(playlistId, trackTitle, playlistLength) {
+		this.select(`${this.selectors.playlistTrackPrefix}${playlistId}`).addClass(this.classes.selected);
 		this.select(this.selectors.trackTitle).setHTML(trackTitle);
-		this.disableNextWhenLastSong(trackId, playlistLength);
-		this.disablePreviousWhenFirstSong(trackId);
+		this.disableNextWhenLastSong(playlistId, playlistLength);
+		this.disablePreviousWhenFirstSong(playlistId);
 		this.setPlaybackTime('00:00');
 
 		return this;

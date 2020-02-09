@@ -32,7 +32,7 @@
 
 		<ul class="tune-links">
 			<li class="tune-play">
-				<a href="javascript:;">
+				<a onclick="Player.selectTrackById({{ song.id }});Player.playToggle();">
 					{% comment %}Translators: LISTEN button on song page.{% endcomment %}
 					<i class="fas fa-headphones"></i><span>{% trans 'listen' %}</span>
 				</a>
