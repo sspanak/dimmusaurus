@@ -57,11 +57,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {Promise<void>}
 	 */
 	navigate(url, updateHistory) {
-		return axios.request({ // eslint-disable-line no-undef
-			headers: { Accept: 'application/json' },
-			method: 'GET',
-			url
-		})
+		return axios.get(`/api${url}`) // eslint-disable-line no-undef
 			.then(response => {
 				try {
 					const { content, description, title, urls } = response.data;

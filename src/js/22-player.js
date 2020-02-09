@@ -221,7 +221,7 @@ const Player = new class { // eslint-disable-line
 	 * @return {void}
 	 */
 	loadPlaylist() {
-		axios.get('/music/playlist/')
+		axios.get('/api/music/playlist/')
 			.then(data => {
 				this.playlist = [];
 				let track = -1;

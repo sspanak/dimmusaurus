@@ -1,8 +1,8 @@
-from django.urls import path
+from django.urls import re_path
 from . import views
 
 urlpatterns = [
-    path('биография/', views.биография, name='биография'),
-    path('biography/', views.biography, name='biography'),
-    path('biographie/', views.biographie, name='biographie'),
+    re_path(r'(?:api/)?биография/', views.биография, name='биография'),
+    re_path(r'(?:api/)?biography/', views.biography, name='biography'),
+    re_path(r'(?:api/)?biographie/', views.biographie, name='biographie'),
 ]

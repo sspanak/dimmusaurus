@@ -6,9 +6,7 @@ from django.utils.translation import gettext_lazy, override as translation_overr
 
 
 def is_request_for_json(request):
-    return (request.headers.get('accept') == 'application/json') \
-        or (request.headers.get('Accept') == 'application/json') \
-        or (request.headers.get('ACCEPT') == 'application/json')
+    return request.path.startswith('/api/')
 
 
 def determine_root_template(request):

@@ -1,10 +1,10 @@
-from django.urls import path
+from django.urls import path, re_path
 
 from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('начало/', views.начало, name='начало'),
-    path('home/', views.home, name='home'),
-    path('accueil/', views.accueil, name='accueil'),
+    re_path(r'(?:api/)?начало/', views.начало, name='начало'),
+    re_path(r'(?:api/)?home/', views.home, name='home'),
+    re_path(r'(?:api/)?accueil/', views.accueil, name='accueil'),
 ]
