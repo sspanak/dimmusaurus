@@ -607,6 +607,7 @@
 			<audio onended="Player.next()"></audio>
 			<button
 				id="pl-playlist-toggle"
+				title="Toggle Playlist"
 				class="player-button playlist"><i class="fas fa-chevron-up"></i></button>
 
 				<div class="loading-indicator">
@@ -633,18 +634,19 @@
 				<button
 					onclick="Player.toggleMute(this)"
 					id="pl-volume"
+					title="Sound Volume"
 					class="player-button volume fas fa-volume-up"></button><button
-
-					onclick="Player.previous()"
 					id="pl-previous"
+					title="Previous Track"
+					onclick="Player.previous()"
 					class="player-button fas fa-step-backward"></button><button
-
-					onclick="Player.playToggle()"
 					id="pl-play"
+					title="Play / Pause"
+					onclick="Player.playToggle()"
 					class="player-button fas fa-play"></button><button
-
-					onclick="Player.next()"
 					id="pl-next"
+					title="Next Track"
+					onclick="Player.next()"
 					class="player-button fas fa-step-forward"></button>
 			</div>
 		</div>

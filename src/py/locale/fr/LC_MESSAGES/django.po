@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-09 13:30+0200\n"
+"POT-Creation-Date: 2020-02-09 18:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:145
+#: src/py/main/templates/main/__root.html:141
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -27,7 +27,7 @@ msgid "home/"
 msgstr "accueil/"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:147
+#: src/py/main/templates/main/__root.html:143
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -36,7 +36,7 @@ msgstr "Accueil"
 
 #. Translators: Biography page title
 #: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:21
-#: src/py/main/templates/main/__root.html:153
+#: src/py/main/templates/main/__root.html:149
 msgid "Biography"
 msgstr "Biographie"
 
@@ -67,20 +67,20 @@ msgstr "Impossible de charger ce chanson!"
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Si vous changez la langue, la musique s'arrêtera. Confirmez-vous?"
 
-#: src/py/main/templates/main/__root.html:108
+#: src/py/main/templates/main/__root.html:106
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/py/main/templates/main/__root.html:117
+#: src/py/main/templates/main/__root.html:113
 msgid "Change Language"
 msgstr "Choisir la langue préférée"
 
-#: src/py/main/templates/main/__root.html:151
+#: src/py/main/templates/main/__root.html:147
 #: src/py/main/templates/main/index.html:6
 msgid "biography/"
 msgstr "biographie/"
 
-#: src/py/main/templates/main/__root.html:159
+#: src/py/main/templates/main/__root.html:155
 #: src/py/music/templates/music/discography.html:15
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -88,7 +88,7 @@ msgstr "biographie/"
 msgid "Music"
 msgstr "Musique"
 
-#: src/py/main/templates/main/__root.html:168
+#: src/py/main/templates/main/__root.html:164
 #: src/py/main/templates/main/index.html:5
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -96,30 +96,50 @@ msgstr "Musique"
 msgid "music/"
 msgstr "musique/"
 
-#: src/py/main/templates/main/__root.html:168
+#: src/py/main/templates/main/__root.html:164
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: src/py/main/templates/main/__root.html:193
+#: src/py/main/templates/main/__root.html:189
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
 
-#: src/py/main/templates/main/__root.html:202
+#: src/py/main/templates/main/__root.html:198
 msgid "Follow"
 msgstr "Suivez"
 
-#: src/py/main/templates/main/__root.html:215
+#: src/py/main/templates/main/__root.html:211
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: src/py/main/templates/main/__root.html:220
+#: src/py/main/templates/main/__root.html:216
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: src/py/main/templates/main/__root.html:245
-#: src/py/main/templates/main/__root.html:286
+#: src/py/main/templates/main/__root.html:236
+msgid "Toggle Playlist"
+msgstr "Liste de lecture"
+
+#: src/py/main/templates/main/__root.html:241
+#: src/py/main/templates/main/__root.html:280
 msgid "Loading..."
 msgstr "Chargement..."
+
+#: src/py/main/templates/main/__root.html:260
+msgid "Sound Volume"
+msgstr "Son"
+
+#: src/py/main/templates/main/__root.html:264
+msgid "Previous Track"
+msgstr "Précédent"
+
+#: src/py/main/templates/main/__root.html:268
+msgid "Play / Pause"
+msgstr "Lire / Pause"
+
+#: src/py/main/templates/main/__root.html:272
+msgid "Next Track"
+msgstr "Suivant"
 
 #: src/py/main/templates/main/index.html:8
 msgid "Welcome"
