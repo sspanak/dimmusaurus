@@ -41,7 +41,8 @@ css-prod:
 	mv ui-demo/*.css src/py/static
 
 js-ui:
-	cat src/js/*.js	> ui-demo/ds.js
+	cat src/js/dev-*.js > ui-demo/ds.js
+	cat src/js/[0-9]*.js	>> ui-demo/ds.js
 	npm run --silent build-legacy-js -- ui-demo/ds.js > ui-demo/ds.legacy.js
 
 js-debug-prod:
@@ -55,7 +56,7 @@ js-prod:
 
 images:
 	mkdir -p ui-demo/img
-	cp img/{*.png,*.ico} ui-demo/img
+	cp img/{*.png,*.ico,*.gif} ui-demo/img
 
 db-backup:
 	bash -c build-tools/db-export.sh
