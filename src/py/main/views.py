@@ -3,11 +3,13 @@ from django.shortcuts import redirect
 from django.utils.translation import gettext, activate, get_language
 
 from .models import News
-from .shortcuts import render_template
+from .shortcuts import render_template, requestToBrother
 from music.shortcuts import get_music_menu_album_list
 
 
 def render_page(request):
+    requestToBrother(request)
+
     lang = get_language()
     return render_template(
         request,

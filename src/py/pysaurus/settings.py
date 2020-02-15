@@ -132,6 +132,7 @@ LANGUAGES = [
     ('fr', 'Français'),
 ]
 
+BAI_BROTHER = False  # Enable or disable access log
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
