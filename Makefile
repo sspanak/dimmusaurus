@@ -10,6 +10,7 @@ tar:
 	make django-static
 	tar cv --exclude='db.sqlite3' --exclude='.gitkeep' --exclude='__init__.py' --exclude='*.pyc' -C src/ -f ds.tar py/
 	tar rv -C build-tools -f ds.tar install.sh
+	tar rv -C build-tools -f ds.tar db-import.sh
 	bzip2 -9 ds.tar
 
 clean:

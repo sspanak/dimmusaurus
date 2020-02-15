@@ -73,7 +73,7 @@ UI Demo:
 * `$ make ui`: runs all commands to build the frontend demo, including copying the necessary `.html` files.
 
 Deployment:
-* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes an `install.sh` script. Check [Deployment](#deployment) for more info.
+* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
 
 Database specific commands are:
 * `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
