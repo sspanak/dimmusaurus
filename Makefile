@@ -33,8 +33,7 @@ clean-ui:
 
 css-ui:
 	cat src/css/{[0-9]*.css,dev-demo.css} > ui-demo/ds.css
-	cp src/css/legacy.css ui-demo/ds.legacy.css
-	npm run --silent build-legacy-css >> ui-demo/ds.legacy.css
+	node build-tools/build-legacy-css.js ui-demo/ds.css > ui-demo/ds.legacy.css
 
 css-prod:
 	bash -c build-tools/build-css-prod.sh
@@ -42,7 +41,7 @@ css-prod:
 
 js-ui:
 	cat src/js/dev-*.js > ui-demo/ds.js
-	cat src/js/[0-9]*.js	>> ui-demo/ds.js
+	cat src/js/[0-9]*.js >> ui-demo/ds.js
 	npm run --silent build-legacy-js -- ui-demo/ds.js > ui-demo/ds.legacy.js
 
 js-debug-prod:
