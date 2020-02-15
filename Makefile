@@ -2,24 +2,36 @@ MAKEFLAGS += --no-print-directory
 SHELL := /bin/bash
 
 default:
-	make pystatic
+	django-static
+
+tar:
+	rm -f ds.tar; rm -f ds.tar.bz2
+	make clean || true
+	make django-static
+	tar cv --exclude='db.sqlite3' --exclude='.gitkeep' --exclude='__init__.py' --exclude='*.pyc' -C src/ -f ds.tar py/
+	tar rv -C build-tools -f ds.tar install.sh
+	bzip2 -9 ds.tar
 
 clean:
 	rm -r src/py/static/*
 
-pystatic:
+django:
+	cd src/py && python manage.py migrate && cd ../..
+	django-admin compilemessages
+	make clean || true
+	make django-static
+
+django-static:
 	make clean-ui || true
 	cp src/reset.css ui-demo
 	make css-prod
 	make js-prod
-# 	make js-ui && mv ui-demo/ds.js ui-demo/ds.min.js && mv ui-demo/ds.legacy.js ui-demo/ds.legacy.min.js
 	make images
 	mv ui-demo/img src/py/static
 
-	# Create a dummy song for download test
-	mkdir -p src/py/static/download
-	touch src/py/static/download/10-smrad.ogg
-	echo 'asdasdd' >> src/py/static/download/10-smrad.ogg
+translations:
+	django-admin makemessages -l bg
+	django-admin makemessages -l fr
 
 ui:
 	cp src/reset.css ui-demo

@@ -61,7 +61,9 @@ Django:
 * `$ make clean`: cleans up the Django `static` folder.
 * `$ make css-prod`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
 * `$ make js-prod`: same as `make css-dev` but for javascript.
-* `$ make pystatic`: Builds both the `css` and the `js`, and copies the images to Django `static` folder, making sure, all resources are ready to use. This is the default `make` target.
+* `$ make django-static`: builds both the `css` and the `js`, and copies the images to Django `static` folder, making sure, all resources are ready to use. This is the default target.
+* `$ make django`: builds all `css` and `js`, but in addition compiles translations and runs database migrations.
+* `$ make translations`: generates or updates .po translation files from python source code. Same as running: `$ django-admin makemessages -l bg && django-admin makemessages -l fr`.
 
 UI Demo:
 * `$ make clean-ui`: cleans up the `ui-demo/` folder.
@@ -70,9 +72,22 @@ UI Demo:
 * `$ make js-ui`: same as `make css-ui`, but for JavaScript.
 * `$ make ui`: runs all commands to build the frontend demo, including copying the necessary `.html` files.
 
+Deployment:
+* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes an `install.sh` script. Check [Deployment](#deployment) for more info.
+
 Database specific commands are:
 * `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
 * `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
 
 ### Deployment
-TODO: Not yet available.
+#### Preparing
+First, make sure you have installed all the required software described [above](#requirements). After this, create an installation archive, and export your local database:
+```
+$ make tar && make db-backup
+```
+
+Now copy the tarball and the database backup from `db` directory to the remote server.
+
+#### Deployment
+
+TODO: ...
