@@ -117,7 +117,10 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 	_handleNavigation(event) {
 		event.preventDefault();
-		Ajaxify.navigate(event.currentTarget.getAttribute('href'), true);
+
+		// After navigating, we must also reset the scroll position, because
+		// simply replacing the HTML using JS does not mean the browser is going to scroll up for us.
+		Ajaxify.navigate(event.currentTarget.getAttribute('href'), true).then(() => window.scrollTo(0, 0));
 	}
 
 
