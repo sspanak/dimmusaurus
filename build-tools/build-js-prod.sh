@@ -1,5 +1,10 @@
 #!/bin/bash
-# Meant to be run from root directory or by Makefile
+
+if ! [[ -f Makefile && -d ui-demo && -d src && -d src/js ]]
+then
+	echo "Please run this script from the root project directory."
+	exit 1
+fi
 
 cat src/js/[0-9]*.js \
 	| sed -r -e "s@\/\/[^\n]+@@g" \

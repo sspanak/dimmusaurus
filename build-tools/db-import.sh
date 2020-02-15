@@ -1,11 +1,16 @@
 #!/bin/bash
 # WARNING! This will TRUNCATE each table before importing a .csv file
-# Meant to be run from root directory or by Makefile
+
+if ! [[ -f Makefile && -d db ]]
+then
+	echo "Please run this script from the root project directory."
+	exit 1
+fi
 
 if [ $# -eq 0 ]
 then
 	echo "Please provide database .tar file as a first argument to the script."
-	exit 1
+	exit 2
 fi
 
 export_dir='db'

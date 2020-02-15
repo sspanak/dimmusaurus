@@ -1,5 +1,10 @@
 #!/bin/bash
-# Meant to be run from root directory or by Makefile
+
+if ! [[ -f Makefile && -d ui-demo && -d src && -d src/css ]]
+then
+	echo "Please run this script from the root project directory."
+	exit 1
+fi
 
 cat src/css/[0-9]*.css > ui-demo/ds.css
 cp src/css/legacy.css ui-demo/ds.legacy.css

@@ -1,5 +1,10 @@
 #!/bin/bash
-# Meant to be run from root directory or by Makefile
+
+if ! [[ -f Makefile && -d db ]]
+then
+	echo "Please run this script from the root project directory."
+	exit 1
+fi
 
 export_dir='db'
 
