@@ -58,6 +58,8 @@
 				"use strict";
 
 				try {
+					if (navigator.userAgent.indexOf('Edge') !== -1 && navigator.userAgent.match(/Edge\/(\d+)/)[1] < 16)
+						throw new Error;
 					if (typeof Symbol === 'undefined') throw new Error;
 					eval('class C {}');
 					eval('var a = (x) => x+1');
