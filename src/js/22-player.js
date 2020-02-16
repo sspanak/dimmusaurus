@@ -4,19 +4,21 @@ const Player = new class { // eslint-disable-line
 		this.currentTrack = -1;
 		this.playlist = [];
 
-		this._init();
+		window.addEventListener('load', () => this._init());
 	}
 
 	_init() {
-		window.addEventListener('load', () => {
-			if (!this.isSupported()) {
-				return;
-			}
+		if (!this.isSupported()) {
+			return;
+		}
+		if (typeof axios === 'undefined') {
+			Logger.error('Failed initializing player. Axios is not available.'); // eslint-disable-line no-undef
+			return;
+		}
 
-			this.loadPlaylist();
-			PlayerUi.init();
-			PlayerUi.onProgressBarClick = (progress) => this.seek(progress);
-		});
+		this.loadPlaylist();
+		PlayerUi.init();
+		PlayerUi.onProgressBarClick = (progress) => this.seek(progress);
 	}
 
 

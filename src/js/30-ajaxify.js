@@ -16,23 +16,31 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			title: 'title'
 		};
 
-		if (Player.isSupported()) { // eslint-disable-line no-undef
-			this._removeBotLinks();
-			this.run();
+		window.addEventListener('load', () => this._init());
+	}
 
-			window.addEventListener('popstate', event => this._handleHistoryPop(event));
-			history.replaceState(
-				// Setting the initial state is necessary, because
-				// we can use only event.state.url, that we set below, to get back here.
-				{
-					scroll: 0,
-					title: this.select(this.selectors.title).getHTML(),
-					url: location.pathname
-				},
-				this.select(this.selectors.title).getHTML(),
-				location.pathname
-			);
+
+	_init() {
+		if (typeof axios === 'undefined') {
+			Logger.error('Failed initializing Ajaxify. Axios is not available.'); // eslint-disable-line no-undef
+			return;
 		}
+
+		this._removeBotLinks();
+		this.run();
+
+		window.addEventListener('popstate', event => this._handleHistoryPop(event));
+		history.replaceState(
+			// Setting the initial state is necessary, because
+			// we can use only event.state.url, that we set below, to get back here.
+			{
+				scroll: 0,
+				title: this.select(this.selectors.title).getHTML(),
+				url: location.pathname
+			},
+			this.select(this.selectors.title).getHTML(),
+			location.pathname
+		);
 	}
 
 
