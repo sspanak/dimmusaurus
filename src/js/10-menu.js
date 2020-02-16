@@ -12,8 +12,7 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			main: '.menu-main',
 			mainButton: '#main-menu-button',
 			music: '.menu-music',
-			musicButton: '#music-button',
-			playlist: '.menu-playlist-wrapper'
+			musicButton: '#music-button'
 		};
 
 		this._init();
@@ -24,16 +23,27 @@ const Menu = new class extends UiElement { // eslint-disable-line
 		window.addEventListener('load', () => {
 			this.select(this.selectors.languageButton).addEventListener('click', (event) => {
 				event.stopPropagation();
+
+				PlayerUi.closePlaylist(); // eslint-disable-line no-undef
+				this.closeMenuMain();
+				this.closeMenuMusic();
 				this.toggleMenuLanguage();
 			});
 
 			this.select(this.selectors.mainButton).addEventListener('click', (event) => {
 				event.stopPropagation();
+
+				PlayerUi.closePlaylist(); // eslint-disable-line no-undef
+				this.closeMenuLanguage();
+				this.closeMenuMusic();
 				this.toggleMenuMain();
 			});
 
 			this.select(this.selectors.musicButton).addEventListener('click', (event) => {
 				event.stopPropagation();
+
+				PlayerUi.closePlaylist(); // eslint-disable-line no-undef
+				this.closeMenuLanguage();
 				this.toggleMenuMusic();
 			});
 
@@ -50,13 +60,27 @@ const Menu = new class extends UiElement { // eslint-disable-line
 
 
 	closeAll() {
-		this.select(this.selectors.language).addClass(this.closedMenuClass);
-		this.select(this.selectors.main).addClass(this.closedMenuClass);
-		this.select(this.selectors.music).addClass(this.closedMenuClass);
-		this.select(this.selectors.playlist).addClass(this.closedMenuClass);
+		PlayerUi.closePlaylist(); // eslint-disable-line no-undef
+		this.closeMenuLanguage();
+		this.closeMenuMain();
+		this.closeMenuMusic();
+	}
 
+
+	closeMenuLanguage() {
+		this.select(this.selectors.language).addClass(this.closedMenuClass);
 		this.select(this.selectors.languageButton).removeClass(this.selectedButtonClass);
+	}
+
+
+	closeMenuMain() {
+		this.select(this.selectors.main).addClass(this.closedMenuClass);
 		this.select(this.selectors.mainButton).removeClass(this.selectedButtonClass);
+	}
+
+
+	closeMenuMusic() {
+		this.select(this.selectors.music).addClass(this.closedMenuClass);
 	}
 
 

@@ -1,4 +1,3 @@
-/* eslint no-undef: 0 */
 const PlayerUi = new class extends UiElement { // eslint-disable-line
 	constructor() {
 		super();
@@ -53,10 +52,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			event.stopPropagation();
 			this.togglePlaylist();
 		});
-		// this.select(this.selectors.trackTitle).addEventListener('click', (event) => {
-		// 	event.stopPropagation();
-		// 	this.togglePlaylist();
-		// });
+		this.select(this.selectors.trackTitle).addEventListener('click', (event) => {
+			event.stopPropagation();
+			this.togglePlaylist();
+		});
 
 		this.select(this.selectors.audio).addEventListener('error', () => {
 			this.fail();
@@ -135,7 +134,22 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	togglePlaylist() {
+		Menu.closeMenuLanguage(); // eslint-disable-line no-undef
+		Menu.closeMenuMain(); // eslint-disable-line no-undef
+		Menu.closeMenuMusic(); // eslint-disable-line no-undef
 		this.select(this.selectors.playlist).toggleClass(Menu.closedMenuClass); // eslint-disable-line no-undef
+	}
+
+
+	/**
+	 * closePlaylist
+	 * Self-explanatory
+	 *
+	 * @param  {void}
+	 * @return {void}
+	 */
+	closePlaylist() {
+		this.select(this.selectors.playlist).addClass(Menu.closedMenuClass); // eslint-disable-line no-undef
 	}
 
 
