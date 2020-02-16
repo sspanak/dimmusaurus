@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-15 16:01+0200\n"
+"POT-Creation-Date: 2020-02-16 16:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:137
+#: src/py/main/templates/main/__root.html:143
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -27,7 +27,7 @@ msgid "home/"
 msgstr "accueil/"
 
 #: src/py/bio/templates/bio/index.html:9
-#: src/py/main/templates/main/__root.html:139
+#: src/py/main/templates/main/__root.html:145
 #: src/py/music/templates/music/discography.html:11
 #: src/py/music/templates/music/lyrics.html:11
 #: src/py/music/templates/music/song.html:11
@@ -36,7 +36,7 @@ msgstr "Accueil"
 
 #. Translators: Biography page title
 #: src/py/bio/templates/bio/index.html:11 src/py/bio/views.py:22
-#: src/py/main/templates/main/__root.html:145
+#: src/py/main/templates/main/__root.html:151
 msgid "Biography"
 msgstr "Biographie"
 
@@ -59,28 +59,28 @@ msgstr ""
 "Il n'y a rien à voir ici. Veuillez continuer à naviguer ou retourner au <a "
 "href=\"/\">page accueil</a>."
 
-#: src/py/main/templates/main/__root.html:53
+#: src/py/main/templates/main/__root.html:57
 msgid "Cannot load this song!"
 msgstr "Impossible de charger ce chanson!"
 
-#: src/py/main/templates/main/__root.html:54
+#: src/py/main/templates/main/__root.html:58
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Si vous changez la langue, la musique s'arrêtera. Confirmez-vous?"
 
-#: src/py/main/templates/main/__root.html:102
+#: src/py/main/templates/main/__root.html:108
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: src/py/main/templates/main/__root.html:109
+#: src/py/main/templates/main/__root.html:115
 msgid "Change Language"
 msgstr "Choisir la langue préférée"
 
-#: src/py/main/templates/main/__root.html:143
+#: src/py/main/templates/main/__root.html:149
 #: src/py/main/templates/main/index.html:6
 msgid "biography/"
 msgstr "biographie/"
 
-#: src/py/main/templates/main/__root.html:151
+#: src/py/main/templates/main/__root.html:157
 #: src/py/music/templates/music/discography.html:15
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -88,7 +88,7 @@ msgstr "biographie/"
 msgid "Music"
 msgstr "Musique"
 
-#: src/py/main/templates/main/__root.html:160
+#: src/py/main/templates/main/__root.html:166
 #: src/py/main/templates/main/index.html:5
 #: src/py/music/templates/music/discography.html:18
 #: src/py/music/templates/music/lyrics.html:14
@@ -96,48 +96,48 @@ msgstr "Musique"
 msgid "music/"
 msgstr "musique/"
 
-#: src/py/main/templates/main/__root.html:160
+#: src/py/main/templates/main/__root.html:166
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: src/py/main/templates/main/__root.html:185
+#: src/py/main/templates/main/__root.html:191
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
 
-#: src/py/main/templates/main/__root.html:194
+#: src/py/main/templates/main/__root.html:200
 msgid "Follow"
 msgstr "Suivez"
 
-#: src/py/main/templates/main/__root.html:207
+#: src/py/main/templates/main/__root.html:213
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: src/py/main/templates/main/__root.html:212
+#: src/py/main/templates/main/__root.html:218
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: src/py/main/templates/main/__root.html:232
+#: src/py/main/templates/main/__root.html:238
 msgid "Toggle Playlist"
 msgstr "Liste de lecture"
 
-#: src/py/main/templates/main/__root.html:237
-#: src/py/main/templates/main/__root.html:276
+#: src/py/main/templates/main/__root.html:243
+#: src/py/main/templates/main/__root.html:282
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: src/py/main/templates/main/__root.html:256
+#: src/py/main/templates/main/__root.html:262
 msgid "Sound Volume"
 msgstr "Son"
 
-#: src/py/main/templates/main/__root.html:260
+#: src/py/main/templates/main/__root.html:266
 msgid "Previous Track"
 msgstr "Précédent"
 
-#: src/py/main/templates/main/__root.html:264
+#: src/py/main/templates/main/__root.html:270
 msgid "Play / Pause"
 msgstr "Lire / Pause"
 
-#: src/py/main/templates/main/__root.html:268
+#: src/py/main/templates/main/__root.html:274
 msgid "Next Track"
 msgstr "Suivant"
 
@@ -221,7 +221,7 @@ msgstr ""
 
 #. Translators: LYRICS button on song page.
 #: src/py/music/templates/music/lyrics.html:22
-#: src/py/music/templates/music/song.html:54
+#: src/py/music/templates/music/song.html:61
 msgid "lyrics"
 msgstr "paroles"
 
@@ -235,24 +235,24 @@ msgstr "Paroles de chanson"
 msgid "Song Details"
 msgstr "Détails de la chanson"
 
+#: src/py/music/templates/music/song.html:35
+msgid "Originally titled"
+msgstr "Titre original"
+
 #. Translators: LISTEN button on song page.
-#: src/py/music/templates/music/song.html:37
+#: src/py/music/templates/music/song.html:44
 msgid "listen"
 msgstr "écouter"
 
 #. Translators: Youtube button on song page.
-#: src/py/music/templates/music/song.html:45
+#: src/py/music/templates/music/song.html:52
 msgid "watch"
 msgstr "regarder"
 
 #. Translators: DOWNLOAD button on song page.
-#: src/py/music/templates/music/song.html:62
+#: src/py/music/templates/music/song.html:69
 msgid "download"
 msgstr "télécharger"
-
-#: src/py/music/templates/music/song.html:73
-msgid "originally titled"
-msgstr "titre original"
 
 #: src/py/music/views.py:78
 msgid "Track list and information."

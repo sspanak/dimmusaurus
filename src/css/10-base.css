@@ -258,7 +258,11 @@ footer .copyright-copy, footer .copyright-last-year {
 	margin: 0.4em auto;
 }
 .content-tune .tune-title a {text-decoration: none;}
-.content-tune .tune-release-date {margin: 0.5em 0.5em 1.33em;}
+.content-tune .tune-release-info {margin: 0.5em 0.5em 1.33em;}
+.content-tune .tune-original-title {
+	font-weight: normal;
+	margin-top: 1px;
+}
 
 .content-tune .tune-links {
 	margin: 0;

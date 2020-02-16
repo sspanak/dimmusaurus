@@ -100,7 +100,7 @@
 
 
 /*============== Pages ==============*/
-	.content-tune .tune-title, .content-tune .tune-release-date, .content-tune .tune-links {text-align: center;}
+	.content-tune .tune-title, .content-tune .tune-release-info, .content-tune .tune-links {text-align: center;}
 	.content-tune .tune-links li {
 		display: inline-block;
 		margin: 10px 0;

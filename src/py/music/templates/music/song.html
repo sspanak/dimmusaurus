@@ -28,7 +28,14 @@
 			<a href="{{ song.get_download_url }}">{{ song_title }}</a> – {{ song.duration }}
 		</h2>
 
-		<h5 class="tune-release-date">{{song.release_date}}</h5>
+		<h5 class="tune-release-info">
+			{{song.release_date}}
+			{% if song.original_title != song_title %}
+				<div class="tune-original-title">
+					{% trans 'Originally titled' %}: &ldquo;{{ song.original_title }}&rdquo;
+				</div>
+			{% endif %}
+		</h5>
 
 		<ul class="tune-links">
 			<li class="tune-play">
@@ -69,11 +76,7 @@
 	<hr>
 
 	<article>
-	{% if song.original_title != song_title %}
-		<p>&quot;{{ song_title }}&quot;, {% trans 'originally titled' %}: &quot;{{ song.original_title }}&quot;</p>
-	{% endif %}
-
-	{% markdown %}{{song_description.description}}{% endmarkdown %}
+		{% markdown %}{{song_description.description}}{% endmarkdown %}
 	</article>
 </div>
 {% endblock %}
