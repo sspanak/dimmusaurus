@@ -153,9 +153,14 @@
 
 
 /*============== Buttons ==============*/
-	.toggle-wrapper > .header-button {
+	.header-button {
 		font-size: 2em;
 		margin: 0 20px;
+	}
+
+	.header-button .fa-chevron-up,
+	.header-button .fa-chevron-down {
+		font-size: 0.3em;
 	}
 
 

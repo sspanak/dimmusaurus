@@ -20,7 +20,12 @@
 		height: 100px;
 	}
 
-	.header-container .toggle-main-menu-wrapper .header-button {
+	.header-button .fa-chevron-up,
+	.header-button .fa-chevron-down {
+		font-size: 0.5em;
+	}
+
+	#main-menu-button {
 		display: none; /* No main menu button on large screens */
 	}
 

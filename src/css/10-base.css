@@ -46,6 +46,10 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	width: 0;
 }
 
+.ajax-loader-spinning {
+	opacity: 0.9;
+}
+
 .ajax-loader > img{
 	display: flex;
 	height: 2.4em;
@@ -54,13 +58,8 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	width: 2.4em;
 }
 
-.ajax-loader-spinning {
-	opacity: 0.9;
-}
-
- .menu li, .content-tune .tune-links li, .breadcrumbs li {
-	list-style-type: none;
-}
+.menu li, .content-tune .tune-links li, .breadcrumbs li {list-style-type: none;}
+.fa-chevron-down, .fa-chevron-up {vertical-align: middle;}
 
 /*==============  Buttons ==============*/
 .menu .menu-item, footer a, .player .player-button {
@@ -71,11 +70,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	border: none;
 	display: inline-block;
 	padding: 0;
-}
-
-.header-container .header-button .fa-chevron-down, .header-container .header-button .fa-chevron-up {
-	font-size: 0.3em;
-	vertical-align: middle;
 }
 
 .toggle-language-label {
@@ -107,11 +101,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	text-align: left;
 }
 .menu li > .menu-item .icon {margin: 0 10px 0 6px;}
-
-.menu-main li > .menu-item .fa-chevron-down {
-	font-size: 0.5em;
-	vertical-align: middle;
-}
+.menu-item .fa-chevron-down, .menu-item .fa-chevron-up {font-size: 0.5em;}
 
 .menu-music li:first-child .menu-item {padding-top: 0;}
 
