@@ -1,7 +1,7 @@
 # dimmusaurus
-*Version 7*
+*Version 7.0*
 
-A small, beautiful and fast website for Dimmu Saurus, that works equally good on powerful PCs and old Nokias running Opera Mini. It won't be of much use for you unless you are Dimmu Saurus.
+A small, beautiful and fast website for Dimmu Saurus, that works equally good on a powerful PC and on an old Nokia running Opera Mini. It won't be of much use for you unless you are Dimmu Saurus, though.
 
 Visit http://dimmu-saurus.net.
 _**Note:** The project still work-in-progress, so it isn't online._
@@ -16,10 +16,10 @@ The project runs in a bash-compatible terminal. If you are going to write any co
 * sqlite 3+ _(usually, comes with Python)_
 * Pip 3 _(usually, comes with Python, but if you don't have it: `$ python3.8 -m pip install pip`)_
 * `$ pip install django-markdown-deux`: enables usage of `.md` files as templates.
-* `$ pip install markdown2`. Required for converting markdown bits from the database and by `django-markdown-deux`. _(Your Python version may include it by default)_
+* `$ pip install markdown2`. Required by `django-markdown-deux` and for converting any database markdown content to HTML. _(Your Python version may include it by default)_
 * Django 3.0+
   * `$ python -m pip install Django==3.0.2`.
-  * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out Django docs how to do this.
+  * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out [Django docs](https://docs.djangoproject.com/en/3.0/intro/install/) how to do this.
   * gettext 0.15+. _(It is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install it.)_
 
 #### Setup
@@ -31,57 +31,61 @@ The project runs in a bash-compatible terminal. If you are going to write any co
   * `BASE_URL` is used for generating absoulte URLs in templates. Usually, you'd only want to ensure the protocol is correct here.
 
 #### Database Setup and Management
-The project runs on Sqlite3 that comes with Python, so there is no need to install anything extra. Normally, you do not need to open the database at all, as Django and the build-tools take care of it, but should you need to do so, run: `sqlite3 src/py/db.sqlite3`.
+The project runs on Sqlite3 that comes with Python, so there is no need to install anything extra. Normally, you do not need to take care the database at all, as Django and the build-tools do it for you, but should you need to do so, run: `sqlite3 src/py/db.sqlite3`.
 
-There are `make db-backup` and `make db-import` commands, for exporting and importing the data. They generate and read a `.tar` containing `.csv`, respectively. Each `.csv` inside the tarball corresponds to a database table and is compatible with sqlite3. See more about the make commands [below](#available-make-commands).
+There are `$ make db-backup` and `$ make db-import` commands, for exporting and importing the data. They generate and read a `.tar` containing `.csv`, respectively. Each `.csv` inside the tarball corresponds to a database table and is compatible with sqlite3. See more about the make commands [below](#available-make-commands).
 
-**A note on importing backups:** have in mind that exporting appends the current date and time to the filename, however, the import script will _NOT_ accept a file with such name. `make db-import` expects and reads _ONLY_ a `ds.db.tar` file in `db/` directory.
+**A note on importing backups:** have in mind that exporting appends the current date and time to the filename, however, the import script will _NOT_ accept a file with such name. `db-import` expects and reads _ONLY_ a `ds.db.tar` file in `db/` directory.
 
 **Warning:** `db-import` will truncate each table before importing the corresponding `.csv` data! Tables not matching a `.csv` file, however, will not be affected.
 
 ### Running
 
 #### The entire site
-* `$ make`: builds and minifies the `css` and the `js`, and copies them and the images to the Django `static` folder.
-* `$ django-admin compilemessages` - builds all translations from `.po` files
-* `$ python manage.py migrate` - runs database migrations
-* `$ python manage.py runserver [a-port-of-your-choice]` - runs the server.
+* `$ make django`
+* `$ cd src/py/`
+* `$ python manage.py runserver [a-port-of-your-choice]`
 
 The site will be available on 127.0.0.1:8000, or at the port you have chosen.
 
 #### The UI Demo
-* `$ make ui` - builds the `css` and the `js`, and copies the images to `ui-demo` folder.
+* `$ make ui`
 * `$ cd ui-demo/`
 * Open the `index.html`
 
 #### Available Make Commands
-In case you need to build only one part of the project, the following commands are available:
+In case you need to build only a part of the project, or work with the database, the following commands are available:
 
 Django:
 * `$ make clean`: cleans up the Django `static` folder.
 * `$ make css-prod`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
-* `$ make js-prod`: same as `make css-dev` but for javascript.
-* `$ make django-static`: builds both the `css` and the `js`, and copies the images to Django `static` folder, making sure, all resources are ready to use. This is the default target.
-* `$ make django`: builds all `css` and `js`, but in addition compiles translations and runs database migrations.
-* `$ make translations`: generates or updates .po translation files from python source code. Same as running: `$ django-admin makemessages -l bg && django-admin makemessages -l fr`.
+* `$ make js-prod`: same as `$ make css-prod` but for javascript.
+* `$ make django-static`: builds both the `css` and `js`, and also copies the images to Django `static` folder. This is the default target.
+* `$ make translations`: generates or updates .po translation files from python source code. Same as running: `$ django-admin makemessages` command.
+* `$ make django`: Runs all the above, making sure the site will run properly.
 
 UI Demo:
 * `$ make clean-ui`: cleans up the `ui-demo/` folder.
 * `$ make css-ui`: compiles all css into one file and copies it to the `ui-demo/` folder.
 * `$ make images`: copies the `images` to `ui-demo/` folder. They don't need building, so they are just copied.
-* `$ make js-ui`: same as `make css-ui`, but for JavaScript.
-* `$ make ui`: runs all commands to build the frontend demo, including copying the necessary `.html` files.
+* `$ make js-ui`: same as `$ make css-ui`, but for JavaScript.
+* `$ make ui`: runs all the above to build the frontend demo, including copying the necessary `.html` files.
 
 Deployment:
-* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
-
-Database specific commands are:
 * `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
 * `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
+* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
 
 ### Deployment
-#### Preparing
-First, make sure you have installed all the required software described [above](#requirements). After this, create an installation archive, and export your local database:
+First, make sure you have installed all the required software described [above](#requirements).
+
+As a security measure, the intended workflow is to have an admin account locally and use `db-backup` and `db-import` make commands to transfer the database to a remote server. In case you choose to manage the database on the remote machine, just create an admin account there instead of locally, and skip database steps from the instructions below.
+
+In both cases, follow [Django Docs](https://docs.djangoproject.com/en/3.0/intro/tutorial02/) to create the admin account.
+
+#### Preparing the deployment
+
+To create an installation archive, and export your local database:
 ```
 $ make tar && make db-backup
 ```

@@ -47,4 +47,4 @@ Linters are assumed to be installed globally, for the system, so they are _NOT_ 
 * `$ npm install -g eslint` _(remove `-g` parameter, to install locally)_
 * HTML Tidy. There are two projects with the same name, but you must use [tidy-html5](https://github.com/htacg/tidy-html5/). _(Do NOT use the NPM package, because it contains an archaic version of HTML Tidy.)_
 
-That's it, you are good to go! Go back to README.md file and see [how to start the project](README.md#running).
+That's it, you are good to go! Go back to README.md file and see [how to start the project](README.md#running). Also, make sure to read the [make commands list](README.md#available-make-commands), to learn how to build only the parts of the project you have worked on.
