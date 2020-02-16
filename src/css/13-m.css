@@ -14,7 +14,9 @@
 		border-radius: 24px;
 		border-right: 3px double;
 		justify-content: center;
-		right: calc(50% - 89px);
+		left: 0;
+		margin: auto;
+		right: 0;
 		top: -50px;
 		width: 140px;
 	}

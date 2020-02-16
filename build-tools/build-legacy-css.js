@@ -60,6 +60,10 @@ function replaceRules(css) {
 		'order:\\s*(\\d)\\s*;': [
 			'-webkit-order:$1;',
 			'order:$1;'
+		],
+		'transition:([^;]+);': [
+			'-webkit-transition:$1;', // even IE9 supports it, but not webkit...
+			'transition:$1'
 		]
 	};
 
