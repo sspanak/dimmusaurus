@@ -11,7 +11,7 @@
 	}
 
 	.menu-playlist-wrapper {bottom: 2.5em;}
-	.menu-playlist {height: calc(80vh - 2.5em);}
+	.menu-playlist {max-height: calc(80vh - 2.5em);}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
 	.ajax-loader-spinning {width: 163px;}

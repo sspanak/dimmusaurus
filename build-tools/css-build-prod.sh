@@ -6,8 +6,7 @@ then
 	exit 1
 fi
 
-cat src/css/[0-9]*.css > ui-demo/ds.css
-node build-tools/build-legacy-css.js ui-demo/ds.css > ui-demo/ds.legacy.css
+bash -c build-tools/css-build-dev.sh
 
 for f in ui-demo/ds.css ui-demo/ds.legacy.css;
 do
@@ -20,3 +19,5 @@ do
 
 	rm $f
 done
+
+mv ui-demo/*.css src/py/static

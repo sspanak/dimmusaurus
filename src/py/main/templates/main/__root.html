@@ -46,6 +46,11 @@
 			integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
 			crossorigin="anonymous">
 
+
+		<link
+			rel="stylesheet"
+			href="{% static 'ds.min.css' %}">
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
 		<script>
@@ -72,19 +77,19 @@
 
 
 			var js = document.createElement('script');
-			var css = document.createElement('link');
-			css.rel = 'stylesheet';
 
 			if (isOldBrowser()) {
 				js.src = '{% static "ds.legacy.min.js" %}';
+
+				var css = document.createElement('link');
+				css.rel = 'stylesheet';
 				css.href = '{% static "ds.legacy.min.css" %}';
+				document.head.appendChild(css);
 			} else {
 				js.src = '{% static "ds.min.js" %}';
-				css.href = '{% static "ds.min.css" %}';
 			}
 
 			document.head.appendChild(js);
-			document.head.appendChild(css);
 		</script>
 	</head>
 

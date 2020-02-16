@@ -45,12 +45,11 @@ clean-ui:
 	rm -r ui-demo/*
 
 css-ui:
-	cat src/css/{[0-9]*.css,dev-demo.css} > ui-demo/ds.css
-	node build-tools/build-legacy-css.js ui-demo/ds.css > ui-demo/ds.legacy.css
+	bash -c build-tools/css-build-dev.sh
+	cat src/css/ui-demo.css >> ui-demo/ds.css
 
 css-prod:
-	bash -c build-tools/build-css-prod.sh
-	mv ui-demo/*.css src/py/static
+	bash -c build-tools/css-build-prod.sh
 
 js-ui:
 	cat src/js/dev-*.js > ui-demo/ds.js
