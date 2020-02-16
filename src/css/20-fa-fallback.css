@@ -1,0 +1,15 @@
+/* If FontAwesome fails, some buttons become unusable, so at least display trve norsk characters. */
+.fa,.far,.fas,.fab{font-family: sans-serif; font-style:normal;}
+.fa-bars:before{content: '=';}
+.fa-language:before{content: 'æ';}
+.fa-chevron-down:before{content: 'V';}
+.fa-chevron-up:before{content: '^';}
+.fa-bandcamp:before{content: 'B';}
+.fa-facebook-square:before{content: 'F';}
+.fa-youtube:before{content: 'Y';}
+.fa-play:before{content: '>';}
+.fa-step-backward:before{content: '|<';}
+.fa-step-forward:before{content: '>|';}
+.fa-volume-mute:before{content: 'ø)';}
+.fa-volume-up:before{content: 'o)';}
+.fa-compact-disc:before{content: 'Ø';}
