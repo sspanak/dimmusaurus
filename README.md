@@ -7,18 +7,19 @@ Visit http://dimmu-saurus.net.
 _**Note:** The project still work-in-progress, so it isn't online._
 
 ### Setup and Building
-The project runs in a bash-compatible terminal. If you are going to write any code, check the [CONTRIBUTING.md](CONTRIBUTING.md) guide after you are done with the setup.
+The project runs in a bash-compatible terminal. If you are going to write any code, check the [contributing guide](CONTRIBUTING.md) after you are done with the setup.
 
 #### Requirements
-* node 12.14+
-* npm 6.13+ _(usually, comes with node)_
+* Apache 2.4 + mod_wsgi _(production only)_
+* node 12.14+ _(development only)_
+* npm 6.13+ _(development only; usually, comes with node)_
 * Python 3.6, 3.7 or 3.8 _(3.8 recommended)_
-* sqlite 3+ _(usually, comes with Python)_
-* Pip 3 _(usually, comes with Python, but if you don't have it: `$ python3.8 -m pip install pip`)_
-* `$ pip install django-markdown-deux`: enables usage of `.md` files as templates.
-* `$ pip install markdown2`. Required by `django-markdown-deux` and for converting any database markdown content to HTML. _(Your Python version may include it by default)_
+* sqlite 3.8.3+
+* Pip 3 _(usually, comes with Python, but if you don't have it: `$ python3.8 -m easy_install pip`)_
+* `$ python3.8 -m install django-markdown-deux`: enables usage of `.md` files as templates.
+* `$ python3.8 -m install markdown2`. Required by `django-markdown-deux` and for converting any database markdown content to HTML. _(Your Python version may include it by default)_
 * Django 3.0+
-  * `$ python -m pip install Django==3.0.2`.
+  * `$ python3.8 -m pip install Django==3.0.2`.
   * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out [Django docs](https://docs.djangoproject.com/en/3.0/intro/install/) how to do this.
   * gettext 0.15+. _(It is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install it.)_
 
@@ -77,15 +78,22 @@ Deployment:
 * `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
 
 ### Deployment
-First, make sure you have installed all the required software described [above](#requirements).
 
+
+#### Server setup
+
+* Create a user with root privileges. Follow [this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7). **Do not run this script as `root`.**
+* scp the `setup-centos7.sh` script to the server
+* Login as the **non-root** user.
+* `$ setup-centos7.sh`. _(Make sure the file is executable)_
+
+
+#### Preparing the deployment
 As a security measure, the intended workflow is to have an admin account locally and use `db-backup` and `db-import` make commands to transfer the database to a remote server. In case you choose to manage the database on the remote machine, just create an admin account there instead of locally, and skip database steps from the instructions below.
 
 In both cases, follow [Django Docs](https://docs.djangoproject.com/en/3.0/intro/tutorial02/) to create the admin account.
 
-#### Preparing the deployment
-
-To create an installation archive, and export your local database:
+To create an installation archive, and export your local database, run locally:
 ```
 $ make tar && make db-backup
 ```
@@ -93,5 +101,11 @@ $ make tar && make db-backup
 Now copy the tarball and the database backup from `db` directory to the remote server.
 
 #### Deployment
+* Extract the tarball to your user home directory.
 
-TODO: ...
+From CentOS7 instructions. It seems unnecessary on Ubuntu.
+* `$ chmod 710 /home/dimo`
+* `$ chmod 664 ~/www/ds/py/db.sqlite3`
+* `$ sudo chown :apache ~/www/ds/py/db.sqlite3`
+* `$ sudo chown :apache ~/www/ds/py`
+* `$ sudo systemctl restart httpd`
