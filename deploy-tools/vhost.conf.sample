@@ -1,0 +1,24 @@
+<VirtualHost *:80>
+	ServerName dimmu-saurus.net
+	ServerAlias dimmu-saurus.net *.dimmu-saurus.net
+
+	WSGIScriptAlias / /path/to/site/pysaurus/pysaurus/wsgi.py
+	WSGIDaemonProcess dimmu-saurus python-home=/path/to/venv python-path=/path/to/site/pysaurus
+	WSGIProcessGroup dimmu-saurus
+
+	Alias /static /path/to/site/pysaurus/static
+	Alias /favicon.ico /path/to/site/static/favicon.ico
+
+	<Directory /path/to/site/pysaurus/static>
+		Require all granted
+	</Directory>
+
+	<Directory /path/to/site/pysaurus/pysaurus>
+		<Files wsgi.py>
+			Require all granted
+		</Files>
+	</Directory>
+
+	ErrorLog ${APACHE_LOG_DIR}/dimmu-saurus.errors.log
+	CustomLog ${APACHE_LOG_DIR}/dimmu-saurus.access.log combined
+</VirtualHost>
