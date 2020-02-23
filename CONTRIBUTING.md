@@ -47,4 +47,12 @@ Linters are assumed to be installed globally, for the system, so they are _NOT_ 
 * `$ npm install -g eslint` _(remove `-g` parameter, to install locally)_
 * HTML Tidy. There are two projects with the same name, but you must use [tidy-html5](https://github.com/htacg/tidy-html5/). _(Do NOT use the NPM package, because it contains an archaic version of HTML Tidy.)_
 
+### Setup and configuration
+* `$ npm install`
+* `$ cd src/py/`
+* Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT`, `ALLOWED_HOSTS` and `BASE_URL` properly.
+  * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there. For development, you'd want to set it either to `localhost` or `127.0.0.1`.
+  * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `3666`.
+  * `BASE_URL` is used for generating absoulte URLs in templates. Usually, you'd only want to ensure the protocol is correct here.
+
 That's it, you are good to go! Go back to README.md file and see [how to start the project](README.md#running). Also, make sure to read the [make commands list](README.md#available-make-commands), to learn how to build only the parts of the project you have worked on.
