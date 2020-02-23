@@ -32,7 +32,7 @@ read_input() {
 
 	read -p 'Host (default: dimmu-saurus.net): ' HOST
 	if [[ -z $HOST ]]; then
-		HOST='dimmu-saurus-test.net'
+		HOST='dimmu-saurus.net'
 	fi
 
 	read -p 'Port (default: None): ' PORT
