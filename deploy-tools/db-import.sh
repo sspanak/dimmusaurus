@@ -1,47 +1,58 @@
 #!/bin/bash
 # WARNING! This will TRUNCATE each table before importing a .csv file
 
-if ! [[ -f Makefile && -d db ]]
+if [ $# != 2 ]
 then
-	echo "Please run this script from the root project directory."
-	exit 1
+	echo "Imports a database backup into sqlite3 database."
+	echo "WARNING! This script TRUNCATE each table before importing a .csv file"
+	echo
+	echo "Usage: $0 DB_BACKUP.TAR TARGET_DATABASE.SQLITE3"
+	exit 42
 fi
 
-if [ $# -eq 0 ]
+if ! [[ -f $1 ]]
 then
-	echo "Please provide database .tar file as a first argument to the script."
-	exit 2
+	 echo "Could not open backup file: '$1'."
+  exit 1
 fi
 
-export_dir='db'
+if ! [[ -f $2 && $2 == *sqlite3 ]]
+then
+  echo "'$2' does not seem to be sqlite3 database. Aborting."
+  exit 2
+fi
 
-rm -f $export_dir/*.csv
-tar -xf $1 --strip-components=1 -C $export_dir
+
+work_dir='/tmp/ds-db-import-temp'
+mkdir -p $work_dir
+
+rm -f $work_dir/*.csv
+tar -xf $1 --strip-components=1 -C $work_dir
 
 # Truncate tables
-for csv in db/*.csv; do
+for csv in $work_dir/*.csv; do
 	csv_file=`basename $csv`
 	table_name="${csv_file%.*}"
 	echo "Truncating '$table_name'"
 
-sqlite3 src/py/db.sqlite3 <<!
+sqlite3 $2 <<!
 delete from $table_name;
 vacuum;
 !
 done;
 
 # Import
-for csv in db/*.csv; do
+for csv in $work_dir/*.csv; do
 	csv_file=`basename $csv`
 	table_name="${csv_file%.*}"
 	echo "Importing '$csv_file' to table '$table_name'"
 
-sqlite3 src/py/db.sqlite3 <<!
+sqlite3 $2 <<!
 .mode csv
 .import $csv $table_name
 !
 done;
 
-rm -f $export_dir/*.csv
+rm -rf $work_dir
 
 echo Done

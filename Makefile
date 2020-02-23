@@ -33,7 +33,6 @@ django:
 
 django-static:
 	make clean-ui || true
-	cp src/reset.css ui-demo
 	make css-prod
 	make js-prod
 	make images
@@ -44,7 +43,6 @@ translations:
 	django-admin makemessages -l fr
 
 ui:
-	cp src/reset.css ui-demo
 	cp src/demo.html ui-demo/index.html
 	make css-ui
 	make js-ui
@@ -82,4 +80,4 @@ db-backup:
 	bash -c deploy-tools/db-export.sh
 
 db-import:
-	bash -c 'deploy-tools/db-import.sh db/ds.db.tar'
+	bash -c 'deploy-tools/db-import.sh db/ds.db.tar src/py/db.sqlite3'
