@@ -21,6 +21,11 @@ apt -y install python3.8 python3.8-dev python3.8-venv python3.8-distutils python
 python3.8 -m easy_install pip
 python3.8 -m pip install virtualenv
 
+
+#### SQLITE ####
+apt -y install sqlite3 # for easier database imports
+
+
 #### Apache ####
 apt -y install apache2
 
