@@ -7,7 +7,7 @@ then
 fi
 
 # geometry
-cat src/css/[1-9]*.css > ui-demo/ds.all.css
+cat src/css/{normalize.css,[1-9]*.css} > ui-demo/ds.all.css
 node build-tools/css-convert-legacy.js ui-demo/ds.all.css > ui-demo/ds.css
 rm ui-demo/ds.all.css
 
