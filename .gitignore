@@ -9,3 +9,4 @@ src/py/static/*
 *.mo
 node_modules
 db/*
+**/migrations/*.py
