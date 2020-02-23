@@ -39,9 +39,10 @@ The project runs on Sqlite3 that comes with Python, so there is no need to insta
 
 There are `$ make db-backup` and `$ make db-import` commands, for exporting and importing the data. They generate and read a `.tar` containing `.csv`, respectively. Each `.csv` inside the tarball corresponds to a database table and is compatible with sqlite3. See more about the make commands [below](#available-make-commands).
 
-**A note on importing backups:** have in mind that exporting appends the current date and time to the filename, however, the import script will _NOT_ accept a file with such name. `db-import` expects and reads _ONLY_ a `ds.db.tar` file in `db/` directory.
-
 **Warning:** `db-import` will truncate each table before importing the corresponding `.csv` data! Tables not matching a `.csv` file, however, will not be affected.
+
+**A note on importing backups with the make command:** have in mind that exporting appends the current date and time to the filename, however, `make db-import` expects and reads _ONLY_ a `ds.db.tar` file from `db/` directory. If you require flexibility, use the `db-import.sh` script directly.
+
 
 ### Running
 This section is for running the site locally.
@@ -87,7 +88,7 @@ The setup script is assumed to run on a brand new server that doesn't have anyth
 * `$ mkdir tmp && tar xvf ds.tar.bz2 -C tmp/ && cd tmp` to extract the tarball
 * `$ sudo ./setup-ubuntu16.04.sh` to install all requirements _(or do it manually on other distributions)_. After that you may want to cleanup the setup script dependencies by running: `$ sudo apt autoremove`. This is a recommended step as "unattended-upgrades" could consume a lot of resources. Reboot after this.
 * `$ ./setup-project.sh --all` to install the site itself. It will prompt where to put the site and what hostname and port it will run on. You may leave them blank and use the defaults.
-* `$ ./db-import.sh database-backup-name` to import the data into Sqlite.
+* `$ ./db-import.sh database-backup-name.tar target-database.sqlite3` to import the data into Sqlite.
 
 That's it! Now open it in your browser.
 
