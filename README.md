@@ -10,18 +10,17 @@ _**Note:** The project still work-in-progress, so it isn't online._
 The project runs in a bash-compatible terminal. If you are going to write any code, check the [contributing guide](CONTRIBUTING.md) after you are done with the setup.
 
 #### Requirements
-* Apache 2.4 + mod_wsgi _(production only)_
-* node 12.14+ _(development only)_
-* npm 6.13+ _(development only; usually, comes with node)_
-* Python 3.6, 3.7 or 3.8 _(3.8 recommended)_
-* sqlite 3.8.3+
-* Pip 3 _(usually, comes with Python, but if you don't have it: `$ python3.8 -m easy_install pip`)_
-* `$ python3.8 -m install django-markdown-deux`: enables usage of `.md` files as templates.
-* `$ python3.8 -m install markdown2`. Required by `django-markdown-deux` and for converting any database markdown content to HTML. _(Your Python version may include it by default)_
-* Django 3.0+
-  * `$ python3.8 -m pip install Django==3.0.2`.
+* **Apache 2.4** + **mod_wsgi** _(production only)_
+* **node 12.14+** _(development only)_
+* **npm 6.13+** _(development only; usually, comes with node)_
+* **Python** 3.6, 3.7 or 3.8 _(3.8 recommended)_
+* **sqlite 3.8.3+**
+* **Pip 3** _(usually, comes with Python, but if you don't have it: `$ python3.8 -m easy_install pip`)_
+* **django-markdown-deux** python package: enables usage of `.md` files as templates. _(Install with `$ pip install -r requirements.txt`.)_
+* **markdown2** python package. Required by django-markdown-deux and for converting any database markdown content to HTML. _(Your Python version may include it by default. Install with `$ pip install -r requirements.txt`.)_
+* **Django 3.0+** _(Install with `$ pip install -r requirements.txt`.)_
   * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out [Django docs](https://docs.djangoproject.com/en/3.0/intro/install/) how to do this.
-  * gettext 0.15+. _(It is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install it.)_
+  * **gettext 0.15+**. _(It is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install it.)_
 
 For Ubuntu 16.04, there is a script that can install everything automatically. Check [Deployment](#Deployment) for details.
 
@@ -31,8 +30,8 @@ As per [Django docs](https://docs.djangoproject.com/en/3.0/topics/settings/), yo
 To change settings:
 * `$ cd src/py/`
 * Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT` and `BASE_URL` properly.
-  * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there.
-  * `SITE_PORT` is an empty string by default. Leav it blank unless the site is going to be accessed on a non-standard port, for example `some-domain.com:3666`.
+  * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://`.
+  * `SITE_PORT` is an empty string by default. Leave it blank unless the site is going to be accessed at a non-standard port, for example `some-domain.com:3666`.
   * `BASE_URL` is used for generating absolute URLs in templates. Usually, you'd only want to ensure the protocol is correct here.
 
 #### Database Setup and Management
@@ -58,11 +57,6 @@ The site will be available on 127.0.0.1:8000, or at the port you have chosen.
 * `$ make ui`
 * `$ cd ui-demo/`
 * Open the `index.html`
-
-Deployment:
-* `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
-* `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
-* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
 
 
 ### Deployment
@@ -91,7 +85,7 @@ The setup script is assumed to run on a brand new server that doesn't have anyth
 
 * ssh to your server, making sure you are not "root".
 * `$ mkdir tmp && tar xvf ds.tar.bz2 -C tmp/ && cd tmp` to extract the tarball
-* `$ sudo ./setup-ubuntu16.04.sh` to install all requirements _(or do it manually on other distributions)_. After that you may want to run `sudo apt autoremove` to cleanup the setup script dependencies. This is a recommended step as `unattended-upgrades` could consume a lot of resources. Reboot after this.
+* `$ sudo ./setup-ubuntu16.04.sh` to install all requirements _(or do it manually on other distributions)_. After that you may want to cleanup the setup script dependencies by running: `$ sudo apt autoremove`. This is a recommended step as "unattended-upgrades" could consume a lot of resources. Reboot after this.
 * `$ ./setup-project.sh --all` to install the site itself. It will prompt where to put the site and what hostname and port it will run on. You may leave them blank and use the defaults.
 * `$ ./db-import.sh database-backup-name` to import the data into Sqlite.
 
@@ -101,7 +95,7 @@ That's it! Now open it in your browser.
 ### Available Make Commands
 In case you need to build only a part of the project, or work with the database, the following commands are available:
 
-Django:
+##### Django:
 * `$ make clean`: cleans up the Django `static` folder.
 * `$ make css-prod`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
 * `$ make js-prod`: same as `$ make css-prod` but for javascript.
@@ -109,9 +103,14 @@ Django:
 * `$ make translations`: generates or updates .po translation files from python source code. Same as running: `$ django-admin makemessages` command.
 * `$ make django`: Runs all the above, making sure the site will run properly.
 
-UI Demo:
+##### UI Demo:
 * `$ make clean-ui`: cleans up the `ui-demo/` folder.
 * `$ make css-ui`: compiles all css into one file and copies it to the `ui-demo/` folder.
 * `$ make images`: copies the `images` to `ui-demo/` folder. They don't need building, so they are just copied.
 * `$ make js-ui`: same as `$ make css-ui`, but for JavaScript.
 * `$ make ui`: runs all the above to build the frontend demo, including copying the necessary `.html` files.
+
+##### Deployment:
+* `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
+* `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
+* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.

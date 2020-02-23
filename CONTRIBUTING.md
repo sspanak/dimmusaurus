@@ -15,7 +15,7 @@ Hence, no big frameworks or libraries were used, except when they really made di
   * gettext 0.15 _(required by Django for translations)_
   * python-markdown2 _(you may have it by default)_
   * django-markdown-deux
-  * sqlite 3.30.1 _(included with Python)_
+  * sqlite 3.8.3+ _(included with Python)_
 * Code style
   * nodejs 12.14+
     * csslint
@@ -31,6 +31,7 @@ Hence, no big frameworks or libraries were used, except when they really made di
 ### Project Overview
  * `build-tools/` contains helper scripts needed for building and minifying the code. They are meant to be run by the `Makefile`. Normally, you don't have to modify them.
  * `db/` is meant to hold any database backups you make. It is also where the import script looks for files.
+ * `deploy-tools/` holds the installation scripts.
  * `img/` contains all the images.
  * `ui-demo/` is the build directory for the demo site. It also servers as temporary directory when building and minifying the code for usage in Django.
  * `src/` contains all the source code, hence all development should happen there. There is a `Makefile` to build the css and the js. A list of all `make` commands is available [here](README.md#available-make-commands). You must use the standard `manage.py` that comes with Django to setup and run the website locally. Detailed instructions are available under ["Running" in README.md](README.md#running).
@@ -50,6 +51,7 @@ Linters are assumed to be installed globally, for the system, so they are _NOT_ 
 ### Setup and configuration
 * `$ npm install`
 * `$ cd src/py/`
+* `$ pip install -r requirements.txt`
 * Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT`, `ALLOWED_HOSTS` and `BASE_URL` properly.
   * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there. For development, you'd want to set it either to `localhost` or `127.0.0.1`.
   * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `3666`.
