@@ -78,9 +78,21 @@ setup_project() {
 		echo OK
 
 	printf 'Updating configuration... '
+	new_secret=`cat ~/django-sites/ds/pysaurus/pysaurus/settings.py | grep SECRET_KEY`
+
 	cp $SETUP_DIR/pysaurus/pysaurus/settings.py $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py && \
-		# TODO: update HOST and PORT
-		# TODO: copy SECRET_KEY to settings.ds.py
+		# update HOST and PORT
+		sed -r -i "s/SITE_HOST\s*=\s*'[^']+'/SITE_HOST = '$HOST'/" $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py && \
+		sed -r -i "s/SITE_PORT\s*=\s*'[^']+'/SITE_PORT = '$PORT'/" $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py && \
+
+		# use the secret from the newly generated settings.py
+		sed -r -i "s/SECRET_KEY\s*=\s*'[^']+'//" $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py && \
+		echo $new_secret >> $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py && \
+
+		# change some settings that should not be on production
+		sed -r -i "s/DEBUG\s*=\s*True/DEBUG = False/" $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py
+
+		# replace the standard settings.py with our version
 		rm $PROJECT_ROOT/pysaurus/pysaurus/settings.py && \
 		mv $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py $PROJECT_ROOT/pysaurus/pysaurus/settings.py && \
 		echo 'OK'
