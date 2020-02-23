@@ -48,7 +48,8 @@ if [[ ! -z spcAvailable ]]
 then
 	apt -y remove software-properties-common
 	echo;
-	echo "Several packages were installed as dependencies for this script. Use 'apt autoremove' to remove them."
+	echo "Several packages were installed as dependencies for this script."
+	echo "It is recommended to remove them using 'apt autoremove', then reboot, as they consume a lot memory."
 fi
 
 echo Done

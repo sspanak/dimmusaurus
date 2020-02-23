@@ -23,13 +23,17 @@ The project runs in a bash-compatible terminal. If you are going to write any co
   * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out [Django docs](https://docs.djangoproject.com/en/3.0/intro/install/) how to do this.
   * gettext 0.15+. _(It is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install it.)_
 
-#### Setup
-* `$ npm install`
+For Ubuntu 16.04, there is a script that can install everything automatically. Check [Deployment](#Deployment) for details.
+
+#### Configuration
+As per [Django docs](https://docs.djangoproject.com/en/3.0/topics/settings/), you must set host and port, before running. Installation scripts take care of this automatically, but if you are running locally, or need to do it manually, keep reading.
+
+To change settings:
 * `$ cd src/py/`
-* Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT`, `ALLOWED_HOSTS` and `BASE_URL` properly.
+* Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT` and `BASE_URL` properly.
   * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there.
-  * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `3666`.
-  * `BASE_URL` is used for generating absoulte URLs in templates. Usually, you'd only want to ensure the protocol is correct here.
+  * `SITE_PORT` is an empty string by default. Leav it blank unless the site is going to be accessed on a non-standard port, for example `some-domain.com:3666`.
+  * `BASE_URL` is used for generating absolute URLs in templates. Usually, you'd only want to ensure the protocol is correct here.
 
 #### Database Setup and Management
 The project runs on Sqlite3 that comes with Python, so there is no need to install anything extra. Normally, you do not need to take care the database at all, as Django and the build-tools do it for you, but should you need to do so, run: `sqlite3 src/py/db.sqlite3`.
@@ -41,6 +45,7 @@ There are `$ make db-backup` and `$ make db-import` commands, for exporting and 
 **Warning:** `db-import` will truncate each table before importing the corresponding `.csv` data! Tables not matching a `.csv` file, however, will not be affected.
 
 ### Running
+This section is for running the site locally.
 
 #### The entire site
 * `$ make django`
@@ -54,7 +59,46 @@ The site will be available on 127.0.0.1:8000, or at the port you have chosen.
 * `$ cd ui-demo/`
 * Open the `index.html`
 
-#### Available Make Commands
+Deployment:
+* `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
+* `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
+* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
+
+
+### Deployment
+This website is intended to run on Ubuntu Server 16.04. There is a `setup-ubuntu16.04.sh` script for installing all the required software and `setup-project.sh` for installing the site itself.
+
+If you choose another distribution, you will have to install all [requirements](#requirements) manually. `setup-project.sh` should work with minimal changes in the Apache setup section.
+
+**Note about the content:** As a security measure, the intended workflow is to have an admin account locally and use `db-backup` and `db-import` make commands to transfer the database to a remote server. In case you choose to manage the database on the remote machine, just create an admin account there instead of locally, and skip database steps from the instructions below.
+
+In both cases, follow [Django Docs](https://docs.djangoproject.com/en/3.0/intro/tutorial02/) to create the admin account.
+
+#### Server setup
+Make sure to create a user with root privileges. You are going to need one (but not the "root" superuser) to install the website. Follow [this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7).
+
+#### Building installation tarball
+
+To create an installation archive, and export your local database, run locally:
+```
+$ make tar && make db-backup
+```
+
+Now copy the tarball and the database backup from `db` directory to the remote server.
+
+#### Installing
+The setup script is assumed to run on a brand new server that doesn't have anything installed. It will install or replace Apache, mod_wsgi, Python 3.8.
+
+* ssh to your server, making sure you are not "root".
+* `$ mkdir tmp && tar xvf ds.tar.bz2 -C tmp/ && cd tmp` to extract the tarball
+* `$ sudo ./setup-ubuntu16.04.sh` to install all requirements _(or do it manually on other distributions)_. After that you may want to run `sudo apt autoremove` to cleanup the setup script dependencies. This is a recommended step as `unattended-upgrades` could consume a lot of resources. Reboot after this.
+* `$ ./setup-project.sh --all` to install the site itself. It will prompt where to put the site and what hostname and port it will run on. You may leave them blank and use the defaults.
+* `$ ./db-import.sh database-backup-name` to import the data into Sqlite.
+
+That's it! Now open it in your browser.
+
+
+### Available Make Commands
 In case you need to build only a part of the project, or work with the database, the following commands are available:
 
 Django:
@@ -71,41 +115,3 @@ UI Demo:
 * `$ make images`: copies the `images` to `ui-demo/` folder. They don't need building, so they are just copied.
 * `$ make js-ui`: same as `$ make css-ui`, but for JavaScript.
 * `$ make ui`: runs all the above to build the frontend demo, including copying the necessary `.html` files.
-
-Deployment:
-* `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
-* `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
-* `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
-
-### Deployment
-
-
-#### Server setup
-
-* Create a user with root privileges. Follow [this guide](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-centos-7). **Do not run this script as `root`.**
-* scp the `setup-centos7.sh` script to the server
-* Login as the **non-root** user.
-* `$ setup-centos7.sh`. _(Make sure the file is executable)_
-
-
-#### Preparing the deployment
-As a security measure, the intended workflow is to have an admin account locally and use `db-backup` and `db-import` make commands to transfer the database to a remote server. In case you choose to manage the database on the remote machine, just create an admin account there instead of locally, and skip database steps from the instructions below.
-
-In both cases, follow [Django Docs](https://docs.djangoproject.com/en/3.0/intro/tutorial02/) to create the admin account.
-
-To create an installation archive, and export your local database, run locally:
-```
-$ make tar && make db-backup
-```
-
-Now copy the tarball and the database backup from `db` directory to the remote server.
-
-#### Deployment
-* Extract the tarball to your user home directory.
-
-From CentOS7 instructions. It seems unnecessary on Ubuntu.
-* `$ chmod 710 /home/dimo`
-* `$ chmod 664 ~/www/ds/py/db.sqlite3`
-* `$ sudo chown :apache ~/www/ds/py/db.sqlite3`
-* `$ sudo chown :apache ~/www/ds/py`
-* `$ sudo systemctl restart httpd`
