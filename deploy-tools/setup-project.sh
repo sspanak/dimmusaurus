@@ -107,11 +107,16 @@ setup_apache() {
 	cd $SETUP_DIR
 	cat ./vhost.conf.sample \
 		| sed -r -e "s|dimmu-saurus.net|$HOST|" \
+		| sed -r -e "s|\.dimmu-saurus.net|.$HOST|" \
 		| sed -r -e "s|/path/to/site|$PROJECT_ROOT|" \
 		| sed -r -e "s|/path/to/venv|$PROJECT_ROOT/$ENV_NAME|" > vhost.conf
 
 	if ! [[ -z $PORT ]]; then
-		sed "s/:80>/:$PORT>/" vhost.conf
+		sed -i "s/:80>/:$PORT>/" vhost.conf
+	fi
+
+	if [[ $HOST =~ ^[0-9]{1,3}\.[0-9]{1,3}\. ]]; then
+		sed -i -r s/[[:space:]]*ServerAlias[^\n]+// vhost.conf
 	fi
 
 	sudo mv vhost.conf /etc/apache2/sites-available/dimmu-saurus.conf

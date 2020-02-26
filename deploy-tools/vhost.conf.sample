@@ -1,6 +1,6 @@
 <VirtualHost *:80>
 	ServerName dimmu-saurus.net
-	ServerAlias dimmu-saurus.net *.dimmu-saurus.net
+	ServerAlias *.dimmu-saurus.net
 
 	WSGIScriptAlias / /path/to/site/pysaurus/pysaurus/wsgi.py
 	WSGIDaemonProcess dimmu-saurus python-home=/path/to/venv python-path=/path/to/site/pysaurus
