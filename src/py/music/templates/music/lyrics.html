@@ -29,14 +29,18 @@
 	<div class="lyrics-super-wrapper">
 		<div class="lyrics-wrapper">
 			<h3>{{ lyrics.title }}</h3>
-			<a class="english-translation-link" href="#english_lyrics">English translation below</a>
+			{% if lyrics.english_lyrics %}
+				<a class="english-translation-link" href="#english_lyrics">English translation below</a>
+			{% endif %}
 			<div class="lyrics">{% markdown %}{{ lyrics.lyrics }}{% endmarkdown %}</div>
 		</div>
 
+		{% if lyrics.english_lyrics %}
 		<div class="lyrics-wrapper">
 			<h3 id="english_lyrics">{{ lyrics.english_title }}</h3>
 			<div class="lyrics">{% markdown %}{{ lyrics.english_lyrics }}{% endmarkdown %}</div>
 		</div>
+		{% endif %}
 	</div>
 </div>
 {% endblock %}
