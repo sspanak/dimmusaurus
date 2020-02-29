@@ -1,11 +1,7 @@
-from re import sub
-
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.template import loader
 from django.utils.translation import gettext_lazy, override as translation_override
-
-from .models import BaiBrother
 
 
 def is_request_for_json(request):
@@ -55,15 +51,3 @@ def render_template(request, template, context, language):
 
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
     return response
-
-
-def requestToBrother(request):
-    if settings.BAI_BROTHER:
-        bb = BaiBrother(
-            ip_address=request.META.get('REMOTE_ADDR', ''),
-            referrer=request.META.get('HTTP_REFERER', ''),
-            session_key=request.session.session_key,
-            url=request.path,
-        )
-
-        bb.save()

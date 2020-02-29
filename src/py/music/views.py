@@ -6,7 +6,7 @@ from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
 from .shortcuts import get_music_menu_album_list, get_all_songs
-from main.shortcuts import render_template, requestToBrother
+from main.shortcuts import render_template
 
 
 def index(request):
@@ -55,8 +55,6 @@ def playlist(request):
 
 
 def render_albums(request, album_id=None):
-    requestToBrother(request)
-
     lang = get_language()
 
     albums = get_music_menu_album_list(lang)
@@ -98,8 +96,6 @@ def render_albums(request, album_id=None):
 
 
 def render_song(request, song_id):
-    requestToBrother(request)
-
     lang = get_language()
 
     song_description = get_object_or_404(
@@ -138,8 +134,6 @@ def render_song(request, song_id):
 
 
 def render_lyrics(request, song_id):
-    requestToBrother(request)
-
     lang = get_language()
 
     lyrics = get_object_or_404(SongLyrics.objects.select_related('song', 'song__album'), song__id=song_id)
