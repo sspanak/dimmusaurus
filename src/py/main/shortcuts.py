@@ -1,10 +1,12 @@
+from re import sub
+
 from django.conf import settings
-from django.http import JsonResponse
-from django.shortcuts import render
+from django.http import JsonResponse, HttpResponse
 from django.template import loader
 from django.utils.translation import gettext_lazy, override as translation_override
 
 from .models import BaiBrother
+
 
 def is_request_for_json(request):
     return request.path.startswith('/api/')
@@ -38,16 +40,18 @@ def render_template(request, template, context, language):
     context['root_template'] = determine_root_template(request)
     context['language_urls'] = list(get_language_links(context, settings.LANGUAGES))
 
+    template = loader.get_template(template)
+    html = template.render(context, request)
+
     if is_request_for_json(request):
-        template = loader.get_template(template)
         response = JsonResponse({
-            'content': template.render(context, request),
+            'content': html,
             'description': context.get('page', {}).get('description', ''),
             'title': '%s | Dimmu Saurus' % context.get('page', {}).get('title', ''),
             'urls': context['language_urls']
         })
     else:
-        response = render(request, template, context)
+        response = HttpResponse(html)
 
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
     return response
