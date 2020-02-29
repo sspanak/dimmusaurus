@@ -13,29 +13,36 @@ print_help() {
 	printf "\nPossible options:\n"
 	echo '  --all           Runs the entire setup process.'
 	echo '  --apache        Sets up Apache virtualhost.'
-	echo '  --project       Copies files to a directory based on user input. Useful if you are only updating.'
+	echo '  --project       Erases and copies new source code, static files, and reinitializes database.'
+	echo '  --src           Copies only the source code. Useful if updating.'
 	echo '  --virtualenv    Sets up virtualenv based on user input.'
 }
 
-read_input() {
-	# User input
 
-	read -p 'Python virtual environment name (default: dsenv): ' ENV_NAME
-	if [[ -z $ENV_NAME ]]; then
-		ENV_NAME="dsenv"
+read_user_input() {
+	# virtualenv
+	if [[ $COMMAND != '--src' ]]; then
+		read -p 'Python virtual environment name (default: dsenv): ' ENV_NAME
+		if [[ -z $ENV_NAME ]]; then
+			ENV_NAME="dsenv"
+		fi
 	fi
 
+	# project directory is always needed
 	read -p 'Project path (default: ~/django-sites/ds): ' PROJECT_ROOT
 	if [[ -z $PROJECT_ROOT ]]; then
 		PROJECT_ROOT="/home/`whoami`/django-sites/ds"
 	fi
 
-	read -p 'Host (default: dimmu-saurus.net): ' HOST
-	if [[ -z $HOST ]]; then
-		HOST='dimmu-saurus.net'
-	fi
+	# host and port
+	if [[ $COMMAND != '--src' && $COMMAND != '--virtualenv' ]]; then
+		read -p 'Host (default: dimmu-saurus.net): ' HOST
+		if [[ -z $HOST ]]; then
+			HOST='dimmu-saurus.net'
+		fi
 
-	read -p 'Port (default: None): ' PORT
+		read -p 'Port (default: None): ' PORT
+	fi
 }
 
 
@@ -103,6 +110,23 @@ setup_project() {
 }
 
 
+copy_src() {
+	if [ ! -d $PROJECT_ROOT/$ENV_NAME ]; then
+		echo "  Error: virtualenv not found in '$PROJECT_ROOT'. Run with '--virtualenv' first."
+		exit 3
+	fi
+
+	cd $PROJECT_ROOT/pysaurus
+	rm -r bio locale main music
+
+	printf 'Copying source code... '
+	cp -u -r $SETUP_DIR/pysaurus/{bio,locale,main,music} $PROJECT_ROOT/pysaurus && echo OK
+
+	# Relaunch the WSGI daemon
+	touch $PROJECT_ROOT/pysaurus/pysaurus/wsgi.py
+}
+
+
 setup_apache() {
 	cd $SETUP_DIR
 	cat ./vhost.conf.sample \
@@ -128,19 +152,27 @@ setup_apache() {
 ### Main ###
 stop_if_root
 
-if [[ $# == 0 ]] || [[ $1  != '--all' && $1 != '--apache' && $1 != '--project' && $1 != '--virtualenv' ]]
+if [[ $# == 0 ]] || [[ $1  != '--all' && $1 != '--apache' && $1 != '--project' && $1 != '--virtualenv' && $1 != '--src' ]]
 then
 	print_help
 	exit 0
 fi
 
+if ! [[ -d pysaurus ]]
+then
+	echo 'Error: source code directory not found. Please, run this script from the directory where you extracted it.'
+	exit 42
+fi
+
 COMMAND=$1
 SETUP_DIR=`pwd`
 
-read_input
+read_user_input
 
 [[ $COMMAND == '--all' || $COMMAND == '--virtualenv' ]] && setup_virtualenv
 [[ $COMMAND == '--all' || $COMMAND == '--project' ]] && setup_project
 [[ $COMMAND == '--all' || $COMMAND == '--apache' ]] && setup_apache
+
+[[ $COMMAND == '--src' ]] && copy_src
 
 echo Done.
