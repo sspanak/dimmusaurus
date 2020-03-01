@@ -241,7 +241,7 @@ const Player = new class { // eslint-disable-line
 				this.playlist = [];
 				let track = -1;
 				if (data && data.data && data.data.playlist && Array.isArray(data.data.playlist)) {
-					this.playlist = data.data.playlist.reverse();
+					this.playlist = data.data.playlist;
 					PlayerUi.buildPlaylist(this.playlist);
 					track = 0;
 				}

@@ -13,7 +13,7 @@ def get_music_menu_album_list(language):
 
 def get_all_songs(language):
     songs = SongDescription.objects.select_related('song').filter(language=language)
-    songs = songs.order_by('song__album_order', 'song__release_date')
+    songs = songs.order_by('-song__album_id', 'song__album_order', 'song__release_date')
     songs = songs.only(
         'song__id',
         'song__album_id',
