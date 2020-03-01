@@ -14,7 +14,7 @@ print_help() {
 	echo '  --all           Runs the entire setup process.'
 	echo '  --apache        Sets up Apache virtualhost.'
 	echo '  --project       Erases and copies new source code, static files, and reinitializes database.'
-	echo '  --src           Copies only the source code. Useful if updating.'
+	echo '  --src           Copies only the source code (py, js, css), but NOT "settings.py". Useful if updating.'
 	echo '  --virtualenv    Sets up virtualenv based on user input.'
 }
 
@@ -84,6 +84,9 @@ setup_project() {
 		cp -f $SETUP_DIR/pysaurus/pysaurus/urls.py $PROJECT_ROOT/pysaurus/pysaurus/ && \
 		echo OK
 
+	# this is where the music files go
+	mkdir -p $PROJECT_ROOT/pysaurus/static/download
+
 	printf 'Updating configuration... '
 	new_secret=`cat ~/django-sites/ds/pysaurus/pysaurus/settings.py | grep SECRET_KEY`
 
@@ -118,9 +121,12 @@ copy_src() {
 
 	cd $PROJECT_ROOT/pysaurus
 	rm -r bio locale main music
+	rm static/*.{css,js}
 
 	printf 'Copying source code... '
-	cp -u -r $SETUP_DIR/pysaurus/{bio,locale,main,music} $PROJECT_ROOT/pysaurus && echo OK
+	cp -u -r $SETUP_DIR/pysaurus/{bio,locale,main,music} $PROJECT_ROOT/pysaurus && \
+	cp -u -r $SETUP_DIR/pysaurus/static/*.{css,js} $PROJECT_ROOT/pysaurus/static && \
+	echo OK
 
 	# Relaunch the WSGI daemon
 	touch $PROJECT_ROOT/pysaurus/pysaurus/wsgi.py
