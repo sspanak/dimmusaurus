@@ -27,7 +27,10 @@ SECRET_KEY = '=j!f(!3i2v0n&4rkg$ae5c_va_@7k+ysuv=!pso5s&5&qz(mm^'
 
 SITE_HOST = '127.0.0.1'
 SITE_PORT = '3666'
-BASE_URL = '//%s:%s' % (SITE_HOST, SITE_PORT)
+if SITE_PORT:
+    BASE_URL = f'//{SITE_HOST}:{SITE_PORT}'
+else:
+    BASE_URL = f'//{SITE_HOST}'
 
 
 # Security
