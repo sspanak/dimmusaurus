@@ -9,7 +9,6 @@
 
 img {border: 0 none;}
 body {
-	background-image: url(img/fon-ececec.png);
 	font-family: "Noto Sans", sans-serif;
 }
 
@@ -156,6 +155,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	display: inline-flex;
 }
 
+.player .track-title {cursor: pointer;}
 .player .track-title, .player .loading-indicator {
 	flex: auto;
 	overflow: hidden;
