@@ -4,8 +4,11 @@ SHELL := /bin/bash
 default:
 	django-static
 
-tar:
+clean-tar:
 	rm -f ds.tar; rm -f ds.tar.bz2
+
+tar:
+	make clean-tar
 	make clean || true
 	make django-static
 	tar cv \

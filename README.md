@@ -1,10 +1,9 @@
 # dimmusaurus
-*Version 7.0*
+*Version 7.1*
 
 A small, beautiful and fast website for Dimmu Saurus, that works equally good on a powerful PC and on an old Nokia running Opera Mini. It won't be of much use for you unless you are Dimmu Saurus, though.
 
 Visit http://dimmu-saurus.net.
-_**Note:** The project still work-in-progress, so it isn't online._
 
 ### Setup and Building
 The project runs in a bash-compatible terminal. If you are going to write any code, check the [contributing guide](CONTRIBUTING.md) after you are done with the setup.
