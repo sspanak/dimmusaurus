@@ -26,7 +26,6 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			return;
 		}
 
-		this._removeBotLinks();
 		this.run();
 
 		window.addEventListener('popstate', event => this._handleHistoryPop(event));
@@ -156,7 +155,13 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {<HtmlNode>[]}  An array of all relative links
 	 */
 	_getInternalLinks() {
-		return [...this.selectAll('a')].filter(a => `${a.getAttribute('href')}`.match(/^\/[^/]/));
+		let links = [...this.selectAll('a')].filter(a => `${a.getAttribute('href')}`.match(/^\/[^/]/));
+		if (typeof AJAXIFY_EXCLUDE !== 'undefined' && Array.isArray(AJAXIFY_EXCLUDE)) { // eslint-disable-line no-undef
+			const excludePattern = new RegExp(AJAXIFY_EXCLUDE.join('|')); // eslint-disable-line no-undef
+			links = links.filter(a => !`${a.getAttribute('href')}`.match(excludePattern));
+		}
+
+		return links;
 	}
 
 
@@ -166,18 +171,13 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {<HtmlNode>[]}  An array of all language change links
 	 */
 	_getLanguageLinks() {
-		return [...this.selectAll(this.selectors.languageLinks)];
-	}
+		let links = [...this.selectAll(this.selectors.languageLinks)];
+		if (typeof AJAXIFY_EXCLUDE !== 'undefined' && Array.isArray(AJAXIFY_EXCLUDE)) { // eslint-disable-line no-undef
+			const excludePattern = new RegExp(AJAXIFY_EXCLUDE.join('|')); // eslint-disable-line no-undef
+			links = links.filter(a => !`${a.getAttribute('href')}`.match(excludePattern));
+		}
 
-
-	/**
-	 * _removeBotLinks
-	 * Removes the language <link> tags. They are for robot use, so we don't need them in ajax mode.
-	 *
-	 * @return {void}
-	 */
-	_removeBotLinks() {
-		[...this.selectAll(this.selectors.robotLinks)].forEach(l => l.remove());
+		return links;
 	}
 
 

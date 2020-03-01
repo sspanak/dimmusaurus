@@ -41,6 +41,11 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 
 		<script>
+			AJAXIFY_EXCLUDE = [
+				{% for url in language_urls %}
+					{% language url.language_code %} '{% trans "/download/" %}', {% endlanguage %}
+				{% endfor %}
+			];
 			PLAYER_MSG = {
 				errorLoadingTrack: '{% trans "Cannot load this song!" %}',
 				newLanguageWillInterruptMusic: "{% trans 'Changing the language will interrupt music playback. Continue?' %}"
