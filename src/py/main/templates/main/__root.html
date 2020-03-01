@@ -19,10 +19,6 @@
 			<meta name="description" content="{{ page.description }}">
 		{% endif %}
 
-		{% for url in language_urls %}
-			<link href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate" />
-		{% endfor %}
-
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -121,7 +117,7 @@
 								<li>
 									<a class="menu-item" href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate">
 										<span class="icon flag flag-{{ url.language_code }}"></span>
-										{{url.language_name}}
+										{{ url.language_name }}
 									</a>
 								</li>
 							{% endfor %}
