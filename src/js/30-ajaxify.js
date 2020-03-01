@@ -22,7 +22,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 	_init() {
 		if (typeof axios === 'undefined') {
-			Logger.error('Failed initializing Ajaxify. Axios is not available.'); // eslint-disable-line no-undef
+			console.error('Failed initializing Ajaxify. Axios is not available.');
 			return;
 		}
 
@@ -92,11 +92,8 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 				}
 			})
 			.catch(error => {
-				if (typeof Logger !== 'undefined') {
-					Logger.error(`Could not navigate to URL: "${url}". ${error}.`); // eslint-disable-line no-undef
-				} else {
-					location.href = url;
-				}
+				console.error(`Could not navigate to URL: "${url}". ${error}.`);
+				location.href = url;
 			});
 	}
 
@@ -136,7 +133,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		try {
 			Ajaxify.navigate(event.state.url).then(() => window.scrollTo(0, event.state.scroll));
 		} catch (error) {
-			Logger.warning(`Navigating normally. The previous URL is not available in popstate event data. ${error}`); // eslint-disable-line no-undef, max-len
+			console.warn(`Navigating normally. The previous URL is not available in popstate event data. ${error}`);
 			history.back();
 		}
 	}

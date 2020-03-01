@@ -62,8 +62,7 @@ css-prod:
 	bash -c build-tools/css-build-prod.sh
 
 js-ui:
-	cat src/js/dev-*.js > ui-demo/ds.js
-	cat src/js/[0-9]*.js >> ui-demo/ds.js
+	cat src/js/[0-9]*.js > ui-demo/ds.js
 	npm run --silent build-legacy-js -- ui-demo/ds.js > ui-demo/ds.legacy.js
 
 js-debug-prod:

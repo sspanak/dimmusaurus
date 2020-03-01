@@ -1,5 +1,3 @@
-/* eslint no-undef: 0 */ // to make it shut up about Logger.
-
 class UiElement { // eslint-disable-line no-unused-vars
 	constructor() {
 		this.selector = '';
@@ -15,7 +13,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 		}
 
 		if ($elements.length === 0) {
-			Logger.error(`Could not select elements: ${selector}.`);
+			console.error(`Could not select elements: ${selector}.`);
 		}
 
 		return $elements;
@@ -34,7 +32,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 		}
 
 		if (!this.$element) {
-			Logger.error(`Could not select element: ${selector}.`);
+			console.error(`Could not select element: ${selector}.`);
 		}
 
 		return this;
@@ -43,12 +41,12 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	hasClass(className) {
 		if (!this.$element) {
-			Logger.warn('Calling hasClass() without selected $element.');
+			console.warn('Calling hasClass() without selected $element.');
 			return false;
 		}
 
 		if (!className) {
-			Logger.warn(`Checking ${this.selector} for blank class name.`);
+			console.warn(`Checking ${this.selector} for blank class name.`);
 			return false;
 		}
 
@@ -58,12 +56,12 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	removeClass(className) {
 		if (!this.$element) {
-			Logger.warn('Calling removeClass() without selected $element.');
+			console.warn('Calling removeClass() without selected $element.');
 			return false;
 		}
 
 		if (!className) {
-			Logger.warn(`Removing blank class name from ${this.selector}.`);
+			console.warn(`Removing blank class name from ${this.selector}.`);
 			return true;
 		}
 
@@ -75,12 +73,12 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	addClass(className) {
 		if (!this.$element) {
-			Logger.warn('Calling addClass() without selected $element.');
+			console.warn('Calling addClass() without selected $element.');
 			return false;
 		}
 
 		if (!className) {
-			Logger.error(`Adding blank class name to ${this.selector}.`);
+			console.error(`Adding blank class name to ${this.selector}.`);
 			return false;
 		}
 
@@ -95,7 +93,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	addClassAll($elements, className) {
 		if (!Array.isArray($elements) && !($elements instanceof NodeList)) {
-			Logger.warn('Calling addClassAll() without selected $elements.');
+			console.warn('Calling addClassAll() without selected $elements.');
 			return;
 		}
 
@@ -105,7 +103,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	removeClassAll($elements, className) {
 		if (!Array.isArray($elements) && !($elements instanceof NodeList)) {
-			Logger.warn('Calling removeClassAll() without selected $elements.');
+			console.warn('Calling removeClassAll() without selected $elements.');
 			return;
 		}
 
@@ -127,7 +125,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	getStyle() {
 		if (!this.$element) {
-			Logger.warn('Calling getStyle() without selected $element.');
+			console.warn('Calling getStyle() without selected $element.');
 			return {};
 		}
 
@@ -137,12 +135,12 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	setStyle(newStyle) {
 		if (!this.$element) {
-			Logger.warn('Calling setStyle() without selected $element.');
+			console.warn('Calling setStyle() without selected $element.');
 			return;
 		}
 
 		if (typeof newStyle !== 'object' && newStyle !== null) {
-			Logger.error(`setStyle() got invalid input. Expecting an object, but got ${typeof newStyle}.`);
+			console.error(`setStyle() got invalid input. Expecting an object, but got ${typeof newStyle}.`);
 			return;
 		}
 
@@ -153,12 +151,12 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	addEventListener(eventType, callback) {
 		if (!this.$element) {
-			Logger.warn('Calling addEventListener() without selected $element.');
+			console.warn('Calling addEventListener() without selected $element.');
 			return;
 		}
 
 		if (typeof callback !== 'function' || typeof eventType !== 'string') {
-			Logger.error(
+			console.error(
 				`setStyle() got invalid input. Expecting (string, Object), but got (${typeof eventType}, ${typeof callback}).`
 			);
 			return;
@@ -169,12 +167,12 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	setHTML(newHTML) {
 		if (!this.$element) {
-			Logger.warn('Calling setHTML() without selected $element.');
+			console.warn('Calling setHTML() without selected $element.');
 			return;
 		}
 
 		if (typeof newHTML !== 'string') {
-			Logger.error(`setHTML() got invalid input. Expecting string, but got ${typeof newHTML}.`);
+			console.error(`setHTML() got invalid input. Expecting string, but got ${typeof newHTML}.`);
 			return;
 		}
 
@@ -184,7 +182,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 	getHTML() {
 		if (!this.$element) {
-			Logger.warn('Getting the HTML when there is no selected $element.');
+			console.warn('Getting the HTML when there is no selected $element.');
 			return '';
 		}
 

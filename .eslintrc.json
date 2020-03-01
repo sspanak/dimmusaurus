@@ -28,7 +28,7 @@
             "error",
             "always"
         ],
-        "no-console": "error",
+        "no-console": "warn",
         "no-dupe-else-if": "error",
         "consistent-return": "error",
         "no-fallthrough": "off",
