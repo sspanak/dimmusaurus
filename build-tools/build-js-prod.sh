@@ -9,7 +9,7 @@ fi
 cat src/js/[0-9]*.js \
 	| sed -r -e "s@\/\/[^\n]+@@g" \
 	| tr --delete '\n\t' \
-	| sed -r -e "s@Logger\.[^;]+;@@g" \
+	| sed -r -e "s@console\.[^;]+;@@g" \
 	| sed -r -e "s@\/\*+[^\/]+\*\/@@g" \
 	| sed -r -e "s@\/\*[^\*]+\*\/@@g" \
 	| sed -r -e "s@\s*([{}(),:;=+\-\*\\\?|&!])\s*@\1@g" \

@@ -162,7 +162,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	buildPlaylist(playlist) {
 		if (!playlist || !playlist.length) {
-			Logger.warn('Displaying empty playlist.');
+			console.warn('Displaying empty playlist.');
 
 			this.select(this.selectors.playlist).addClass('playlist-unavailable');
 		}
@@ -526,7 +526,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	getAudio() {
 		const $audio = this.select(this.selectors.audio).$element;
 		if (!$audio) {
-			Logger.warn('Could not get <audio> element. Returning an empty object.');
+			console.warn('Could not get <audio> element. Returning an empty object.');
 			return {};
 		}
 

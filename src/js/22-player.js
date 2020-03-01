@@ -12,7 +12,7 @@ const Player = new class { // eslint-disable-line
 			return;
 		}
 		if (typeof axios === 'undefined') {
-			Logger.error('Failed initializing player. Axios is not available.'); // eslint-disable-line no-undef
+			console.error('Failed initializing player. Axios is not available.');
 			return;
 		}
 
@@ -82,11 +82,11 @@ const Player = new class { // eslint-disable-line
 			.catch(error => {
 				if (error.code === error.ABORT_ERR) {
 					// A user aborting the audio loading is not an error, so we skip it.
-					Logger.warn('Audio loading aborted');
+					console.warn('Audio loading aborted');
 					return;
 				}
 
-				Logger.error(error);
+				console.error(error);
 				PlayerUi.fail();
 			});
 
@@ -103,7 +103,7 @@ const Player = new class { // eslint-disable-line
 	 */
 	stop() {
 		if (this.currentTrack === -1) {
-			Logger.warn('Trying to stop playback, but no track is selected.');
+			console.warn('Trying to stop playback, but no track is selected.');
 		}
 
 		if (PlayerUi.isPlaying()) {
@@ -187,7 +187,7 @@ const Player = new class { // eslint-disable-line
 		}
 
 		if (!PlayerUi.getAudio()) {
-			Logger.error('Can not select a track. <audio> element unavailable.');
+			console.error('Can not select a track. <audio> element unavailable.');
 			return;
 		}
 
@@ -248,7 +248,7 @@ const Player = new class { // eslint-disable-line
 				this.selectTrack(track);
 			})
 			.catch(error => {
-				Logger.error(`Failed fetching the playlist. ${error}.`);
+				console.error(`Failed fetching the playlist. ${error}.`);
 				PlayerUi.buildPlaylist([]);
 			});
 	}
