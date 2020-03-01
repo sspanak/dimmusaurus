@@ -118,11 +118,6 @@ class UiElement { // eslint-disable-line no-unused-vars
 	}
 
 
-	hide() {
-		return this.setStyle({ display: 'none' });
-	}
-
-
 	getStyle() {
 		if (!this.$element) {
 			console.warn('Calling getStyle() without selected $element.');
