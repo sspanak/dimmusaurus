@@ -106,6 +106,7 @@
 	.menu-music > ul {
 		display: flex;
 		flex-flow: column;
+		margin-top: 2px;
 		text-align: initial;
 	}
 	.menu-music li:first-child .menu-item {padding-top: 12px;}
