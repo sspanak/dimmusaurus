@@ -20,6 +20,7 @@ def get_all_songs(language):
         'song__original_title',
         'song__length',
         'song__slug',
+        'song__is_hidden',
         'title'
     )
 
