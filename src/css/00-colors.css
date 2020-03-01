@@ -19,7 +19,7 @@
 	--menu-separator-medium: #555;
 	--menu-separator-soft: #444;
 
-	--menu-border-strong: 1px solid var(--menu-separator-strong);
+	--menu-border-strong: 1px solid #666;
 
 	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
 	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
