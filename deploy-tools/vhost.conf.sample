@@ -19,6 +19,41 @@
 		</Files>
 	</Directory>
 
+	<ifModule mod_headers.c>
+		Header append Cache-Control "public"
+	</ifModule>
+
+	<ifModule mod_expires.c>
+		ExpiresActive On
+
+		# 1 day, all expire at the same time
+		ExpiresByType application/json M86400
+		ExpiresByType text/html M86400
+
+		# 1 week
+		ExpiresByType text/css A604800
+		ExpiresByType application/javascript A604800
+
+		# 1 year
+		ExpiresByType image/gif A31536000
+		ExpiresByType image/png A31536000
+		ExpiresByType image/jpeg A31536000
+
+		# 6 months
+		ExpiresByType audio/aac A15552000
+		ExpiresByType audio/ogg A15552000
+		ExpiresByType audio/opus A15552000
+	</ifModule>
+
+	<IfModule mod_deflate.c>
+		<IfModule mod_filter.c>
+			# "application/json" compression is not enabled by default. Since adding a filter here completely overrides
+			# the default configuration, we list all desired types explicitly.
+			AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+			AddOutputFilterByType DEFLATE application/x-javascript application/javascript application/ecmascript application/json
+		</IfModule>
+	</IfModule>
+
 	ErrorLog ${APACHE_LOG_DIR}/dimmu-saurus.errors.log
 	CustomLog ${APACHE_LOG_DIR}/dimmu-saurus.access.log combined
 </VirtualHost>
