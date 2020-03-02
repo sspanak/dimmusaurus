@@ -28,6 +28,8 @@ apt -y install sqlite3 # for easier database imports
 
 #### Apache ####
 apt -y install apache2
+a2enmod headers
+a2enmod expires
 
 # Next libapache2-mod-wsgi-py3 works with the built-in Python 3.5, so we have to manually build
 # a newer version.
