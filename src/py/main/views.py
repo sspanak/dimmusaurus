@@ -1,3 +1,5 @@
+import json
+
 from django.conf import settings
 from django.shortcuts import redirect
 from django.utils.translation import gettext, activate, get_language
@@ -7,7 +9,29 @@ from .shortcuts import render_template
 from music.shortcuts import get_music_menu_album_list
 
 
-def render_page(request):
+def version(request):
+    lang = get_language()
+
+    try:
+        with open('%s/version.json' % settings.STATICFILES_DIRS[0], 'r') as version_file:
+            version_info = json.load(version_file)
+    except OSError as e:
+        version_info = {}
+
+    context = {
+        **version_info,
+        'page': {
+            'base_url': settings.BASE_URL,
+            'url': 'version/',
+            'title': gettext('Version Info'),
+            'description': gettext('Version Information'),
+        }
+    }
+
+    return render_template(request, 'main/version.html', context, lang)
+
+
+def render_news(request):
     lang = get_language()
     return render_template(
         request,
@@ -38,14 +62,14 @@ def index(request):
 
 def начало(request):
     activate('bg')
-    return render_page(request)
+    return render_news(request)
 
 
 def home(request):
     activate('en')
-    return render_page(request)
+    return render_news(request)
 
 
 def accueil(request):
     activate('fr')
-    return render_page(request)
+    return render_news(request)

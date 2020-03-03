@@ -1,0 +1,62 @@
+{% extends root_template %}
+{% block content_block %}
+<div class="content content-version">
+	<h1 class="content-heading">{{ page.title }}</h1>
+
+	<div class="content-version-super-wrapper">
+
+<pre class="ascii-logo">
+                       .+/))))))>=
+                     +()))))))()))))
+                   .())))(    \))))))>  .   .
+                 .)))))))\    /)))))))))))))))))))>>
+                 ())))))))))))))))))))))))))))))))))))
+                +()))))))))))))))))))))))))))))))))))))
+               .)))))))))))))))))/<)))  \\())=  )))/ \))
+          ..../))))))))))))))))/    )/     \)    (/    \
+        ./ .()))))))))))))))))<       .)      /    .>
+       .(/))))))))))))))))))))))>..+/))/    .)  .+/)>
+   >)))))))))))))))))))))))))))))))))))>/()))))))))/
+  / /))))))))))))))))))))))))))))))))))))))))))))<
+   .)))))))))))))))/            \<     \
+  \/)))))))))))))))>        .+. .
+/<())))))))))))))))(/ ...+>))<((/
+> ())))))))))))))))><\ ( ..      +)/
+ \)))))))))))))))))/)))><<<<()>>)))<
+ ))))))))))))))))))/              \.
+.- )))))))))))))))))
+)>\)))))))))))))))))
+ ) )))))))))())))<<
+ . )/
+</pre>
+
+			<div class="version-info">
+				<h2 class="version-info-title"> dimmusaurus </h2>
+
+				<table class="version-info-table">
+					<tbody>
+						<tr>
+							<td class="version-info-left">source code version:</td>
+							<td>{{ version|default:'--' }}</td>
+						</tr>
+						<tr>
+							<td class="version-info-left">version build:</td>
+							<td>{{ build|default:'--' }}</td>
+						</tr>
+						<tr>
+							<td class="version-info-left">version hash:</td>
+							<td>{{ last_commit_hash|default:'--' }}</td>
+						</tr>
+						<tr>
+							<td class="version-info-left">version build date:</td>
+							<td>{{ last_commit_date|default:'--' }}</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+
+	</div>
+
+</div>
+{% endblock %}

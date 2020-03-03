@@ -118,6 +118,12 @@
 		max-width: 65em;
 		width: auto;
 	}
+	.content-version .ascii-logo {
+		border-right: 1px solid;
+		font-size: 0.6em;
+		margin: 0 16px;
+		padding-right: 16px;
+	}
 
 
 /*============== Player ==============*/

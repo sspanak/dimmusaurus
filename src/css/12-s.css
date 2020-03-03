@@ -38,4 +38,13 @@
 
 	.content-discography .album-contents-wrapper {flex-flow: row;}
 	.content-discography .album-cover {margin-right: 1.33em;}
+
+	.content-version .ascii-logo {
+		border-bottom: 0 none;
+		border-right: 1px solid;
+		font-size: 0.4em;
+		margin-right: 6px;
+		padding-right: 12px;
+	}
+	.content-version .version-info {width: auto;}
 }
