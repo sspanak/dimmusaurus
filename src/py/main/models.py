@@ -15,4 +15,3 @@ class News(models.Model):
 class DbVersion(models.Model):
     computer_id = models.CharField(max_length=128)
     export_date = models.DateTimeField('export date')
-    filename = models.CharField(max_length=255)
