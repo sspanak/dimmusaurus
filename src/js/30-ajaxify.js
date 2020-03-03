@@ -4,6 +4,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 		this.spinnerDelay = 400; // ms
 		this.spinnerShowTimeout = 0; // setTimeout() ID
+		this.lastNavigationUrl = '';
 
 		this.classes = { ajaxLoaderSpinning: 'ajax-loader-spinning'	};
 
@@ -31,9 +32,12 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		this.run();
 
 		window.addEventListener('popstate', event => this._handleHistoryPop(event));
+
+		// Setting the initial state is necessary, because we need the last non-ajax URL,
+		// otherwise:
+		//   1) it is impossible to use the Back button to exit the site.
+		//   2) it is impossible to navigate to any of our non-ajax URLs that are in history.
 		history.replaceState(
-			// Setting the initial state is necessary, because
-			// we can use only event.state.url, that we set below, to get back here.
 			{
 				scroll: 0,
 				title: this.select(this.selectors.title).getHTML(),
@@ -42,6 +46,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			this.select(this.selectors.title).getHTML(),
 			location.pathname
 		);
+		this.lastNavigationUrl = location.pathname;
 	}
 
 
@@ -75,6 +80,8 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		// Show the spinner if loading takes too long, for the user to be entertained.
 		this.spinnerShowTimeout = setTimeout(Ajaxify.showSpinner, this.spinnerDelay);
 
+		this.lastNavigationUrl = url;
+
 		return axios.get(`/api${url}`) // eslint-disable-line no-undef
 			.then(response => {
 				try {
@@ -94,6 +101,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			})
 			.catch(error => {
 				console.error(`Could not navigate to URL: "${url}". ${error}.`);
+				console.info('Attempting non-ajax navigation.');
 				location.href = url;
 			});
 	}
@@ -131,6 +139,19 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 
 	_handleHistoryPop(event) {
+		if (!event.state || !event.state.url) {
+			// onhistorypop is triggered when location.hash changes, but we don't care
+			// about that, so we can safely ignore it.
+			if (location.hash !== '') {
+				console.info('location.hash change. Ignoring navigation request.');
+				return;
+			} else if (location.href === this.lastNavigationUrl) {
+				console.info('Navigation URL is the same as the last one. Nothing to do.')
+				return;
+			}
+			// ... or else, we are navigating out of the site.
+		}
+
 		try {
 			Ajaxify.navigate(event.state.url).then(() => window.scrollTo(0, event.state.scroll));
 		} catch (error) {
