@@ -1,4 +1,6 @@
 {% extends root_template %}
+{% load tz %}
+
 {% block content_block %}
 <div class="content content-version">
 	<h1 class="content-heading">{{ page.title }}</h1>
@@ -50,6 +52,21 @@
 						<tr>
 							<td class="version-info-left">version build date:</td>
 							<td>{{ last_commit_date|default:'--' }}</td>
+						</tr>
+
+						<tr>
+							<td class="version-info-left">DB export date:</td>
+							{% localtime off %}
+							<td>{{ db_info.export_date|date:'Y-m-d H:i:s'|default:'--' }}</td>
+							{% endlocaltime %}
+						</tr>
+						<tr>
+							<td class="version-info-left">DB export file:</td>
+							<td>{{ db_info.filename|default:'--' }}</td>
+						</tr>
+						<tr>
+							<td class="version-info-left">DB export computer:</td>
+							<td>{{ db_info.computer_id|default:'--' }}</td>
 						</tr>
 					</tbody>
 				</table>
