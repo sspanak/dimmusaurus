@@ -140,15 +140,17 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 	_handleHistoryPop(event) {
 		if (!event.state || !event.state.url) {
-			// onhistorypop is triggered when location.hash changes, but we don't care
-			// about that, so we can safely ignore it.
-			if (location.hash !== '') {
+			// We don't care, if:
+			//   1) location.hash has changed (it triggers history change)
+			//   2) we are navigating to the same URL (excluding the hash)
+			if (location.href.replace(location.hash, '') === this.lastNavigationUrl) {
+				console.info('Navigation URL is the same as the last one. Nothing to do.');
+				return;
+			} else if (location.hash !== '') {
 				console.info('location.hash change. Ignoring navigation request.');
 				return;
-			} else if (location.href === this.lastNavigationUrl) {
-				console.info('Navigation URL is the same as the last one. Nothing to do.')
-				return;
 			}
+
 			// ... or else, we are navigating out of the site.
 		}
 
