@@ -49,7 +49,9 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	opacity: 0.9;
 }
 
-.ajax-loader > img{
+.ajax-loader .spinner {
+	background: center no-repeat url(img/vrtelejka.gif);
+	background-size: contain;
 	display: flex;
 	height: 2.4em;
 	margin-right: 5px;

@@ -9,10 +9,10 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 		this.selectors = {
 			ajaxLoader: '.ajax-loader',
+			ajaxLoaderText: '.ajax-loader .label',
 			content: '.content-wrapper',
 			description: 'meta[name=description]',
 			languageLinks: 'a[hreflang][rel=alternate]',
-			robotLinks: 'link[hreflang][rel=alternate]',
 			title: 'title'
 		};
 
@@ -25,6 +25,8 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			console.error('Failed initializing Ajaxify. Axios is not available.');
 			return;
 		}
+
+		this.select(this.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
 
 		this.run();
 
@@ -143,7 +145,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			return;
 		}
 
-		if (!confirm(PLAYER_MSG.newLanguageWillInterruptMusic)) { // eslint-disable-line no-undef
+		if (!confirm(MESSAGES.newLanguageWillInterruptMusic)) { // eslint-disable-line no-undef
 			event.preventDefault();
 		}
 	}

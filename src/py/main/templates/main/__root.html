@@ -46,8 +46,9 @@
 					{% language url.language_code %} '{% trans "/download/" %}', {% endlanguage %}
 				{% endfor %}
 			];
-			PLAYER_MSG = {
+			MESSAGES = {
 				errorLoadingTrack: '{% trans "Cannot load this song!" %}',
+				loading: "{% trans 'Loading...' %}",
 				newLanguageWillInterruptMusic: "{% trans 'Changing the language will interrupt music playback. Continue?' %}"
 			};
 
@@ -233,7 +234,7 @@
 
 				<div class="loading-indicator">
 					<i class="fas fa-sync-alt"></i>
-					{% trans 'Loading...' %}
+					<span class="label"></span>
 				</div>
 				<div class="track-title"></div>
 
@@ -271,8 +272,8 @@
 		</div>
 
 		<div class="ajax-loader">
-			<img src="{% static 'img/vrtelejka.gif' %}">
-			<span>{% trans 'Loading...' %}</span>
+			<span class="spinner"></span>
+			<span class="label"></span>
 		</div>
 
 	</body>
