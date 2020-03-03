@@ -313,6 +313,22 @@ footer .copyright-copy, footer .copyright-last-year {
 	width: 45px;
 }
 
+/*============== Version Info ==============*/
+.content-version .ascii-logo {
+	display: inline-block;
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+}
+
+.content-version .version-info {display: inline-block;}
+.version-info .version-info-table, .version-info .content-heading {text-align: left;}
+.version-info .version-info-left {
+	font-weight: bold;
+	padding: 0 0.5em;
+}
+
+
 
 /**********************************************************************************
  * Hide the player by default. JS will undo this on supported browsers

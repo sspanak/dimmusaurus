@@ -113,4 +113,17 @@
 		text-align: center;
 		width: auto;
 	}
+
+	.content-version-super-wrapper {text-align: center;}
+	.content-version .ascii-logo {
+		border-bottom: 1px solid;
+		font-size: 0.4em;
+		margin: 0 0 6px 0;
+		padding: 0 4px 12px 4px;
+	}
+	.content-version .version-info {
+		max-width: 100%;
+		width: 320px;
+	}
+	.content-version .version-info-title {margin-top: 0;}
 }

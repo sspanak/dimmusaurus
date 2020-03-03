@@ -2,7 +2,7 @@ MAKEFLAGS += --no-print-directory
 SHELL := /bin/bash
 
 default:
-	django-static
+	make django-static
 
 clean-tar:
 	rm -f ds.tar; rm -f ds.tar.bz2
@@ -11,6 +11,7 @@ tar:
 	make clean-tar
 	make clean || true
 	make django-static
+
 	tar cv \
 		--exclude='db.sqlite3' --exclude='.gitkeep' \
 		--exclude='__pycache__' --exclude='*.pyc' --exclude='migrations' \
@@ -40,6 +41,7 @@ django-static:
 	make js-prod
 	make images
 	mv ui-demo/img src/py/static
+	bash -c build-tools/version-file-generate.sh
 
 translations:
 	django-admin makemessages -l bg
