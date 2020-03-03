@@ -261,11 +261,20 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	_saveScrollPosition() {
-		const stateWithScroll = {
-			scroll: window.pageYOffset,
-			title: history.state.title,
-			url: history.state.url
-		};
-		history.replaceState(stateWithScroll, stateWithScroll.title, stateWithScroll.url);
+		try {
+			if (location.hash !== '') {
+				console.warn('location.hash is not empty. NOT saving scroll position.');
+				return;
+			}
+
+			const stateWithScroll = {
+				scroll: window.pageYOffset,
+				title: history.state.title,
+				url: history.state.url
+			};
+			history.replaceState(stateWithScroll, stateWithScroll.title, stateWithScroll.url);
+		} catch (error) {
+			console.warn(`Failed saving scroll position. ${error}`);
+		}
 	}
 };
