@@ -1,6 +1,6 @@
 {
   "name": "dimmusaurus",
-  "version": "7",
+  "version": "7.1.0",
   "description": "A website for Dimmu Saurus, reincarnation 7.",
   "main": "index.js",
   "scripts": {

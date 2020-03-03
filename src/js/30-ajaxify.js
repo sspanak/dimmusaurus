@@ -157,9 +157,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {<HtmlNode>[]}  An array of all relative links
 	 */
 	_getInternalLinks() {
-		let links = [...this.selectAll('a')]
-			.filter(a => `${a.getAttribute('href')}`.match(/^\/[^/]/))
-			.filter(a => `${a.getAttribute('href')}`.match(/#[^/]+$/));
+		let links = [...this.selectAll('a')].filter(a => `${a.getAttribute('href')}`.match(/^\/[^/]/));
 
 		if (typeof AJAXIFY_EXCLUDE !== 'undefined' && Array.isArray(AJAXIFY_EXCLUDE)) { // eslint-disable-line no-undef
 			const excludePattern = new RegExp(AJAXIFY_EXCLUDE.join('|')); // eslint-disable-line no-undef
