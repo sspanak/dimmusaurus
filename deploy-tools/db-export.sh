@@ -21,7 +21,7 @@ filename="$export_dir/ds.db-export-$now.tar"
 
 now=`date '+%Y-%m-%d %H:%M:%S'`;
 computer_id=`uname -s -r`;
-echo "1,\"$computer_id\",\"$now\",\"$filename\"" > $export_dir/main_dbversion.csv
+echo "1,\"$computer_id\",\"$now\"" > $export_dir/main_dbversion.csv
 
 tar -cf $filename $export_dir/*.csv && echo "Created database backup:" && echo "   $filename";
 rm -f $export_dir/*.csv

@@ -50,7 +50,7 @@ hr {border-color: var(--menu-text-color);}
 .content-discography .album-cover .fas {color: var(--menu-background-color);}
 .content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
 .content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
-.content-version .ascii-logo {border-color: var(--menu-icon-inactive-color);}
+.content-version .version-info {border-color: var(--menu-icon-inactive-color);}
 
 footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
 

@@ -7,7 +7,7 @@
 
 	<div class="content-version-super-wrapper">
 
-<pre class="ascii-logo">
+		<pre class="ascii-logo">
                        .+/))))))>=
                      +()))))))()))))
                    .())))(    \))))))>  .   .
@@ -20,7 +20,7 @@
        .(/))))))))))))))))))))))>..+/))/    .)  .+/)>
    >)))))))))))))))))))))))))))))))))))>/()))))))))/
   / /))))))))))))))))))))))))))))))))))))))))))))<
-   .)))))))))))))))/            \<     \
+   .)))))))))))))))/            \<   '''''''
   \/)))))))))))))))>        .+. .
 /<())))))))))))))))(/ ...+>))<((/
 > ())))))))))))))))><\ ( ..      +)/
@@ -30,48 +30,45 @@
 )>\)))))))))))))))))
  ) )))))))))())))<<
  . )/
-</pre>
+		</pre>
 
-			<div class="version-info">
-				<h2 class="version-info-title"> dimmusaurus </h2>
+		<div class="version-info">
+			<h2 class="version-info-title"> dimmusaurus </h2>
 
-				<table class="version-info-table">
-					<tbody>
-						<tr>
-							<td class="version-info-left">source code version:</td>
-							<td>{{ version|default:'--' }}</td>
-						</tr>
-						<tr>
-							<td class="version-info-left">version build:</td>
-							<td>{{ build|default:'--' }}</td>
-						</tr>
-						<tr>
-							<td class="version-info-left">version hash:</td>
-							<td>{{ last_commit_hash|default:'--' }}</td>
-						</tr>
-						<tr>
-							<td class="version-info-left">version build date:</td>
-							<td>{{ last_commit_date|default:'--' }}</td>
-						</tr>
+			<table class="version-info-table">
+				<tbody>
+					<tr>
+						<td class="version-info-left">version:</td>
+						<td>{{ version|default:'--' }}</td>
+					</tr>
+					<tr>
+						<td class="version-info-left">build:</td>
+						<td>{{ build|default:'--' }}</td>
+					</tr>
+					<tr>
+						<td class="version-info-left">build hash:</td>
+						<td>{{ last_commit_hash|default:'--' }}</td>
+					</tr>
+					<tr>
+						<td class="version-info-left">build date:</td>
+						<td>{{ last_commit_date|default:'--' }}</td>
+					</tr>
 
-						<tr>
-							<td class="version-info-left">DB export date:</td>
-							{% localtime off %}
-							<td>{{ db_info.export_date|date:'Y-m-d H:i:s'|default:'--' }}</td>
-							{% endlocaltime %}
-						</tr>
-						<tr>
-							<td class="version-info-left">DB export file:</td>
-							<td>{{ db_info.filename|default:'--' }}</td>
-						</tr>
-						<tr>
-							<td class="version-info-left">DB export computer:</td>
-							<td>{{ db_info.computer_id|default:'--' }}</td>
-						</tr>
-					</tbody>
-				</table>
+					<tr>
+						<td class="version-info-left">DB origin:</td>
+						<td>{{ db_info.computer_id|default:'--' }}</td>
+					</tr>
+					<tr>
+						<td class="version-info-left">DB time:</td>
+						{% localtime off %}
+						<td>{{ db_info.export_date|date:'Y-m-d H:i:s'|default:'--' }}</td>
+						{% endlocaltime %}
+					</tr>
+				</tbody>
+			</table>
 
-			</div>
+			<p> <small> ASCII logo thanks to: <a href="https://asciiart.club/">ASCII art club</a>. </small> </p>
+		</div>
 
 	</div>
 

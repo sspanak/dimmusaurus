@@ -116,14 +116,16 @@
 
 	.content-version-super-wrapper {text-align: center;}
 	.content-version .ascii-logo {
-		border-bottom: 1px solid;
 		font-size: 0.4em;
-		margin: 0 0 6px 0;
-		padding: 0 4px 12px 4px;
+		margin: 0;
+		padding: 0 4px;
 	}
 	.content-version .version-info {
+		border-top: 1px solid;
+		margin-top: 6px;
 		max-width: 100%;
-		width: 320px;
+		padding-top: 12px;
+		width: 320px; /* Always keep the table below the logo */
 	}
 	.content-version .version-info-title {margin-top: 0;}
 }
