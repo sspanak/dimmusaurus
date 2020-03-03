@@ -121,11 +121,11 @@ copy_src() {
 
 	cd $PROJECT_ROOT/pysaurus
 	rm -r bio locale main music
-	rm static/*.{css,js}
+	rm static/*.{css,js,json}
 
 	printf 'Copying source code... '
-	cp -u -r $SETUP_DIR/pysaurus/{bio,locale,main,music} $PROJECT_ROOT/pysaurus && \
-	cp -u -r $SETUP_DIR/pysaurus/static/*.{css,js} $PROJECT_ROOT/pysaurus/static && \
+	cp -f -r $SETUP_DIR/pysaurus/{bio,locale,main,music} $PROJECT_ROOT/pysaurus && \
+	cp -f $SETUP_DIR/pysaurus/static/*.{css,js,json} $PROJECT_ROOT/pysaurus/static && \
 	echo OK
 
 	# Relaunch the WSGI daemon
