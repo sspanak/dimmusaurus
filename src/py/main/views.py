@@ -4,7 +4,7 @@ from django.conf import settings
 from django.shortcuts import redirect
 from django.utils.translation import gettext, activate, get_language
 
-from .models import News
+from .models import News, DbVersion
 from .shortcuts import render_template
 from music.shortcuts import get_music_menu_album_list
 
@@ -20,6 +20,7 @@ def version(request):
 
     context = {
         **version_info,
+        'db_info': DbVersion.objects.get(pk=1),
         'page': {
             'base_url': settings.BASE_URL,
             'url': 'version/',

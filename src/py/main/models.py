@@ -10,3 +10,9 @@ class News(models.Model):
 
     def __str__(self):
         return "%s | %s | %s" % (self.pub_date, self.language, self.title)
+
+
+class DbVersion(models.Model):
+    computer_id = models.CharField(max_length=128)
+    export_date = models.DateTimeField('export date')
+    filename = models.CharField(max_length=255)
