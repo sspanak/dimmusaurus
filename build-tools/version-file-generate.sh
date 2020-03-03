@@ -8,7 +8,7 @@ fi
 
 total_commits=`git rev-list --count HEAD`
 last_commit_hash=`git log -n 1 --pretty=format:"%h"`
-last_commit_date=`git log -n 1 --date=short --pretty=format:"%ad"`
+last_commit_date=`git log -n 1 --date=iso --pretty=format:"%ad"`
 
 json='{
 	"build": "'"$total_commits"'",
