@@ -32,6 +32,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			progressBar: '.track-progress-bar',
 			progressTime: '.player .progress-time',
 			totalTime: '.player .total-time',
+			trackLoadingIndicator: '.player .loading-indicator .label',
 			trackTitle: '.player .track-title',
 			tunePlayButton: '.content-tune .tune-play',
 			volume: '#pl-volume'
@@ -79,6 +80,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	show() {
 		this.select('body').removeClass('unsupported-player');
+		this.select(this.selectors.trackLoadingIndicator).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
 	}
 
 
@@ -90,7 +92,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	fail() {
 		this.disableControls();
-		this.showError(PLAYER_MSG.errorLoadingTrack);
+		this.showError(MESSAGES.errorLoadingTrack); // eslint-disable-line no-undef
 
 		return this;
 	}
