@@ -2,6 +2,8 @@
  * M sized screen - Tablet or larger
  **********************************************************************************/
 @media screen and (min-width: 48em) {
+	header {max-height: 160px;}
+
 	.header-container {
 		display: flex;
 		height: 124px;
@@ -162,8 +164,6 @@
  * M size only
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
-	header {max-height: 124px;}
-
 	.header-container .logo-text {
 		height: 124px;
 	}

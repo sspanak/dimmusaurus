@@ -3,7 +3,7 @@
  **********************************************************************************/
 @media screen and (min-width: 64em) {
 /*============== General ==============*/
-	header {max-height: 131px;}
+	header {max-height: 167px;}
 
 	.header-container {
 		height: 131px;
