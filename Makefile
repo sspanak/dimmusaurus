@@ -16,6 +16,7 @@ tar:
 		--exclude='db.sqlite3' --exclude='.gitkeep' \
 		--exclude='__pycache__' --exclude='*.pyc' --exclude='migrations' \
 		--exclude='manage.py' --exclude='wsgi.py' --exclude='asgi.py'\
+		--exclude="django.po" \
 		-C src/ \
 		-f ds.tar \
 		--transform s/py/pysaurus/ \
