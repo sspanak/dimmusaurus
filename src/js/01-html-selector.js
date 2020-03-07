@@ -9,7 +9,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 		let $elements = [];
 		if (typeof selector === 'string') {
 			this.selector = selector;
-			$elements = document.querySelectorAll(selector);
+			$elements = Array.from(document.querySelectorAll(selector));
 		}
 
 		if ($elements.length === 0) {
