@@ -1,0 +1,14 @@
+{% extends "main/__root.html" %}
+{% load i18n %}
+
+{% block content_block %}
+<div class="content content-404">
+	<h1 class="content-heading"><i class="fas fa-bug"></i></i> 500</h1>
+	<p>
+		{% comment %}Translators: 500 page text{% endcomment %}
+		{% blocktrans trimmed %}
+		An error occured while processing your request. Please, try again later or go back to <a href="/">Home page</a>.
+		{% endblocktrans %}
+	</p>
+</div>
+{% endblock %}
