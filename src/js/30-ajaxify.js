@@ -31,22 +31,9 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 		this.run();
 
+		window.addEventListener('hashchange', event => this._forceHistoryState(event));
 		window.addEventListener('popstate', event => this._handleHistoryPop(event));
-
-		// Setting the initial state is necessary, because we need the last non-ajax URL,
-		// otherwise:
-		//   1) it is impossible to use the Back button to exit the site.
-		//   2) it is impossible to navigate to any of our non-ajax URLs that are in history.
-		history.replaceState(
-			{
-				scroll: 0,
-				title: this.select(this.selectors.title).getHTML(),
-				url: location.pathname
-			},
-			this.select(this.selectors.title).getHTML(),
-			location.pathname
-		);
-		this.lastNavigationUrl = location.pathname;
+		this._forceHistoryState();
 	}
 
 
@@ -138,16 +125,45 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	}
 
 
+	/**
+	 * _forceHistoryState
+	 * Handle hash changes and initial (non-ajax) navigation. In these cases there is no
+	 * event.state (history state), so we have to generate one, in order not to break
+	 * navigating back to this entry. This also covers the case when the user wants to use
+	 * "Back" to navigate out of the site.
+	 *
+	 * @return {void}
+	 */
+	_forceHistoryState() {
+		const url = `${location.pathname}${location.hash}`;
+
+		let title = this.select(this.selectors.title).getHTML();
+		if (location.hash !== '') {
+			title = `${location.hash} | ${title}`;
+		}
+
+		history.replaceState(
+			{ scroll: window.pageYOffset, title, url },
+			title,
+			url
+		);
+		this.lastNavigationUrl = location.pathname;
+
+		console.info(`Forced history URL: "${url}".`);
+	}
+
+
+
 	_handleHistoryPop(event) {
 		if (!event.state || !event.state.url) {
 			// We don't care, if:
 			//   1) location.hash has changed (it triggers history change)
 			//   2) we are navigating to the same URL (excluding the hash)
-			if (location.href.replace(location.hash, '') === this.lastNavigationUrl) {
+			if (location.pathname === this.lastNavigationUrl) {
 				console.info('Navigation URL is the same as the last one. Nothing to do.');
-				return;
-			} else if (location.hash !== '') {
-				console.info('location.hash change. Ignoring navigation request.');
+				if (location.hash !== '') {
+					console.info('location.hash change ignored.');
+				}
 				return;
 			}
 
