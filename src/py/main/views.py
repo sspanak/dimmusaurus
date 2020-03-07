@@ -20,6 +20,7 @@ def version(request):
 
     context = {
         **version_info,
+        'albums': get_music_menu_album_list(language=lang),
         'db_info': DbVersion.objects.get(pk=1),
         'page': {
             'base_url': settings.BASE_URL,
