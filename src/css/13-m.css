@@ -46,6 +46,12 @@
 /*============== Breadcrumbs ==============*/
 	.breadcrumbs {text-align: center;}
 
+/*============== Header ==============*/
+	header {
+		overflow: visible;
+		position: relative;
+	}
+
 
 /*============== Logo ==============*/
 	.header-container .logo > img {
@@ -156,6 +162,8 @@
  * M size only
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
+	header {max-height: 124px;}
+
 	.header-container .logo-text {
 		height: 124px;
 	}

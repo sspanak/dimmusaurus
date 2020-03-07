@@ -3,6 +3,8 @@
  **********************************************************************************/
 @media screen and (min-width: 64em) {
 /*============== General ==============*/
+	header {max-height: 131px;}
+
 	.header-container {
 		height: 131px;
 	}
@@ -82,7 +84,9 @@
 	}
 
 	.menu-main > ul {
-		margin-right: 6px;
+		/* fix the 1px misalignment of the music menu */
+		height: 36px;
+		margin: 0 6px 1px 0;
 		padding-bottom: 0;
 	}
 
@@ -106,7 +110,6 @@
 	.menu-music > ul {
 		display: flex;
 		flex-flow: column;
-		margin-top: 2px;
 		text-align: initial;
 	}
 	.menu-music li:first-child .menu-item {padding-top: 12px;}
