@@ -27,17 +27,17 @@
 		ExpiresActive On
 
 		# 1 day, all expire at the same time
-		ExpiresByType application/json M86400
 		ExpiresByType text/html M86400
 
-		# 1 week
-		ExpiresByType text/css A604800
-		ExpiresByType application/javascript A604800
+		# 1 day, regular
+		ExpiresByType application/json A86400
 
 		# 1 year
+		ExpiresByType application/javascript A31536000
 		ExpiresByType image/gif A31536000
-		ExpiresByType image/png A31536000
 		ExpiresByType image/jpeg A31536000
+		ExpiresByType image/png A31536000
+		ExpiresByType text/css A31536000
 
 		# 6 months
 		ExpiresByType audio/aac A15552000

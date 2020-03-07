@@ -1,3 +1,5 @@
+import json
+
 from django.conf import settings
 from django.http import JsonResponse, HttpResponse
 from django.template import loader
@@ -51,3 +53,11 @@ def render_template(request, template, context, language):
 
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
     return response
+
+
+def get_version_info():
+    try:
+        with open('%s/version.json' % settings.STATICFILES_DIRS[0], 'r') as version_file:
+            return json.load(version_file)
+    except (OSError, JSONDecodeError) as e:
+        return {}
