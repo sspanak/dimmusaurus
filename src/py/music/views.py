@@ -6,7 +6,7 @@ from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
 from .shortcuts import get_music_menu_album_list, get_all_songs
-from main.shortcuts import render_template
+from main.shortcuts import render_template, get_version_info
 
 
 def index(request):
@@ -56,6 +56,7 @@ def playlist(request):
 
 def render_albums(request, album_id=None):
     lang = get_language()
+    version_info = get_version_info()
 
     albums = get_music_menu_album_list(lang)
     songs = get_all_songs(lang)
@@ -65,6 +66,7 @@ def render_albums(request, album_id=None):
 
         context = {
             'albums': albums,
+            'build': version_info.get('build'),
             'song_descriptions': songs,
             'page_albums': [selected_album],
             'page': {
@@ -80,6 +82,7 @@ def render_albums(request, album_id=None):
     else:
         context = {
             'albums': albums,
+            'build': version_info.get('build'),
             'song_descriptions': songs,
             'page_albums': albums,
             'page': {
@@ -97,6 +100,7 @@ def render_albums(request, album_id=None):
 
 def render_song(request, song_id):
     lang = get_language()
+    version_info = get_version_info()
 
     song_description = get_object_or_404(
         SongDescription.objects.select_related('song', 'song__album').filter(language=lang),
@@ -114,6 +118,7 @@ def render_song(request, song_id):
     song_title = song_description.translated_title
     context = {
         'albums': get_music_menu_album_list(lang),
+        'build': version_info.get('build'),
         'song': song,
         'song_album': song_album,
         'song_description': song_description,
@@ -135,6 +140,7 @@ def render_song(request, song_id):
 
 def render_lyrics(request, song_id):
     lang = get_language()
+    version_info = get_version_info()
 
     lyrics = get_object_or_404(SongLyrics.objects.select_related('song', 'song__album'), song__id=song_id)
     this_album = get_object_or_404(
@@ -148,6 +154,7 @@ def render_lyrics(request, song_id):
 
     context = {
         'albums': get_music_menu_album_list(lang),
+        'build': version_info.get('build'),
         'lyrics': lyrics,
         'song_title': this_song_title,
         'album': this_album,

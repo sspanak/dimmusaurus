@@ -1,22 +1,15 @@
-import json
-
 from django.conf import settings
 from django.shortcuts import redirect
 from django.utils.translation import gettext, activate, get_language
 
 from .models import News, DbVersion
-from .shortcuts import render_template
+from .shortcuts import render_template, get_version_info
 from music.shortcuts import get_music_menu_album_list
 
 
 def version(request):
     lang = get_language()
-
-    try:
-        with open('%s/version.json' % settings.STATICFILES_DIRS[0], 'r') as version_file:
-            version_info = json.load(version_file)
-    except OSError as e:
-        version_info = {}
+    version_info = get_version_info()
 
     context = {
         **version_info,
@@ -35,11 +28,14 @@ def version(request):
 
 def render_news(request):
     lang = get_language()
+    version_info = get_version_info()
+
     return render_template(
         request,
         'main/index.html',
         {
             'albums': get_music_menu_album_list(language=lang),
+            'build': version_info.get('build'),
             'news': News.objects.filter(language=lang).order_by('-pub_date')[:10],
             'page': {
                 'base_url': settings.BASE_URL,

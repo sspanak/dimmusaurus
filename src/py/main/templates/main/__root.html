@@ -26,7 +26,7 @@
 
 		<link
 			rel="stylesheet"
-			href="{% static 'ds.min.css' %}">
+			href="{% static 'ds.min.css' %}?v={{ build|default:'0' }}">
 
 		<link
 			rel="stylesheet"
@@ -73,14 +73,14 @@
 			js.defer = 'defer';
 
 			if (isOldBrowser()) {
-				js.src = '{% static "ds.legacy.min.js" %}';
+				js.src = '{% static "ds.legacy.min.js" %}?v={{ build|default:"0" }}';
 
 				var css = document.createElement('link');
 				css.rel = 'stylesheet';
-				css.href = '{% static "ds.legacy.min.css" %}';
+				css.href = '{% static "ds.legacy.min.css" %}?v={{ build|default:"0" }}';
 				document.head.appendChild(css);
 			} else {
-				js.src = '{% static "ds.min.js" %}';
+				js.src = '{% static "ds.min.js" %}?v={{ build|default:"0" }}';
 			}
 
 			document.head.appendChild(js);
