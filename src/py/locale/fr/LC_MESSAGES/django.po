@@ -193,8 +193,6 @@ msgid "Version Info"
 msgstr "Info du système"
 
 #: src/py/main/views.py:22
-#, fuzzy
-#| msgid "Track list and information."
 msgid "Version Information"
 msgstr "Information du système"
 
