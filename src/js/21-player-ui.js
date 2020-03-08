@@ -58,8 +58,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			this.togglePlaylist();
 		});
 
-		this.select(this.selectors.audio).addEventListener('error', () => {
-			this.fail();
+		this.select(this.selectors.audio).addEventListener('error', (error) => {
+			this.fail(error);
 		});
 
 		this.select(this.selectors.audio).addEventListener('loadstart', () => {
@@ -88,11 +88,14 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * fail
 	 * Switches to error state, displaying the most common error that a track failed to load.
 	 *
-	 * @return {this}`
+	 * @param {Error} error
+	 * @return {this}
 	 */
-	fail() {
+	fail(error) {
 		this.disableControls();
 		this.showError(MESSAGES.errorLoadingTrack); // eslint-disable-line no-undef
+
+		console.error('Player failure requested.', error, error.message);
 
 		return this;
 	}
