@@ -30,9 +30,22 @@ const Player = new class { // eslint-disable-line
 	 * @return {Boolean}
 	 */
 	isSupported() {
+		return this.isAudioTypeSupported('audio/ogg') || this.isAudioTypeSupported('audio/mp4');
+	}
+
+
+	/**
+	 * isAudioTypeSupported
+	 * Checks if given mime type is supported, for example: 'audio/ogg'.
+	 * Input could include a codec, for example 'audio/ogg; codecs="vorbis"'
+	 *
+	 * @param  {[type]}  sourceType [description]
+	 * @return {Boolean}            [description]
+	 */
+	isAudioTypeSupported(sourceType) {
 		try {
 			const dummyTag = document.createElement('audio');
-			const canPlay = dummyTag.canPlayType('audio/ogg; codecs="vorbis"');
+			const canPlay = dummyTag.canPlayType(sourceType);
 			dummyTag.remove();
 
 			return canPlay === 'probably' || canPlay === 'maybe';
@@ -40,6 +53,7 @@ const Player = new class { // eslint-disable-line
 			return false;
 		}
 	}
+
 
 	/**
 	 * toggleMute

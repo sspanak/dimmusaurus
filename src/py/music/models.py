@@ -90,10 +90,10 @@ class SongFile(models.Model):
 
     @property
     def playlist_url(self):
-        return '%sdownload/%s' % (settings.STATIC_URL, self.file_name)
+        return '%sdownload/%s/%s' % (settings.STATIC_URL, self.file_type, self.file_name)
 
-    def get_absolute_path(self):
-        return '%s/download/%s' % (settings.STATICFILES_DIRS[0], self.file_name)
+    def get_download_path(self):
+        return '%s/download/%s/%s' % (settings.STATICFILES_DIRS[0], self.file_type, self.file_name)
 
     def __str__(self):
         return '%d | %s' % (self.song_id, self.file_name)

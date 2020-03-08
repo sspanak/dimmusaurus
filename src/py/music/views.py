@@ -176,7 +176,8 @@ def render_lyrics(request, song_id):
 def download(request, song_id):
     file = get_object_or_404(
         SongFile.objects.select_related('song').only('song__slug', 'file_name', 'file_type'),
-        song_id=song_id
+        song_id=song_id,
+        file_type='ogg'
     )
     song = get_object_or_404(
         SongDescription.objects.select_related('song').only('title', 'song__original_title'),
@@ -185,8 +186,8 @@ def download(request, song_id):
     )
 
     try:
-        file_size = path.getsize(file.get_absolute_path())
-        file_contents = open(file.get_absolute_path(), 'rb')
+        file_size = path.getsize(file.get_download_path())
+        file_contents = open(file.get_download_path(), 'rb')
     except OSError as e:
         raise Http404
 
