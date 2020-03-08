@@ -4,6 +4,16 @@
   "scripts": {
     "build-legacy-js": "./node_modules/.bin/babel --presets=@babel/env"
   },
+  "babel": {
+     "presets": [
+       ["@babel/preset-env"]
+     ]
+  },
+  "browserslist": [
+    "since 2014",
+    "not since 2018",
+    "android 4.4"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sspanak/dimmusaurus.git"
