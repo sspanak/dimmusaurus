@@ -108,8 +108,7 @@ const Player = new class { // eslint-disable-line
 				return;
 			}
 
-			console.error(error);
-			PlayerUi.fail();
+			PlayerUi.fail(error);
 		});
 	}
 
@@ -221,7 +220,7 @@ const Player = new class { // eslint-disable-line
 		const track = this.playlist[playlistId];
 		if (!track) {
 			this.currentTrack = -1;
-			PlayerUi.fail();
+			PlayerUi.fail(new ReferenceError(`No track with id: ${playlistId}.`));
 			return;
 		}
 
@@ -231,7 +230,7 @@ const Player = new class { // eslint-disable-line
 			.enableControls()
 			.hideError()
 			.setAudioSources(this.playlist[this.currentTrack].files)
-			.onAudioSourceError(() => PlayerUi.fail())
+			.onAudioSourceError(error => PlayerUi.fail(error))
 			.selectTrack(playlistId, track.title, this.playlist.length);
 	}
 
