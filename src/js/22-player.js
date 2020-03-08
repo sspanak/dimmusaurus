@@ -89,22 +89,28 @@ const Player = new class { // eslint-disable-line
 		}
 
 		// play
-		$audio.play()
-			.then(() => {
-				PlayerUi.enablePlay().play();
-			})
-			.catch(error => {
-				if (error.code === error.ABORT_ERR) {
-					// A user aborting the audio loading is not an error, so we skip it.
-					console.warn('Audio loading aborted');
-					return;
-				}
+		PlayerUi.disablePlay(); // disable while loading
+		const playbackPromise = $audio.play();
 
-				console.error(error);
-				PlayerUi.fail();
-			});
+		// for browsers that won't return a promise we just assume it was successful.
+		if (playbackPromise === undefined) {
+			PlayerUi.enablePlay().play();
+			return;
+		}
 
-		PlayerUi.disablePlay();
+		// otherwise, await until playback begins and enable the UI
+		playbackPromise.then(() => {
+			PlayerUi.enablePlay().play();
+		}).catch(error => {
+			if (error.code === error.ABORT_ERR) {
+				// A user aborting the audio loading is not an error, so we skip it.
+				console.warn('Audio loading aborted');
+				return;
+			}
+
+			console.error(error);
+			PlayerUi.fail();
+		});
 	}
 
 
