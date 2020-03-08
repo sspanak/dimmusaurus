@@ -92,5 +92,30 @@ function getAudioSourceTemplate(sources) { // eslint-disable-line no-unused-vars
 		return '';
 	}
 
-	return sources.map(src => `<source src="${src.file_name}" type="audio/${src.file_type}">`).join();
+	return sources
+		.sort((s1, s2) => {
+			// codec order should be: opus, ogg, aac (decreasing order of quality)
+			if (s1.file_type === s2.file_type) {
+				return 0;
+			}
+
+			if (s1.file_type < s2.file_type) {
+				return 1;
+			}
+
+			return -1;
+		})
+		.map(src => {
+			let file_type = '';
+			if (src.file_type === 'opus') {
+				file_type = 'audio/ogg; codecs="opus"';
+			} else if (src.file_type === 'ogg') {
+				file_type = 'audio/ogg; codecs="vorbis"';
+			} else if (src.file_type === 'aac') {
+				file_type = 'audio/mp4';
+			}
+
+			return `<source src="${src.file_name}" type='${file_type}'>`;
+		})
+		.join('');
 }
