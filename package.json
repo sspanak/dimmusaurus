@@ -1,8 +1,6 @@
 {
   "name": "dimmusaurus",
-  "version": "7.1.0",
-  "description": "A website for Dimmu Saurus, reincarnation 7.",
-  "main": "index.js",
+  "description": "A website for Dimmu Saurus",
   "scripts": {
     "build-legacy-js": "./node_modules/.bin/babel --presets=@babel/env"
   },
@@ -10,17 +8,17 @@
     "type": "git",
     "url": "git+https://github.com/sspanak/dimmusaurus.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Dimo Karaivanov",
+  "license": "BSD-3-Clause-Clear",
   "bugs": {
     "url": "https://github.com/sspanak/dimmusaurus/issues"
   },
-  "homepage": "https://github.com/sspanak/dimmusaurus#readme",
-  "devDependencies": {},
-  "dependencies": {
+  "homepage": "https://github.com/sspanak/dimmusaurus",
+  "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
     "@babel/polyfill": "^7.7.0",
     "@babel/preset-env": "^7.7.7"
-  }
+  },
+  "dependencies": {}
 }
