@@ -25,6 +25,7 @@ tar:
 	tar rv -C deploy-tools -f ds.tar setup-ubuntu16.04.sh
 	tar rv -C deploy-tools -f ds.tar db-import.sh
 	tar rv -C deploy-tools -f ds.tar vhost.conf.sample
+	tar rv -f ds.tar LICENSE.txt
 	bzip2 -9 ds.tar
 
 clean:
