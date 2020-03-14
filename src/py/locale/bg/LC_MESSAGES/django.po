@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 15:21+0200\n"
+"POT-Creation-Date: 2020-03-14 10:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -228,9 +228,17 @@ msgstr ""
 "довели до какво ли не – от блус до хеви метъл, чат-пат – блек и трашец, а "
 "тук-таме и малко класика и електроника. "
 
-#: src/py/music/templates/music/discography.html:36
-msgid "All the music is available for listening and downloading for free."
-msgstr "Всички парчета могат да се слушат и свалят напълно свободно. "
+#: src/py/music/templates/music/discography.html:46
+msgid ""
+"All music is composed by Димозавър (Dimmu Saurus), except where noted. "
+"Download, play and share to help him become famous. Dimmu Saurus is not "
+"responsible for any damage to your speakers, house or trouble with "
+"neighbours which may result in playing his music too loud."
+msgstr ""
+"Цялата музика е композирана от Димозавър (Dimmu Saurus), освен ако не е "
+"отбелязано друго. Сваляйте, слушайте и споделяйте, за да му помогнете да "
+"узнаят всички за него. Димозавърът не е отговорен за повреди в тонколоните, "
+"къщата ви или проблеми със съседите, породени от силното слушане на музика."
 
 #. Translators: LYRICS button on song page.
 #: src/py/music/templates/music/lyrics.html:22
