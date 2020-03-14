@@ -25,3 +25,12 @@ def get_all_songs(language):
     )
 
     return songs
+
+
+def get_album_language_urls(album_id):
+    albums = AlbumDetails.objects.filter(album_id=album_id).only('album_id', 'language', 'slug')
+
+    slugs = {}
+    for album in albums:
+        slugs[album.language] = '%d-%s/' % (album.album_id, album.slug)
+    return slugs
