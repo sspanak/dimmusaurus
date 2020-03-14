@@ -27,6 +27,12 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			return;
 		}
 
+		// Ajaxify is causing too much problems with navigation on older browsers so it is better to
+		// disable it.
+		if (!Player.isSupported() || !this.isSupported()) { // eslint-disable-line no-undef
+			return;
+		}
+
 		this.select(this.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
 
 		this.run();
@@ -34,6 +40,13 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		window.addEventListener('hashchange', event => this._forceHistoryState(event));
 		window.addEventListener('popstate', event => this._handleHistoryPop(event));
 		this._forceHistoryState();
+	}
+
+
+	isSupported() {
+		return typeof history !== 'undefined'
+			&& typeof history.replaceState === 'function'
+			&& typeof history.pushState === 'function';
 	}
 
 
