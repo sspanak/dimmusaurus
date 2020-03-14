@@ -265,7 +265,9 @@ const Player = new class { // eslint-disable-line
 	 * @return {void}
 	 */
 	loadPlaylist() {
-		axios.get('/api/music/playlist/')
+		const languageCode = document.querySelector('html').getAttribute('lang');
+
+		axios.get(`/api/music/playlist/${languageCode}/`)
 			.then(data => {
 				this.playlist = [];
 				let track = -1;

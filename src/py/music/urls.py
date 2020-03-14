@@ -33,6 +33,8 @@ urlpatterns = [
     re_path(r'^(?:музика/песни|music/songs|musique/chansons)/*$', views.index, name='music_index'),
     re_path(r'^(?:музика/албуми|music/albums|musique/albums)/*$', views.index, name='music_index'),
 
-    # API-only (no need of localized URLs)
-    path('api/music/playlist/', views.playlist, name='playlist'),
+    # Playlist (JSON only)
+    path('api/music/playlist/bg/', views.плейлиста, name='playlist'),
+    path('api/music/playlist/en/', views.playlist, name='playlist'),
+    path('api/music/playlist/fr/', views.liste_de_lecture, name='playlist'),
 ]
