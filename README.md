@@ -136,4 +136,4 @@ In case you need to build only a part of the project, or work with the database,
 
 
 ### License
-The source code and the logo image are licensed under the conditions described in [LICENSE.txt](LICENSE.txt). "Griffy" font is under [SIL Open font license](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). "Noto Sans" font is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0). All other libraries are under licenses provided with their source code.
+The source code and the logo image are licensed under the conditions described in [LICENSE.txt](LICENSE.txt). "Griffy" font is under [SIL Open font license](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). "Noto Sans" font is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0). All other libraries are under the respective licenses provided with their source code.
