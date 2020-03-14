@@ -133,3 +133,7 @@ In case you need to build only a part of the project, or work with the database,
 * `$ make db-backup`: exports the data from all content tables to `.csv` files, one per each table, then packs them in a `.tar`. The resulting tarball will be in `db/` directory. Date and time will be appended to the filename, so _**it is safe to run it multiple times**. No backups will be overwritten._
 * `$ make db-import`: Looks for a file named `ds.db.tar` in the `db/` directory, created using `$ make db-backup` _(Note the tarball filenames!)_. If the file is found, **for each `.csv`** in the tarball, it **truncates the corresponding table** in the database, **then inserts the new data**. Unrelated tables will not be affected.
 * `$ make tar`: builds the django site (including images), then makes a compressed tarball out of it. Also, includes necessary install scripts. Check [Deployment](#deployment) for more info.
+
+
+### License
+The source code and the logo image are licensed under the conditions described in [LICENSE.txt](LICENSE.txt). "Griffy" font is under [SIL Open font license](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL). "Noto Sans" font is licensed under [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0). All other libraries are under licenses provided with their source code.
