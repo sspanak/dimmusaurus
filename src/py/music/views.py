@@ -22,7 +22,7 @@ def index(request):
     return redirect
 
 
-def playlist(request):
+def render_playlist(request):
     song_descriptions = get_all_songs(get_language()).filter(song__is_hidden=0)
     song_descriptions = song_descriptions.only(
         'song__id',
@@ -260,3 +260,19 @@ def lyrics(request, song_id):
 def paroles(request, song_id):
     activate('fr')
     return render_lyrics(request, song_id)
+
+
+# ######### Playlist ######### #
+def плейлиста(request):
+    activate('bg')
+    return render_playlist(request)
+
+
+def playlist(request):
+    activate('en')
+    return render_playlist(request)
+
+
+def liste_de_lecture(request):
+    activate('fr')
+    return render_playlist(request)
