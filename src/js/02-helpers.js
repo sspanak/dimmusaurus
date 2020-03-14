@@ -1,28 +1,4 @@
 /**
- * String.prototype.padStart() polyfill
- * https://github.com/uxitten/polyfill/blob/master/string.polyfill.js
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
- */
-if (!String.prototype.padStart) {
-	String.prototype.padStart = function padStart(length, str) {
-		let targetLength = length>>0; //truncate if number or convert non-number to 0;
-		let padString = String((typeof str !== 'undefined' ? str : ' '));
-
-		if (this.length > targetLength) {
-			return String(this);
-		} else {
-			targetLength = targetLength-this.length;
-			if (targetLength > padString.length) {
-				//append to original to ensure we are longer than needed
-				padString += padString.repeat(targetLength/padString.length);
-			}
-			return padString.slice(0,targetLength) + String(this);
-		}
-	};
-}
-
-
-/**
  * addLeadingZeros
  * Forces time format to "mm:ss", prepending leading zeros when necessary.
  * Input could be any: "3:5", "03:5", "3:05", "03:05". In all cases the result would be: "03:05".

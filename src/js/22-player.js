@@ -30,7 +30,11 @@ const Player = new class { // eslint-disable-line
 	 * @return {Boolean}
 	 */
 	isSupported() {
-		return this.isAudioTypeSupported('audio/ogg') || this.isAudioTypeSupported('audio/mp4');
+		return typeof Array.from !== 'undefined'
+			&& (
+				this.isAudioTypeSupported('audio/ogg') ||
+				this.isAudioTypeSupported('audio/mp4')
+			);
 	}
 
 
