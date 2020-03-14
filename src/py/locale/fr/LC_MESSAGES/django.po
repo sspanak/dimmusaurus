@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-07 15:21+0200\n"
+"POT-Creation-Date: 2020-03-14 10:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -229,11 +229,18 @@ msgstr ""
 "transforme en black metal en combinaison avec un orchestre classique. Bien "
 "sur, on n'a pas oublié la musique électronique. "
 
-#: src/py/music/templates/music/discography.html:36
-msgid "All the music is available for listening and downloading for free."
+#: src/py/music/templates/music/discography.html:46
+msgid ""
+"All music is composed by Димозавър (Dimmu Saurus), except where noted. "
+"Download, play and share to help him become famous. Dimmu Saurus is not "
+"responsible for any damage to your speakers, house or trouble with "
+"neighbours which may result in playing his music too loud."
 msgstr ""
-"La discographie complète est disponible gratuitement de télécharger et "
-"d'écouter."
+"Toute la musique, sauf indication contraire, est composée par Димозавър "
+"(Dimmu Saurus). Téléchargez, écoutez et partagez pour l'aider devenir "
+"célèbre. Dimmu Saurus n'est pas responsable des  dommages aux votre haut-"
+"parleurs, maison ou difficultés avec vos voisins, qui pourraient découler du "
+"niveau sonore trop élevé."
 
 #. Translators: LYRICS button on song page.
 #: src/py/music/templates/music/lyrics.html:22

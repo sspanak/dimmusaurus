@@ -32,11 +32,6 @@
 						 Dimmu Saurus' music is result of series of experiments with his guitar and his computer. They lead to almost anything you can imagine – from Blues to Heavy Metal, some Black and Thrash here and there, and last but not least – several Classical and Electronic tunes.
 					{% endblocktrans %}
 				</p>
-				<p>
-					{% blocktrans trimmed %}
-						All the music is available for listening and downloading for free.
-					{% endblocktrans %}
-				</p>
 			{% else %}
 				{% markdown %}{{ page_albums.0.description }}{% endmarkdown %}
 			{% endif %}
@@ -44,5 +39,15 @@
 
 	{% include "music/albums.html" %}
 
+	{% if not page.single_album %}
+		<hr>
+		<p class="license-notice">
+			<small>
+			{% blocktrans trimmed %}
+				All music is composed by Димозавър (Dimmu Saurus), except where noted. Download, play and share to help him become famous. Dimmu Saurus is not responsible for any damage to your speakers, house or trouble with neighbours which may result in playing his music too loud.
+			{% endblocktrans %}
+			</small>
+		</p>
+	{% endif %}
 </div>
 {% endblock %}

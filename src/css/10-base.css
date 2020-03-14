@@ -315,6 +315,8 @@ footer .copyright-copy, footer .copyright-last-year {
 	width: 45px;
 }
 
+.content-discography .license-notice {padding: 0 10px;}
+
 /*============== Version Info ==============*/
 .content-version .ascii-logo {
 	display: inline-block;
