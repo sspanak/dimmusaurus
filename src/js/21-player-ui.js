@@ -95,7 +95,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.disableControls();
 		this.showError(MESSAGES.errorLoadingTrack); // eslint-disable-line no-undef
 
-		console.error('Player failure requested.', error, error.message);
+		console.error(`Player failure requested. ${error.message}`);
 
 		return this;
 	}
@@ -569,8 +569,18 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			return this;
 		}
 
-		this.selectAll(this.selectors.audioSource).forEach($source => {
-			$source.addEventListener('error', event => callback(event));
+		const aSources = this.selectAll(this.selectors.audioSource);
+
+		let triesLeft = aSources.length - 1;
+
+		aSources.forEach($source => {
+			$source.addEventListener('error', () => {
+				if (triesLeft === 0) {
+					callback(new Error('All audio sources have failed loading.'));
+				} else {
+					triesLeft--;
+				}
+			});
 		});
 
 		return this;
