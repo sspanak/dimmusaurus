@@ -20,10 +20,15 @@ def determine_root_template(request):
 def get_language_links(context, language_list):
     for lang, lang_name in language_list:
         with translation_override(lang):
+            if context['page'].get('url_slugs_localized'):
+                slug = context['page']['url_slugs_localized'].get(lang, '')
+            else:
+                slug = context['page'].get('url_slug', '')
+
             url = '%s/%s%s%s' % (
                 gettext_lazy(context['page'].get('base_url', '')),
                 gettext_lazy(context['page'].get('url', '')),
-                gettext_lazy(context['page'].get('url_slug', '')),
+                slug,
                 gettext_lazy(context['page'].get('url_slug_operation', ''))
             )
 

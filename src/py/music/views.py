@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
-from .shortcuts import get_music_menu_album_list, get_all_songs
+from .shortcuts import get_music_menu_album_list, get_all_songs, get_album_language_urls
 from main.shortcuts import render_template, get_version_info
 
 
@@ -72,8 +72,7 @@ def render_albums(request, album_id=None):
             'page': {
                 'base_url': settings.BASE_URL,
                 'url': 'music/albums/',
-                'url_slug': '%d' % selected_album.album_id,
-                'url_slug_operation': '/switch_language/',
+                'url_slugs_localized': get_album_language_urls(album_id),
                 'title': selected_album.title,
                 'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),
                 'single_album': True,
