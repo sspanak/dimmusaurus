@@ -238,7 +238,7 @@ msgid ""
 msgstr ""
 "Toute la musique, sauf indication contraire, est composée par Димозавър "
 "(Dimmu Saurus). Téléchargez, écoutez et partagez pour l'aider devenir "
-"célèbre. Dimmu Saurus n'est pas responsable des  dommages aux votre haut-"
+"célèbre. Dimmu Saurus n'est pas responsable des dommages aux votre haut-"
 "parleurs, maison ou difficultés avec vos voisins, qui pourraient découler du "
 "niveau sonore trop élevé."
 
