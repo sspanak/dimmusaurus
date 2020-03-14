@@ -3,6 +3,7 @@ const Player = new class { // eslint-disable-line
 	constructor() {
 		this.currentTrack = -1;
 		this.playlist = [];
+		this.startupFailure = false;
 
 		window.addEventListener('load', () => this._init());
 	}
@@ -16,9 +17,14 @@ const Player = new class { // eslint-disable-line
 			return;
 		}
 
-		this.loadPlaylist();
-		PlayerUi.init();
-		PlayerUi.onProgressBarClick = (progress) => this.seek(progress);
+		try {
+			this.loadPlaylist();
+			PlayerUi.init();
+			PlayerUi.onProgressBarClick = (progress) => this.seek(progress);
+		} catch (error) {
+			console.error(`Player initialization failure. ${error}`);
+			this.startupFailure = true;
+		}
 	}
 
 
@@ -30,7 +36,7 @@ const Player = new class { // eslint-disable-line
 	 * @return {Boolean}
 	 */
 	isSupported() {
-		return typeof Array.from !== 'undefined'
+		return !this.startupFailure
 			&& (
 				this.isAudioTypeSupported('audio/ogg') ||
 				this.isAudioTypeSupported('audio/mp4')

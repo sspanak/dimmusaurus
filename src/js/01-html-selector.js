@@ -9,7 +9,10 @@ class UiElement { // eslint-disable-line no-unused-vars
 		let $elements = [];
 		if (typeof selector === 'string') {
 			this.selector = selector;
-			$elements = Array.from(document.querySelectorAll(selector));
+			const $nodes = document.querySelectorAll(selector);
+			for (let i = 0; i < $nodes.length; i++) {
+				$elements.push($nodes[i]);
+			}
 		}
 
 		if ($elements.length === 0) {
