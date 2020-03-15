@@ -33,8 +33,6 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			return;
 		}
 
-		this.select(this.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
-
 		this.run();
 
 		window.addEventListener('hashchange', event => this._forceHistoryState(event));
@@ -114,6 +112,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	showSpinner() {
+		this.select(this.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
 		Ajaxify.select(Ajaxify.selectors.ajaxLoader).addClass(Ajaxify.classes.ajaxLoaderSpinning);
 	}
 
@@ -125,6 +124,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	hideSpinner() {
+		this.select(this.selectors.ajaxLoaderText).setHTML('');
 		Ajaxify.select(Ajaxify.selectors.ajaxLoader).removeClass(Ajaxify.classes.ajaxLoaderSpinning);
 	}
 
