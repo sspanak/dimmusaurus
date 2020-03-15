@@ -68,7 +68,10 @@
 		font-size: 1.15em;
 	}
 
-	.menu-playlist-wrapper {bottom: 3em;}
+	.menu-playlist-wrapper {
+		bottom: 3em;
+		width: 100%;
+	}
 	.menu-playlist {max-height: calc(80vh - 3em);}
 
 	.menu-playlist .playlist-time {margin-left: 5px;}

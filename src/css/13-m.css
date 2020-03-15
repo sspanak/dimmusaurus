@@ -106,7 +106,10 @@
 		padding: 0 12px 2px 12px;
 	}
 
-	.menu-playlist-wrapper {bottom: 2.5em;}
+	.menu-playlist-wrapper {
+		bottom: 2.5em;
+		min-width: 524px;
+	}
 	.menu-playlist {max-height: calc(60vh - 2.5em);}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
