@@ -4,6 +4,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		this.playbackRefreshInterval = 0;
 		this.onProgressBarClick = () => null;
+		this.onAudioLoad = () => null;
 
 		this.classes = {
 			disabled: 'disabled',
@@ -63,7 +64,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		});
 
 		this.select(this.selectors.audio).addEventListener('loadstart', () => this.showLoading());
-		this.select(this.selectors.audio).addEventListener('loadeddata', () => this.hideLoading());
+		this.select(this.selectors.audio).addEventListener('loadeddata', () => {
+			this.hideLoading();
+			this.onAudioLoad();
+		});
 	}
 
 
@@ -125,6 +129,17 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.trackTitle).setHTML('');
 
 		return this;
+	}
+
+
+	/**
+	 * hasFailed
+	 * Returns whether the UI is in error state.
+	 *
+	 * @return {Boolean}
+	 */
+	hasFailed() {
+		return this.select(this.selectors.player).hasClass(this.classes.error);
 	}
 
 
@@ -307,7 +322,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 	/**
 	 * onPlayback
-	 * Updates the UI with the track progress every second
+	 * Updates the UI with the track progress every second.
 	 */
 	onPlayback() {
 		if (!this.select(this.selectors.audio) || !this.isPlaying()) {
@@ -486,6 +501,17 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		return secondsToTime(sec);
 	}
 
+
+	/**
+	 * getProgress
+	 * Returns track progress amount in percent.
+	 *
+	 * @return {number}
+	 */
+	getProgress() {
+		const progress = timeToSeconds(this.getCurrentTime()) / timeToSeconds(this.getTotalTime()) * 100;
+		return Number.isNaN(progress) || progress < 0 ? 0 : progress;
+	}
 
 
 	/**

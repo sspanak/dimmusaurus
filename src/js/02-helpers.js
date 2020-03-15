@@ -84,7 +84,7 @@ function getPlaylistItemTemplate(id, name, duration, htmlIdPrefix) { // eslint-d
 /**
  * getAudioSourceTemplate
  *
- * @param  {Array<{ file_type: string, file_name: string }>} sources [description]
+ * @param  {Array<{ file_type: string, file_name: string }>} sources
  * @return {string} HTML
  */
 function getAudioSourceTemplate(sources) { // eslint-disable-line no-unused-vars
@@ -118,4 +118,48 @@ function getAudioSourceTemplate(sources) { // eslint-disable-line no-unused-vars
 			return `<source src="${src.file_name}" type='${file_type}'>`;
 		})
 		.join('');
+}
+
+
+/**
+ * setCookie
+ *
+ * @param {string} name
+ * @param {string} value
+ * @return {void}
+ */
+function setCookie(name, value) {
+	if (typeof name !== 'string' || typeof value !== 'string') {
+		console.error(`Cannot set cookie: ${name}=${value}. Both name and value must be strings.`);
+		return;
+	}
+	if (name === '') {
+		console.error('Cookie name cannot be an empty string.');
+		return;
+	}
+
+
+	let days = 30;
+	if (value === '') {
+		days = 0;
+	}
+
+	const d = new Date();
+	let expires = d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+	expires = d.toUTCString();
+
+	document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+}
+
+
+/**
+ * getCookie
+ *
+ * @param  {string} name
+ * @return {string}
+ */
+function getCookie(name) {
+	const matches = document.cookie.match(new RegExp(`${name}=([^;]+)`));
+
+	return Array.isArray(matches) && matches[1] ? matches[1] : '';
 }
