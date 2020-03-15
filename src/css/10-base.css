@@ -50,7 +50,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 .ajax-loader .spinner {
-	background: center no-repeat url(img/vrtelejka.gif);
+	background: center no-repeat url(img/vrtelejka-000.gif);
 	background-size: contain;
 	display: flex;
 	height: 2.4em;
@@ -164,7 +164,17 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
 .player .loading-indicator {display: none;}
+.player .player-loading-spinner {
+	align-self: center;
+	background: center no-repeat url(/static/img/vrtelejka-333.gif);
+	background-size: contain;
+	display: inline-flex;
+	height: 1.15em;
+	margin: 0 0.25em 0 0;
+	width: 1.15em;
+}
 
 .player .track-progress-bar-container {padding: 0 10px;}
 .player .track-progress-bar {

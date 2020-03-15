@@ -62,12 +62,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			this.fail(error);
 		});
 
-		this.select(this.selectors.audio).addEventListener('loadstart', () => {
-			this.select(this.selectors.player).addClass(this.classes.loading);
-		});
-		this.select(this.selectors.audio).addEventListener('loadeddata', () => {
-			this.select(this.selectors.player).removeClass(this.classes.loading);
-		});
+		this.select(this.selectors.audio).addEventListener('loadstart', () => this.showLoading());
+		this.select(this.selectors.audio).addEventListener('loadeddata', () => this.hideLoading());
 	}
 
 
@@ -80,7 +76,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	show() {
 		this.select('body').removeClass('unsupported-player');
-		this.select(this.selectors.trackLoadingIndicator).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
 	}
 
 
@@ -114,6 +109,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.player).addClass(this.classes.error);
 		this.select(this.selectors.trackTitle).setHTML(errorMessage);
 
+		this.hideLoading();
+
 		return this;
 	}
 
@@ -128,6 +125,30 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.trackTitle).setHTML('');
 
 		return this;
+	}
+
+
+	/**
+	 * showLoading
+	 * Enables loading label and changes progress bar style to "loading".
+	 *
+	 * @return {void}
+	 */
+	showLoading() {
+		this.select(this.selectors.trackLoadingIndicator).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
+		this.select(this.selectors.player).addClass(this.classes.loading);
+	}
+
+
+	/**
+	 * hideLoading
+	 * Turns off loading label on changes progress bar to normal
+	 *
+	 * @return {void}
+	 */
+	hideLoading() {
+		this.select(this.selectors.player).removeClass(this.classes.loading);
+		this.select(this.selectors.trackLoadingIndicator).setHTML('');
 	}
 
 
