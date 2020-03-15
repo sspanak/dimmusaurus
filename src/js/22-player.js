@@ -1,6 +1,11 @@
 /* eslint no-undef: 0 */
 const Player = new class { // eslint-disable-line
 	constructor() {
+		this.cookies = {
+			lastTrack: 'track',
+			lastTrackProgress: 'track_progress'
+		};
+
 		this.currentTrack = -1;
 		this.playlist = [];
 		this.startupFailure = false;
@@ -18,13 +23,16 @@ const Player = new class { // eslint-disable-line
 		}
 
 		try {
-			this.loadPlaylist();
+			this.loadPlaylist().then(() => this.restoreLastPlayedTrack());
+
 			PlayerUi.init();
 			PlayerUi.onProgressBarClick = (progress) => this.seek(progress);
 		} catch (error) {
 			console.error(`Player initialization failure. ${error}`);
 			this.startupFailure = true;
 		}
+
+		window.addEventListener('beforeunload', () => this.saveTrackForNextTime());
 	}
 
 
@@ -62,6 +70,48 @@ const Player = new class { // eslint-disable-line
 		} catch (e) {
 			return false;
 		}
+	}
+
+
+	/**
+	 * saveTrackForNextTime
+	 * Saves the current playing track and progress. Later, they can be restored
+	 * with this.restoreLastPlayedTrack().
+	 */
+	saveTrackForNextTime() {
+		if (PlayerUi.hasFailed()) {
+			return;
+		}
+
+		setCookie(this.cookies.lastTrack, `${this.currentTrack}`); // eslint-disable-line no-undef
+		setCookie(this.cookies.lastTrackProgress, `${PlayerUi.getProgress()}`); // eslint-disable-line no-undef
+	}
+
+
+	/**
+	 * restoreLastPlayedTrack
+	 * Once the page loads, restores the last played track and time. This is useful when changing
+	 * the language, or when coming back to the site several days later.
+	 */
+	restoreLastPlayedTrack() {
+		const trackId = Number.parseInt(getCookie(this.cookies.lastTrack)); // eslint-disable-line no-undef
+		if (Number.isNaN(trackId) || !this.playlist[trackId]) {
+			return;
+		}
+
+		this.selectTrack(trackId);
+
+		const progress = Number.parseFloat(getCookie(this.cookies.lastTrackProgress)); // eslint-disable-line no-undef
+		if (Number.isNaN(progress) || progress <= 0 || progress > 100) {
+			return;
+		}
+
+		PlayerUi.onAudioLoad = () => {
+			this.seek(progress);
+			// Progress must be restored only on initial page load. However, onAudioLoad() is called
+			// on every track change. To preven resetting the time incorrectly, we must unset the handler.
+			PlayerUi.onAudioLoad = () => null;
+		};
 	}
 
 
@@ -262,12 +312,12 @@ const Player = new class { // eslint-disable-line
 	 * Fetches the playlist from the backend and displays if there were no errors.
 	 * In case there were, it will enable the "Playlist unavailable" message.
 	 *
-	 * @return {void}
+	 * @return {Promise<void>}
 	 */
 	loadPlaylist() {
 		const languageCode = document.querySelector('html').getAttribute('lang');
 
-		axios.get(`/api/music/playlist/${languageCode}/`)
+		return axios.get(`/api/music/playlist/${languageCode}/`)
 			.then(data => {
 				this.playlist = [];
 				let track = -1;
