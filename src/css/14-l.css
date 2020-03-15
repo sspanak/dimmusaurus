@@ -164,6 +164,8 @@
 
 	.player .total-time::before {content: ""; margin: 0 auto;}
 
+	.player .player-controls .player-button {width: 48px;}
+
 /*============== Footer ==============*/
 	footer .social-label {
 		display: block;
