@@ -142,6 +142,12 @@
 	}
 	.player .player-controls {font-size: 1.2em;}
 
+	.player .track-title,
+	.player .loading-indicator {
+		flex: initial;
+		width: 340px;
+	}
+
 	.player .track-progress-bar-container {
 		align-items: center;
 		flex: auto;
