@@ -32,6 +32,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			previous: '#pl-previous',
 			progressBar: '.track-progress-bar',
 			progressTime: '.player .progress-time',
+			timeBalloon: '.player .time-balloon',
+			timeBalloonContents: '.player .time-balloon-time',
 			totalTime: '.player .total-time',
 			trackLoadingIndicator: '.player .loading-indicator .label',
 			trackTitle: '.player .track-title',
@@ -47,6 +49,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		// we need to use addEventListener, because this is the only way of getting mouse coordinates
 		if (this.select(this.selectors.progressBar)) {
 			this.$element.addEventListener('mouseup', (event) => this.handleProgressBarClick(event));
+		}
+
+		if (this.select(this.selectors.progressBar)) {
+			this.$element.addEventListener('mousemove', (event) => this.handleProgressBarHover(event));
 		}
 
 		// toggle playlist both from the button and track title
@@ -164,6 +170,17 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	hideLoading() {
 		this.select(this.selectors.player).removeClass(this.classes.loading);
 		this.select(this.selectors.trackLoadingIndicator).setHTML('');
+	}
+
+
+	/**
+	 * isLoading
+	 * Returns whether the UI is in loading state.
+	 *
+	 * @return {Boolean}
+	 */
+	isLoading() {
+		return this.select(this.selectors.player).hasClass(this.classes.loading);
 	}
 
 
@@ -299,24 +316,53 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * Detects the click position on the progress bar, calculates the seek percentage from it,
 	 * then uses this.seek() to seek the song and update the UI.
 	 *
-	 *
 	 * @param {Event} event
 	 * @return {void}
 	 */
 	handleProgressBarClick(event) {
-		if (this.isPlayingDisabled()) {
+		if (this.isPlayingDisabled() || this.isLoading()) {
 			return;
 		}
 		if (!this.select(this.selectors.progressBar)) {
 			return;
 		}
 
-		const pbRect = this.$element.getBoundingClientRect();
-		const seekTarget = 1 - (pbRect.width - (event.clientX - pbRect.x)) / pbRect.width;
+		const progressTime = progressBarPositionToSeconds(
+			this.$element.getBoundingClientRect(),
+			event.clientX,
+			this.getTotalTime()
+		);
 
 		if (typeof this.onProgressBarClick === 'function') {
-			this.onProgressBarClick(seekTarget * 100);
+			this.onProgressBarClick(progressTime);
 		}
+	}
+
+
+	/**
+	 * handleProgressBarHover
+	 * Detects the hover position over the progress bar and displays a time popup for that
+	 * location.
+	 *
+	 * @param {Event} event
+	 * @return {void}
+	 */
+	handleProgressBarHover(event) {
+		if (this.isPlayingDisabled() || this.isLoading()) {
+			return;
+		}
+		if (!this.select(this.selectors.progressBar)) {
+			return;
+		}
+
+		const timeAtMouse = progressBarPositionToSeconds(
+			this.$element.getBoundingClientRect(),
+			event.clientX,
+			this.getTotalTime()
+		);
+
+		this.select(this.selectors.timeBalloon).setStyle({ left: `${event.clientX - 25}px` });
+		this.select(this.selectors.timeBalloonContents).setHTML(secondsToTime(timeAtMouse));
 	}
 
 
