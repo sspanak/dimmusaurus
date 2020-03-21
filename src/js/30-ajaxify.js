@@ -112,7 +112,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	showSpinner() {
-		this.select(this.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
+		Ajaxify.select(Ajaxify.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
 		Ajaxify.select(Ajaxify.selectors.ajaxLoader).addClass(Ajaxify.classes.ajaxLoaderSpinning);
 	}
 
@@ -124,8 +124,12 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	hideSpinner() {
-		this.select(this.selectors.ajaxLoaderText).setHTML('');
 		Ajaxify.select(Ajaxify.selectors.ajaxLoader).removeClass(Ajaxify.classes.ajaxLoaderSpinning);
+		setTimeout(
+			// this is to avoid hiding the text before the css animation has finished
+			() => Ajaxify.select(Ajaxify.selectors.ajaxLoaderText).setHTML(''),
+			5000
+		);
 	}
 
 
