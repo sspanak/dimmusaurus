@@ -23,6 +23,7 @@
 
 	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
 	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
+	--shadow-top-small: 0 -1px 4px rgba(50, 50, 50, 0.57);
 }
 
 body {
@@ -88,12 +89,20 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 .player .disabled {color: var(--menu-icon-inactive-color);}
 .player .loading-indicator {color: var(--body-background-color);}
 .player .player-controls .player-button {border-left: 1px solid var(--menu-separator-medium);}
+.player .time-balloon-time-wrapper,
+.player .time-balloon-pointer {border: 1px solid var(--menu-separator-strong);}
+.player .time-balloon-time,
+.player .time-balloon-pointer {
+	background-color: var(--menu-background-color);
+	color: var(--menu-item-hovered);
+}
 .player .track-progress {background: var(--menu-text-color);}
 .player .track-progress-bar-background {background: var(--menu-separator-strong);}
 .player-error .track-title {color: var(--menu-item-hovered);}
 
-.shadow-top {box-shadow: var(--shadow-top);}
 .shadow-bottom {box-shadow: var(--shadow-bottom);}
+.shadow-top {box-shadow: var(--shadow-top);}
+.shadow-top-small {box-shadow: var(--shadow-top-small);}
 
 /**
  * Link animations and special effects for desktop

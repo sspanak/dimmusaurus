@@ -235,18 +235,15 @@ const Player = new class { // eslint-disable-line
 	 * seek
 	 * Seeks to a different time point of the currently playing song.
 	 *
-	 * @param  {number} percent
+	 * @param  {number} time 	[seconds since the beginning]
 	 * @return {void}
 	 */
-	seek(percent) {
+	seek(time) {
 		if (PlayerUi.isPlayingDisabled()) {
 			return;
 		}
 
-		let newSeconds = timeToSeconds(PlayerUi.getTotalTime()) / 100 * percent;
-		if (Number.isNaN(newSeconds) || newSeconds < 0) {
-			newSeconds = 0;
-		}
+		const newSeconds = (Number.isNaN(time) || time < 0) ? 0 :  time;
 
 		PlayerUi.getAudio().currentTime = newSeconds;
 		PlayerUi.updateProgress();

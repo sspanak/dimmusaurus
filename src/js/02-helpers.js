@@ -62,6 +62,25 @@ function secondsToTime(seconds) { // eslint-disable-line no-unused-vars
 
 
 /**
+ * progressBarPositionToSeconds
+ * Converts the clicked progress bar position to seconds
+ *
+ * @param  {TextRectangle} boundingRect
+ * @param  {number}        totalSeconds
+ * @param  {'MM:SS'}       totalTime
+ * @return {number}
+ */
+function progressBarPositionToSeconds(boundingRect, clickX, totalTime) { // eslint-disable-line no-unused-vars
+	if (typeof boundingRect !== 'object' || Number.isNaN(clickX) || clickX < 0) {
+		return 0;
+	}
+
+	const seekTarget = 1 - (boundingRect.width - (clickX - boundingRect.x)) / boundingRect.width;
+	return seekTarget * timeToSeconds(totalTime);
+}
+
+
+/**
  * getPlaylistItemTemplate
  *
  * @param  {number} id

@@ -148,6 +148,28 @@
 		width: 340px;
 	}
 
+	.player .time-balloon {
+		bottom: 21px;
+		position: fixed;
+	}
+	.player .time-balloon-time-wrapper {
+		position: relative;
+	}
+	.player .time-balloon-time {
+		font-size: 0.9em;
+		padding: 3px 7px;
+		position: relative;
+		z-index: 10;
+	}
+	.player .time-balloon-pointer {
+		height: 10px;
+		margin: 0 auto;
+		position: relative;
+		top: -7px;
+		transform: rotateZ(45deg);
+		width: 10px;
+	}
+
 	.player .track-progress-bar-container {
 		align-items: center;
 		flex: auto;
