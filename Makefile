@@ -46,8 +46,8 @@ django-static:
 	bash -c build-tools/version-file-generate.sh
 
 translations:
-	django-admin makemessages -l bg
-	django-admin makemessages -l fr
+	cd src/py && django-admin makemessages -l bg
+	cd src/py && django-admin makemessages -l fr
 
 ui:
 	cp src/demo.html ui-demo/index.html
