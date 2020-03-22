@@ -76,7 +76,10 @@
 		margin: 12px 8px 0 8px;
 		padding: 8px 6px;
 	}
-	.menu-playlist {max-height: calc(80vh - 3em);}
+	.menu-playlist {
+		height: 80vh;
+		max-height: calc(80vh - 3em);
+	}
 	.menu-playlist .playlist-time {margin-left: 5px;}
 
 

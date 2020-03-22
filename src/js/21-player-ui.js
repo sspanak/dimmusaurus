@@ -32,6 +32,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			previous: '#pl-previous',
 			progressBar: '.track-progress-bar',
 			progressTime: '.player .progress-time',
+			searchField: '.playlist-search input',
 			timeBalloon: '.player .time-balloon',
 			timeBalloonContents: '.player .time-balloon-time',
 			totalTime: '.player .total-time',
@@ -195,6 +196,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		Menu.closeMenuLanguage(); // eslint-disable-line no-undef
 		Menu.closeMenuMain(); // eslint-disable-line no-undef
 		Menu.closeMenuMusic(); // eslint-disable-line no-undef
+
+		this.clearSearch();
 		this.select(this.selectors.playlist).toggleClass(Menu.closedMenuClass); // eslint-disable-line no-undef
 	}
 
@@ -284,6 +287,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 	disableControls() {
 		this.disablePlay();
+		this.disableSearch();
 
 		[
 			this.selectors.volume,
@@ -298,6 +302,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 	enableControls() {
 		this.enablePlay();
+		this.enableSearch();
 
 		[
 			this.selectors.volume,
@@ -309,6 +314,38 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		return this;
 	}
 
+
+	/**
+	 * disableSearch
+	 * Self-explanatory
+	 */
+	disableSearch() {
+		this.clearSearch();
+
+		if (this.select(this.selectors.searchField)) {
+			this.$element.disabled = true;
+		}
+	}
+
+
+	/**
+	 * enableSearch
+	 * Self-explanatory
+	 */
+	enableSearch() {
+		if (this.select(this.selectors.searchField)) {
+			this.$element.disabled = false;
+		}
+	}
+
+
+	handleSearch(searchField) {
+		if (typeof searchField !== 'object' || searchField.value === undefined) {
+			return;
+		}
+
+		this.searchForTrack(searchField.value);
+	}
 
 
 	/**
@@ -425,6 +462,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			return this;
 		}
 
+		this.clearSearch();
 		this.select(this.selectors.play);
 		this.removeClass(this.classes.play);
 		this.addClass(this.classes.pause);
@@ -714,5 +752,41 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.setPlaybackTime('00:00');
 
 		return this;
+	}
+
+
+	/**
+	 * searchForTrack
+	 * Filters the playlist by the given track name.
+	 *
+	 * @param  {string} title
+	 * @return {void}
+	 */
+	searchForTrack(title) {
+		const searchTerm = new RegExp(`${title}`, 'i');
+
+		let filteredPlaylist = Player.getPlaylist(); // eslint-disable-line no-undef
+		if (searchTerm !== '') {
+			filteredPlaylist = filteredPlaylist.filter(
+				track => track.title && searchTerm.test(`${track.title}`)
+			);
+		}
+
+		this.buildPlaylist(filteredPlaylist);
+	}
+
+
+	/**
+	 * clearSearch
+	 * Clears the search field and restores all playlist items.
+	 *
+	 * @return {void}
+	 */
+	clearSearch() {
+		if (this.select(this.selectors.searchField)) {
+			this.$element.value = '';
+		}
+
+		this.searchForTrack('');
 	}
 };

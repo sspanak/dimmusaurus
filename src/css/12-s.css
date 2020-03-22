@@ -19,7 +19,10 @@
 		margin: 12px 16px 0 16px;
 		padding: 6px 8px;
 	}
-	.menu-playlist {max-height: calc(80vh - 2.5em);}
+	.menu-playlist {
+		height: 80vh;
+		max-height: calc(80vh - 2.5em);
+	}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
 	.ajax-loader-spinning {width: 163px;}
