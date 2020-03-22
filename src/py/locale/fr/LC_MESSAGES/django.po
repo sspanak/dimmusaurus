@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-22 15:10+0200\n"
+"POT-Creation-Date: 2020-03-22 17:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -109,43 +109,43 @@ msgstr "musique/"
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: main/templates/main/__root.html:186
+#: main/templates/main/__root.html:189
 msgid "Search..."
 msgstr "Rechercher..."
 
-#: main/templates/main/__root.html:191
+#: main/templates/main/__root.html:195
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
 
-#: main/templates/main/__root.html:202
+#: main/templates/main/__root.html:206
 msgid "Follow"
 msgstr "Suivez"
 
-#: main/templates/main/__root.html:215
+#: main/templates/main/__root.html:219
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: main/templates/main/__root.html:220
+#: main/templates/main/__root.html:224
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: main/templates/main/__root.html:240
+#: main/templates/main/__root.html:244
 msgid "Toggle Playlist"
 msgstr "Liste de lecture"
 
-#: main/templates/main/__root.html:271
+#: main/templates/main/__root.html:275
 msgid "Sound Volume"
 msgstr "Son"
 
-#: main/templates/main/__root.html:275
+#: main/templates/main/__root.html:279
 msgid "Previous Track"
 msgstr "Précédent"
 
-#: main/templates/main/__root.html:279
+#: main/templates/main/__root.html:283
 msgid "Play / Pause"
 msgstr "Lire / Pause"
 
-#: main/templates/main/__root.html:283
+#: main/templates/main/__root.html:287
 msgid "Next Track"
 msgstr "Suivant"
 
