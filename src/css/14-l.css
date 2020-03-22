@@ -116,7 +116,8 @@
 
 
 /*============== Playlist Menu ==============*/
-	.menu-playlist li > .menu-item {font-size: 0.9em;}
+	.menu-playlist li > .menu-item,
+	.menu-playlist-wrapper .playlist-search input {font-size: 0.9em;}
 
 
 /*============== Content ==============*/

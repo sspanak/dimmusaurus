@@ -479,9 +479,15 @@
 
 		<div class="menu-playlist-wrapper shadow-top menu-closed">
 			<div class="menu menu-playlist">
+
+				<div class="playlist-search">
+					<input type="text" name="search-song" placeholder="{% trans 'Search...' %}">
+				</div>
+
 				<div id="playlist-unavailable-label" class="playlist-unavailable-label">
 					Playlist unavailable. Refresh the page to try again.
 				</div>
+
 				<ul id="playlist-list">
 					<li>
 						<a class="menu-item" onclick="Player.selectTrack(666)">

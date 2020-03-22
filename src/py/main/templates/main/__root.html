@@ -181,12 +181,19 @@
 		</div>
 
 		<div class="menu-playlist-wrapper shadow-top menu-closed playlist-unavailable">
+
+			<div class="playlist-search">
+				<input type="text" name="search-song" placeholder="{% trans 'Search...' %}">
+			</div>
+
 			<div class="menu menu-playlist">
 				<div id="playlist-unavailable-label" class="playlist-unavailable-label">
 					{% trans 'Playlist unavailable. Refresh the page to try again.' %}
 				</div>
+
 				<ul id="playlist-list"></ul>
 			</div>
+
 		</div>
 
 		<!-- Whitespace ruins alignment, so <a> tags had to be compressed -->

@@ -124,6 +124,14 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 
 /*============== Playlist Menu ==============*/
 .menu-playlist-wrapper {position: fixed;}
+
+.menu-playlist-wrapper .playlist-search {display: flex;}
+.menu-playlist-wrapper .playlist-search input {
+	border: none;
+	display: flex;
+	flex: auto;
+}
+
 .menu-playlist {
 	border-radius: 10px;
 	margin: 12px 6px 0 0;
