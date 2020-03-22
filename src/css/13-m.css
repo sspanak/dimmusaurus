@@ -110,6 +110,10 @@
 		bottom: 2.5em;
 		min-width: 524px;
 	}
+	.menu-playlist-wrapper .playlist-search input {
+		margin: 14px 16px 0 16px;
+		padding: 8px 6px;
+	}
 	.menu-playlist {max-height: calc(60vh - 2.5em);}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
@@ -195,12 +199,12 @@
 
 	.menu-music > ul {padding-left: 1em;}
 
-	.menu:not(.menu-playlist) li > a {
+	.menu:not(.menu-playlist) li .menu-item {
 		display: block;
 		font-size: 1.1em;
 	}
 
-	.menu-playlist li > a {
+	.menu-playlist li .menu-item, .menu-playlist-wrapper .playlist-search input {
 		font-size: 1em;
 	}
 

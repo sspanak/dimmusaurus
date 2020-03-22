@@ -15,6 +15,10 @@
 		max-width: 100%;
 		width: 576px;
 	}
+	.menu-playlist-wrapper .playlist-search input {
+		margin: 12px 16px 0 16px;
+		padding: 6px 8px;
+	}
 	.menu-playlist {max-height: calc(80vh - 2.5em);}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
