@@ -330,4 +330,14 @@ const Player = new class { // eslint-disable-line
 				PlayerUi.buildPlaylist([]);
 			});
 	}
+
+
+	/**
+	 * getPlaylist
+	 *
+	 * @return {{ id: number, title: string, duration: string, files: {file_type, file_name}[] }[]}
+	 */
+	getPlaylist() {
+		return this.playlist;
+	}
 };

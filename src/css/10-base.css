@@ -131,6 +131,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	display: flex;
 	flex: auto;
 }
+.menu-playlist-wrapper .playlist-search input[disabled] {display: none;}
 
 .menu-playlist {
 	border-radius: 10px;

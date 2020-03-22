@@ -481,7 +481,11 @@
 			<div class="menu menu-playlist">
 
 				<div class="playlist-search">
-					<input type="text" name="search-song" placeholder="{% trans 'Search...' %}">
+					<input
+						type="text"
+						name="search-song"
+						placeholder="Search..."
+						onkeyup="PlayerUi.handleSearch(this)">
 				</div>
 
 				<div id="playlist-unavailable-label" class="playlist-unavailable-label">
