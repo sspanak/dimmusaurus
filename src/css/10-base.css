@@ -1,10 +1,11 @@
 /**********************************************************************************
  * Reset styles
  **********************************************************************************/
-.hidden, .menu-closed {
-	height: 0 !important;
-	overflow: hidden !important;
-	padding: 0 !important;
+.hidden {display: none !important;}
+.menu-closed {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
 }
 
 
