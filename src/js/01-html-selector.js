@@ -42,6 +42,20 @@ class UiElement { // eslint-disable-line no-unused-vars
 	}
 
 
+	selectParent() {
+		if (this.$element === null) {
+			console.error('Can not select a parent element, when no element is selected');
+		}
+
+		this.$element = this.$element.parentElement;
+		if (!this.$element) {
+			console.error('Currently selected element has no parrent');
+		}
+
+		return this;
+	}
+
+
 	hasClass(className) {
 		if (!this.$element) {
 			console.warn('Calling hasClass() without selected $element.');

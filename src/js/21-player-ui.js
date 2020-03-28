@@ -9,6 +9,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.classes = {
 			disabled: 'disabled',
 			error: 'player-error',
+			hidden: 'hidden',
 			loading: 'player-loading',
 			muted: 'fa-volume-mute',
 			pause: 'fa-pause',
@@ -763,16 +764,28 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	searchForTrack(title) {
-		const searchTerm = new RegExp(`${title}`, 'i');
+		const playlist = Player.getPlaylist(); // eslint-disable-line no-undef
+		playlist.forEach((track, trackId) => {
+			this
+				.select(`${this.selectors.playlistTrackPrefix}${trackId}`)
+				.selectParent().removeClass(this.classes.hidden);
+		});
 
-		let filteredPlaylist = Player.getPlaylist(); // eslint-disable-line no-undef
-		if (searchTerm !== '') {
-			filteredPlaylist = filteredPlaylist.filter(
-				track => track.title && searchTerm.test(`${track.title}`)
-			);
+		if (title === '') {
+			return;
 		}
 
-		this.buildPlaylist(filteredPlaylist);
+		const searchTerm = new RegExp(`${title}`, 'i');
+		playlist
+			.forEach((track, trackId) => {
+				if (track.title && searchTerm.test(`${track.title}`)) {
+					return;
+				}
+
+				this
+					.select(`${this.selectors.playlistTrackPrefix}${trackId}`)
+					.selectParent().addClass(this.classes.hidden);
+			});
 	}
 
 

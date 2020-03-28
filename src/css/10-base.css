@@ -1,11 +1,12 @@
 /**********************************************************************************
  * Reset styles
  **********************************************************************************/
-.menu-closed {
-	height: 0;
-	overflow: hidden;
-	padding: 0;
+.hidden, .menu-closed {
+	height: 0 !important;
+	overflow: hidden !important;
+	padding: 0 !important;
 }
+
 
 img {border: 0 none;}
 body {
