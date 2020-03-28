@@ -20,8 +20,8 @@
 		padding: 6px 8px;
 	}
 	.menu-playlist {
-		height: 70vh;
-		max-height: calc(70vh - 2.5em);
+		height: 75vh;
+		max-height: calc(75vh - 3em - 50px); /* height - footer - search */
 	}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 

@@ -115,8 +115,8 @@
 		padding: 8px 6px;
 	}
 	.menu-playlist {
-		height: 60vh;
-		max-height: calc(60vh - 2.5em);
+		height: 55vh;
+		max-height: calc(55vh - 2.5em - 50px); /* height - footer - search */
 	}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 

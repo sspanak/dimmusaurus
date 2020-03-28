@@ -11,4 +11,9 @@
 		margin-right: 8%;
 		width: 42%;
 	}
+
+	.menu-playlist {
+		height: 60vh;
+		max-height: calc(60vh - 2.5em - 50px); /* height - footer - search */
+	}
 }
