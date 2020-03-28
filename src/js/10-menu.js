@@ -55,6 +55,11 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			this.select(this.selectors.content).addEventListener('click', () => {
 				this.closeAll();
 			});
+			document.addEventListener('keyup', event => {
+				if ('code' in event && event.code === 'Escape') {
+					this.closeAll();
+				}
+			});
 		});
 	}
 
