@@ -225,11 +225,11 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	buildPlaylist(playlist) {
 		if (!playlist || !playlist.length) {
 			console.warn('Displaying empty playlist.');
-
 			this.select(this.selectors.playlist).addClass('playlist-unavailable');
+		} else {
+			this.select(this.selectors.playlist).removeClass('playlist-unavailable');
 		}
 
-		this.select(this.selectors.playlist).removeClass('playlist-unavailable');
 
 		let playlistTemplate = '';
 		playlist.forEach((item, index) => {

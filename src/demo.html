@@ -478,16 +478,16 @@
 		</div>
 
 		<div class="menu-playlist-wrapper shadow-top menu-closed">
+
+			<div class="playlist-search">
+				<input
+					type="text"
+					name="search-song"
+					placeholder="Search..."
+					onkeyup="PlayerUi.handleSearch(this)">
+			</div>
+
 			<div class="menu menu-playlist">
-
-				<div class="playlist-search">
-					<input
-						type="text"
-						name="search-song"
-						placeholder="Search..."
-						onkeyup="PlayerUi.handleSearch(this)">
-				</div>
-
 				<div id="playlist-unavailable-label" class="playlist-unavailable-label">
 					Playlist unavailable. Refresh the page to try again.
 				</div>
