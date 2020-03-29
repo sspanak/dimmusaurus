@@ -3,7 +3,7 @@ const Player = new class { // eslint-disable-line
 	constructor() {
 		this.cookies = {
 			lastTrack: 'track',
-			lastTrackProgress: 'track_progress'
+			lastTrackTime: 'track_time'
 		};
 
 		this.currentTrack = -1;
@@ -26,7 +26,7 @@ const Player = new class { // eslint-disable-line
 			this.loadPlaylist().then(() => this.restoreLastPlayedTrack());
 
 			PlayerUi.init();
-			PlayerUi.onProgressBarClick = (progress) => this.seek(progress);
+			PlayerUi.onProgressBarClick = (time) => this.seek(time);
 		} catch (error) {
 			console.error(`Player initialization failure. ${error}`);
 			this.startupFailure = true;
@@ -84,7 +84,10 @@ const Player = new class { // eslint-disable-line
 		}
 
 		setCookie(this.cookies.lastTrack, `${this.currentTrack}`); // eslint-disable-line no-undef
-		setCookie(this.cookies.lastTrackProgress, `${PlayerUi.getProgress()}`); // eslint-disable-line no-undef
+		setCookie(
+			this.cookies.lastTrackTime,
+			`${timeToSeconds(PlayerUi.getCurrentTime())}` // eslint-disable-line no-undef
+		);
 	}
 
 
@@ -101,13 +104,14 @@ const Player = new class { // eslint-disable-line
 
 		this.selectTrack(trackId);
 
-		const progress = Number.parseFloat(getCookie(this.cookies.lastTrackProgress)); // eslint-disable-line no-undef
-		if (Number.isNaN(progress) || progress <= 0 || progress > 100) {
+		const trackTime = Number.parseInt(getCookie(this.cookies.lastTrackTime)); // eslint-disable-line no-undef
+		if (Number.isNaN(trackTime) || trackTime <= 0) {
 			return;
 		}
 
+
 		PlayerUi.onAudioLoad = () => {
-			this.seek(progress);
+			this.seek(trackTime);
 			// Progress must be restored only on initial page load. However, onAudioLoad() is called
 			// on every track change. To preven resetting the time incorrectly, we must unset the handler.
 			PlayerUi.onAudioLoad = () => null;
