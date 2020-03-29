@@ -11,6 +11,7 @@
 	--link-visited-hovered-color: #6518a7;
 
 	--menu-background-color: #333;
+	--menu-background-hovered-color: #444;
 	--menu-text-color: #ccc;
 	--menu-icon-inactive-color: #888;
 	--menu-input-background-color: #1c1c1c;
@@ -81,7 +82,12 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	background: none;
 	color: var(--menu-text-color);
 }
-.menu .menu-item:hover, .header-container .header-button:hover, footer a:hover, .player-button:not(.disabled):hover,
+
+/* hover and selected */
+.menu .menu-item:hover,
+.header-container .header-button:hover,
+footer a:hover,
+.player-button:not(.disabled):hover,
 .menu .selected {
 	color: var(--menu-item-hovered);
 }
@@ -91,6 +97,15 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 }
 @media screen and (min-width: 64em) {
 	.menu-music ul {border-top: var(--menu-border-strong);}
+}
+/* hover-only */
+.menu-language-choice .menu-item:hover,
+.menu-music .menu-item:hover,
+.menu-playlist .menu-item:hover {
+	background-color: var(--menu-background-hovered-color);
+}
+@media screen and (max-width: 64em) {
+	.menu-main .menu-item:hover {background-color: var(--menu-background-hovered-color);}
 }
 
 
@@ -121,14 +136,14 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	.header-container .header-button,
 	footer a,
 	.player-button {
-		transition: border-color .3s ease-out, color .3s ease-out;
+		transition: background-color .15s ease-out, border-color .3s ease-out, color .3s ease-out;
 	}
 
 	.menu .menu-item:hover,
 	.header-container .header-button:hover,
 	footer a:hover,
 	.player-button:hover {
-		transition: border-color .2s ease-in, color .2s ease-in;
+		transition: background-color .066s linear, border-color .2s ease-out, color .2s ease-out;
 	}
 
 
