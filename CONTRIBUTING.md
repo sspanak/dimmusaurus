@@ -11,7 +11,7 @@ Hence, no big frameworks or libraries were used, except when they really made di
   * Vanilla ES2015
 * Backend
   * Python 3.8 + Pip
-  * Django 3.0.2
+  * Django 3.0+
   * gettext 0.15 _(required by Django for translations)_
   * python-markdown2 _(you may have it by default)_
   * django-markdown-deux
