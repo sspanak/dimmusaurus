@@ -64,5 +64,5 @@ def get_version_info():
     try:
         with open('%s/version.json' % settings.STATICFILES_DIRS[0], 'r') as version_file:
             return json.load(version_file)
-    except (OSError, JSONDecodeError) as e:
+    except (OSError, json.JSONDecodeError) as e:
         return {}
