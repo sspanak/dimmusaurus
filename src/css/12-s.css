@@ -25,6 +25,12 @@
 	}
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
+	.button-scroll-to-top {
+		bottom: 95px;
+		font-size: 2.5em;
+		right: 48px;
+	}
+
 	.ajax-loader-spinning {width: 163px;}
 
 	 /* 100% - header-height - footer - player */

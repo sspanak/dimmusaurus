@@ -2,8 +2,13 @@ const Menu = new class extends UiElement { // eslint-disable-line
 	constructor() {
 		super();
 
-		this.closedMenuClass = 'menu-closed';
-		this.selectedButtonClass = 'selected';
+		this.scrollToTopHideTimeout = -1;
+
+		this.classes = {
+			closedMenu: 'menu-closed',
+			hidden: 'hidden',
+			selected: 'selected'
+		};
 		this.selectors = {
 			content: '.content-wrapper',
 			headerSuperWrapper: '.header-super-wrapper',
@@ -12,7 +17,8 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			main: '.menu-main',
 			mainButton: '#main-menu-button',
 			music: '.menu-music',
-			musicButton: '#music-button'
+			musicButton: '#music-button',
+			scrollToTop: '#scroll-to-top-button'
 		};
 
 		this._init();
@@ -55,9 +61,23 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			this.select(this.selectors.content).addEventListener('click', () => {
 				this.closeAll();
 			});
+
+			// close menus with Escape
 			document.addEventListener('keyup', event => {
 				if ('code' in event && event.code === 'Escape') {
 					this.closeAll();
+				}
+			});
+
+			// show scroll to top button while scrolling
+			document.addEventListener('scroll', () => {
+				// show the button only after scrolling 4 screen heights
+				if (!('innerHeight' in window && window.pageYOffset < window.innerHeight * 4)) {
+					clearTimeout(this.scrollToTopHideTimeout);
+					this.showButtonScrollToTop();
+					this.scrollToTopHideTimeout = setTimeout(Menu.hideButtonScrollToTop, 1700);
+				} else {
+					this.hideButtonScrollToTop();
 				}
 			});
 		});
@@ -73,45 +93,60 @@ const Menu = new class extends UiElement { // eslint-disable-line
 
 
 	closeMenuLanguage() {
-		this.select(this.selectors.language).addClass(this.closedMenuClass);
-		this.select(this.selectors.languageButton).removeClass(this.selectedButtonClass);
+		this.select(this.selectors.language).addClass(this.classes.closedMenu);
+		this.select(this.selectors.languageButton).removeClass(this.classes.selected);
 	}
 
 
 	closeMenuMain() {
-		this.select(this.selectors.main).addClass(this.closedMenuClass);
-		this.select(this.selectors.mainButton).removeClass(this.selectedButtonClass);
+		this.select(this.selectors.main).addClass(this.classes.closedMenu);
+		this.select(this.selectors.mainButton).removeClass(this.classes.selected);
 	}
 
 
 	closeMenuMusic() {
-		this.select(this.selectors.music).addClass(this.closedMenuClass);
+		this.select(this.selectors.music).addClass(this.classes.closedMenu);
 	}
 
 
 	toggleMenuLanguage() {
-		this.select(this.selectors.language).toggleClass(this.closedMenuClass);
+		this.select(this.selectors.language).toggleClass(this.classes.closedMenu);
 
-		if (this.hasClass(this.closedMenuClass)) {
-			this.select(this.selectors.languageButton).removeClass(this.selectedButtonClass);
+		if (this.hasClass(this.classes.closedMenu)) {
+			this.select(this.selectors.languageButton).removeClass(this.classes.selected);
 		} else {
-			this.select(this.selectors.languageButton).addClass(this.selectedButtonClass);
+			this.select(this.selectors.languageButton).addClass(this.classes.selected);
 		}
 	}
 
 
 	toggleMenuMain() {
-		this.select(this.selectors.main).toggleClass(this.closedMenuClass);
+		this.select(this.selectors.main).toggleClass(this.classes.closedMenu);
 
-		if (this.hasClass(this.closedMenuClass)) {
-			this.select(this.selectors.mainButton).removeClass(this.selectedButtonClass);
+		if (this.hasClass(this.classes.closedMenu)) {
+			this.select(this.selectors.mainButton).removeClass(this.classes.selected);
 		} else {
-			this.select(this.selectors.mainButton).addClass(this.selectedButtonClass);
+			this.select(this.selectors.mainButton).addClass(this.classes.selected);
 		}
 	}
 
 
 	toggleMenuMusic() {
-		this.select(this.selectors.music).toggleClass(this.closedMenuClass);
+		this.select(this.selectors.music).toggleClass(this.classes.closedMenu);
+	}
+
+
+	showButtonScrollToTop() {
+		this.select(this.selectors.scrollToTop).removeClass(this.classes.hidden);
+	}
+
+
+	hideButtonScrollToTop() {
+		Menu.select(Menu.selectors.scrollToTop).addClass(Menu.classes.hidden);
+	}
+
+	scrollToTop() {
+		window.scrollTo(0, 0);
+		this.hideButtonScrollToTop();
 	}
 };
