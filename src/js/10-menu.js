@@ -71,8 +71,8 @@ const Menu = new class extends UiElement { // eslint-disable-line
 
 			// show scroll to top button while scrolling
 			document.addEventListener('scroll', () => {
-				// show the button only after scrolling 4 screen heights
-				if (!('innerHeight' in window && window.pageYOffset < window.innerHeight * 4)) {
+				// show the button only after scrolling 4 screen heights and scrolling up
+				if (window.pageYOffset >= window.innerHeight * 4) {
 					clearTimeout(this.scrollToTopHideTimeout);
 					this.showButtonScrollToTop();
 					this.scrollToTopHideTimeout = setTimeout(Menu.hideButtonScrollToTop, 1700);
