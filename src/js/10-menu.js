@@ -144,9 +144,4 @@ const Menu = new class extends UiElement { // eslint-disable-line
 	hideButtonScrollToTop() {
 		Menu.select(Menu.selectors.scrollToTop).addClass(Menu.classes.hidden);
 	}
-
-	scrollToTop() {
-		window.scrollTo(0, 0);
-		this.hideButtonScrollToTop();
-	}
 };
