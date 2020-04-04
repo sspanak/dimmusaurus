@@ -26,9 +26,9 @@
 	.menu-playlist .playlist-time {margin-left: 10px;}
 
 	.button-scroll-to-top {
-		bottom: 95px;
+		bottom: 75px;
 		font-size: 2.5em;
-		right: 48px;
+		right: 40px;
 	}
 
 	.ajax-loader-spinning {width: 163px;}
