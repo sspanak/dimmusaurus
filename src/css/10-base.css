@@ -78,6 +78,17 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	display: none;
 }
 
+.button-scroll-to-top {
+	border-radius: 1.5em;
+	cursor: pointer;
+	font-size: 2.75em;
+	font-weight: bold;
+	height: 1.4em;
+	position: fixed;
+	text-align: center;
+	width: 1.4em;
+}
+
 
 /*==============  Breadcrumbs ==============*/
 .breadcrumbs ul {

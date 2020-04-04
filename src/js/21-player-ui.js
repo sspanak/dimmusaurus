@@ -199,7 +199,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		Menu.closeMenuMusic(); // eslint-disable-line no-undef
 
 		this.clearSearch();
-		this.select(this.selectors.playlist).toggleClass(Menu.closedMenuClass); // eslint-disable-line no-undef
+		this.select(this.selectors.playlist).toggleClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
 	}
 
 
@@ -211,7 +211,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	closePlaylist() {
-		this.select(this.selectors.playlist).addClass(Menu.closedMenuClass); // eslint-disable-line no-undef
+		this.select(this.selectors.playlist).addClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
 	}
 
 

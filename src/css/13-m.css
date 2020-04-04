@@ -44,6 +44,8 @@
 		order: 5;
 	}
 
+	.button-scroll-to-top {display: none;}
+
 
 /*============== Breadcrumbs ==============*/
 	.breadcrumbs {text-align: center;}

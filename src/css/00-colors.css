@@ -24,6 +24,7 @@
 	--menu-border-strong: 1px solid #666;
 
 	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
+	--shadown-bottom-right: 1px 2px 4px rgba(50,50,50,0.57);
 	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
 	--shadow-top-small: 0 -1px 4px rgba(50, 50, 50, 0.57);
 }
@@ -41,6 +42,12 @@ hr {border-color: var(--menu-text-color);}
 	color: var(--ajax-loader-background-color);
 }
 .ajax-loader-spinning{
+	color: var(--menu-text-color);
+}
+
+.button-scroll-to-top {
+	background: var(--menu-background-color);
+	box-shadow: var(--shadown-bottom-right);
 	color: var(--menu-text-color);
 }
 
