@@ -99,7 +99,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	text-align: left;
 }
 .breadcrumbs li {display: inline;}
-.breadcrumbs li span::after {content: " / ";}
+.breadcrumbs li:not(:first-child)::before {content: " / ";}
 .breadcrumbs li .fas {padding-right: 0.25em;}
 
 /*==============  Menus ==============*/

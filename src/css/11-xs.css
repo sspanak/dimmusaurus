@@ -144,3 +144,20 @@
 	}
 	.content-version .version-info-title {margin-top: 0;}
 }
+
+
+/* Extra adjustments on smallest screens */
+@media screen and (max-width: 35.5em) {
+	.breadcrumbs ul {
+		margin: 16px 2% 0;
+		max-width: 96%;
+	}
+	.breadcrumbs li {
+		display: inline-block;
+		max-width: 100%;
+		overflow-x: hidden;
+		padding: 1px 0;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
