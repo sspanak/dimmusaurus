@@ -136,9 +136,11 @@ footer a:hover,
 .shadow-top-small {box-shadow: var(--shadow-top-small);}
 
 
+/**
+ * Shadow replacements on XXS screens
+ */
 @media screen and (max-width: 18em) and (orientation: portrait),
 screen and (max-width: 20em) and (orientation: landscape) {
-	/* All header elements take full height on XXS screens, so no shadows are needed. */
 	.header-container .shadow-bottom {box-shadow: none;}
 	.header-container .logo {border-bottom: 1px solid var(--menu-separator-strong);}
 }
