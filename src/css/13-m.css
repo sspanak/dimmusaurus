@@ -33,6 +33,10 @@
 		display: flex;
 		width: calc(50vw - 257px); /* (100vw - LogoWidth) / 2 */
 	}
+	.header-button {
+		height: auto;
+		width: auto;
+	}
 
 	.toggle-language-wrapper {
 		justify-content: flex-start;
