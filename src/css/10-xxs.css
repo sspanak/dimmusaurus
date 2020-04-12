@@ -26,4 +26,13 @@ screen and (max-width: 20em) and (orientation: landscape) {
 
 /*============== Content ==============*/
 	.content {padding: 0.67em;}
+
+	.content-discography .album-tracks .track-title {
+		display: inline-block;
+		vertical-align: top;
+		width: 75%;
+	}
+	.content-discography .album-tracks .track-length {
+		width: 20%;
+	}
 }
