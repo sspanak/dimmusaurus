@@ -22,4 +22,8 @@ screen and (max-width: 20em) and (orientation: landscape) {
 		height: 55px;
 		width: 55px;
 	}
+
+
+/*============== Content ==============*/
+	.content {padding: 0.67em;}
 }

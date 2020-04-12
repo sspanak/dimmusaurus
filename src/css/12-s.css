@@ -82,12 +82,6 @@
 	.menu-playlist .playlist-time {margin-left: 5px;}
 
 
-/*============== Content ==============*/
-	/* 100% - header-height - footer - player */
-	.content-wrapper {min-height: calc(100vh - 64px - 2.5em - 3em);}
-	.content {padding: 1.33em 0.67em;}
-
-
 /*============== Player ==============*/
 	.player {height: 3em;}
 	.player .track-progress-bar-container, .player .player-controls .volume {display: none;}
