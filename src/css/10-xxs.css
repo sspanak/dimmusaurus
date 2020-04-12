@@ -1,0 +1,25 @@
+/**********************************************************************************
+ * XXS sized screen - Feature phone
+ **********************************************************************************/
+@media screen and (max-width: 18em) and (orientation: portrait),
+screen and (max-width: 20em) and (orientation: landscape) {
+	.header-container {
+		height: 56px;
+	}
+
+/*============== Buttons ==============*/
+	.header-button {
+		height: 56px;
+		margin: 0 4px;
+		width: 48px;
+	}
+
+	.button-scroll-to-top {display: none;}
+
+/*============== Logo ==============*/
+	.header-container .logo {
+		border-radius: 0 0 28px 0;
+		height: 55px;
+		width: 55px;
+	}
+}
