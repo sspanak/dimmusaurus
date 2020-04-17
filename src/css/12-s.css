@@ -110,7 +110,7 @@
 
 	.content-discography .album-contents-wrapper {flex-flow: column;}
 	.content-discography .album-cover {
-		margin: 0;
+		margin-right: 0;
 		min-width: 11em;
 		text-align: center;
 		width: auto;
