@@ -321,15 +321,14 @@ footer .copyright-copy, footer .copyright-last-year {
 .content-discography .album-contents-wrapper {display: flex;}
 
 .content-discography .album-cover {
-	height: 10em;
+	height: 8.5em;
 	margin-right: 1.33em;
-	overflow: hidden;
+	margin-top: 1.5em;
+	overflow-y: hidden;
 	width: 11em;
 }
 .content-discography .album-cover .fas {
 	font-size: 11em;
-	position: relative;
-	top: 24px;
 }
 
 .content-discography .album-tracks {
