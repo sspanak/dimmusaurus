@@ -126,7 +126,7 @@ def render_song(request, song_id):
                 'base_url': settings.BASE_URL,
                 'url': 'music/songs/',
                 # we can't use absolute_url here, because translations won't work
-                'url_slug': '%d-%s' % (song.id, song.slug),
+                'url_slug': '%d-%s/' % (song.id, song.slug),
                 # Translators: Song page title
                 'title': '%s | %s' % (song_title, gettext('Song Details')),
                 # Translators: Song page description
