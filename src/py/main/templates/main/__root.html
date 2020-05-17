@@ -95,20 +95,20 @@
 				<div class="logo-text logo-text-left">Dimmu</div>
 
 				<div class="logo shadow-bottom">
-					<img src="{% static 'img/dimmu-saurus-250-krio.png' %}" alt="Dimmu Saurus" />
+					<img src="{% static 'img/dimmu-saurus-250-krio.png' %}" alt="" />
 				</div>
 
 				<div class="logo-text logo-text-right">Saurus</div>
 
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
-					<button id="main-menu-button" class="header-button" title="{% trans 'Main Menu' %}">
+					<button id="main-menu-button" class="header-button" title="{% trans 'Main Menu' %}" aria-label="{% trans 'Main Menu' %}">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
 					</button>
 				</div>
 
 				<div class="toggle-wrapper toggle-language-wrapper">
-					<button id="language-menu-button" class="header-button" title="{% trans 'Change Language' %}">
+					<button id="language-menu-button" class="header-button" title="{% trans 'Change Language' %}" aria-label="{% trans 'Change Language' %}">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
 						<i class="fas fa-chevron-down"></i>
@@ -136,19 +136,19 @@
 					<nav class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>
-								<a class="menu-item" href="/{% trans 'home/' %}">
+								<a class="menu-item" href="/{% trans 'home/' %}" aria-label="{% trans 'Go to home page' %}">
 									<i class="icon fas fa-home"></i>
 									{% trans "Home" %}
 								</a>
 							</li>
 							<li>
-								<a class="menu-item" href="/{% trans 'biography/' %}">
+								<a class="menu-item" href="/{% trans 'biography/' %}" aria-label="{% trans 'Go to biography page' %}">
 									<i class="icon fas fa-book"></i>
 									{% trans "Biography" %}
 								</a>
 							</li>
 							<li>
-								<a id="music-button" class="menu-item">
+								<a id="music-button" class="menu-item" aria-label="{% trans 'Go to discography page' %}">
 									<i class="icon fas fa-music"></i>
 									{% trans "Music" %}
 									<i class="fas fa-chevron-down"></i>
@@ -185,6 +185,7 @@
 
 			<div class="playlist-search">
 				<input
+					aria-label="{% trans 'Song search field' %}"
 					type="text"
 					name="search-song"
 					placeholder="{% trans 'Search...' %}"
@@ -210,6 +211,7 @@
 					<a
 						class="bandcamp-link"
 						title="{% trans 'Dimmu Saurus Bandcamp page' %}"
+						aria-label="{% trans 'Go to Dimmu Saurus Bandcamp page' %}"
 						href="http://bandcamp.com"
 						target="_blank"
 						rel="me"><i class="fab fa-bandcamp"></i></a>
@@ -217,11 +219,13 @@
 					<a
 						class="facebook-link"
 						title="{% trans 'Dimmu Saurus on Facebook' %}"
+						aria-label="{% trans 'Go to Dimmu Saurus Facebook page' %}"
 						href="https://www.facebook.com/dimmusaurus/"
 						target="_blank"
 						rel="me noopener"><i class="fab fa-facebook-square"></i></a><a
 						class="youtube-link"
 						title="{% trans 'Dimmu Saurus Youtube channel' %}"
+						aria-label="{% trans 'Go to Dimmu Saurus Youtube channel' %}"
 						href="https://www.youtube.com/playlist?list=PLBugGYGZgZWcA8ePOBLDdyD1__D7WWxMI"
 						target="_blank"
 						rel="me noopener"><i class="fab fa-youtube"></i></a>
@@ -230,8 +234,7 @@
 
 			<div class="copyright">
 				<span class="copyright-copy">&copy;</span>
-				<span class="copyright-first-year">2004-</span>
-				<span class="copyright-last-year">{% now "Y" %}</span>
+				<span class="copyright-first-year">2004-</span><span class="copyright-last-year">{% now "Y" %}</span>
 				<span class="copyright-ds">Димозавър</span>
 			</div>
 		</footer>
@@ -242,6 +245,7 @@
 			<button
 				id="pl-playlist-toggle"
 				title="{% trans 'Toggle Playlist' %}"
+				aria-label="{% trans 'Toggle Playlist' %}"
 				class="player-button playlist"><i class="fas fa-chevron-up"></i></button>
 
 				<div class="loading-indicator">
@@ -273,18 +277,22 @@
 				<button
 					id="pl-volume"
 					title="{% trans 'Sound Volume' %}"
+					aria-label="{% trans 'Mute/Unmute music' %}"
 					onclick="Player.toggleMute(this)"
 					class="player-button volume fas fa-volume-up"></button><button
 					id="pl-previous"
 					title="{% trans 'Previous Track' %}"
+					aria-label="{% trans 'Play previous song' %}"
 					onclick="Player.previous()"
 					class="player-button fas fa-step-backward"></button><button
 					id="pl-play"
 					title="{% trans 'Play / Pause' %}"
+					aria-label="{% trans 'Play/Pause currenct song' %}"
 					onclick="Player.playToggle()"
 					class="player-button fas fa-play"></button><button
 					id="pl-next"
 					title="{% trans 'Next Track' %}"
+					aria-label="{% trans 'Play next song' %}"
 					onclick="Player.next()"
 					class="player-button fas fa-step-forward"></button>
 			</div>
