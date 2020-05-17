@@ -70,20 +70,20 @@
 				<div class="logo-text logo-text-left">Dimmu</div>
 
 				<div class="logo shadow-bottom">
-					<img src="img/dimmu-saurus-250-krio.png" alt="Dimmu Saurus" />
+					<img src="img/dimmu-saurus-250-krio.png" alt="" />
 				</div>
 
 				<div class="logo-text logo-text-right">Saurus</div>
 
 				<div class="toggle-wrapper toggle-main-menu-wrapper">
-					<button id="main-menu-button" class="header-button" title="Main Menu">
+					<button id="main-menu-button" class="header-button" title="Main Menu" aria-label="Main Menu">
 						<i class="fas fa-bars"></i>
 						<i class="fas fa-chevron-down"></i>
 					</button>
 				</div>
 
 				<div class="toggle-wrapper toggle-language-wrapper">
-					<button id="language-menu-button" class="header-button" title="Change Language">
+					<button id="language-menu-button" class="header-button" title="Change Language" aria-label="Change Language">
 						<i class="fas fa-language"></i>
 						<span class="toggle-language-label">Language</span>
 						<i class="fas fa-chevron-down"></i>
@@ -122,19 +122,19 @@
 					<nav class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>
-								<a class="menu-item">
+								<a class="menu-item" aria-label="Go to home page">
 									<i class="icon fas fa-home"></i>
 									Начало
 								</a>
 							</li>
 							<li>
-								<a class="menu-item">
+								<a class="menu-item" aria-label="Go to biography page">
 									<i class="icon fas fa-book"></i>
 									Биография
 								</a>
 							</li>
 							<li>
-								<a id="music-button" class="menu-item">
+								<a id="music-button" class="menu-item" aria-label="Go to discography page">
 									<i class="icon fas fa-music"></i>
 									Музика
 									<i class="fas fa-chevron-down"></i>
@@ -482,6 +482,7 @@
 
 			<div class="playlist-search">
 				<input
+					aria-label="Song search field"
 					type="text"
 					name="search-song"
 					placeholder="Search..."
@@ -590,16 +591,19 @@
 					<a
 						class="bandcamp-link"
 						title="Dimmu Saurus Bandcamp page"
+						aria-label="Go to Dimmu Saurus Bandcamp page"
 						href="http://bandcamp.com"
 						target="_blank"
 						rel="me noopener"><i class="fab fa-bandcamp"></i></a><a
 						class="facebook-link"
 						title="Dimmu Saurus on Facebook"
+						aria-label="Go to Dimmu Saurus Facebook page"
 						href="https://www.facebook.com/dimmusaurus/"
 						target="_blank"
 						rel="me noopener"><i class="fab fa-facebook-square"></i></a><a
 						class="youtube-link"
 						title="Dimmu Saurus Youtube channel"
+						aria-label="Go to Dimmu Saurus Youtube channel"
 						href="https://www.youtube.com/playlist?list=PLBugGYGZgZWcA8ePOBLDdyD1__D7WWxMI"
 						target="_blank"
 						rel="me noopener"><i class="fab fa-youtube"></i></a>
@@ -608,8 +612,7 @@
 
 			<div class="copyright">
 				<span class="copyright-copy">&copy;</span>
-				<span class="copyright-first-year">2004-</span>
-				<span class="copyright-last-year">2019</span>
+				<span class="copyright-first-year">2004-</span><span class="copyright-last-year">2019</span>
 				<span class="copyright-ds">Димозавър</span>
 			</div>
 		</footer>
@@ -620,6 +623,7 @@
 			<button
 				id="pl-playlist-toggle"
 				title="Toggle Playlist"
+				aria-label="Toggle Playlist"
 				class="player-button playlist"><i class="fas fa-chevron-up"></i></button>
 
 				<div class="loading-indicator">
@@ -654,17 +658,21 @@
 					onclick="Player.toggleMute(this)"
 					id="pl-volume"
 					title="Sound Volume"
+					aria-label="Mute/Unmute music"
 					class="player-button volume fas fa-volume-up"></button><button
 					id="pl-previous"
 					title="Previous Track"
+					aria-label="Play previous song"
 					onclick="Player.previous()"
 					class="player-button fas fa-step-backward"></button><button
 					id="pl-play"
 					title="Play / Pause"
+					aria-label="Play/Pause currenct song"
 					onclick="Player.playToggle()"
 					class="player-button fas fa-play"></button><button
 					id="pl-next"
 					title="Next Track"
+					aria-label="Play next song"
 					onclick="Player.next()"
 					class="player-button fas fa-step-forward"></button>
 			</div>
