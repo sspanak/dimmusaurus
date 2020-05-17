@@ -288,7 +288,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 	disableControls() {
 		this.disablePlay();
-		this.disableSearch();
 
 		[
 			this.selectors.volume,
@@ -303,7 +302,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 	enableControls() {
 		this.enablePlay();
-		this.enableSearch();
 
 		[
 			this.selectors.volume,
@@ -313,30 +311,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		].forEach(selector => this.select(selector).removeClass(this.classes.disabled));
 
 		return this;
-	}
-
-
-	/**
-	 * disableSearch
-	 * Self-explanatory
-	 */
-	disableSearch() {
-		this.clearSearch();
-
-		if (this.select(this.selectors.searchField)) {
-			this.$element.disabled = true;
-		}
-	}
-
-
-	/**
-	 * enableSearch
-	 * Self-explanatory
-	 */
-	enableSearch() {
-		if (this.select(this.selectors.searchField)) {
-			this.$element.disabled = false;
-		}
 	}
 
 
