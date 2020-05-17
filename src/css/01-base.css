@@ -198,7 +198,9 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 .player .time-balloon {display: none;}
-.player:not(.player-loading) .track-progress-bar:not(.player-error):hover .time-balloon {display: block;}
+.player:not(.player-loading):not(.player-error) .track-progress-bar:not(.player-error):hover .time-balloon {
+	display: block;
+}
 
 .player .track-progress-bar-container {padding: 0 10px;}
 .player .track-progress-bar {
