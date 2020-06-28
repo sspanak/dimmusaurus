@@ -44,6 +44,7 @@ django-static:
 	make images
 	mv ui-demo/img src/py/static
 	bash -c build-tools/version-file-generate.sh
+	django-admin compilemessages
 
 translations:
 	cd src/py && django-admin makemessages -l bg

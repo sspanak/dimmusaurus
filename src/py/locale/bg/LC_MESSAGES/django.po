@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-17 11:06+0300\n"
+"POT-Creation-Date: 2020-06-28 15:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -153,39 +153,47 @@ msgstr "Канал на Димозавър в Youtube"
 msgid "Go to Dimmu Saurus Youtube channel"
 msgstr "Отиди в канала на Димозавър в Youtube"
 
-#: main/templates/main/__root.html:248 main/templates/main/__root.html:249
+#: main/templates/main/__root.html:233
+msgid "Dimmu Saurus Soundcloud page"
+msgstr "Димозавър в Soundcloud"
+
+#: main/templates/main/__root.html:234
+msgid "Go to Dimmu Saurus Soundcloud page"
+msgstr "Отиди на страницата на Димозавър в Soundcloud"
+
+#: main/templates/main/__root.html:253 main/templates/main/__root.html:254
 msgid "Toggle Playlist"
 msgstr "Плейлиста"
 
-#: main/templates/main/__root.html:280
+#: main/templates/main/__root.html:285
 msgid "Sound Volume"
 msgstr "Сила на звука"
 
-#: main/templates/main/__root.html:281
+#: main/templates/main/__root.html:286
 msgid "Mute/Unmute music"
 msgstr "Намали/Усили музиката"
 
-#: main/templates/main/__root.html:285
+#: main/templates/main/__root.html:290
 msgid "Previous Track"
 msgstr "Предишна песен"
 
-#: main/templates/main/__root.html:286
+#: main/templates/main/__root.html:291
 msgid "Play previous song"
 msgstr "Пусни предишната песен"
 
-#: main/templates/main/__root.html:290
+#: main/templates/main/__root.html:295
 msgid "Play / Pause"
 msgstr "Просвири / Пауза"
 
-#: main/templates/main/__root.html:291
+#: main/templates/main/__root.html:296
 msgid "Play/Pause current song"
 msgstr "Пусни/Спри текущата песен"
 
-#: main/templates/main/__root.html:295
+#: main/templates/main/__root.html:300
 msgid "Next Track"
 msgstr "Следваща песен"
 
-#: main/templates/main/__root.html:296
+#: main/templates/main/__root.html:301
 msgid "Play next song"
 msgstr "Пусни следващата песен"
 
@@ -338,6 +346,3 @@ msgstr "Текст"
 #: music/views.py:169
 msgid "Song lyrics and English translation."
 msgstr "Текст на песента и английски превод."
-
-#~ msgid "Dimmu Saurus Bandcamp page"
-#~ msgstr "Димозавър в Bandcamp"
