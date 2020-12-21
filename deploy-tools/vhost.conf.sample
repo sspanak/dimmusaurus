@@ -26,10 +26,8 @@
 	<ifModule mod_expires.c>
 		ExpiresActive On
 
-		# 1 day, all expire at the same time
-		ExpiresByType text/html M86400
-
 		# 1 day, regular
+		ExpiresByType text/html A86400
 		ExpiresByType application/json A86400
 
 		# 1 year
