@@ -56,7 +56,12 @@ def render_template(request, template, context, language):
     else:
         response = HttpResponse(html)
 
-    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+    response.set_cookie(
+        key=settings.LANGUAGE_COOKIE_NAME,
+        value=language,
+        secure=not settings.DEBUG,
+        samesite='Strict'
+    )
     return response
 
 
