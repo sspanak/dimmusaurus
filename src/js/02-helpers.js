@@ -167,7 +167,7 @@ function setCookie(name, value) {
 	let expires = d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
 	expires = d.toUTCString();
 
-	document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+	document.cookie = `${name}=${value}; expires=${expires}; path=/; samesite=strict`;
 }
 
 

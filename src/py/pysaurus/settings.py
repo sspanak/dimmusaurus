@@ -36,7 +36,6 @@ else:
 # Security
 
 ALLOWED_HOSTS = [SITE_HOST, '[::1]']
-SESSION_COOKIE_SECURE = not DEBUG
 CSRF_COOKIE_SECURE = not DEBUG
 
 
