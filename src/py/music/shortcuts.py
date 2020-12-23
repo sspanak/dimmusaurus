@@ -48,6 +48,7 @@ def get_album_durations():
                 TIME(SUM(STRFTIME("%s", length)), "unixepoch") AS album_length, \
                 album_id \
             FROM music_song \
+            WHERE is_hidden = 0 \
             GROUP BY album_id'
         )
 
