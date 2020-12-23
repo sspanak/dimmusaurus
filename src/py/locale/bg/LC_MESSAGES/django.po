@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-28 15:38+0300\n"
+"POT-Creation-Date: 2020-12-23 11:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -295,7 +295,7 @@ msgid "Song Lyrics"
 msgstr "Текст на песен"
 
 #. Translators: Song page title
-#: music/templates/music/song.html:25 music/views.py:131
+#: music/templates/music/song.html:25 music/views.py:132
 msgid "Song Details"
 msgstr "Подробности за песен"
 
@@ -318,31 +318,31 @@ msgstr "гледай"
 msgid "download"
 msgstr "изтеглѝ"
 
-#: music/views.py:77
+#: music/views.py:78
 msgid "Track list and information."
 msgstr "Списък с песни и подробности."
 
 #. Translators: Discography page title
-#: music/views.py:91
+#: music/views.py:92
 msgid "Discography"
 msgstr "Дискография"
 
 #. Translators: Discography page description
-#: music/views.py:93
+#: music/views.py:94
 msgid "Dimmu Saurus Discography"
 msgstr "Дискография на Dimmu Saurus"
 
 #. Translators: Song page description
-#: music/views.py:133
+#: music/views.py:134
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Подробности за песента и текст. Връзка за сваляне."
 
 #. Translators: Lyrics page title
-#: music/views.py:167
+#: music/views.py:168
 msgid "Lyrics"
 msgstr "Текст"
 
 #. Translators: Lyrics page description
-#: music/views.py:169
+#: music/views.py:170
 msgid "Song lyrics and English translation."
 msgstr "Текст на песента и английски превод."
