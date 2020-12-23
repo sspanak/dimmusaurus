@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
-from .shortcuts import get_music_menu_album_list, get_all_songs, get_album_language_urls
+from .shortcuts import get_music_menu_album_list, get_all_songs, get_album_language_urls, get_album_durations
 from main.shortcuts import render_template, get_version_info
 
 
@@ -59,13 +59,14 @@ def render_albums(request, album_id=None):
     version_info = get_version_info()
 
     albums = get_music_menu_album_list(lang)
-    songs = get_all_songs(lang)
+    songs = get_all_songs(lang, album_id)
 
     if album_id:
         selected_album = get_object_or_404(albums, album__id=album_id)
 
         context = {
             'albums': albums,
+            'album_durations': get_album_durations(),
             'build': version_info.get('build'),
             'song_descriptions': songs,
             'page_albums': [selected_album],

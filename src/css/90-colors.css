@@ -58,6 +58,7 @@ hr {border-color: var(--menu-text-color);}
 .content a:hover:visited {color: var(--link-visited-hovered-color);}
 .content .content-heading {border-bottom: 1px solid var(--menu-icon-inactive-color);}
 .content-discography .album-cover .fas {color: var(--menu-background-color);}
+.content-discography .album-tracks .album-duration-container .album-duration-separator {border-color: var(--menu-text-color);}
 .content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
 .content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
 .content-version .version-info {border-color: var(--menu-icon-inactive-color);}
