@@ -2,7 +2,9 @@
   "name": "dimmusaurus",
   "description": "A website for Dimmu Saurus",
   "scripts": {
-    "build-legacy-js": "./node_modules/.bin/babel --presets=@babel/env"
+    "build-legacy-js": "./node_modules/.bin/babel --presets=@babel/env",
+    "lint-css": "csslint src/css/",
+    "lint-js": "eslint -c .eslintrc.json ./src/js/"
   },
   "babel": {
     "presets": [
@@ -30,7 +32,9 @@
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
     "@babel/polyfill": "^7.10.4",
-    "@babel/preset-env": "^7.10.4"
+    "@babel/preset-env": "^7.10.4",
+    "csslint": "^1.0.5",
+    "eslint": "^7.16.0"
   },
   "dependencies": {}
 }
