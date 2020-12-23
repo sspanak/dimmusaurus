@@ -29,10 +29,10 @@
   },
   "homepage": "https://github.com/sspanak/dimmusaurus",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/polyfill": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
     "csslint": "^1.0.5",
     "eslint": "^7.16.0"
   },
