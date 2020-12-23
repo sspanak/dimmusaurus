@@ -45,7 +45,7 @@
 			{% for al in album_durations %}
 				{% if al.album_id == a.album_id %}
 					<div class="album-duration-container">
-						<div class="album-duration-separator">{{ al.album_duration }}</div>
+						<div class="album-duration-label">{{ al.album_duration }}</div>
 					</div>
 				{% endif %}
 			{% endfor %}
