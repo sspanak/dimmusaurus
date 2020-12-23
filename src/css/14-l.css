@@ -133,6 +133,9 @@
 		max-width: 68em;
 		width: auto;
 	}
+	.content-discography .album-tracks .album-duration-container .album-duration-separator {
+		padding: 8px 1px 0 0;
+	}
 
 
 /*============== Player ==============*/

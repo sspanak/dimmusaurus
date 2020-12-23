@@ -1,3 +1,5 @@
+from re import sub
+from django.db import connection
 from .models import AlbumDetails, SongDescription
 
 
@@ -11,7 +13,7 @@ def get_music_menu_album_list(language):
         )
 
 
-def get_all_songs(language):
+def get_all_songs(language, album_id=None):
     songs = SongDescription.objects.select_related('song').filter(language=language)
     songs = songs.order_by('-song__album_id', 'song__album_order', 'song__release_date')
     songs = songs.only(
@@ -24,6 +26,9 @@ def get_all_songs(language):
         'title'
     )
 
+    if album_id:
+        songs.filter(song__album_id=album_id)
+
     return songs
 
 
@@ -34,3 +39,18 @@ def get_album_language_urls(album_id):
     for album in albums:
         slugs[album.language] = '%d-%s/' % (album.album_id, album.slug)
     return slugs
+
+
+def get_album_durations():
+    with connection.cursor() as cursor:
+        cursor.execute(
+            'SELECT \
+                TIME(SUM(STRFTIME("%s", length)), "unixepoch") AS album_length, \
+                album_id \
+            FROM music_song \
+            GROUP BY album_id'
+        )
+
+        return [
+            {'album_id': row[1], 'album_duration': sub('00:0?', '', row[0])} for row in cursor.fetchall()
+        ]
