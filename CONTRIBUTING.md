@@ -42,11 +42,12 @@ Hence, no big frameworks or libraries were used, except when they really made di
 ### Linters Setup
 Before proceeding make sure you have installed the required software described under ["Requirements" in README.md](README.md#requirements).
 
-Linters are assumed to be installed globally, for the system, so they are _NOT_ included in `package.json` file. Yet, be nice and install the following:
+Then install all linters:
 * `$ pip install pycodestyle`
-* `$ npm install -g csslint` _(remove `-g` parameter, to install locally)_
-* `$ npm install -g eslint` _(remove `-g` parameter, to install locally)_
-* HTML Tidy. There are two projects with the same name, but you must use [tidy-html5](https://github.com/htacg/tidy-html5/). _(Do NOT use the NPM package, because it contains an archaic version of HTML Tidy.)_
+* `$ npm install`: Installs CSSlint an ESLint.
+* HTML Tidy. There are two projects with the same name, but you must use [tidy-html5](https://github.com/htacg/tidy-html5/). The NPM package contains an archaic version of HTML Tidy, so it is not included in `package.json`. Instead this linter is assumed to be installed globally, for the system, and to be run using the default settings.
+
+Also, do not forget to configure your editor to use them.
 
 ### Setup and configuration
 * `$ npm install`
