@@ -26,9 +26,9 @@ After the winter holidays the band obtained new instruments – a little drum an
 
 ### Music Master
 
-Despite the short life of the band, my brother and I decided not to give up making music, so we created one of our own and named it Music Master. While the Rok Boys were taking a breath after the furious start, on December 20, 1998 we recorded our first song, “Bad Boys”. I kept playing the drums and he remained the guitarist. Only this time he was the leading singer.
+Despite the short life of the band, my brother and I decided not to give up making music, so we created one of our own and named it Music Master. While the Rok Boys were taking a breath after the furious start, on December 20, 1998 we recorded our first song, “Bad Boys”. I kept playing the drums and he remained the guitarist. Only this time he was the leading singer. We finished our first album in the end of March 1999 and we named it simply “Music Master 1”. It included 16 songs.
 
-We finished our first album in the end of March 1999 and we named it simply “Music Master 1”. It included 16 songs. In the end of the summer we started recording our second album titled “MM2 – The Spider” and finished it at the end of autumn. Next year we recorded a third album, including 10 songs, using our new personal computer. Unfortunately, it was destroyed because the computer failed.
+In August we started recording our second album entitled “MM2 – The Spider”. On 22nd we already had 9 songs and on 2nd September we recorded the last two. Even though we intended the album to consist of 12 songs, we managed to create only 11. Next year we recorded a third album, including 10 songs, using our new personal computer. Unfortunately, it was destroyed because the computer failed.
 
 The following years the band grew less and less active. In 2001 we recorded a single titled “Tora”, followed by improved versions of “Put Me Down” and “The Space Rock”, which we consider two of our best songs from “Music Master 1”. Band’s last single, titled “Dig It Up”, came out in 2003.
 
