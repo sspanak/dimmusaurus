@@ -62,7 +62,7 @@ It was the summer of 2007 when I went back to a very old guitar riff. I don’t 
 
 And one weekend in-between the blues and the classical, I wrote a techno track.
 
-Of course, I did not abandon metal music. I spent almost the entire 2010 working on the epic seven-minute piece “Robot King”. In that tune I play an electric guitar for the first time. In fact, there are three of them.
+Of course, I did not abandon metal music. I spent almost the entire 2010 working on the epic seven-minute piece “The King of Robots”. In that tune I play an electric guitar for the first time. In fact, there are three of them.
 
 The other metal experiment from these years is “I Had a Dream”, from 2012. The song came to be all of a sudden, even to my surprise. It was a winter night and I was at home, when I came up with the music, and on the next day I wrote the lyrics, as well. After completing it, I decided to connect its story to “Dead Man’s Dance” (2008) and to expand it in three more songs that were just ideas at that time. This way I layed out the foundations of the conceptual (and yet unfinished) album “The Road That Everyone...”.
 
