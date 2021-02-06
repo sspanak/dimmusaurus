@@ -14,7 +14,7 @@ json='{
 	"build": "'"$total_commits"'",
 	"last_commit_date": "'"$last_commit_date"'",
 	"last_commit_hash": "'"$last_commit_hash"'",
-	"version": "7.8"
+	"version": "7.9"
 }'
 
 echo $json > src/py/static/version.json
