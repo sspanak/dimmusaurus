@@ -3,9 +3,9 @@
 
 {% block bio_block %}{% markdown %}
 
-Dimmu Saurus (Bulgarian: *Димозавъръ*) is a musical project dedicated to blues, metal, rock and classical music, and other fun genres. It was founded in Stara Zagora, Bulgaria, and currently consists of one member – myself, the Black Dimosaur (my portrait is hanging on top of the page).
+Dimmu Saurus (Bulgarian: *Димозавъръ* or *Димозавъръ*; from Latin: *Dimmu Saurus*) is a musical project dedicated to blues, metal, rock and classical music, and other fun genres. It was founded in Stara Zagora, Bulgaria, and currently consists of one member – myself, the Black Dimosaur (my portrait is hanging on top of the page).
 
-I created this project, because I wanted to write music that does not follow any rules, nor that it suffers from any censorship or restrictions. The way all music should be.
+I created this project, because I wanted to write music that does not follow any rules, nor that it is mutilated by restrictions or constraints. The way all music should be.
 
 ### The beginning
 Back in 1998, when I was in primary school, I recorded my first album on a tape. I named it “The Power of Wind”. The equipment in my recording studio was, as follows:
