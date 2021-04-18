@@ -37,6 +37,7 @@
 					if (typeof Symbol === 'undefined') throw new Error;
 					eval('class C {}');
 					eval('var a = (x) => x+1');
+					eval('for (const _ in [])'); // Firefox < 52 / KaiOS 2.x cannot interpret "const" inside "for..in"
 				} catch (e) {
 					return true;
 				}
