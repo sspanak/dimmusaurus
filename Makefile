@@ -3,6 +3,7 @@ SHELL := /bin/bash
 
 default:
 	make django-static
+	make docs
 
 clean-tar:
 	rm -f ds.tar; rm -f ds.tar.bz2
@@ -11,6 +12,7 @@ tar:
 	make clean-tar
 	make clean || true
 	make django-static
+	make docs
 
 	tar cv \
 		--exclude='db.sqlite3' --exclude='.gitkeep' \
@@ -88,3 +90,6 @@ db-backup:
 
 db-import:
 	bash -c 'deploy-tools/db-import.sh db/ds.db.tar src/py/db.sqlite3'
+
+docs:
+	bash -c build-tools/update-docs.sh
