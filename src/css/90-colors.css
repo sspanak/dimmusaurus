@@ -2,7 +2,7 @@
 	--ajax-loader-background-color: black;
 
 	--body-background-color: #ececec;
-	--body-background-mask: rgba(255, 255, 255, 0.5);
+	--body-background-blend: rgba(255, 255, 255, 0.5);
 	--body-text-color: #000;
 
 	--link-color: #225682;
@@ -33,7 +33,7 @@ body {
 	background: var(--body-background-color) url(img/fon-ececec.png);
 	color: var(--body-text-color);
 }
-header, .content-wrapper {background-color: var(--body-background-mask);}
+header, .content-wrapper {background-color: var(--body-background-blend);}
 header .logo {background: #fafafa;} /* this must never change */
 hr {border-color: var(--menu-text-color);}
 
@@ -51,7 +51,7 @@ hr {border-color: var(--menu-text-color);}
 	color: var(--menu-text-color);
 }
 
-.content-wrapper {box-shadow: 0 3em 3em var(--body-background-mask);} /* mask the gap when there is no player */
+.content-wrapper {box-shadow: 0 3em 3em var(--body-background-blend);} /* mask the gap when there is no player */
 .content a {color: var(--link-color);}
 .content a:hover {color: var(--link-hovered-color);}
 .content a:visited {color: var(--link-visited-color);}
@@ -62,6 +62,9 @@ hr {border-color: var(--menu-text-color);}
 .content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
 .content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
 .content-version .version-info {border-color: var(--menu-icon-inactive-color);}
+
+.disabled-body, .disabled-body header, .disabled-body .content-wrapper {background-color: transparent;}
+.disabled-body .content-wrapper {opacity: 0.3}
 
 footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
 

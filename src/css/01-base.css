@@ -251,6 +251,8 @@ footer .copyright-copy, footer .copyright-last-year {
 /**********************************************************************************
  * Pages styles
  **********************************************************************************/
+.disabled-body {overflow: hidden;}
+
 .content .content-heading {
 	border-bottom-right-radius: 0.8em;
 	overflow: hidden;
