@@ -8,6 +8,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		this.classes = {
 			disabled: 'disabled',
+			disabledBody: 'disabled-body',
 			error: 'player-error',
 			hidden: 'hidden',
 			loading: 'player-loading',
@@ -194,12 +195,20 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	togglePlaylist() {
-		Menu.closeMenuLanguage(); // eslint-disable-line no-undef
-		Menu.closeMenuMain(); // eslint-disable-line no-undef
-		Menu.closeMenuMusic(); // eslint-disable-line no-undef
+		/* eslint-disable no-undef */
+		Menu.closeMenuLanguage();
+		Menu.closeMenuMain();
+		Menu.closeMenuMusic();
+		/* eslint-enable no-undef */
 
 		this.clearSearch();
 		this.select(this.selectors.playlist).toggleClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
+
+		if (this.hasClass(Menu.classes.closedMenu)) { // eslint-disable-line no-undef
+			this.select('body').removeClass(this.classes.disabledBody);
+		} else {
+			this.select('body').addClass(this.classes.disabledBody);
+		}
 	}
 
 
@@ -212,6 +221,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	closePlaylist() {
 		this.select(this.selectors.playlist).addClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
+		this.select('body').removeClass(this.classes.disabledBody);
 	}
 
 
