@@ -1,5 +1,5 @@
 .player .track-progress {width: 22%;}
-.content:not(.content-discography) {
+.content:not(.content-bio) {
 	display: none;
 }
 

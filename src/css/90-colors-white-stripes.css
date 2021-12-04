@@ -10,6 +10,8 @@
 	--link-visited-color: #644280;
 	--link-visited-hovered-color: #6518a7;
 
+	--logo-background-color: #fafafa;
+
 	--menu-background-color: #333;
 	--menu-background-hovered-color: #444;
 	--menu-text-color: #ccc;
@@ -23,10 +25,8 @@
 
 	--menu-border-strong: 1px solid #666;
 
-
 	--shadow-language-flags: inset 2px 2px 2px 0 rgba(155, 155, 155, 0.5), inset -2px -2px 2px 0 rgba(0, 0, 0, 0.20);
 	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
-	--shadown-bottom-right: 1px 2px 4px rgba(50,50,50,0.57);
 	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
 	--shadow-top-small: 0 -1px 4px rgba(50, 50, 50, 0.57);
 }
@@ -36,7 +36,7 @@ body {
 	color: var(--body-text-color);
 }
 header, .content-wrapper {background-color: var(--body-background-blend);}
-header .logo {background: #fafafa;} /* this must never change */
+header .logo {background: var(--logo-background-color);}
 hr {border-color: var(--menu-text-color);}
 
 .ajax-loader{
@@ -49,7 +49,6 @@ hr {border-color: var(--menu-text-color);}
 
 .button-scroll-to-top {
 	background: var(--menu-background-color);
-	box-shadow: var(--shadown-bottom-right);
 	color: var(--menu-text-color);
 }
 
