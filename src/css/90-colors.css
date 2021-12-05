@@ -112,13 +112,13 @@ footer a:hover,
 /* hover-only */
 .menu-language-choice .menu-item:hover,
 .menu-music .menu-item:hover,
-.menu-playlist .menu-item:hover {
+.menu-playlist .menu-item:hover,
+.menu-playlist .highlighted a {
 	background-color: var(--menu-background-hovered-color);
 }
 @media screen and (max-width: 64em) {
 	.menu-main .menu-item:hover {background-color: var(--menu-background-hovered-color);}
 }
-
 
 .player {border-top: var(--menu-border-strong);}
 .player .disabled {color: var(--menu-icon-inactive-color);}
