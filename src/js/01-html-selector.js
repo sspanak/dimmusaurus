@@ -219,4 +219,14 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 		return this.$element.innerHTML;
 	}
+
+
+	getData(attribute) {
+		if (!this.$element) {
+			console.warn('Getting a data attribute when there is no selected $element.');
+			return '';
+		}
+
+		return this.$element.getAttribute(`data-${attribute}`);
+	}
 }

@@ -87,12 +87,14 @@ function progressBarPositionToSeconds(boundingRect, clickX, totalTime) { // esli
  * @param  {string} name
  * @param  {string} duration
  * @param  {string} htmlIdPrefix
+ * @param  {string} itemIdPrefix
  * @return {string} HTML
  */
-function getPlaylistItemTemplate(id, name, duration, htmlIdPrefix) { // eslint-disable-line no-unused-vars
-	const itemId = `${htmlIdPrefix.replace('#', '')}${id}`;
-	return `<li>
-			<a id="${itemId}" class="menu-item" onclick="Player.selectTrack(${id});Player.playToggle();">
+// eslint-disable-next-line no-unused-vars
+function getPlaylistItemTemplate(id, name, duration, trackIdPrefix, itemDataAttribute) {
+	const trackId = `${trackIdPrefix.replace('#', '')}${id}`;
+	return `<li data-${itemDataAttribute}="${id}">
+			<a id="${trackId}" class="menu-item" onclick="Player.selectTrack(${id});Player.playToggle();">
 				<span class="playlist-title">${name}</span>
 				<span class="playlist-time">${duration}</span>
 			</a>

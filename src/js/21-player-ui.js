@@ -11,6 +11,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			disabledBody: 'disabled-body',
 			error: 'player-error',
 			hidden: 'hidden',
+			highlighted: 'highlighted',
 			loading: 'player-loading',
 			muted: 'fa-volume-mute',
 			pause: 'fa-pause',
@@ -28,8 +29,12 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			playhead: '.track-progress-bar .track-progress',
 			playlist: '.menu-playlist-wrapper',
 			playlistButton: '#pl-playlist-toggle',
+			playlistItem: '#playlist-list li',
+			playlistItemVisible: () => `#playlist-list li:not(.${this.classes.hidden})`,
 			playlistList: '#playlist-list',
+			playlistTrackHighlighted: () => `#playlist-list li.${this.classes.highlighted} a`,
 			playlistTrackPrefix: '#playlist-track-',
+			playlistTrackSelected: () => `#playlist-list a.${this.classes.selected}`,
 			playlistUnavailableLabel: '#playlist-unavailable-label',
 			previous: '#pl-previous',
 			progressBar: '.track-progress-bar',
@@ -43,6 +48,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			tunePlayButton: '.content-tune .tune-play',
 			volume: '#pl-volume'
 		};
+
+		this.playlistItemDataAttribute = 'playlist-id';
 	}
 
 
@@ -76,6 +83,25 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.select(this.selectors.audio).addEventListener('loadeddata', () => {
 			this.hideLoading();
 			this.onAudioLoad();
+		});
+
+
+		document.addEventListener('keyup', event => {
+			if (!this.isPlaylistOpened() || !('code' in event)) {
+				return;
+			}
+
+			if (event.code === 'Enter') {
+				Player.selectTrack(this.getHighlightedTrack());
+			}
+
+			if (event.code === 'ArrowUp') {
+				this.highlightPreviousTrack();
+			}
+
+			if (event.code === 'ArrowDown') {
+				this.highlightNextTrack();
+			}
 		});
 	}
 
@@ -202,11 +228,12 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		/* eslint-enable no-undef */
 
 		this.clearSearch();
+		this.highlightTrack(-1);
 
-		if (this.select(this.selectors.playlist).hasClass(Menu.classes.closedMenu)) { // eslint-disable-line no-undef
-			this.openPlaylist();
-		} else {
+		if (this.isPlaylistOpened()) {
 			this.closePlaylist();
+		} else {
+			this.openPlaylist();
 		}
 	}
 
@@ -263,7 +290,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 				index,
 				item.title,
 				item.duration,
-				this.selectors.playlistTrackPrefix
+				this.selectors.playlistTrackPrefix,
+				this.playlistItemDataAttribute
 			);
 		});
 
@@ -620,7 +648,6 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		return this.select(this.selectors.play).hasClass(this.classes.disabled);
 	}
 
-
 	/**
 	 * isPlaying
 	 * Returns the currently playing status of the UI.
@@ -629,6 +656,17 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	isMuted() {
 		return this.select(this.selectors.volume).hasClass(this.classes.muted);
+	}
+
+
+	/**
+	 * isPlaylistOpened()
+	 * Returns whether the playlist menu is opened or not.
+	 *
+	 * @return {bool}
+	 */
+	isPlaylistOpened() {
+		return !this.select(this.selectors.playlist).hasClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
 	}
 
 
@@ -733,6 +771,103 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 
 	/**
+	 * getHighlightedTrack
+	 * Returns the playlist ID of the currently highlighted track in the playlist.
+	 *
+	 * @param {void}
+	 * @return {number}
+	 */
+	getHighlightedTrack() {
+		let $track = this.select(this.selectors.playlistTrackHighlighted());
+		if (!$track.$element) {
+			$track = this.select(this.selectors.playlistTrackSelected());
+		}
+
+		if (!$track.$element) {
+			return -1;
+		}
+
+		return Number.parseInt($track.selectParent().getData(this.playlistItemDataAttribute));
+	}
+
+
+	/**
+	 * highlightTrack
+	 * Changes the background of a track with a given playlist ID, making it "highlighted". Useful for
+	 * marking a track ready for action (for example, with the arrows), but without playing it back.
+	 * Use any negative number or invalid number to unhighlight all tracks.
+	 *
+	 * @return {this}
+	 */
+	highlightTrack(playlistId) {
+		const $items = this.selectAll(this.selectors.playlistItem);
+		this.removeClassAll($items, this.classes.highlighted);
+		if (playlistId >= 0) {
+			this
+				.select(`${this.selectors.playlistTrackPrefix}${playlistId}`)
+				.selectParent()
+				.addClass(this.classes.highlighted);
+
+			this.scrollTrackIntoView(playlistId);
+		}
+
+		return this;
+	}
+
+
+	/**
+	 * highlightNextTrack
+	 * Like this.highlightTrack(), but highlights the next track in the list.
+	 *
+	 * @return {this}
+	 */
+	highlightNextTrack() {
+		const currentTrackId = `${this.getHighlightedTrack()}`;
+		const visibleTracks = this.selectAll(this.selectors.playlistItemVisible());
+		if (!visibleTracks.length) {
+			console.info('No visible tracks. Not highlighting anything.');
+			return this;
+		}
+
+		const highlightedIdx = visibleTracks.findIndex(
+			t => this.select(t).getData(this.playlistItemDataAttribute) === currentTrackId
+		);
+		const nextTrack = visibleTracks[highlightedIdx + 1]
+			|| visibleTracks[highlightedIdx]
+			|| visibleTracks[visibleTracks.length - 1];
+
+		this.highlightTrack(this.select(nextTrack).getData(this.playlistItemDataAttribute));
+
+		return this;
+	}
+
+
+	/**
+	 * highlightPreviousTrack
+	 * Like this.highlightTrack(), but highlights the previous track in the list.
+	 *
+	 * @return {this}
+	 */
+	highlightPreviousTrack() {
+		const currentTrackId = `${this.getHighlightedTrack()}`;
+		const visibleTracks = this.selectAll(this.selectors.playlistItemVisible());
+		if (!visibleTracks.length) {
+			console.info('No visible tracks. Not highlighting anything.');
+			return this;
+		}
+
+		const highlightedIdx = visibleTracks.findIndex(
+			t => this.select(t).getData(this.playlistItemDataAttribute) === currentTrackId
+		);
+		const previousTrack = visibleTracks[highlightedIdx - 1] || visibleTracks[highlightedIdx] || visibleTracks[0];
+
+		this.highlightTrack(this.select(previousTrack).getData(this.playlistItemDataAttribute));
+
+		return this;
+	}
+
+
+	/**
 	 * resetTrackSelection
 	 * Clears track selection from the player and the playlist.
 	 *
@@ -740,7 +875,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	resetTrackSelection() {
 		const $items = this.selectAll(`[id^='${this.selectors.playlistTrackPrefix.replace('#', '')}']`);
-		this.removeClassAll($items, 'selected');
+		this.removeClassAll($items, this.classes.selected);
 		this.select(this.selectors.trackTitle).setHTML('');
 		this.setTotalTime('--:--');
 		this.setPlaybackTime('--:--');
@@ -764,6 +899,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.disableNextWhenLastSong(playlistId, playlistLength);
 		this.disablePreviousWhenFirstSong(playlistId);
 		this.setPlaybackTime('00:00');
+		this.highlightTrack(-1);
 
 		return this;
 	}
