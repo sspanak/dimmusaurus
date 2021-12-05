@@ -202,13 +202,29 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		/* eslint-enable no-undef */
 
 		this.clearSearch();
-		this.select(this.selectors.playlist).toggleClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
 
-		if (this.hasClass(Menu.classes.closedMenu)) { // eslint-disable-line no-undef
-			this.select('body').removeClass(this.classes.disabledBody);
+		if (this.select(this.selectors.playlist).hasClass(Menu.classes.closedMenu)) { // eslint-disable-line no-undef
+			this.openPlaylist();
 		} else {
-			this.select('body').addClass(this.classes.disabledBody);
+			this.closePlaylist();
 		}
+	}
+
+
+	/**
+	 * openPlaylist
+	 * Self-explanatory
+	 *
+	 * @param  {void}
+	 * @return {void}
+	 */
+	openPlaylist() {
+		this.select('body').addClass(this.classes.disabledBody);
+		/* eslint-disable no-undef */
+		this.scrollTrackIntoView(Player.currentTrack);
+
+		this.select(this.selectors.playlist).removeClass(Menu.classes.closedMenu);
+		/* eslint-enable no-undef */
 	}
 
 
@@ -220,8 +236,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	closePlaylist() {
-		this.select(this.selectors.playlist).addClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
 		this.select('body').removeClass(this.classes.disabledBody);
+		this.select(this.selectors.playlist).addClass(Menu.classes.closedMenu); // eslint-disable-line no-undef
 	}
 
 
@@ -698,6 +714,19 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 				}
 			});
 		});
+
+		return this;
+	}
+
+
+	/**
+	 * scrollTrackIntoView
+	 * Scrolls the playlist to the track with the given playlist ID.
+	 *
+	 * @return {this}
+	 */
+	scrollTrackIntoView(playlistId) {
+		this.select(`${this.selectors.playlistTrackPrefix}${playlistId}`).scrollIntoView();
 
 		return this;
 	}

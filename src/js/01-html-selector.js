@@ -161,6 +161,24 @@ class UiElement { // eslint-disable-line no-unused-vars
 		}
 	}
 
+
+	scrollIntoView() {
+		if (!this.$element) {
+			console.warn('No selected $element. Nothing to scroll.');
+			return this;
+		}
+
+		if (typeof this.$element.scrollIntoView !== 'function') {
+			console.error(`Cannot scroll ${this.selector} into view. Function is not supported.`);
+			return this;
+		}
+
+		this.$element.scrollIntoView();
+
+		return this;
+	}
+
+
 	addEventListener(eventType, callback) {
 		if (!this.$element) {
 			console.warn('Calling addEventListener() without selected $element.');
@@ -176,6 +194,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 		this.$element.addEventListener(eventType, callback);
 	}
+
 
 	setHTML(newHTML) {
 		if (!this.$element) {
