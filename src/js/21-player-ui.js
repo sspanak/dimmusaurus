@@ -761,6 +761,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * scrollTrackIntoView
 	 * Scrolls the playlist to the track with the given playlist ID.
 	 *
+	 * @param {number} playlistId
 	 * @return {this}
 	 */
 	scrollTrackIntoView(playlistId) {
@@ -806,9 +807,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			this
 				.select(`${this.selectors.playlistTrackPrefix}${playlistId}`)
 				.selectParent()
+				.scrollIntoView({ block: 'nearest' })
 				.addClass(this.classes.highlighted);
-
-			this.scrollTrackIntoView(playlistId);
 		}
 
 		return this;
