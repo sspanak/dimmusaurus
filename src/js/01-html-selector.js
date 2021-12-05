@@ -162,7 +162,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 	}
 
 
-	scrollIntoView() {
+	scrollIntoView(options) {
 		if (!this.$element) {
 			console.warn('No selected $element. Nothing to scroll.');
 			return this;
@@ -173,7 +173,7 @@ class UiElement { // eslint-disable-line no-unused-vars
 			return this;
 		}
 
-		this.$element.scrollIntoView();
+		this.$element.scrollIntoView(options);
 
 		return this;
 	}
