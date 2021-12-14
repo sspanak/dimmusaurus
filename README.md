@@ -1,5 +1,5 @@
 # dimmusaurus
-*Version 7.10*
+*Version 7.11*
 
 A small, beautiful and fast wiki-like site for Dimmu Saurus, that works equally good on a powerful PC and on an old Nokia running Opera Mini.
 
@@ -10,14 +10,14 @@ The project runs in a bash-compatible terminal. If you are going to write any co
 
 #### Requirements
 * **Apache 2.4** + **mod_wsgi** _(production only)_
-* **node 12.14+** _(development only)_
+* **node 12.14+** _(development only; 16.11+ recommended)_
 * **npm 6.13+** _(development only; usually, comes with node)_
 * **Python** 3.6, 3.7 or 3.8 _(3.8 recommended)_
 * **sqlite 3.8.3+**
 * **Pip 3** _(usually, comes with Python, but if you don't have it: `$ python3.8 -m easy_install pip`)_
 * **django-markdown-deux** python package: enables usage of `.md` files as templates. _(Install with `$ pip install -r requirements.txt`.)_
 * **markdown2** python package. Required by django-markdown-deux and for converting any database markdown content to HTML. _(Your Python version may include it by default. Install with `$ pip install -r requirements.txt`.)_
-* **Django 3.0+** _(Install with `$ pip install -r requirements.txt`.)_
+* **Django 3.0+** _(Install with `$ pip install -r requirements.txt`; Latest 3.x recommended)_
   * If you have several Django apps, you'd want to install it in a `virtualenv`. Check out [Django docs](https://docs.djangoproject.com/en/3.0/intro/install/) how to do this.
   * **gettext 0.15+**. _(It is available by default in major Linux distributions, but if you don't have it, or you are using a different OS, you need to install it.)_
 

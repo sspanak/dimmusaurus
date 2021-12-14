@@ -7,7 +7,7 @@ Hence, no big frameworks or libraries were used, except when they really made di
 ### Technology Stack
 * Frontend
   * Vanilla HTML5
-  * Vanilla CSS3 + PureCSS 1.0.1 for (resetting the styles)
+  * Vanilla CSS3 + PureCSS 1.0.1 _(for resetting the styles)_
   * Vanilla ES2015
 * Backend
   * Python 3.8 + Pip
@@ -17,13 +17,13 @@ Hence, no big frameworks or libraries were used, except when they really made di
   * django-markdown-deux
   * sqlite 3.8.3+ _(included with Python)_
 * Code style
-  * nodejs 12.14+
+  * nodejs 12.14+ _(16.11+ recommended)_
     * csslint
     * eslint
   * html tidy
   * pycodestyle
 * Building
-  * nodejs 12.14+
+  * nodejs 12.14+ _(16.11+ recommended)_
     * babel 7 is used for generating JS for older browsers
     * there is a helper node script for building the legacy CSS.
   * make _(There is a Makefile compatible with `bash`)_
