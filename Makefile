@@ -81,7 +81,7 @@ js-prod:
 
 images:
 	mkdir -p ui-demo/img
-	cp img/{*.png,*.ico,*.gif} ui-demo/img
+	cp img/{*.png,*.ico,*.gif,*.svg} ui-demo/img
 
 db-backup:
 	bash -c deploy-tools/db-export.sh

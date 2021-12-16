@@ -12,7 +12,7 @@ The project runs in a bash-compatible terminal. If you are going to write any co
 * **Apache 2.4** + **mod_wsgi** _(production only)_
 * **node 12.14+** _(development only)_
 * **npm 6.13+** _(development only; usually, comes with node)_
-* **Python** 3.6, 3.7 or 3.8 _(3.8 recommended)_
+* **Python 3** _(3.6, 3.7 or 3.8; 3.8 recommended)_
 * **sqlite 3.8.3+**
 * **Pip 3** _(usually, comes with Python, but if you don't have it: `$ python3.8 -m easy_install pip`)_
 * **django-markdown-deux** python package: enables usage of `.md` files as templates. _(Install with `$ pip install -r requirements.txt`.)_
@@ -47,6 +47,8 @@ There are `$ make db-backup` and `$ make db-import` commands, for exporting and 
 This section is for running the site locally.
 
 #### The entire site
+Ensure your default interpreter is Python3, not Python2, otherwise the commands below will fail. Alternatively, alter the `Makefile` and run everything explicitly with `python3` instead of `python`.
+
 * `$ make django`
 * `$ cd src/py/`
 * `$ python manage.py runserver [a-port-of-your-choice]`
