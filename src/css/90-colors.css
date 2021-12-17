@@ -23,6 +23,8 @@
 
 	--menu-border-strong: 1px solid #666;
 
+
+	--shadow-language-flags: inset 2px 2px 2px 0 rgba(155, 155, 155, 0.5), inset -2px -2px 2px 0 rgba(0, 0, 0, 0.20);
 	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
 	--shadown-bottom-right: 1px 2px 4px rgba(50,50,50,0.57);
 	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
@@ -64,6 +66,8 @@ hr {border-color: var(--menu-text-color);}
 .content-version .version-info {border-color: var(--menu-icon-inactive-color);}
 
 footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
+
+.menu-language-choice .flag {box-shadow: var(--shadow-language-flags);}
 
 .header-container, footer, .menu, .player {
 	background-color: var(--menu-background-color);

@@ -121,7 +121,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 
 /*============== Language Menu ==============*/
 .menu-language-choice .flag {
-	background: url(img/znamena.png) no-repeat;
+	background: url(img/znamena.svg) no-repeat;
 	border-radius: 3px;
 	display: inline-block;
 	height: 18px;
