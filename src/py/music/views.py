@@ -28,6 +28,7 @@ def render_playlist(request):
         'song__id',
         'song__original_title',
         'song__length',
+        'song__slug',
         'title'
     )
     song_descriptions = song_descriptions.prefetch_related('song__song_files')
@@ -48,6 +49,7 @@ def render_playlist(request):
             'id': sd.song_id,
             'title': sd.translated_title,
             'duration': sd.song.duration,
+            'info_url': sd.song.get_absolute_url(),
             'files': list(files)
         })
 
