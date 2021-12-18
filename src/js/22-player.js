@@ -1,11 +1,10 @@
 /* eslint no-undef: 0 */
 const Player = new class { // eslint-disable-line
 	constructor() {
-		this.cookies = {
-			lastTrack: 'track',
-			lastTrackTime: 'track_time'
+		this.lastTrack = {
+			playTime: 'track_time',
+			title: 'track'
 		};
-
 		this.currentTrack = -1;
 		this.playlist = [];
 		this.startupFailure = false;
@@ -83,11 +82,8 @@ const Player = new class { // eslint-disable-line
 			return;
 		}
 
-		setCookie(this.cookies.lastTrack, `${this.currentTrack}`); // eslint-disable-line no-undef
-		setCookie(
-			this.cookies.lastTrackTime,
-			`${timeToSeconds(PlayerUi.getCurrentTime())}` // eslint-disable-line no-undef
-		);
+		localStorage.setItem(this.lastTrack.title, `${this.currentTrack}`);
+		localStorage.setItem(this.lastTrack.playTime, `${timeToSeconds(PlayerUi.getCurrentTime())}`);
 	}
 
 
@@ -97,14 +93,14 @@ const Player = new class { // eslint-disable-line
 	 * the language, or when coming back to the site several days later.
 	 */
 	restoreLastPlayedTrack() {
-		const trackId = Number.parseInt(getCookie(this.cookies.lastTrack)); // eslint-disable-line no-undef
+		const trackId = Number.parseInt(localStorage.getItem(this.lastTrack.title));
 		if (Number.isNaN(trackId) || !this.playlist[trackId]) {
 			return;
 		}
 
 		this.selectTrack(trackId);
 
-		const trackTime = Number.parseInt(getCookie(this.cookies.lastTrackTime)); // eslint-disable-line no-undef
+		const trackTime = Number.parseInt(localStorage.getItem(this.lastTrack.playTime));
 		if (Number.isNaN(trackTime) || trackTime <= 0) {
 			return;
 		}
