@@ -79,7 +79,7 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	border-right: var(--menu-border-strong);
 	border-top: var(--menu-border-strong);
 }
-.menu-playlist a, .menu-playlist a:visited {color: var(--menu-text-color);}
+.menu-playlist a, .menu-playlist a:visited {color: var(--menu-text-color);} /* The (i) button */
 .menu-playlist a:hover, .menu-playlist a:hover:visited {color: var(--menu-item-hovered);}
 
 .menu-playlist-wrapper .playlist-search input {
@@ -115,7 +115,7 @@ footer a:hover,
 .menu-language-choice .menu-item:hover,
 .menu-music .menu-item:hover,
 .menu-playlist .menu-item:hover,
-.menu-playlist .highlighted a {
+.menu-playlist .highlighted .menu-item {
 	background-color: var(--menu-background-hovered-color);
 }
 @media screen and (max-width: 64em) {
