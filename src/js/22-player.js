@@ -16,14 +16,10 @@ const Player = new class { // eslint-disable-line
 		if (!this.isSupported()) {
 			return;
 		}
-		if (typeof axios === 'undefined') {
-			console.error('Failed initializing player. Axios is not available.');
-			return;
-		}
+
+		this.loadPlaylist().then(() => this.restoreLastPlayedTrack());
 
 		try {
-			this.loadPlaylist().then(() => this.restoreLastPlayedTrack());
-
 			PlayerUi.init();
 			PlayerUi.onProgressBarClick = (time) => this.seek(time);
 		} catch (error) {
@@ -44,6 +40,7 @@ const Player = new class { // eslint-disable-line
 	 */
 	isSupported() {
 		return !this.startupFailure
+			&& typeof window.fetch === 'function'
 			&& (
 				this.isAudioTypeSupported('audio/ogg') ||
 				this.isAudioTypeSupported('audio/mp4')
@@ -314,19 +311,19 @@ const Player = new class { // eslint-disable-line
 	loadPlaylist() {
 		const languageCode = document.querySelector('html').getAttribute('lang');
 
-		return axios.get(`/api/music/playlist/${languageCode}/`)
+		return Ajaxify.get(`/api/music/playlist/${languageCode}/`)
 			.then(data => {
 				this.playlist = [];
 				let track = -1;
-				if (data && data.data && data.data.playlist && Array.isArray(data.data.playlist)) {
-					this.playlist = data.data.playlist;
+				if (data && data.playlist && Array.isArray(data.playlist)) {
+					this.playlist = data.playlist;
 					PlayerUi.buildPlaylist(this.playlist);
 					track = 0;
 				}
 				this.selectTrack(track);
 			})
 			.catch(error => {
-				console.error(`Failed fetching the playlist. ${error}.`);
+				console.error(`Failed fetching the playlist. ${error.message}.`);
 				PlayerUi.buildPlaylist([]);
 			});
 	}
