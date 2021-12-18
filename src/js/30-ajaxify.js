@@ -22,14 +22,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 
 	_init() {
-		if (typeof axios === 'undefined') {
-			console.error('Failed initializing Ajaxify. Axios is not available.');
-			return;
-		}
-
-		// Ajaxify is causing too much problems with navigation on older browsers so it is better to
-		// disable it.
-		if (!Player.isSupported() || !this.isSupported()) { // eslint-disable-line no-undef
+		if (!this.isSupported()) {
 			return;
 		}
 
@@ -44,7 +37,25 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	isSupported() {
 		return typeof history !== 'undefined'
 			&& typeof history.replaceState === 'function'
-			&& typeof history.pushState === 'function';
+			&& typeof history.pushState === 'function'
+			&& typeof window.fetch === 'function'
+			// Ajaxify is causing too many problems with navigation on older browsers, so
+			// here is another way of detecting them
+			&& Player.isSupported(); // eslint-disable-line no-undef
+	}
+
+
+	/**
+	 * get
+	 * Performs a GET request
+	 *
+	 * @param {string} url
+	 * @return {Promise<JSON>}
+	 */
+	get(url) {
+		return fetch(url).then(response =>
+			response.ok ? response.json() : Promise.reject(new Error(`${response.status} ${response.statusText}`))
+		);
 	}
 
 
@@ -80,10 +91,10 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 		this.lastNavigationUrl = url;
 
-		return axios.get(`/api${url}`) // eslint-disable-line no-undef
-			.then(response => {
+		return this.get(`/api${url}`)
+			.then(data => {
 				try {
-					const { content, description, title, urls } = response.data;
+					const { content, description, title, urls } = data;
 
 					if (updateHistory) {
 						this._saveScrollPosition();
@@ -98,7 +109,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 				}
 			})
 			.catch(error => {
-				console.error(`Could not navigate to URL: "${url}". ${error}.`);
+				console.error(`Could not navigate to URL: "${url}". ${error.message}.`);
 				console.info('Attempting non-ajax navigation.');
 				location.href = url;
 			});
