@@ -80,7 +80,7 @@
 		max-height: calc(70vh - 3em - 50px); /* height - footer - search */
 	}
 	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 5px;}
-	.menu-playlist .playlist-info {padding: 5px 0 5px 2px;}
+	.menu-playlist .playlist-info {padding-left: 2px;}
 
 
 /*============== Player ==============*/
@@ -158,7 +158,10 @@
 		height: 80vh;
 		max-height: calc(80vh - 3em - 50px); /* height - footer - search */
 	}
+	.menu-playlist li > .menu-item {padding: 0 8px;}
+	.menu-playlist .menu-item > span, .menu-playlist .menu-item > a {padding: 10px 0;}
 	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
+
 
 	.button-scroll-to-top {
 		bottom: 75px;
