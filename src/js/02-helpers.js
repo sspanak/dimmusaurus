@@ -95,10 +95,10 @@ function progressBarPositionToSeconds(boundingRect, clickX, totalTime) { // esli
 function getPlaylistItemTemplate(id, name, duration, url, trackIdPrefix, itemDataAttribute) {
 	const trackId = `${trackIdPrefix.replace('#', '')}${id}`;
 	return `<li data-${itemDataAttribute}="${id}">
-			<div id="${trackId}" class="menu-item" onclick="Player.selectTrack(${id});Player.playToggle();">
-				<span class="playlist-title">${name}</span>
+			<div id="${trackId}" class="menu-item">
+				<span class="playlist-title" onclick="Player.selectTrack(${id});Player.playToggle();">${name}</span>
 				<span class="playlist-time">${duration}</span>
-				<a href="${url}" class="playlist-info fas fa-info-circle"></a>
+				<a href="${url}" class="playlist-info fas fa-info-circle" onclick="PlayerUi.closePlaylist()"></a>
 			</div>
 		</li>`;
 }
