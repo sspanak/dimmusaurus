@@ -286,10 +286,11 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		let playlistTemplate = '';
 		playlist.forEach((item, index) => {
-			playlistTemplate += getPlaylistItemTemplate(
+			playlistTemplate += getPlaylistItemTemplate( // eslint-disable-line no-undef
 				index,
 				item.title,
 				item.duration,
+				item.info_url,
 				this.selectors.playlistTrackPrefix,
 				this.playlistItemDataAttribute
 			);

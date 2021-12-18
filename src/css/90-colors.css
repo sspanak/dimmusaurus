@@ -79,6 +79,8 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	border-right: var(--menu-border-strong);
 	border-top: var(--menu-border-strong);
 }
+.menu-playlist a, .menu-playlist a:visited {color: var(--menu-text-color);}
+.menu-playlist a:hover, .menu-playlist a:hover:visited {color: var(--menu-item-hovered);}
 
 .menu-playlist-wrapper .playlist-search input {
 	background: var(--menu-input-background-color);

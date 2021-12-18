@@ -64,7 +64,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .fa-chevron-down, .fa-chevron-up {vertical-align: middle;}
 
 /*==============  Buttons ==============*/
-.menu .menu-item, footer a, .player .player-button {
+.menu .menu-item, .menu-item a, footer a, .player .player-button {
 	text-decoration: none;
 }
 
@@ -153,11 +153,21 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 .menu-playlist .playlist-unavailable-label {display: none; margin: 12px;}
 .menu-playlist > ul {padding: 0 5px;}
-.menu-playlist .menu-item {
-	cursor: pointer;
+.menu-playlist li > .menu-item {
+	cursor: auto;
 	display: flex;
 }
-.menu-playlist .playlist-title {flex: auto;}
+.menu-playlist .menu-item > span, .menu-playlist .menu-item > a {
+	margin-bottom: auto;
+	margin-top: auto;
+}
+.menu-playlist .playlist-title {
+	cursor: pointer;
+	flex: auto;
+}
+.menu-playlist .playlist-info {
+	font-size: 1.2em;
+}
 
 .playlist-unavailable .playlist-unavailable-label {display: block;}
 .playlist-unavailable ul {display: none;}

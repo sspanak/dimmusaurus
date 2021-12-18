@@ -124,7 +124,7 @@
 		height: 55vh;
 		max-height: calc(55vh - 2.5em - 50px); /* height - footer - search */
 	}
-	.menu-playlist .playlist-time {margin-left: 10px;}
+	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
 
 
 /*============== Content ==============*/
