@@ -13,11 +13,18 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			ajaxLoaderText: '.ajax-loader .label',
 			content: '.content-wrapper',
 			description: 'meta[name=description]',
+			internalLinks: 'a:not([hreflang])[href^="/"]',
 			languageLinks: 'a[hreflang][rel=alternate]',
+			playlistLinks: '.menu-playlist a[href]',
 			title: 'title'
 		};
 
 		window.addEventListener('load', () => this._init());
+		window.addEventListener('buildPlaylist', () => {
+			if (this.isSupported()) {
+				this._apply(this.selectors.playlistLinks);
+			}
+		});
 	}
 
 
@@ -26,7 +33,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			return;
 		}
 
-		this.run();
+		this._applyToAll();
 
 		window.addEventListener('hashchange', event => this._forceHistoryState(event));
 		window.addEventListener('popstate', event => this._handleHistoryPop(event));
@@ -34,6 +41,12 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	}
 
 
+	/**
+	 * isSupported()
+	 *
+	 * @param {void}
+	 * @return {bool}
+	 */
 	isSupported() {
 		return typeof history !== 'undefined'
 			&& typeof history.replaceState === 'function'
@@ -56,24 +69,6 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		return fetch(url).then(response =>
 			response.ok ? response.json() : Promise.reject(new Error(`${response.status} ${response.statusText}`))
 		);
-	}
-
-
-	/**
-	 * run
-	 *
-	 * Ajaxifies all internal relative links
-	 */
-	run() {
-		this._getInternalLinks().forEach(a => {
-			a.removeEventListener('click', this._handleNavigation);
-			a.addEventListener('click', this._handleNavigation);
-		});
-
-		this._getLanguageLinks().forEach(a => {
-			a.removeEventListener('click', this._handleLanguageChange);
-			a.addEventListener('click', this._handleLanguageChange);
-		});
 	}
 
 
@@ -141,6 +136,37 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			() => Ajaxify.select(Ajaxify.selectors.ajaxLoaderText).setHTML(''),
 			5000
 		);
+	}
+
+
+	/**
+	 * _applyToAll
+	 * Ajaxifies all internal relative links
+	 *
+	 * @param {void}
+	 * @return {void}
+	 */
+	_applyToAll() {
+		this
+			._apply(this.selectors.internalLinks)
+			._apply(this.selectors.languageLinks);
+	}
+
+
+	/**
+	 * apply
+	 * Ajaxifies links by a given CSS selector
+	 *
+	 * @param {string} selector
+	 * @return {this}
+	 */
+	_apply(selector) {
+		this._getLinks(selector).forEach(a => {
+			a.removeEventListener('click', this._handleNavigation);
+			a.addEventListener('click', this._handleNavigation);
+		});
+
+		return this;
 	}
 
 
@@ -219,29 +245,18 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 
 
 	/**
-	 * _getInternalLinks
+	 * _getLinks
+	 * Returns an array of links matching the provided CSS selector.
 	 *
-	 * @return {<HtmlNode>[]}  An array of all relative links
+	 * @param {string} selector
+	 * @return {<HtmlNode>[]}
 	 */
-	_getInternalLinks() {
-		let links = this.selectAll('a').filter(a => `${a.getAttribute('href')}`.match(/^\/[^/]/));
-
-		if (typeof AJAXIFY_EXCLUDE !== 'undefined' && Array.isArray(AJAXIFY_EXCLUDE)) { // eslint-disable-line no-undef
-			const excludePattern = new RegExp(AJAXIFY_EXCLUDE.join('|')); // eslint-disable-line no-undef
-			links = links.filter(a => !`${a.getAttribute('href')}`.match(excludePattern));
+	_getLinks(selector) {
+		if (typeof selector !== 'string') {
+			return [];
 		}
 
-		return links;
-	}
-
-
-	/**
-	 * _getLanguageLinks
-	 *
-	 * @return {<HtmlNode>[]}  An array of all language change links
-	 */
-	_getLanguageLinks() {
-		let links = this.selectAll(this.selectors.languageLinks);
+		let links = this.selectAll(selector);
 
 		if (typeof AJAXIFY_EXCLUDE !== 'undefined' && Array.isArray(AJAXIFY_EXCLUDE)) { // eslint-disable-line no-undef
 			const excludePattern = new RegExp(AJAXIFY_EXCLUDE.join('|')); // eslint-disable-line no-undef
@@ -270,7 +285,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 		}
 
 		if (Array.isArray(urls)) {
-			const languageLinks = this._getLanguageLinks();
+			const languageLinks = this._getLinks(this.selectors.languageLinks);
 			urls.forEach(({ url, language_code }) => {
 				const $a = languageLinks.find(a => a.hreflang === language_code);
 				if ($a) {
@@ -279,9 +294,8 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			});
 		}
 
-
 		// ajaxify any new links
-		this.run();
+		this._applyToAll();
 	}
 
 

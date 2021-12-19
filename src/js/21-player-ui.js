@@ -297,9 +297,8 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		});
 
 		this.select(this.selectors.playlistList).setHTML(playlistTemplate);
-		if (Ajaxify.isSupported()) { // eslint-disable-line no-undef
-			Ajaxify.run(); // eslint-disable-line no-undef
-		}
+
+		window.dispatchEvent(new Event('buildPlaylist'));
 
 		return this;
 	}
