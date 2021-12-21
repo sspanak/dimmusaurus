@@ -1,6 +1,6 @@
 {% extends root_template %}
 {% load i18n %}
-{% load markdown_deux_tags %}
+{% load markdown_to_html %}
 
 {% block content_block %}
 <div class="content content-lyrics">
@@ -32,13 +32,13 @@
 			{% if lyrics.english_lyrics %}
 				<a class="english-translation-link" href="#english_lyrics">English translation below</a>
 			{% endif %}
-			<div class="lyrics">{% markdown %}{{ lyrics.lyrics }}{% endmarkdown %}</div>
+			<div class="lyrics">{{ lyrics.lyrics | markdown_to_html | safe }}</div>
 		</div>
 
 		{% if lyrics.english_lyrics %}
 		<div class="lyrics-wrapper">
 			<h3 id="english_lyrics">{{ lyrics.english_title }}</h3>
-			<div class="lyrics">{% markdown %}{{ lyrics.english_lyrics }}{% endmarkdown %}</div>
+			<div class="lyrics">{{ lyrics.english_lyrics | markdown_to_html | safe }}</div>
 		</div>
 		{% endif %}
 	</div>

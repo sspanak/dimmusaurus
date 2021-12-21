@@ -1,8 +1,3 @@
-{% extends "bio/index.html" %}
-{% load markdown_deux_tags %}
-
-{% block bio_block %}{% markdown %}
-
 Dimmu Saurus (Bulgarian: *Димозавъръ* or *Димозавъръ*; from Latin: *Dimmu Saurus*) is a musical project dedicated to blues, metal, rock and classical music, and other fun genres. It was founded in Stara Zagora, Bulgaria, and currently consists of one member – myself, the Black Dimosaur (my portrait is hanging on top of the page).
 
 I created this project, because I wanted to write music that does not follow any rules, nor that it is mutilated by restrictions or constraints. The way all music should be.
@@ -82,5 +77,3 @@ The newest period spans from 2014 until nowadays. It has no name yet, but simila
 A new step that I made is making of music videos. The most spectacular one is for “Meat in the Prison Cell” (2015), which also happened to be one of my coolest songs.
 
 And after that… well, I am still writing the next musical chapter...
-
-{% endmarkdown %}{% endblock %}

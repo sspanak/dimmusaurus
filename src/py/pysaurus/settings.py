@@ -48,7 +48,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'markdown_deux',
     'main', 'bio', 'music'  # The Website!
 ]
 
@@ -149,12 +148,3 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
-
-MARKDOWN_DEUX_STYLES = {
-    'default': {
-        "extras": {
-            "code-friendly": None,
-        },
-        "safe_mode": False,  # enable links in Markdown
-    }
-}

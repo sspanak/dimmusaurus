@@ -1,5 +1,6 @@
 {% extends root_template %}
 {% load i18n %}
+{% load markdown_to_html %}
 
 {% block content_block %}
 <div class="content content-bio">
@@ -14,6 +15,6 @@
 
 	{% comment %}Translators: About page big heading{% endcomment %}
 	<h1 class="content-heading">{% trans 'About Dimmu Saurus' %}</h1>
-	<article>{% block bio_block %}{% endblock %}</article>
+	<article>{{ bio | markdown_to_html | safe }}</article>
 </div>
 {% endblock %}

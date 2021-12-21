@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.shortcuts import render, redirect
+from django.template import loader
 from django.utils.translation import gettext, activate, get_language
 
 from main.shortcuts import render_template, get_version_info
@@ -12,9 +12,10 @@ def render_page(request):
 
     response = render_template(
         request,
-        'bio/bio-%s.md' % lang,
+        'bio/index.html',
         {
             'albums': get_music_menu_album_list(lang),
+            'bio': loader.get_template('bio/bio-%s.md' % lang).render({}, request),
             'build': version_info.get('build'),
             'page': {
                 'base_url': settings.BASE_URL,
