@@ -70,7 +70,7 @@ css-prod:
 
 js-ui:
 	cat src/js/[0-9]*.js > ui-demo/ds.js
-	npm run --silent build-legacy-js -- ui-demo/ds.js > ui-demo/ds.legacy.js
+	npx babel ui-demo/ds.js > ui-demo/ds.legacy.js
 
 js-debug-prod:
 	make js-ui
