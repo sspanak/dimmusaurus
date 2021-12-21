@@ -78,8 +78,10 @@ js-debug-prod:
 	mv ui-demo/ds.legacy.js src/py/static/ds.legacy.min.js
 
 js-prod:
-	bash -c build-tools/build-js-prod.sh
-	mv ui-demo/*.js src/py/static
+	make js-ui
+	npx terser -c drop_console=true,passes=2,ecma=2018 ui-demo/ds.js > src/py/static/ds.min.js
+	npx terser -c drop_console=true,passes=2 ui-demo/ds.legacy.js > src/py/static/ds.legacy.min.js
+	rm ui-demo/*.js
 
 images:
 	mkdir -p ui-demo/img
