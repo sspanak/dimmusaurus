@@ -2,22 +2,9 @@
   "name": "dimmusaurus",
   "description": "A website for Dimmu Saurus",
   "scripts": {
-    "build-legacy-js": "./node_modules/.bin/babel --presets=@babel/env",
     "lint-css": "csslint src/css/",
     "lint-js": "eslint -c .eslintrc.json ./src/js/"
   },
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env"
-      ]
-    ]
-  },
-  "browserslist": [
-    "since 2014",
-    "not since 2018",
-    "android 4.4"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sspanak/dimmusaurus.git"
@@ -29,10 +16,9 @@
   },
   "homepage": "https://github.com/sspanak/dimmusaurus",
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.12.11",
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
     "csslint": "^1.0.5",
     "eslint": "^8.5.0",
     "terser": "^5.10.0"
