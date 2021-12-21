@@ -1,6 +1,6 @@
 {% extends root_template %}
 {% load i18n %}
-{% load markdown_deux_tags %}
+{% load markdown_to_html %}
 
 {% block content_block %}
 <div class="content content-tune">
@@ -76,7 +76,7 @@
 	<hr>
 
 	<article>
-		{% markdown %}{{song_description.description}}{% endmarkdown %}
+		{{ song_description.description | markdown_to_html | safe }}
 	</article>
 </div>
 {% endblock %}

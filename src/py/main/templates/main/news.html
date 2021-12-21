@@ -1,4 +1,4 @@
-{% load markdown_deux_tags %}
+{% load markdown_to_html %}
 {% load i18n %}
 
 {% for n in news %}
@@ -6,7 +6,7 @@
 		<h3 class="news-title">{{ n.title }}</h3>
 		<h4>{{ n.pub_date }}</h4>
 
-		{% markdown %}{{ n.body }}{% endmarkdown %}
+		{{ n.body | markdown_to_html | safe }}
 	</article>
 
 	{% if not forloop.last %} <hr> {% endif %}

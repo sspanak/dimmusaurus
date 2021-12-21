@@ -1,6 +1,6 @@
 {% extends root_template %}
 {% load i18n %}
-{% load markdown_deux_tags %}
+{% load markdown_to_html %}
 
 
 {% block content_block %}
@@ -33,7 +33,7 @@
 					{% endblocktrans %}
 				</p>
 			{% else %}
-				{% markdown %}{{ page_albums.0.description }}{% endmarkdown %}
+				{{ page_albums.0.description | markdown_to_html | safe }}
 			{% endif %}
 	</article>
 
