@@ -8,22 +8,21 @@ Hence, no big frameworks or libraries were used, except when they really made di
 * Frontend
   * Vanilla HTML5
   * Vanilla CSS3 + PureCSS 1.0.1 _(for resetting the styles)_
-  * Vanilla ES2015
+  * Vanilla ES2018
 * Backend
-  * Python 3.8 + Pip
-  * Django 3.0+
+  * Python 3.10 + Pip
+  * Django 4.0+
   * gettext 0.15 _(required by Django for translations)_
   * python-markdown2 _(you may have it by default)_
-  * django-markdown-deux
-  * sqlite 3.8.3+ _(included with Python)_
+  * sqlite 3.8.3+ _(3.31+ recommended; it is usually included with Python, but you may need to install it manually)_
 * Code style
-  * nodejs 12.14+ _(16.11+ recommended)_
+  * nodejs 14.18+ _(16.11+ recommended)_
     * csslint
     * eslint
   * html tidy
   * pycodestyle
 * Building
-  * nodejs 12.14+ _(16.11+ recommended)_
+  * nodejs 14.18+ _(16.11+ recommended)_
     * babel 7 is used for generating JS for older browsers
     * there is a helper node script for building the legacy CSS.
   * make _(There is a Makefile compatible with `bash`)_
