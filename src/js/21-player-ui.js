@@ -93,6 +93,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 			if (event.code === 'Enter') {
 				Player.selectTrack(this.getHighlightedTrack());
+				Player.playToggle();
 			}
 
 			if (event.code === 'ArrowUp') {
