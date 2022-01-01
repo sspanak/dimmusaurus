@@ -4,12 +4,12 @@ input_dir=`echo $1 | sed -e 's|/$||'`
 output_dir=`echo $2 | sed -e 's|/$||'`
 format=$3
 
-if ! [[ -d $input_dir && -d $output_dir ]] || [[ $format != 'opus' && $format != 'aac' ]]
+if ! [[ -d $input_dir && -d $output_dir ]] || [[ $format != 'opus' && $format != 'aac' && $format != 'vorbis' ]]
 then
-	echo 'Converts a directory of .flac files to .opus/.aac. Requires fdkaac, flac and ffmpeg to be installed.'
+	echo 'Converts a directory of .flac files to .opus/.aac/.ogg. Requires oggenc, fdkaac, flac and ffmpeg to be installed.'
 	echo 'Note: It is an input directory, not dir/*.flac'
 	echo 'Usage:'
-	echo "  $0 INPUT_DIR OTPUT_DIR aac|opus"
+	echo "  $0 INPUT_DIR OTPUT_DIR aac|opus|vorbis"
 	exit 42
 fi
 
@@ -33,5 +33,15 @@ then
 		ffmpeg -i "$f" -i "$output_dir"/__tmp.m4a -map 1 -c copy -map_metadata 0 -map_metadata:s:a 0:s:a -movflags +faststart "$output_dir"/"$filename".m4a
 
 		rm "$output_dir"/__tmp.m4a
+	done
+fi
+
+if [[ $format == 'vorbis' ]]
+then
+	for f in "$input_dir"/*.flac
+	do
+		filename=`basename "$f"`
+		filename="${filename%.flac}"
+		oggenc -q 7 "$f" -o "$output_dir"/"$filename".ogg
 	done
 fi
