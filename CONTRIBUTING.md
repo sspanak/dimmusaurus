@@ -10,7 +10,7 @@ Hence, no big frameworks or libraries were used, except when they really made di
   * Vanilla CSS3 + PureCSS 1.0.1 _(for resetting the styles)_
   * Vanilla ES2018
 * Backend
-  * Python 3.10 + Pip
+  * Python 3.9 + Pip
   * Django 4.0+
   * gettext 0.15 _(required by Django for translations)_
   * python-markdown2 _(you may have it by default)_
