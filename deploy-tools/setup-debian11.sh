@@ -15,7 +15,6 @@ python3.9 -m pip install virtualenv
 #### SQLITE ####
 apt -y install sqlite3 # for easier database imports
 
-
 #### Apache ####
 apt -y install apache2 libapache2-mod-wsgi-py3
 a2enmod headers expires wsgi
