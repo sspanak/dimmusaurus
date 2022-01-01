@@ -1,4 +1,4 @@
-Copyright (c) 2004-2021, Dimo Karaivanov (aka Димозавър; aka Dimmu Saurus)
+Copyright (c) 2004-2022, Dimo Karaivanov (aka Димозавър; aka Dimmu Saurus)
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

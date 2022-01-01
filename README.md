@@ -81,13 +81,14 @@ $ make tar && make db-backup
 Now copy the tarball and the database backup from `db` directory to the remote server.
 
 #### Installing
-The setup script is assumed to run on a brand new server that doesn't have anything installed. It will install or replace Apache, mod_wsgi, Python 3.10.
+The setup script is assumed to run on a brand new server that doesn't have anything installed. It will install or replace Apache, mod_wsgi, Python 3.9.
 
 * ssh to your server, making sure you are not "root".
-* `$ mkdir tmp && tar xvf ds.tar.bz2 -C tmp/ && cd tmp` to extract the tarball
+* `$ mkdir upload && tar xvf ds.tar.bz2 -C upload/ && cd upload` to extract the tarball
 * `$ sudo ./setup-debian11.sh` to install all requirements _(or do it manually on other distributions)_.
 * `$ ./setup-project.sh --all` to install the site itself. It will prompt where to put the site and what hostname and port it will run on. You may leave them blank and use the defaults.
 * `$ ./db-import.sh database-backup-name.tar target-database.sqlite3` to import the data into Sqlite.
+* Ensure the project directory and its parent(s) have the executable flag, otherwise Apache will not able to access them. The `setup-project.sh` script takes care of the website itself, but you may want to double check the parent directory in case you get `403 Forbidden`, when you try to access the site.
 
 That's it! Now open it in your browser.
 
