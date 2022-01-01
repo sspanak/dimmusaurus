@@ -24,7 +24,7 @@ tar:
 		--transform s/py/pysaurus/ \
 		py/
 	tar rv -C deploy-tools -f ds.tar setup-project.sh
-	tar rv -C deploy-tools -f ds.tar setup-ubuntu16.04.sh
+	tar rv -C deploy-tools -f ds.tar setup-debian11.sh
 	tar rv -C deploy-tools -f ds.tar db-import.sh
 	tar rv -C deploy-tools -f ds.tar vhost.conf.sample
 	tar rv -f ds.tar LICENSE.txt

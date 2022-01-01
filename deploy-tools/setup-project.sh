@@ -56,7 +56,7 @@ setup_virtualenv() {
 
 	cd $PROJECT_ROOT
 	printf "Creating '$ENV_NAME'... "
-	virtualenv -q -p /usr/bin/python3.8 $ENV_NAME && echo OK
+	virtualenv -q -p /usr/bin/python3.9 $ENV_NAME && echo OK
 
 	source $ENV_NAME/bin/activate
 	cp -v $SETUP_DIR/pysaurus/requirements.txt $PROJECT_ROOT
@@ -107,6 +107,11 @@ setup_project() {
 		mv $PROJECT_ROOT/pysaurus/pysaurus/settings.ds.py $PROJECT_ROOT/pysaurus/pysaurus/settings.py && \
 		echo 'OK'
 
+
+	printf 'Allow Apache to access to files... ' && \
+		chmod -R +x $PROJECT_ROOT && \
+		echo 'OK'
+
 	cd $PROJECT_ROOT/pysaurus
 	./manage.py makemigrations main music
 	./manage.py migrate
@@ -152,7 +157,11 @@ setup_apache() {
 	sudo mv vhost.conf /etc/apache2/sites-available/dimmu-saurus.conf
 
 	sudo a2ensite dimmu-saurus
-	printf "Reloading configuration... ";	sudo service apache2 reload && echo OK
+
+	printf "Reloading configuration... ";	\
+		sudo service apache2 reload && \
+		touch $PROJECT_ROOT/pysaurus/pysaurus/wsgi.py && \
+		echo "OK"
 }
 
 ### Main ###
