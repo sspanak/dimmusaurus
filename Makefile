@@ -10,7 +10,7 @@ clean-tar:
 
 tar:
 	make clean-tar
-	make clean || true
+	make clean
 	make django-static
 	make docs
 
@@ -31,20 +31,23 @@ tar:
 	bzip2 -9 ds.tar
 
 clean:
-	rm -r src/py/static/*
+	rm -rf src/py/static/*
 
 django:
-	cd src/py && python manage.py migrate && cd ../..
+	cd src/py \
+		&& python3 -m pip install -r requirements.txt \
+		&& python3 manage.py makemigrations \
+		&& python3 manage.py migrate
 	django-admin compilemessages
-	make clean || true
+	make clean
 	make django-static
 
 django-static:
-	make clean-ui || true
+	make clean-ui; make clean
 	make css-prod
 	make js-prod
 	make images
-	mv ui-demo/img src/py/static
+	mv ui-demo/img src/py/static/
 	bash -c build-tools/version-file-generate.sh
 	django-admin compilemessages
 
@@ -59,7 +62,7 @@ ui:
 	make images
 
 clean-ui:
-	rm -r ui-demo/*
+	rm -rf ui-demo/*
 
 css-ui:
 	bash -c build-tools/css-build-dev.sh

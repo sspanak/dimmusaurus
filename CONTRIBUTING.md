@@ -50,8 +50,7 @@ Also, do not forget to configure your editor to use them.
 
 ### Setup and configuration
 * `$ npm install`
-* `$ cd src/py/`
-* `$ pip install -r requirements.txt`
+* `$ make django`
 * Open `pysaurus/settings.py` and set `SITE_HOST`, `SITE_PORT`, `ALLOWED_HOSTS` and `BASE_URL` properly.
   * `SITE_HOST` is either an IP address, or a domain name only. No `http(s)://` should be there. For development, you'd want to set it either to `localhost` or `127.0.0.1`.
   * `SITE_PORT` is an empty string by default. But if, for example, you choose to run on port 3666, you must change it to: `3666`.
