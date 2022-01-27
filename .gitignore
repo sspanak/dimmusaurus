@@ -1,3 +1,4 @@
+.DS_Store
 *.sublime-project
 *.sublime-workspace
 *.zip
@@ -7,6 +8,11 @@ src/py/static/*
 *.html.py
 *.sqlite3
 *.mo
+
+# node_modules are not used in production, so there is no need to preserve the exact setup
+package-lock.json
 node_modules
+
 db/*
 **/migrations/*.py
+
