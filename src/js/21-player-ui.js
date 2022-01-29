@@ -32,9 +32,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			playlistItem: '#playlist-list li',
 			playlistItemVisible: () => `#playlist-list li:not(.${this.classes.hidden})`,
 			playlistList: '#playlist-list',
+			playlistSearch: '.playlist-search input[name=search-song]',
 			playlistTrackHighlighted: () => `#playlist-list li.${this.classes.highlighted} > .menu-item`,
 			playlistTrackPrefix: '#playlist-track-',
-			playlistTrackSelected: () => `#playlist-list .${this.classes.selected}`,
+			playlistTrackSelected: () => `#playlist-list li:not(.${this.classes.hidden}) .${this.classes.selected}`,
 			playlistUnavailableLabel: '#playlist-unavailable-label',
 			previous: '#pl-previous',
 			progressBar: '.track-progress-bar',
@@ -92,7 +93,14 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			}
 
 			if (event.code === 'Enter') {
-				Player.selectTrack(this.getHighlightedTrack());
+				let trackId = this.getHighlightedTrack();
+				if (trackId === -1) {
+					console.warn('No highlighted track, so picking the next visible in the playlist.');
+					trackId = this.highlightNextTrack().getHighlightedTrack();
+				}
+
+				Player.selectTrack(trackId);
+				Player.stop();
 				Player.playToggle();
 			}
 
@@ -697,6 +705,17 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 
 	/**
+	 * isSearchEmpty
+	 * Returns whether there is some text in the playlist search field or not.
+	 *
+	 * @return {Boolean}
+	 */
+	isSearchEmpty() {
+		return new UiElement().select(this.selectors.playlistSearch).value === '';
+	}
+
+
+	/**
 	 * getAudio
 	 * Returns the HTML Audio element or an empty object if it is unavailable.
 	 *
@@ -784,7 +803,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	getHighlightedTrack() {
 		let $track = this.select(this.selectors.playlistTrackHighlighted());
-		if (!$track.$element) {
+		if (!$track.$element && this.isSearchEmpty()) {
 			$track = this.select(this.selectors.playlistTrackSelected());
 		}
 
