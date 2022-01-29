@@ -1,8 +1,9 @@
-body.black-sabbath {
+.black-sabbath {
 		--ajax-loader-border-color: #888; /* not to be confused with "--ajax-loader-background-color" */
 
 		--body-background-color: #333;
 		--body-background-blend: transparent;
+		--body-heading-color: #ccc;
 		--body-text-color: #c8c8c8;
 
 		--link-color: #a0c1de;
@@ -10,7 +11,7 @@ body.black-sabbath {
 		--link-visited-color: #d9bce1;
 		--link-visited-hovered-color: #edacff;
 
-		--logo-background-color: #ccc;
+		--logo-background-color: #cfcfcf;
 
 		--menu-background-color: #222;
 		--menu-background-hovered-color: #2d2d2d;
@@ -32,7 +33,7 @@ body.black-sabbath {
 	}
 
 .black-sabbath hr {border-color: var(--menu-separator-medium);}
-.black-sabbath .content-discography .album-cover .fas {color: var(--logo-background-color);}
+.black-sabbath .content-discography .album-cover .fas {color: var(--body-heading-color);}
 
 .black-sabbath .player .loading-indicator,
 .black-sabbath .ajax-loader-spinning {
@@ -45,57 +46,5 @@ body.black-sabbath {
 .black-sabbath h3,
 .black-sabbath h4,
 .black-sabbath h5 {
-		color: var(--logo-background-color);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-	body:not(.white-stripes) {
-		--ajax-loader-border-color: #888; /* not to be confused with "--ajax-loader-background-color" */
-
-		--body-background-color: #333;
-		--body-background-blend: transparent;
-		--body-text-color: #c8c8c8;
-
-		--link-color: #a0c1de;
-		--link-hovered-color: #85c6ff;
-		--link-visited-color: #d9bce1;
-		--link-visited-hovered-color: #edacff;
-
-		--logo-background-color: #ccc;
-
-		--menu-background-color: #222;
-		--menu-background-hovered-color: #2d2d2d;
-		--menu-text-color: #b0b0b0;
-		--menu-icon-inactive-color: #666;
-		--menu-input-background-color: #1c1c1c;
-		--menu-item-hovered: #d8d8d8;
-
-		--menu-border-strong: 1px solid #484848;
-		--menu-separator-strong: #484848;
-		--menu-separator-medium: #444444;
-		--menu-separator-soft: #383838;
-
-		--shadow-bottom: 0px 3px 4px #111;
-		--shadow-top: 0px 0px 3px #111;
-		--shadow-top-small: 0 -2px 2px rgba(20, 20, 20, 0.4);
-
-		background: var(--body-background-color) url(img/fon-333.png);
-	}
-
-	body:not(.white-stripes) hr {border-color: var(--menu-separator-medium);}
-	body:not(.white-stripes) .content-discography .album-cover .fas {color: var(--logo-background-color);}
-
-	body:not(.white-stripes) .player .loading-indicator,
-	body:not(.white-stripes) .ajax-loader-spinning {
-		color: var(--menu-item-hovered);
-	}
-	body:not(.white-stripes) .ajax-loader {border-color: var(--ajax-loader-border-color);}
-
-	body:not(.white-stripes) h1,
-	body:not(.white-stripes) h2,
-	body:not(.white-stripes) h3,
-	body:not(.white-stripes) h4,
-	body:not(.white-stripes) h5 {
-		color: var(--logo-background-color);
-	}
+		color: var(--body-heading-color);
 }
