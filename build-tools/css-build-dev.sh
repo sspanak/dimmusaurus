@@ -7,12 +7,14 @@ then
 fi
 
 # geometry
-cat src/css/{normalize.css,[0-8]*.css} > ui-demo/ds.all.css
-node build-tools/css-convert-legacy.js ui-demo/ds.all.css > ui-demo/ds.css
-rm ui-demo/ds.all.css
+cat src/css/{normalize.css,[0-8]*.css} > ui-demo/ds.css
+node build-tools/css-convert-legacy.js ui-demo/ds.css > ui-demo/ds.legacy.css
 
-#colors
-cat src/css/[9]*colors*.css > ui-demo/ds.colors.css
-cat ui-demo/ds.colors.css >> ui-demo/ds.css
-node build-tools/css-convert-legacy.js ui-demo/ds.colors.css > ui-demo/ds.legacy.css
-rm ui-demo/ds.colors.css
+# colors - legacy
+node build-tools/css-convert-legacy.js src/css/90-colors-white-stripes.css >> ui-demo/ds.legacy.css
+
+# colors - modern
+cat src/css/[9]*colors*.css >> ui-demo/ds.css
+echo "@media screen and (prefers-color-scheme: dark) {" >> ui-demo/ds.css
+cat src/css/91-colors-black-sabbath.css | sed -r "s@\.black\-sabbath@body:not(.white-stripes)@g" >> ui-demo/ds.css
+echo "}" >> ui-demo/ds.css
