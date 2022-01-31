@@ -69,7 +69,10 @@ css-ui:
 	cat src/css/ui-demo.css >> ui-demo/ds.css
 
 css-prod:
-	bash -c build-tools/css-build-prod.sh
+	bash -c build-tools/css-build-dev.sh
+	npx csso ui-demo/ds.css > src/py/static/ds.min.css
+	npx csso ui-demo/ds.legacy.css > src/py/static/ds.legacy.min.css
+	rm ui-demo/*.css
 
 js-ui:
 	cat src/js/[0-9]*.js > ui-demo/ds.js
