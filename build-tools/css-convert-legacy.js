@@ -77,16 +77,15 @@ function replaceRules(css) {
 }
 
 
-
-if (process.argv.length < 3) {
+if (process.argv.length !== 2) {
 	const scriptName = basename(process.argv[1]);
 
 	console.info(`${scriptName} - converts css3 rules to more compatible ones for legacy browsers.`);
-	console.info(`\nUsage: node ${scriptName} path/to/css/file.css`);
+	console.info(`\nUsage: cat some/file.css | node ${scriptName}`);
 	process.exit(1);
 }
 
-const css = readFileSync(process.argv[2], { encoding: 'utf8' });
+const css = readFileSync(process.stdin.fd, { encoding: 'utf8' });
 const legacyCss = replaceRules(replaceVariables(css));
 
 console.log(legacyCss);
