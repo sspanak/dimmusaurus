@@ -22,7 +22,7 @@ hr {
 	border-bottom-style: none;
 	border-top-style: solid;
 	height: 0;
-	margin: 1em 0;
+	margin: 16px 0;
 }
 
 footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet */
@@ -38,7 +38,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	border-right: none;
 
 	display: flex;
-	height: 2.5em;
+	height: 40px;
 	opacity: 0;
 	padding: 8px 16px;
 	position: fixed;
@@ -54,10 +54,10 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	background: center no-repeat url(img/vrtelejka-000.gif);
 	background-size: contain;
 	display: flex;
-	height: 2.4em;
+	height: 38px;
 	margin-right: 5px;
 	vertical-align: middle;
-	width: 2.4em;
+	width: 38px;
 }
 
 .menu li, .content-tune .tune-links li, .breadcrumbs li {list-style-type: none;}
@@ -79,14 +79,14 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 .button-scroll-to-top {
-	border-radius: 1.5em;
+	border-radius: 60px;
 	cursor: pointer;
 	font-size: 2.75em;
 	font-weight: bold;
-	height: 1.4em;
+	height: 60px;
 	position: fixed;
 	text-align: center;
-	width: 1.4em;
+	width: 60px;
 }
 
 
@@ -100,7 +100,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 .breadcrumbs li {display: inline;}
 .breadcrumbs li:not(:first-child)::before {content: " / ";}
-.breadcrumbs li .fas {padding-right: 0.25em;}
+.breadcrumbs li .fas {padding-right: 4px;}
 
 /*==============  Menus ==============*/
 .menu > ul {
@@ -179,7 +179,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	align-items: center;
 	bottom: 0;
 	display: flex;
-	height: 2.5em;
 	position: fixed;
 	width: 100%;
 }
@@ -205,7 +204,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	background-size: contain;
 	display: inline-flex;
 	height: 1.15em;
-	margin: 0 0.25em 0 0;
+	margin: 0 4px 0 0;
 	width: 1.15em;
 }
 
@@ -241,8 +240,8 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 footer {
 	align-items: center;
 	display: flex;
-	height: 2.5em;
-	margin-bottom: 2.5em; /* make room for the player */
+	height: 40px;
+	margin-bottom: 40px; /* make room for the player */
 }
 
 footer .social {
@@ -266,9 +265,9 @@ footer .copyright-copy, footer .copyright-last-year {
 .disabled-body {overflow: hidden;}
 
 .content .content-heading {
-	border-bottom-right-radius: 0.8em;
+	border-bottom-right-radius: 24px;
 	overflow: hidden;
-	padding: 0 0.5em 0.2em 0.1em;
+	padding: 0 15px 6px 3px;
 	text-overflow: ellipsis;
 }
 
@@ -277,12 +276,12 @@ footer .copyright-copy, footer .copyright-last-year {
 
 /*============== Lyrics ==============*/
 .content-lyrics .lyrics-wrapper {
-	margin: 0 0.4em;
+	margin: 0 6px;
 	text-align: center;
 }
 .content-lyrics .english-translation-link {
 	display: block;
-	margin: 1em;
+	margin: 16px;
 }
 .content-lyrics .lyrics {
 	display: inline-block;
@@ -297,10 +296,10 @@ footer .copyright-copy, footer .copyright-last-year {
 /*============== Tune ==============*/
 .content-tune .tune-title {
 	font-weight: normal;
-	margin: 0.4em auto;
+	margin: 6px auto 10px;
 }
 .content-tune .tune-title a {text-decoration: none;}
-.content-tune .tune-release-info {margin: 0.5em 0.5em 1.33em;}
+.content-tune .tune-release-info {margin: 6px 6px 18px;}
 .content-tune .tune-original-title {
 	font-weight: normal;
 	margin-top: 1px;
@@ -337,14 +336,14 @@ footer .copyright-copy, footer .copyright-last-year {
 .content-discography .album-contents-wrapper {display: flex;}
 
 .content-discography .album-cover {
-	height: 8.5em;
-	margin-right: 1.33em;
-	margin-top: 1.5em;
+	height: 136px;
+	margin-right: 22px;
+	margin-top: 24px;
 	overflow-y: hidden;
-	width: 11em;
+	width: 176px;
 }
 .content-discography .album-cover .fas {
-	font-size: 11em;
+	font-size: 176px;
 }
 
 .content-discography .album-tracks {
@@ -390,7 +389,7 @@ footer .copyright-copy, footer .copyright-last-year {
 .version-info .version-info-table, .version-info .content-heading {text-align: left;}
 .version-info .version-info-left {
 	font-weight: bold;
-	padding: 0 0.5em;
+	padding: 0 8px;
 }
 
 
@@ -406,5 +405,5 @@ footer .copyright-copy, footer .copyright-last-year {
 
 .unsupported-player footer {
 	margin-bottom: 0;
-	margin-top: 3em;
+	margin-top: 48px;
 }

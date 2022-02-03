@@ -113,7 +113,7 @@
 	}
 
 	.menu-playlist-wrapper {
-		bottom: 2.5em;
+		bottom: 40px;
 		min-width: 524px;
 	}
 	.menu-playlist-wrapper .playlist-search input {
@@ -122,7 +122,7 @@
 	}
 	.menu-playlist {
 		height: 55vh;
-		max-height: calc(55vh - 2.5em - 50px); /* height - footer - search */
+		max-height: calc(55vh - 40px - 50px); /* height - footer - search */
 	}
 	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
 
@@ -131,15 +131,15 @@
 	.content-wrapper {
 		display: flex;
 		justify-content: center;
-		min-height: calc(100vh - 160px - 2.5em - 2.5em); /* 100% - header-height - footer - player */
+		min-height: calc(100vh - 160px - 40px - 40px); /* 100% - header-height - footer - player */
 	}
 
 	.content {
-		padding: 0.67em 2em;
-		width: 65em;
+		padding: 10px 32px;
+		max-width: 1033px;
+		width: 100%;
 	}
 	.content-404 {
-		max-width: 65em;
 		width: auto;
 	}
 
@@ -154,6 +154,7 @@
 
 
 /*============== Player ==============*/
+	.player {height: 40px;}
 	.player .total-time::before {
 		content: "/";
 		margin: 5px;
@@ -206,7 +207,7 @@
 		width: 80%;
 	}
 
-	.menu-music > ul {padding-left: 1em;}
+	.menu-music > ul {padding-left: 16px;}
 
 	.menu:not(.menu-playlist) li .menu-item {
 		display: block;

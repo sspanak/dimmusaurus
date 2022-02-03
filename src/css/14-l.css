@@ -122,16 +122,10 @@
 
 /*============== Content ==============*/
 	.content-wrapper {
-		min-height: calc(100vh - 167px - 2.5em - 2.5em); /* 100% - header-height - footer - player */
+		min-height: calc(100vh - 167px - 40px - 40px); /* 100% - header-height - footer - player */
 	}
 	.content {
 		font-size: 0.95em;
-		padding: 0.7em 2.1em;
-		width: 68em;
-	}
-	.content-404 {
-		max-width: 68em;
-		width: auto;
 	}
 	.content-discography .album-tracks .album-duration-container .album-duration-label {
 		padding: 8px 1px 0 0;

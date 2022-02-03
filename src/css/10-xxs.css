@@ -25,13 +25,14 @@ screen and (max-width: 20em) and (orientation: landscape) {
 
 
 /*============== Content ==============*/
-	.content {padding: 0.67em;}
+	.content {padding: 10px;}
+	.content article {text-align: left;}
 
 	.content-discography .album-cover {
 		margin-top: 1em;
 	}
 	.content-discography .album-cover .fas {
-		font-size: 9.5em;
+		font-size: 150px;
 	}
 
 	.content-discography .album-tracks .track-title {
@@ -42,5 +43,4 @@ screen and (max-width: 20em) and (orientation: landscape) {
 	.content-discography .album-tracks .track-length {
 		width: 20%;
 	}
-
 }
