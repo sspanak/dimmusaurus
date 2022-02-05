@@ -6,7 +6,8 @@ const Ajaxify = new class {
 
 		this.classes = {
 			ajaxLoaderSpinning: 'ajax-loader-spinning',
-			disabledBody: 'disabled-body'
+			disabledBody: 'body-disabled',
+			playlistInfoLink: 'playlist-info'
 		};
 
 		this.selectors = {
@@ -175,7 +176,10 @@ const Ajaxify = new class {
 	_handleNavigation(event) {
 		event.preventDefault();
 
-		if (new UiElement().select('body').hasClass(Ajaxify.classes.disabledBody)) {
+		if (
+			new UiElement().select('body').hasClass(Ajaxify.classes.disabledBody)
+			&& !new UiElement().select(event.currentTarget).hasClass(this.classes.playlistInfoLink)
+		) {
 			return;
 		}
 

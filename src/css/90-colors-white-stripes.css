@@ -61,8 +61,6 @@ hr {border-color: var(--menu-text-color);}
 .content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
 .content-version .version-info {border-color: var(--menu-icon-inactive-color);}
 
-.disabled-body .content {opacity: 0.3}
-
 footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
 
 .menu-language-choice .flag {box-shadow: var(--shadow-language-flags);}

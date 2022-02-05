@@ -8,7 +8,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 
 		this.classes = {
 			disabled: 'disabled',
-			disabledBody: 'disabled-body',
+			disabledBody: 'body-disabled',
 			error: 'player-error',
 			hidden: 'hidden',
 			highlighted: 'highlighted',
