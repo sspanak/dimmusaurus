@@ -123,7 +123,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	show() {
-		this.select('body').removeClass('unsupported-player');
+		this.select('body').removeClass('no-player');
 	}
 
 

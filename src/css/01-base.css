@@ -398,13 +398,13 @@ footer .copyright-copy, footer .copyright-last-year {
 /**********************************************************************************
  * Hide the player by default. JS will undo this on supported browsers
  **********************************************************************************/
-.unsupported-player .player,
-.unsupported-player .menu-playlist-wrapper,
-.unsupported-player .content-tune .tune-play {
+.no-player .player,
+.no-player .menu-playlist-wrapper,
+.no-player .content-tune .tune-play {
 	display: none;
 }
 
-.unsupported-player footer {
+.no-player footer {
 	margin-bottom: 0;
 	margin-top: 48px;
 }
