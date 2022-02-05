@@ -167,9 +167,11 @@
 
 	.ajax-loader-spinning {width: 163px;}
 
-	 /* 100% - header-height - footer - player */
-	.content-wrapper {min-height: calc(100vh - 64px - 40px - 40px);}
-	.content {padding: 16px 24px 10px;}
+	.content {
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 64px - 40px - 40px - 26px);
+		padding: 16px 24px 10px;
+	}
 
 	.player {height: 40px;}
 	.player .playlist, .player .player-controls .player-button {padding: 0 15px;}

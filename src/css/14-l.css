@@ -121,11 +121,10 @@
 
 
 /*============== Content ==============*/
-	.content-wrapper {
-		min-height: calc(100vh - 167px - 40px - 40px); /* 100% - header-height - footer - player */
-	}
 	.content {
 		font-size: 0.95em;
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 167px - 40px - 40px - 20px);
 	}
 	.content-discography .album-tracks .album-duration-container .album-duration-label {
 		padding: 8px 1px 0 0;
