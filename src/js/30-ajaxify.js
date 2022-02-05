@@ -1,12 +1,13 @@
-const Ajaxify = new class extends UiElement { // eslint-disable-line
+const Ajaxify = new class {
 	constructor() {
-		super();
-
 		this.spinnerDelay = 400; // ms
 		this.spinnerShowTimeout = 0; // setTimeout() ID
 		this.lastNavigationUrl = '';
 
-		this.classes = { ajaxLoaderSpinning: 'ajax-loader-spinning'	};
+		this.classes = {
+			ajaxLoaderSpinning: 'ajax-loader-spinning',
+			disabledBody: 'disabled-body'
+		};
 
 		this.selectors = {
 			ajaxLoader: '.ajax-loader',
@@ -118,8 +119,9 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	showSpinner() {
-		Ajaxify.select(Ajaxify.selectors.ajaxLoaderText).setHTML(MESSAGES.loading); // eslint-disable-line no-undef
-		Ajaxify.select(Ajaxify.selectors.ajaxLoader).addClass(Ajaxify.classes.ajaxLoaderSpinning);
+		// eslint-disable-next-line no-undef
+		new UiElement().select(Ajaxify.selectors.ajaxLoaderText).setHTML(MESSAGES.loading);
+		new UiElement().select(Ajaxify.selectors.ajaxLoader).addClass(Ajaxify.classes.ajaxLoaderSpinning);
 	}
 
 
@@ -130,10 +132,10 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	hideSpinner() {
-		Ajaxify.select(Ajaxify.selectors.ajaxLoader).removeClass(Ajaxify.classes.ajaxLoaderSpinning);
+		new UiElement().select(Ajaxify.selectors.ajaxLoader).removeClass(Ajaxify.classes.ajaxLoaderSpinning);
 		setTimeout(
 			// this is to avoid hiding the text before the css animation has finished
-			() => Ajaxify.select(Ajaxify.selectors.ajaxLoaderText).setHTML(''),
+			() => new UiElement().select(Ajaxify.selectors.ajaxLoaderText).setHTML(''),
 			5000
 		);
 	}
@@ -173,6 +175,10 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	_handleNavigation(event) {
 		event.preventDefault();
 
+		if (new UiElement().select('body').hasClass(Ajaxify.classes.disabledBody)) {
+			return;
+		}
+
 		// After navigating, we must also reset the scroll position, because
 		// simply replacing the HTML using JS does not mean the browser is going to scroll up for us.
 		Ajaxify.navigate(event.currentTarget.getAttribute('href'), true).then(() => window.scrollTo(0, 0));
@@ -191,7 +197,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	_forceHistoryState() {
 		const url = `${location.pathname}${location.hash}`;
 
-		let title = this.select(this.selectors.title).getHTML();
+		let title = new UiElement().select(this.selectors.title).getHTML();
 		if (location.hash !== '') {
 			title = `${location.hash} | ${title}`;
 		}
@@ -256,7 +262,7 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 			return [];
 		}
 
-		let links = this.selectAll(selector);
+		let links = new UiElement().selectAll(selector);
 
 		if (typeof AJAXIFY_EXCLUDE !== 'undefined' && Array.isArray(AJAXIFY_EXCLUDE)) { // eslint-disable-line no-undef
 			const excludePattern = new RegExp(AJAXIFY_EXCLUDE.join('|')); // eslint-disable-line no-undef
@@ -278,10 +284,10 @@ const Ajaxify = new class extends UiElement { // eslint-disable-line
 	 * @return {void}
 	 */
 	_updatePage(content, description, title, urls) {
-		this.select(this.selectors.content).setHTML(content);
-		this.select(this.selectors.title).setHTML(title);
-		if (typeof description === 'string' && this.select(this.selectors.description)) {
-			this.$element.setAttribute('content', description);
+		new UiElement().select(this.selectors.content).setHTML(content);
+		new UiElement().select(this.selectors.title).setHTML(title);
+		if (typeof description === 'string') {
+			new UiElement().select(this.selectors.description).setAttribute('content', description);
 		}
 
 		if (Array.isArray(urls)) {
