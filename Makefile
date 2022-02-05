@@ -64,6 +64,9 @@ ui:
 clean-ui:
 	rm -rf ui-demo/*
 
+serve-ui:
+	cd ui-demo/ && python3 -m http.server 3000
+
 css-ui:
 	bash -c build-tools/css-build-dev.sh
 	cat src/css/ui-demo.css >> ui-demo/ds.css
