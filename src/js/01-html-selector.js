@@ -229,4 +229,15 @@ class UiElement { // eslint-disable-line no-unused-vars
 
 		return this.$element.getAttribute(`data-${attribute}`);
 	}
+
+
+	setAttribute(attribute, value) {
+		if (!this.$element) {
+			console.warn(`Cannot set attribute "${attribute}" when there is no selected $element.`);
+			return this;
+		}
+
+		this.$element.setAttribute(attribute, value);
+		return this;
+	}
 }
