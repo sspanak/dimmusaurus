@@ -12,7 +12,7 @@ const Ajaxify = new class {
 		this.selectors = {
 			ajaxLoader: '.ajax-loader',
 			ajaxLoaderText: '.ajax-loader .label',
-			content: '.content-wrapper',
+			content: '#content-container',
 			description: 'meta[name=description]',
 			internalLinks: 'a:not([hreflang])[href^="/"]',
 			languageLinks: 'a[hreflang][rel=alternate]',

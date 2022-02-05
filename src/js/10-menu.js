@@ -10,7 +10,7 @@ const Menu = new class extends UiElement { // eslint-disable-line
 			selected: 'selected'
 		};
 		this.selectors = {
-			content: '.content-wrapper',
+			content: '#content-container',
 			headerSuperWrapper: '.header-super-wrapper',
 			language: '.menu-language-choice',
 			languageButton: '#language-menu-button',
