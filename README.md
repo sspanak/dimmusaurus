@@ -45,18 +45,16 @@ There are `$ make db-backup` and `$ make db-import` commands, for exporting and 
 This section is for running the site locally.
 
 #### The entire site
-Ensure your default interpreter is Python3, not Python2, otherwise the commands below will fail. Alternatively, alter the `Makefile` and run everything explicitly with `python3` instead of `python`.
-
 * `$ make django`
-* `$ cd src/py/`
-* `$ python manage.py runserver [a-port-of-your-choice]`
+* `$ cd dist/py/`
+* `$ python3 manage.py runserver [a-port-of-your-choice]`
 
 The site will be available on 127.0.0.1:8000, or at the port you have chosen.
 
 #### The UI Demo
 * `$ make ui`
-* `$ cd ui-demo/`
-* Open the `index.html`
+* `$ cd dist/`
+* Open the `index.html` or run `$ make serve-ui` and open `localhost:3000`.
 
 
 ### Deployment
@@ -116,18 +114,18 @@ If you are going to enable HTTPS with certbot, be aware there is a [known incomp
 In case you need to build only a part of the project, or work with the database, the following commands are available:
 
 ##### Django:
-* `$ make clean`: cleans up the Django `static` folder.
-* `$ make css-prod`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
-* `$ make js-prod`: same as `$ make css-prod` but for javascript.
-* `$ make django-static`: builds both the `css` and `js`, and also copies the images to Django `static` folder. This is the default target.
+* `$ make clean`: cleans up the `dist` folder.
+* `$ make css`: compiles all css into one file, minifies it, then copies it to the Django `static` folder.
+* `$ make js`: same as `$ make css` but for javascript.
+* `$ make django-static`: copies `py` source code and translations, builds the `css` and `js`, copies the images to Django `static` folder. This is the default target. **Important:** This commands creates  *a link* to the database in `src/py/`, not a copy, so making any changes to the data will affect the original file.
 * `$ make translations`: generates or updates .po translation files from python source code. Same as running: `$ django-admin makemessages` command.
-* `$ make django`: Runs all the above, making sure the site will run properly.
+* `$ make django`: Runs all the above, but also installing all requirements, making sure the site will run properly.
 
 ##### UI Demo:
-* `$ make clean-ui`: cleans up the `ui-demo/` folder.
-* `$ make css-ui`: compiles all css into one file and copies it to the `ui-demo/` folder.
-* `$ make images`: copies the `images` to `ui-demo/` folder. They don't need building, so they are just copied.
-* `$ make js-ui`: same as `$ make css-ui`, but for JavaScript.
+* `$ make clean`: cleans up the `dist/` folder.
+* `$ make css-debug`: compiles all css into one file without minifying it.
+* `$ make images`: images don't need building, so they are just copied.
+* `$ make js-debug`: same as `$ make css-debug`, but for JavaScript.
 * `$ make ui`: runs all the above to build the frontend demo, including copying the necessary `.html` files.
 
 ##### Deployment:
