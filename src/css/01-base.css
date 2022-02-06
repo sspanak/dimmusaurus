@@ -140,7 +140,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .menu-playlist-wrapper .playlist-search {display: flex;}
 .menu-playlist-wrapper .playlist-search input {
 	border: none;
-	display: flex;
 	flex: auto;
 }
 .menu-playlist-wrapper .playlist-search input[disabled] {display: none;}
@@ -250,10 +249,6 @@ footer .social {
 	flex: auto;
 }
 
-footer .copyright {
-	display: flex;
-	justify-content: flex-end;
-}
 footer .copyright-copy, footer .copyright-last-year {
 	margin-right: 3px;
 }
