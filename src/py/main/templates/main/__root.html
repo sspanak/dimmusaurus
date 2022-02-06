@@ -51,40 +51,12 @@
 				newLanguageWillInterruptMusic: "{% trans 'Changing the language will interrupt music playback. Continue?' %}"
 			};
 
-			function isOldBrowser() {
-				"use strict";
-
-				try {
-					if (!('userAgent' in navigator)) return false;
-					if (navigator.userAgent.indexOf('Edge') !== -1 && navigator.userAgent.match(/Edge\/(\d+)/)[1] < 16)
-						throw new Error;
-					if (typeof Symbol === 'undefined') throw new Error;
-					eval('class C {}');
-					eval('var a = (x) => x+1');
-					eval('for (const _ in []){}'); // Firefox < 52 / KaiOS 2.x cannot interpret "const" inside "for..in"
-				} catch (e) {
-					return true;
-				}
-
-				return false;
-			}
-
-
-			var js = document.createElement('script');
-			js.defer = 'defer';
-
-			if (isOldBrowser()) {
-				js.src = '{% static "ds.legacy.min.js" %}?v={{ build|default:"0" }}';
-
-				var css = document.createElement('link');
-				css.rel = 'stylesheet';
-				css.href = '{% static "ds.legacy.min.css" %}?v={{ build|default:"0" }}';
-				document.head.appendChild(css);
-			} else {
-				js.src = '{% static "ds.min.js" %}?v={{ build|default:"0" }}';
-			}
-
-			document.head.appendChild(js);
+			{% include "main/detect-old-browser.js" %}
+			loadResources(
+				'{% static "ds.min.js" %}?v={{ build|default:"0" }}',
+				'{% static "ds.legacy.min.js" %}?v={{ build|default:"0" }}',
+				'{% static "ds.legacy.min.css" %}?v={{ build|default:"0" }}'
+			);
 		</script>
 	</head>
 
