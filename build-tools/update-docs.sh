@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! [[ -f Makefile && -d src && -d src/py ]]
+if ! [[ -f Makefile && -f README.md && -f LICENSE.txt ]]
 then
 	echo "Please run this script from the root project directory."
 	exit 1
