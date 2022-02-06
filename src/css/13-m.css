@@ -62,6 +62,16 @@
 
 
 /*============== Logo ==============*/
+	.header-container .logo {
+		border-radius: 90px;
+		height: 150px;
+		margin: -12px 20px 0;
+		order: 3;
+		overflow: hidden;
+		padding: 5px;
+		text-align: center;
+		width: 164px;
+	}
 	.header-container .logo > img {
 		height: 100%;
 	}
@@ -85,17 +95,6 @@
 	.header-container .logo-text-right {
 		justify-content: flex-start;
 		order: 4;
-	}
-
-	.header-container .logo {
-		border-radius: 90px;
-		height: 150px;
-		margin: -12px 20px 0;
-		order: 3;
-		overflow: hidden;
-		padding: 5px;
-		text-align: center;
-		width: 164px;
 	}
 
 

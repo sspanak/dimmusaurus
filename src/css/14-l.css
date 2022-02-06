@@ -78,14 +78,11 @@
 		width: inherit;
 	}
 
-	.menu-main > ul, .menu-main > ul > li, .menu-main > ul > li > .menu-item {
-		display: inline-block;
-		text-align: initial;
-	}
-
 	.menu-main > ul {
-		/* fix the 1px misalignment of the music menu */
-		height: 36px;
+		display: flex;
+		flex-flow: row;
+		height: 36px; /* fix the 1px misalignment of the music menu */
+		justify-content: flex-end;
 		margin: 0 6px 1px 0;
 		padding-bottom: 0;
 	}
