@@ -25,42 +25,10 @@
 			integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ="
 			crossorigin>
 
-		<script>
-			function isOldBrowser() {
-				"use strict";
-
-				try {
-					if (!('userAgent' in navigator)) return false;
-					if (navigator.userAgent.indexOf('Edge') !== -1 && navigator.userAgent.match(/Edge\/(\d+)/)[1] < 16)
-						throw new Error;
-					if (typeof Symbol === 'undefined') throw new Error;
-					eval('class C {}');
-					eval('var a = (x) => x+1');
-					eval('for (const _ in []){}'); // Firefox < 52 / KaiOS 2.x cannot interpret "const" inside "for..in"
-				} catch (e) {
-					return true;
-				}
-
-				return false;
-			}
-
-
-			var js = document.createElement('script');
-			js.defer = 'defer';
-
-			if (isOldBrowser()) {
-				js.src = 'ds.legacy.js';
-
-				var css = document.createElement('link');
-				css.rel = 'stylesheet';
-				css.href = 'ds.legacy.css';
-				document.head.appendChild(css);
-			} else {
-				js.src = 'ds.js';
-			}
-
-			document.head.appendChild(js);
-		</script>
+		<script
+			src="detect-old-browser.js"
+			onload="loadResources('ds.js', 'ds.legacy.js', 'ds.legacy.css');"
+		></script>
 	</head>
 
 	<body class="no-player">

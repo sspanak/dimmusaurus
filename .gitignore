@@ -16,3 +16,4 @@ node_modules
 db/*
 **/migrations/*.py
 
+src/py/main/templates/main/detect-old-browser.js

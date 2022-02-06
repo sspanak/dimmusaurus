@@ -32,6 +32,7 @@ tar:
 
 clean:
 	rm -rf src/py/static/*
+	rm -f src/py/main/templates/main/detect-old-browser.js
 
 django:
 	cd src/py \
@@ -43,7 +44,8 @@ django:
 	make django-static
 
 django-static:
-	make clean-ui; make clean
+	make clean-ui
+	make clean
 	make css-prod
 	make js-prod
 	make images
@@ -78,16 +80,20 @@ css-prod:
 	rm ui-demo/*.css
 
 js-ui:
+	cp src/js/detect-old-browser.js ui-demo/
 	cat src/js/[0-9]*.js > ui-demo/ds.js
-	npx babel ui-demo/ds.js > ui-demo/ds.legacy.js
+	npx babel src/js/polyfills.js > ui-demo/ds.legacy.js
+	npx babel ui-demo/ds.js >> ui-demo/ds.legacy.js
 
 js-debug-prod:
 	make js-ui
+	mv ui-demo/detect-old-browser.js src/py/main/templates/main/
 	mv ui-demo/ds.js src/py/static/ds.min.js
 	mv ui-demo/ds.legacy.js src/py/static/ds.legacy.min.js
 
 js-prod:
 	make js-ui
+	mv ui-demo/detect-old-browser.js src/py/main/templates/main/
 	npx terser -c drop_console=true,passes=2,ecma=2018 ui-demo/ds.js > src/py/static/ds.min.js
 	npx terser -c drop_console=true,passes=2 ui-demo/ds.legacy.js > src/py/static/ds.legacy.min.js
 	rm ui-demo/*.js
