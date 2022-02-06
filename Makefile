@@ -5,11 +5,7 @@ default:
 	make django-static
 	make docs
 
-clean-tar:
-	rm -f ds.tar; rm -f ds.tar.bz2
-
 tar:
-	make clean-tar
 	make clean
 	make django-static
 	make docs
@@ -31,25 +27,23 @@ tar:
 	bzip2 -9 ds.tar
 
 clean:
-	rm -rf src/py/static/*
-	rm -f src/py/main/templates/main/detect-old-browser.js
+	rm -rf dist/*
+	rm -f ds.tar; rm -f ds.tar.bz2
 
 django:
-	cd src/py \
+	make clean
+	make django-static
+	cd dist/py \
 		&& python3 -m pip install -r requirements.txt \
 		&& python3 manage.py makemigrations \
 		&& python3 manage.py migrate
-	django-admin compilemessages
-	make clean
-	make django-static
 
 django-static:
-	make clean-ui
 	make clean
-	make css-prod
-	make js-prod
+	cp -r src/py/ dist/
+	make css
+	make js
 	make images
-	mv ui-demo/img src/py/static/
 	bash -c build-tools/version-file-generate.sh
 	django-admin compilemessages
 
@@ -58,55 +52,48 @@ translations:
 	cd src/py && django-admin makemessages -l fr
 
 ui:
-	cp src/demo.html ui-demo/index.html
-	make css-ui
-	make js-ui
+	cp src/demo.html dist/index.html
 	make images
-
-clean-ui:
-	rm -rf ui-demo/*
+	make css-debug
+	make js-debug
 
 serve-ui:
-	cd ui-demo/ && python3 -m http.server 3000
+	cd dist/ && python3 -m http.server 3000
 
-css-ui:
+css-debug:
 	bash -c build-tools/css-build-dev.sh
-	cat src/css/ui-demo.css >> ui-demo/ds.css
+	cat src/css/ui-demo.css >> dist/py/static/ds.css
 
-css-prod:
+css:
 	bash -c build-tools/css-build-dev.sh
-	npx csso ui-demo/ds.css > src/py/static/ds.min.css
-	npx csso ui-demo/ds.legacy.css > src/py/static/ds.legacy.min.css
-	rm ui-demo/*.css
+	npx csso dist/py/static/ds.css > dist/py/static/ds.min.css
+	npx csso dist/py/static/ds.legacy.css > dist/py/static/ds.legacy.min.css
+	rm dist/py/static/{ds,ds.legacy}.css
 
-js-ui:
-	cp src/js/detect-old-browser.js ui-demo/
-	cat src/js/[0-9]*.js > ui-demo/ds.js
-	npx babel src/js/polyfills.js > ui-demo/ds.legacy.js
-	npx babel ui-demo/ds.js >> ui-demo/ds.legacy.js
+js-debug:
+	mkdir -p dist/py/main/templates/main \
+	 && cp src/js/detect-old-browser.js dist/py/main/templates/main/
 
-js-debug-prod:
-	make js-ui
-	mv ui-demo/detect-old-browser.js src/py/main/templates/main/
-	mv ui-demo/ds.js src/py/static/ds.min.js
-	mv ui-demo/ds.legacy.js src/py/static/ds.legacy.min.js
+	mkdir -p dist/py/static \
+	 && echo "'use strict';" > dist/py/static/ds.js \
+	 && cat src/js/[0-9]*.js >> dist/py/static/ds.js \
+	 && npx babel src/js/polyfills.js dist/py/static/ds.js > dist/py/static/ds.legacy.js
 
-js-prod:
-	make js-ui
-	mv ui-demo/detect-old-browser.js src/py/main/templates/main/
-	npx terser -c drop_console=true,passes=2,ecma=2018 ui-demo/ds.js > src/py/static/ds.min.js
-	npx terser -c drop_console=true,passes=2 ui-demo/ds.legacy.js > src/py/static/ds.legacy.min.js
-	rm ui-demo/*.js
+js:
+	make js-debug
+	npx terser -c drop_console=true,passes=2,ecma=2018 dist/py/static/ds.js > dist/py/static/ds.min.js
+	npx terser -c drop_console=true,passes=2 dist/py/static/ds.legacy.js > dist/py/static/ds.legacy.min.js
+	rm dist/py/static/{ds,ds.legacy}.js
 
 images:
-	mkdir -p ui-demo/img
-	cp img/{*.png,*.ico,*.gif,*.svg} ui-demo/img
+	mkdir -p dist/py/static/img
+	cp img/{*.png,*.ico,*.gif,*.svg} dist/py/static/img
 
 db-backup:
 	bash -c deploy-tools/db-export.sh
 
 db-import:
-	bash -c 'deploy-tools/db-import.sh db/ds.db.tar src/py/db.sqlite3'
+	bash -c 'deploy-tools/db-import.sh db/ds.db.tar dist/py/db.sqlite3'
 
 docs:
 	bash -c build-tools/update-docs.sh

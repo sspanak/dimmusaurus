@@ -2,7 +2,7 @@
 *.sublime-project
 *.sublime-workspace
 *.zip
-ui-demo/*
+dist/*
 src/py/static/*
 *__pycache__*
 *.html.py
@@ -15,5 +15,3 @@ node_modules
 
 db/*
 **/migrations/*.py
-
-src/py/main/templates/main/detect-old-browser.js
