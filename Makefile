@@ -30,24 +30,27 @@ tar:
 
 clean:
 	rm -rf dist/*
-	rm -f ds.tar; rm -f ds.tar.bz2
+	rm -f ds.tar
+	rm -f ds.tar.bz2
 
 django:
-	make clean
-	make django-static
-	cd dist \
-		&& python3 -m pip install -r requirements.txt \
-		&& python3 manage.py makemigrations \
-		&& python3 manage.py migrate
+	@make django-static && \
+	echo 'Installing requirements.txt... ' && \
+		cd dist && \
+		python3 -m pip install -r requirements.txt && \
+		python3 manage.py makemigrations && \
+		python3 manage.py migrate
 
 django-static:
 	make clean
 	django-admin compilemessages
-	cp -r src/py/* dist/ \
-		&& rm dist/db.sqlite3 && ln -s "$(PWD)/src/py/db.sqlite3" dist/db.sqlite3
-	make css
-	make js
-	make images
+	@printf 'Copying py and linking the database... ' && \
+		cp -r src/py/* dist/ && \
+		rm dist/db.sqlite3 && ln -s "$(PWD)/src/py/db.sqlite3" dist/db.sqlite3 && \
+	echo 'OK'
+	@make css
+	@make js
+	@make images
 	build-tools/generate-version.sh > dist/static/version.json
 
 translations:
@@ -57,41 +60,52 @@ translations:
 ui:
 	make clean
 	cp src/demo.html dist/index.html
-	make images
-	make css-debug
-	make js-debug
+	@make images
+	@make css-debug
+	@make js-debug
 
 serve-ui:
 	cd dist/ && python3 -m http.server 3000
 
 css-debug:
-	bash -c build-tools/css-build-dev.sh \
-		&& cat src/css/ui-demo.css >> dist/static/ds.css
+	@printf 'Building CSS... ' && \
+		bash -c build-tools/css-build-dev.sh && \
+		cat src/css/ui-demo.css >> dist/static/ds.css && \
+	echo 'OK'
 
 css:
-	bash -c build-tools/css-build-dev.sh \
-		&& npx csso dist/static/ds.css > dist/static/ds.min.css \
-		&& npx csso dist/static/ds.legacy.css > dist/static/ds.legacy.min.css
-	rm -f dist/static/{ds,ds.legacy}.css
+	@printf 'Building CSS... ' && \
+		bash -c build-tools/css-build-dev.sh && \
+	echo 'OK' && \
+	printf 'Minifying CSS... ' && \
+		npx csso dist/static/ds.css > dist/static/ds.min.css && \
+		npx csso dist/static/ds.legacy.css > dist/static/ds.legacy.min.css && \
+		rm -f dist/static/{ds,ds.legacy}.css && \
+	echo 'OK'
 
 js-debug:
-	mkdir -p dist/main/templates/main \
-		&& cp src/js/detect-old-browser.js dist/main/templates/main/
-
-	mkdir -p dist/static \
-		&& echo "'use strict';" > dist/static/ds.js \
-		&& cat src/js/[0-9]*.js >> dist/static/ds.js \
-		&& npx babel src/js/polyfills.js dist/static/ds.js > dist/static/ds.legacy.js
+	@printf 'Building JS... ' && \
+		mkdir -p dist/main/templates/main && \
+			cp src/js/detect-old-browser.js dist/main/templates/main/ && \
+		mkdir -p dist/static && \
+			echo "'use strict';" > dist/static/ds.js && \
+			cat src/js/[0-9]*.js >> dist/static/ds.js && \
+			npx babel src/js/polyfills.js dist/static/ds.js > dist/static/ds.legacy.js && \
+	echo 'OK'
 
 js:
-	make js-debug \
-		&& npx terser -c drop_console=true,passes=2,ecma=2018 dist/static/ds.js > dist/static/ds.min.js \
-		&& npx terser -c drop_console=true,passes=2 dist/static/ds.legacy.js > dist/static/ds.legacy.min.js
-	rm dist/static/{ds,ds.legacy}.js
+	@make js-debug && \
+	printf 'Minifying JS... ' && \
+		npx terser -c drop_console=true,passes=2,ecma=2018 dist/static/ds.js > dist/static/ds.min.js && \
+		npx terser -c drop_console=true,passes=2 dist/static/ds.legacy.js > dist/static/ds.legacy.min.js && \
+		npx terser dist/main/templates/main/detect-old-browser.js > dist/main/templates/main/detect-old-browser.js && \
+		rm -f dist/static/{ds,ds.legacy}.js && \
+	echo 'OK'
 
 images:
-	mkdir -p dist/static/img \
-		&& cp img/{*.png,*.ico,*.gif,*.svg} dist/static/img
+	@printf 'Copying images... ' && \
+		mkdir -p dist/static/img && cp img/{*.png,*.ico,*.gif,*.svg} dist/static/img && \
+	echo 'OK'
 
 db-backup:
 	bash -c deploy-tools/db-export.sh
