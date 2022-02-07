@@ -43,12 +43,12 @@ django:
 django-static:
 	make clean
 	django-admin compilemessages
-	cp -r src/py/* dist/
-	rm dist/db.sqlite3 && ln -s "$(PWD)/src/py/db.sqlite3" dist/db.sqlite3
+	cp -r src/py/* dist/ \
+		&& rm dist/db.sqlite3 && ln -s "$(PWD)/src/py/db.sqlite3" dist/db.sqlite3
 	make css
 	make js
 	make images
-	bash -c build-tools/version-file-generate.sh
+	build-tools/generate-version.sh > dist/static/version.json
 
 translations:
 	cd src/py && django-admin makemessages -l bg
@@ -65,33 +65,33 @@ serve-ui:
 	cd dist/ && python3 -m http.server 3000
 
 css-debug:
-	bash -c build-tools/css-build-dev.sh
-	cat src/css/ui-demo.css >> dist/static/ds.css
+	bash -c build-tools/css-build-dev.sh \
+		&& cat src/css/ui-demo.css >> dist/static/ds.css
 
 css:
-	bash -c build-tools/css-build-dev.sh
-	npx csso dist/static/ds.css > dist/static/ds.min.css
-	npx csso dist/static/ds.legacy.css > dist/static/ds.legacy.min.css
-	rm dist/static/{ds,ds.legacy}.css
+	bash -c build-tools/css-build-dev.sh \
+		&& npx csso dist/static/ds.css > dist/static/ds.min.css \
+		&& npx csso dist/static/ds.legacy.css > dist/static/ds.legacy.min.css
+	rm -f dist/static/{ds,ds.legacy}.css
 
 js-debug:
 	mkdir -p dist/main/templates/main \
-	 && cp src/js/detect-old-browser.js dist/main/templates/main/
+		&& cp src/js/detect-old-browser.js dist/main/templates/main/
 
 	mkdir -p dist/static \
-	 && echo "'use strict';" > dist/static/ds.js \
-	 && cat src/js/[0-9]*.js >> dist/static/ds.js \
-	 && npx babel src/js/polyfills.js dist/static/ds.js > dist/static/ds.legacy.js
+		&& echo "'use strict';" > dist/static/ds.js \
+		&& cat src/js/[0-9]*.js >> dist/static/ds.js \
+		&& npx babel src/js/polyfills.js dist/static/ds.js > dist/static/ds.legacy.js
 
 js:
-	make js-debug
-	npx terser -c drop_console=true,passes=2,ecma=2018 dist/static/ds.js > dist/static/ds.min.js
-	npx terser -c drop_console=true,passes=2 dist/static/ds.legacy.js > dist/static/ds.legacy.min.js
+	make js-debug \
+		&& npx terser -c drop_console=true,passes=2,ecma=2018 dist/static/ds.js > dist/static/ds.min.js \
+		&& npx terser -c drop_console=true,passes=2 dist/static/ds.legacy.js > dist/static/ds.legacy.min.js
 	rm dist/static/{ds,ds.legacy}.js
 
 images:
-	mkdir -p dist/static/img
-	cp img/{*.png,*.ico,*.gif,*.svg} dist/static/img
+	mkdir -p dist/static/img \
+		&& cp img/{*.png,*.ico,*.gif,*.svg} dist/static/img
 
 db-backup:
 	bash -c deploy-tools/db-export.sh
