@@ -42,13 +42,13 @@ django:
 
 django-static:
 	make clean
+	django-admin compilemessages
 	cp -r src/py/* dist/
 	rm dist/db.sqlite3 && ln -s "$(PWD)/src/py/db.sqlite3" dist/db.sqlite3
 	make css
 	make js
 	make images
 	bash -c build-tools/version-file-generate.sh
-	django-admin compilemessages
 
 translations:
 	cd src/py && django-admin makemessages -l bg
