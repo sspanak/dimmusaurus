@@ -98,7 +98,6 @@ js:
 	printf 'Minifying JS... ' && \
 		npx terser -c drop_console=true,passes=2,ecma=2018 dist/static/ds.js > dist/static/ds.min.js && \
 		npx terser -c drop_console=true,passes=2 dist/static/ds.legacy.js > dist/static/ds.legacy.min.js && \
-		npx terser dist/main/templates/main/detect-old-browser.js > dist/main/templates/main/detect-old-browser.js && \
 		rm -f dist/static/{ds,ds.legacy}.js && \
 	echo 'OK'
 
