@@ -2,100 +2,19 @@
  * M sized screen - Tablet or larger
  **********************************************************************************/
 @media screen and (min-width: 48em) {
-	header {max-height: 160px;}
-
-	.header-container {
-		display: flex;
-		height: 124px;
-		justify-content: center;
-		overflow: visible;
-	}
-
-/*============== Ajax spinner ==============*/
-	.ajax-loader {
-		border-radius: 24px;
-		border-right: 3px double;
-		justify-content: center;
-		left: 0;
-		margin: auto;
-		right: 0;
-		top: -50px;
-		width: 140px;
-	}
-	.ajax-loader-spinning {
-		top: 160px;
-	}
 
 
 /*============== Buttons ==============*/
-	.toggle-wrapper {
-		align-items: center;
-		display: flex;
-		width: calc(50vw - 257px); /* (100vw - LogoWidth) / 2 */
-	}
-	.header-button {
-		height: auto;
-		width: auto;
-	}
 
-	.toggle-language-wrapper {
-		justify-content: flex-start;
-		order: 1;
-	}
-
-	.toggle-main-menu-wrapper {
-		justify-content: flex-end;
-		order: 5;
-	}
-
-	.button-scroll-to-top {display: none;}
 
 
 /*============== Breadcrumbs ==============*/
 	.breadcrumbs {text-align: center;}
 
-/*============== Header ==============*/
-	header {
-		overflow: visible;
-		position: relative;
-	}
 
 
-/*============== Logo ==============*/
-	.header-container .logo {
-		border-radius: 90px;
-		height: 150px;
-		margin: -12px 20px 0;
-		order: 3;
-		overflow: hidden;
-		padding: 5px;
-		text-align: center;
-		width: 164px;
-	}
-	.header-container .logo > img {
-		height: 100%;
-	}
 
-	.header-container .logo-text, .header-container .logo {
-		display: inline-block;
-	}
 
-	.header-container .logo-text {
-		align-items: center;
-		display: flex;
-		font-size: 3.6em;
-		width: 175px;
-	}
-
-	.header-container .logo-text-left {
-		justify-content: flex-end;
-		order: 2;
-	}
-
-	.header-container .logo-text-right {
-		justify-content: flex-start;
-		order: 4;
-	}
 
 
 /*============== Menus ==============*/
@@ -178,23 +97,6 @@
  * M size only
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
-	.header-container .logo-text {
-		height: 124px;
-	}
-
-
-/*============== Buttons ==============*/
-	.header-button {
-		font-size: 2em;
-		margin: 0 20px;
-	}
-
-	.header-button .fa-chevron-up,
-	.header-button .fa-chevron-down {
-		font-size: 0.3em;
-	}
-
-
 /*============== Menus ==============*/
 	.menu-language-choice, .menu-main {
 		width: 80%;

@@ -1,13 +1,18 @@
 /**********************************************************************************
- * XS sized screen - Smartphone in portrait mode
+ * XS sized screen - Smartphone in portrait orientation
  **********************************************************************************/
-@media screen and (min-width: 18.01em) and (orientation: portrait),
-screen and (min-width: 20.01em) and (orientation: landscape) {
+@media screen and (min-width: 18.1em) and (orientation: portrait),
+screen and (min-width: 20.1em) and (orientation: landscape) {
 	.header-container {
 		height: 64px;
 	}
 
 /*============== Buttons ==============*/
+	.button-scroll-to-top {
+		bottom: 95px;
+		right: 20px;
+	}
+
 	.header-button {
 		height: 64px;
 		margin: 0 4px;
@@ -35,9 +40,9 @@ screen and (min-width: 20.01em) and (orientation: landscape) {
 
 
 /**********************************************************************************
- * XS or smaller only
+ * XS Negative
  **********************************************************************************/
-@media screen and (max-width: 35.5em) {
+@media screen and (max-width: 35.49px) {
 	/* Otherwise breadcrumbs wrap arround and become unreadable on very narrow screens */
 	.breadcrumbs ul {
 		margin: 16px 2% 0;

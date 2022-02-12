@@ -1,0 +1,26 @@
+/**********************************************************************************
+ * L sized screen - Small desktop or a laptop
+ **********************************************************************************/
+@media screen and (min-width: 64em) {
+	/*============== Header ==============*/
+	header {
+		max-height: 167px;
+	}
+	.header-container {
+		height: 131px;
+	}
+	.header-super-wrapper {
+		display: flex;
+	}
+
+	/*============== Logo ==============*/
+	.header-container .logo-text {
+		font-size: 3.8em;
+		height: 100px;
+	}
+
+	.header-button .fa-chevron-up,
+	.header-button .fa-chevron-down {
+		font-size: 0.5em;
+	}
+}

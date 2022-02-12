@@ -1,5 +1,5 @@
 /**********************************************************************************
- * XL sized screen - Large desktop or laptop (only making use of the wider spaces)
+ * XL sized screen - Large desktop or laptop (only making use of the wider space)
  **********************************************************************************/
 @media screen and (min-width: 80em) {
 	.menu-main > ul, #language-menu-button {

@@ -3,28 +3,9 @@
  **********************************************************************************/
 @media screen and (min-width: 64em) {
 /*============== General ==============*/
-	header {max-height: 167px;}
-
-	.header-container {
-		height: 131px;
-	}
-
-	.header-super-wrapper {
-		display: flex;
-	}
 
 	.menu li > .menu-item {
 		font-size: 1em;
-	}
-
-	.header-container .logo-text {
-		font-size: 3.8em;
-		height: 100px;
-	}
-
-	.header-button .fa-chevron-up,
-	.header-button .fa-chevron-down {
-		font-size: 0.5em;
 	}
 
 	#main-menu-button {

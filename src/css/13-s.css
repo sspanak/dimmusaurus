@@ -1,0 +1,30 @@
+/**********************************************************************************
+ * S sized screen - Smartphone in landscape orientation
+ **********************************************************************************/
+@media screen and (min-width: 35.5em) {
+	.ajax-loader-spinning {width: 163px;}
+
+/*============== Buttons ==============*/
+	.button-scroll-to-top {
+		bottom: 75px;
+		font-size: 2.5em;
+		right: 40px;
+	}
+}
+
+
+/**********************************************************************************
+ * S negative
+ **********************************************************************************/
+@media screen and (max-width: 47.99em) {
+	.header-container .logo {
+		margin-right: auto;
+	}
+
+	.toggle-wrapper > .selected i {border-bottom: 2px solid;}
+
+	.header-button > .fa-chevron-down,
+	.header-button > .fa-chevron-up {
+		display: none;
+	}
+}
