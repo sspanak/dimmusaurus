@@ -42,15 +42,6 @@
 	.player .playlist, .player .player-controls .player-button {padding: 0 10px;}
 
 
-/*============== Footer ==============*/
-	footer {margin-bottom: 48px;}
-	footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
-	footer .social-icons a {
-		font-size: 1.8em;
-		padding: 0 10px;
-	}
-	footer .copyright {margin-right: 5px;}
-
 
 /*============== Pages ==============*/
 	.content-tune .tune-title, .content-tune .tune-release-info, .content-tune .tune-links {text-align: center;}
@@ -118,11 +109,6 @@
 		content: "/";
 		margin: 5px;
 	}
-
-	footer {margin-bottom: 40px;}
-	footer .social-icons a {padding: 0 15px;}
-	footer .copyright {margin-right: 15px;}
-	footer .copyright-first-year, footer .copyright-ds {display: inline;}
 
 	.content-tune .tune-title, .content-tune .tune-release-info, .content-tune .tune-links {text-align: unset;}
 

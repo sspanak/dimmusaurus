@@ -13,7 +13,6 @@ body {
 	font-family: "Noto Sans", sans-serif;
 }
 
-
 header .logo-text {font-family: 'Griffy', cursive;}
 
 .content article {text-align: justify;}
@@ -194,23 +193,10 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .player-error .track-progress-bar {cursor: not-allowed;}
 
 /*==============  Footer ==============*/
-footer {
-	align-items: center;
+footer, footer .social, footer .copyright {
 	display: flex;
-	height: 40px;
-	margin-bottom: 40px; /* make room for the player */
-}
-
-footer .social {
 	align-items: center;
-	display: flex;
-	flex: auto;
 }
-
-footer .copyright-copy, footer .copyright-last-year {
-	margin-right: 3px;
-}
-
 
 /**********************************************************************************
  * Pages styles

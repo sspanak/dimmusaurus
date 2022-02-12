@@ -169,18 +169,6 @@
 
 	.player .player-controls .player-button {width: 48px;}
 
-/*============== Footer ==============*/
-	footer .social-label {
-		display: block;
-		font-size: 0.85em;
-		margin-left: 10px;
-	}
-	footer .social-icons a {font-size: 1.3em;}
-	footer .copyright {
-		font-size: 0.85em;
-		margin-right: 10px;
-	}
-
 /*============== Pages ==============*/
 	.lyrics-super-wrapper {
 		display: flex;

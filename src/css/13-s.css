@@ -24,6 +24,11 @@
 		margin-right: 6px;
 	}
 	.breadcrumbs ul li {display: inline;}
+
+/*==============  Footer ==============*/
+	footer .social-icons a {padding: 0 15px;}
+	footer .copyright {margin-right: 15px;}
+	footer .copyright-first-year, footer .copyright-ds {display: inline;}
 }
 
 
