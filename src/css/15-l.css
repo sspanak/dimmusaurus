@@ -30,4 +30,16 @@
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 167px - 40px - 40px - 20px);
 	}
+
+/*============== Footer ==============*/
+	footer .social-label {
+		display: block;
+		font-size: 0.85em;
+		margin-left: 10px;
+	}
+	footer .social-icons a {font-size: 21px;}
+	footer .copyright {
+		font-size: 0.85em;
+		margin-right: 10px;
+	}
 }

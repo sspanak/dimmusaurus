@@ -52,4 +52,10 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
+
+/*==============  Player ==============*/
+	.player {height: 48px;}
+
+/*==============  Footer ==============*/
+	footer {margin-bottom: 48px;}
 }

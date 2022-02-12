@@ -116,6 +116,11 @@
 		padding: 10px 32px;
 		width: auto;
 	}
+
+
+/*============== Footer ==============*/
+	footer .social-icons a {font-size: 27px;}
+	footer .copyright {font-size: 0.93em;}
 }
 
 /**********************************************************************************

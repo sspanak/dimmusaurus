@@ -2,20 +2,6 @@
  * M sized screen - Tablet or larger
  **********************************************************************************/
 @media screen and (min-width: 48em) {
-
-
-/*============== Buttons ==============*/
-
-
-
-
-
-
-
-
-
-
-
 /*============== Menus ==============*/
 	.menu-wrapper {
 		display: inline-flex;
@@ -78,17 +64,6 @@
 		width: 54px;
 	}
 
-
-/*============== Footer ==============*/
-	footer .social-label {display: none;}
-	footer .social-icons a {
-		font-size: 1.7em;
-		padding: 0 15px;
-	}
-	footer .copyright{
-		font-size: 0.93em;
-		margin-right: 15px;
-	}
 }
 
 
