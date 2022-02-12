@@ -1,0 +1,111 @@
+/**********************************************************************************
+ * M sized screen - Tablet or larger
+ **********************************************************************************/
+@media screen and (min-width: 48em) {
+/*============== Ajax spinner ==============*/
+	.ajax-loader {
+		border-radius: 24px;
+		border-right: 3px double;
+		left: 0;
+		margin: auto;
+		right: 0;
+	}
+	.ajax-loader-spinning {
+		top: 160px;
+		width: 140px;
+	}
+
+/*============== Buttons ==============*/
+	.button-scroll-to-top {display: none;}
+
+
+/*============== Header ==============*/
+	header {
+		max-height: 160px;
+		overflow: visible;
+		position: relative;
+	}
+
+	.header-container {
+		height: 124px;
+		justify-content: center;
+	}
+
+
+/*============== Logo ==============*/
+	.header-container .logo {
+		border-radius: 90px;
+		height: 150px;
+		margin: -12px 20px 0;
+		order: 3;
+		overflow: hidden;
+		padding: 5px;
+		text-align: center;
+		width: 164px;
+	}
+	.header-container .logo > img {
+		max-width: fit-content;
+		width: initial; /* Workaround for Opera */
+	}
+
+	.header-container .logo-text, .header-container .logo {
+		display: inline-block;
+	}
+
+	.header-container .logo-text {
+		align-items: center;
+		display: flex;
+		font-size: 3.6em;
+		height: 124px;
+		width: 175px;
+	}
+
+	.header-container .logo-text-left {
+		justify-content: flex-end;
+		order: 2;
+	}
+
+	.header-container .logo-text-right {
+		justify-content: flex-start;
+		order: 4;
+	}
+
+
+/*============== Menu Buttons ==============*/
+	.toggle-wrapper {
+		align-items: center;
+		display: flex;
+		width: calc(50vw - 257px); /* (100vw - LogoWidth) / 2 */
+	}
+	.toggle-language-wrapper {
+		justify-content: flex-start;
+		margin-right: auto;
+		order: 1;
+	}
+
+	.toggle-main-menu-wrapper {
+		justify-content: flex-end;
+		margin-left: auto;
+		order: 5;
+	}
+
+	.header-button {
+		font-size: 2em;
+		height: auto;
+		width: auto;
+	}
+
+	.header-button .fa-chevron-up,
+	.header-button .fa-chevron-down {
+		font-size: 0.3em;
+	}
+}
+
+/**********************************************************************************
+ * M only
+ **********************************************************************************/
+@media screen and (min-width: 48em) and (max-width: 63.99em) {
+	.header-button {
+		margin: 0 20px;
+	}
+}

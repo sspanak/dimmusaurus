@@ -2,54 +2,9 @@
  * Base styles for all S or smaller screens.
  **********************************************************************************/
 @media screen and (max-width: 47.99em) {
-	.header-container {
-		clear: both;
-		overflow: visible;
-	}
-
-/*============== Logo ==============*/
-	.header-container .logo {float: left;}
-	.header-container .logo > img {
-		height: 100%;
-		width: 100%;
-	}
-
-	.header-container .logo-text {
-		display: none;
-	}
-
-/*============== Ajax spinner ==============*/
-	.ajax-loader {
-		justify-content: flex-start;
-		top: 83px;
-	}
-	.ajax-loader-spinning {width: 150px;}
-
 
 /*============== Breadcrumbs ==============*/
 	.breadcrumbs ul {margin-top: 16px;}
-
-
-/*============== Buttons ==============*/
-	.header-button {
-		float: right;
-		font-size: 2em;
-	}
-	.header-button i {
-		padding: 3px 0;
-	}
-	.toggle-wrapper > .selected i {
-		border-bottom: 2px solid;
-	}
-	.header-container .header-button > .fa-chevron-down,
-	.header-container .header-button > .fa-chevron-up {
-		display: none;
-	}
-
-	.button-scroll-to-top {
-		bottom: 95px;
-		right: 20px;
-	}
 
 
 /*============== Menus ==============*/
@@ -158,14 +113,6 @@
 	.menu-playlist li > .menu-item {padding: 0 8px;}
 	.menu-playlist .menu-item > span, .menu-playlist .menu-item > a {padding: 10px 0;}
 	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
-
-
-	.button-scroll-to-top {
-		bottom: 75px;
-		right: 40px;
-	}
-
-	.ajax-loader-spinning {width: 163px;}
 
 	.content {
 		/* 100% - header-height - footer - player - self padding */
