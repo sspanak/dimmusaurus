@@ -30,7 +30,7 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		width: 80px;
 	}
 
-/*============== Content ==============*/
+/*============== Pages ==============*/
 	.content {
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 64px - 40px - 48px - 40px);
@@ -42,14 +42,10 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 /**********************************************************************************
  * XS Negative
  **********************************************************************************/
-@media screen and (max-width: 35.49px) {
+@media screen and (max-width: 35.5em) {
 	/* Otherwise breadcrumbs wrap arround and become unreadable on very narrow screens */
-	.breadcrumbs ul {
-		margin: 16px 2% 0;
-		max-width: 96%;
-	}
+	.breadcrumbs ul {max-width: 96%;}
 	.breadcrumbs li {
-		display: inline-block;
 		max-width: 100%;
 		overflow-x: hidden;
 		padding: 1px 0;

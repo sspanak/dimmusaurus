@@ -75,6 +75,17 @@
 	display: none;
 }
 
+/*============== Menu Buttons ==============*/
+.breadcrumbs ul {
+	display: inline-block;
+	font-size: 0.95em;
+	margin: 16px 2% 0;
+	padding: 0;
+	text-align: left;
+}
+.breadcrumbs li {display: inline-block;}
+.breadcrumbs li .fas {padding-right: 4px;}
+
 
 /**********************************************************************************
  * Hide the player by default. JS will undo this on supported browsers
