@@ -3,10 +3,6 @@
  **********************************************************************************/
 @media screen and (max-width: 47.99em) {
 
-/*============== Breadcrumbs ==============*/
-	.breadcrumbs ul {margin-top: 16px;}
-
-
 /*============== Menus ==============*/
 	.menu-language-choice > ul, .menu-main > ul {padding-top: 24px;}
 	.menu-music > ul {padding-left: 16px;}
@@ -113,12 +109,6 @@
 	.menu-playlist li > .menu-item {padding: 0 8px;}
 	.menu-playlist .menu-item > span, .menu-playlist .menu-item > a {padding: 10px 0;}
 	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
-
-	.content {
-		/* 100% - header-height - footer - player - self padding */
-		min-height: calc(100vh - 64px - 40px - 40px - 26px);
-		padding: 16px 24px 10px;
-	}
 
 	.player {height: 40px;}
 	.player .playlist, .player .player-controls .player-button {padding: 0 15px;}

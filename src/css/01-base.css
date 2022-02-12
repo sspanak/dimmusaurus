@@ -58,16 +58,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 }
 
 /*==============  Breadcrumbs ==============*/
-.breadcrumbs ul {
-	display: inline-block;
-	font-size: 0.95em;
-	margin: 0 6px;
-	padding: 0;
-	text-align: left;
-}
-.breadcrumbs li {display: inline;}
 .breadcrumbs li:not(:first-child)::before {content: " / ";}
-.breadcrumbs li .fas {padding-right: 4px;}
 
 /*==============  Menus ==============*/
 .menu > ul {

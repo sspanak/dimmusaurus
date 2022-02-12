@@ -99,6 +99,23 @@
 	.header-button .fa-chevron-down {
 		font-size: 0.3em;
 	}
+
+/*============== Breadcrumbs ==============*/
+	.breadcrumbs {
+		margin: 0 auto;
+		text-align: center;
+	}
+	.breadcrumbs ul {margin-top: 0;}
+
+/*============== Content ==============*/
+	.content {
+		margin: auto;
+		max-width: 1033px;
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 160px - 40px - 40px - 20px);
+		padding: 10px 32px;
+		width: auto;
+	}
 }
 
 /**********************************************************************************
