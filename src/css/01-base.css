@@ -107,7 +107,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	max-height: 250px; /* Legacy browsers only. It is overridden with "modern" rules in screen size files. */
 	overflow-y: auto;
 }
-.menu-playlist .playlist-unavailable-label {display: none; margin: 12px;}
+.menu-playlist .no-playlist-label {display: none; margin: 12px;}
 .menu-playlist > ul {padding: 0 5px;}
 .menu-playlist li > .menu-item {
 	cursor: auto;
@@ -127,8 +127,8 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	font-size: 1.2em;
 }
 
-.playlist-unavailable .playlist-unavailable-label {display: block;}
-.playlist-unavailable ul {display: none;}
+.no-playlist .no-playlist-label {display: block;}
+.no-playlist ul {display: none;}
 
 /*==============  Player ==============*/
 .player {

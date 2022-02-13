@@ -36,7 +36,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			playlistTrackHighlighted: () => `#playlist-list li.${this.classes.highlighted} > .menu-item`,
 			playlistTrackPrefix: '#playlist-track-',
 			playlistTrackSelected: () => `#playlist-list li:not(.${this.classes.hidden}) .${this.classes.selected}`,
-			playlistUnavailableLabel: '#playlist-unavailable-label',
+			playlistUnavailableLabel: '#no-playlist-label',
 			previous: '#pl-previous',
 			progressBar: '.track-progress-bar',
 			progressTime: '.player .progress-time',
@@ -287,9 +287,9 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	buildPlaylist(playlist) {
 		if (!playlist || !playlist.length) {
 			console.warn('Displaying empty playlist.');
-			this.select(this.selectors.playlist).addClass('playlist-unavailable');
+			this.select(this.selectors.playlist).addClass('no-playlist');
 		} else {
-			this.select(this.selectors.playlist).removeClass('playlist-unavailable');
+			this.select(this.selectors.playlist).removeClass('no-playlist');
 		}
 
 
