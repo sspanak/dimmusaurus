@@ -2,24 +2,6 @@
  * M sized screen - Tablet or larger
  **********************************************************************************/
 @media screen and (min-width: 48em) {
-/*============== Menus ==============*/
-
-
-	.menu-playlist-wrapper {
-		bottom: 40px;
-		min-width: 524px;
-	}
-	.menu-playlist-wrapper .playlist-search input {
-		margin: 14px 16px 0 16px;
-		padding: 8px 6px;
-	}
-	.menu-playlist {
-		height: 55vh;
-		max-height: calc(55vh - 40px - 50px); /* height - footer - search */
-	}
-	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
-
-
 /*============== Content ==============*/
 
 	.content-version .ascii-logo {
@@ -53,12 +35,6 @@
  * M size only
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
-/*============== Menus ==============*/
-	.menu-playlist li .menu-item, .menu-playlist-wrapper .playlist-search input {
-		font-size: 1em;
-	}
-
-
 /*============== Player ==============*/
 	.player .track-progress-bar {display: none;}
 

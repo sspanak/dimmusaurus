@@ -12,7 +12,6 @@
 	}
 
 
-
 /*============== Logo ==============*/
 	.header-container .logo-text {
 		font-size: 3.8em;
@@ -120,8 +119,8 @@
 	.menu-music li:first-child .menu-item {padding-top: 12px;}
 
 
-/*============== Menu Playlist ==============*/
-	.menu-playlist li > .menu-item {
+/*============== Playlist ==============*/
+	.menu-playlist li > .menu-item, .menu-playlist-wrapper .playlist-search input {
 		font-size: 0.9em;
 	}
 

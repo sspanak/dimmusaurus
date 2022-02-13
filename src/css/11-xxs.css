@@ -1,5 +1,5 @@
 /**********************************************************************************
- * XXS sized screen - Feature phone
+ * NEGATIVE XXS sized screen - Feature phone
  **********************************************************************************/
 @media screen and (max-width: 18.1em) and (orientation: portrait),
 screen and (max-width: 20.1em) and (orientation: landscape) {
@@ -23,6 +23,10 @@ screen and (max-width: 20.1em) and (orientation: landscape) {
 		width: 55px;
 	}
 
+/*============== Playlist ==============*/
+	.menu-playlist {
+		height: 100px;
+	}
 
 /*============== Pages ==============*/
 	.content {padding: 10px;}

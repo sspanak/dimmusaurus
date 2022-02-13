@@ -30,6 +30,11 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		width: 80px;
 	}
 
+/*============== Playlist ==============*/
+	.menu-playlist {height: calc(70vh - 48px - 50px);} /* 70% - footer - search */
+	.menu-playlist ul {padding: 0 5px;}
+	.menu-playlist .playlist-info, .menu-playlist .playlist-time {padding-left: 5px;}
+
 /*============== Pages ==============*/
 	.content {
 		/* 100% - header-height - footer - player - self padding */
@@ -40,7 +45,7 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 
 
 /**********************************************************************************
- * XS Negative
+ * NEGATIVE XS
  **********************************************************************************/
 @media screen and (max-width: 35.5em) {
 	/* Otherwise breadcrumbs wrap arround and become unreadable on very narrow screens */
@@ -53,9 +58,7 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		white-space: nowrap;
 	}
 
-/*==============  Player ==============*/
+	.menu-playlist-wrapper {bottom: 48px;}
 	.player {height: 48px;}
-
-/*==============  Footer ==============*/
 	footer {margin-bottom: 48px;}
 }

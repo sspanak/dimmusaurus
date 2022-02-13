@@ -1,0 +1,84 @@
+/*============== Menu Buttons ==============*/
+.toggle-language-wrapper {order: 2;}
+.toggle-main-menu-wrapper {order: 3;}
+
+.header-button {font-size: 2em;}
+
+.header-button, .menu .menu-item, .player .player-button {
+	display: inline-block;
+	padding: 0;
+}
+
+.toggle-language-label {
+	display: none;
+}
+
+header .fa-chevron-down, header .fa-chevron-up {
+	font-size: 0.5em;
+	vertical-align: middle;
+}
+
+/*==============  Menus ==============*/
+.menu > ul {
+	margin: 0;
+	padding: 0 0 12px 0;
+}
+
+.menu li {
+	margin: 0;
+	padding: 0;
+}
+.menu li > .menu-item {
+	display: block;
+	font-size: 1.15em;
+	padding: 12px 8px;
+}
+.menu li > .menu-item .icon {margin: 0 10px 0 6px;}
+
+/*==============  Menu Music ==============*/
+.menu-music > ul {padding-left: 16px;}
+.menu-music li:first-child .menu-item {padding-top: 0;}
+
+
+/*==============  Playlist ==============*/
+.menu-playlist-wrapper {
+	bottom: 40px;
+	max-width: 100%;
+	position: fixed;
+	width: 576px;
+}
+
+.menu-playlist-wrapper .playlist-search {display: flex;}
+.menu-playlist-wrapper .playlist-search input {
+	display: flex;
+	flex: auto;
+	margin: 12px 8px 0 8px;
+	padding: 8px 6px;
+}
+
+.menu-playlist {
+	margin: 12px 6px 0 0;
+	overflow-y: auto;
+}
+
+.menu-playlist li > .menu-item {
+	align-items: center;
+	display: flex;
+	font-size: 1em;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.menu-playlist .playlist-info, .menu-playlist .playlist-title {
+	padding: 12px 0;
+}
+.menu-playlist .playlist-title {flex: auto;}
+.menu-playlist .playlist-info {
+	font-size: 1.2em;
+	margin: auto 0;
+}
+.menu-playlist .playlist-info, .menu-playlist .playlist-time {padding-left: 3px;}
+
+.menu-playlist .no-playlist-label {display: none; margin: 12px;}
+.no-playlist .no-playlist-label {display: block;}
+.no-playlist ul {display: none;}
