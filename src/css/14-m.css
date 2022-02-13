@@ -128,11 +128,20 @@
 	}
 
 
-
-/*============== Menu Playlist ==============*/
-	.menu-playlist li > .menu-item {
-		font-size: 1em;
+/*============== Playlist ==============*/
+	.menu-playlist-wrapper {width: 524px;}
+	.menu-playlist {
+		height: 45vh;
+		max-height: calc(100vh - 40px - 50px - 176px); /* 100% - footer - search - header+padding */
 	}
+
+	.menu-playlist-wrapper .playlist-search input {
+		margin-top: 14px;
+		padding: 8px 6px;
+	}
+
+	.menu-playlist li > .menu-item {font-size: 1em;}
+
 
 /*============== Content ==============*/
 	.content {
@@ -151,7 +160,7 @@
 }
 
 /**********************************************************************************
- * M only
+ * ONLY M
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
 	.header-button {margin: 0 20px;}

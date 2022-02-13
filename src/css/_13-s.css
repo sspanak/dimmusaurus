@@ -3,24 +3,6 @@
  **********************************************************************************/
 @media screen and (max-width: 47.99em) {
 
-/*============== Menus ==============*/
-
-
-	.menu-playlist-wrapper {
-		bottom: 48px;
-		width: 100%;
-	}
-	.menu-playlist-wrapper .playlist-search input {
-		margin: 12px 8px 0 8px;
-		padding: 8px 6px;
-	}
-	.menu-playlist {
-		height: 70vh;
-		max-height: calc(70vh - 48px - 50px); /* height - footer - search */
-	}
-	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 5px;}
-	.menu-playlist .playlist-info {padding-left: 2px;}
-
 
 /*============== Player ==============*/
 	.player {height: 48px;}
@@ -68,25 +50,6 @@
  * S size only. Just making use of the wider horizontal space.
  **********************************************************************************/
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
-
-
-	.menu-playlist-wrapper {
-		bottom: 40px;
-		max-width: 100%;
-		width: 576px;
-	}
-	.menu-playlist-wrapper .playlist-search input {
-		margin: 12px 16px 0 16px;
-		padding: 6px 8px;
-	}
-	.menu-playlist {
-		height: 80vh;
-		max-height: calc(80vh - 48px - 50px); /* height - footer - search */
-	}
-	.menu-playlist li > .menu-item {padding: 0 8px;}
-	.menu-playlist .menu-item > span, .menu-playlist .menu-item > a {padding: 10px 0;}
-	.menu-playlist .playlist-time, .menu-playlist .playlist-info {margin-left: 10px;}
-
 	.player {height: 40px;}
 	.player .playlist, .player .player-controls .player-button {padding: 0 15px;}
 	.player .track-progress-bar {display: none;}

@@ -13,7 +13,6 @@
 	}
 
 	.menu-playlist {
-		height: 60vh;
-		max-height: calc(60vh - 2.5em - 50px); /* height - footer - search */
+		height: 48vh;
 	}
 }

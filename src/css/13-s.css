@@ -19,6 +19,14 @@
 	}
 	.breadcrumbs ul li {display: inline;}
 
+/*==============  Playlist ==============*/
+	.menu-playlist {height: calc(100vh - 40px - 50px - 96px);} /* 100% - footer - search - header */
+	.menu-playlist-wrapper .playlist-search input {
+		margin: 12px 16px 0 16px;
+		padding: 6px 8px;
+	}
+	.menu-playlist .playlist-info {padding-left: 10px;}
+
 /*============== Pages ==============*/
 	.content {
 		/* 100% - header-height - footer - player - self padding */
@@ -34,7 +42,7 @@
 
 
 /**********************************************************************************
- * S negative
+ * NEGATIVE S
  **********************************************************************************/
 @media screen and (max-width: 47.99em) {
 	.header-container .logo {
@@ -52,11 +60,16 @@
 }
 
 /**********************************************************************************
- * S only
+ * ONLY S
  **********************************************************************************/
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
-	.menu li > .menu-item {
-		margin: 0 24px;
-		padding: 10px 8px;
+	.menu li > .menu-item {margin: 0 24px;}
+
+	/* non-playlist item */
+	.menu:not(.menu-playlist) li > .menu-item {padding: 10px 8px;}
+	/* playlist item */
+	.menu-playlist .playlist-info, .menu-playlist .playlist-title {
+		padding-bottom: 10px;
+		padding-top: 10px;
 	}
 }
