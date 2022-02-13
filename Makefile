@@ -71,6 +71,7 @@ css-debug:
 	@printf 'Building CSS... ' && \
 		bash -c build-tools/css-build-dev.sh && \
 		cat src/css/ui-demo.css >> dist/static/ds.css && \
+		cp dist/static/ds.css dist/static/ds.min.css && \
 	echo 'OK'
 
 css:
@@ -91,6 +92,8 @@ js-debug:
 			echo "'use strict';" > dist/static/ds.js && \
 			cat src/js/[0-9]*.js >> dist/static/ds.js && \
 			npx babel src/js/polyfills.js dist/static/ds.js > dist/static/ds.legacy.js && \
+			cp dist/static/ds.js dist/static/ds.min.js && \
+			cp dist/static/ds.legacy.js dist/static/ds.legacy.min.js && \
 	echo 'OK'
 
 js:
