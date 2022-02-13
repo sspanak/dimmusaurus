@@ -39,9 +39,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	background-size: contain;
 }
 
-.menu li, .content-tune .tune-links li, .breadcrumbs li {list-style-type: none;}
-.fa-chevron-down, .fa-chevron-up {vertical-align: middle;}
-
 /*==============  Buttons ==============*/
 .menu .menu-item, .menu-item a, footer a, .player .player-button {
 	text-decoration: none;
@@ -60,21 +57,11 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .breadcrumbs li:not(:first-child)::before {content: " / ";}
 
 /*==============  Menus ==============*/
-.menu > ul {
-	margin: 0;
-	padding: 0 0 12px 0;
-}
-
+.menu li, .content-tune .tune-links li, .breadcrumbs li {list-style-type: none;}
 .menu li > .menu-item {
 	cursor: pointer;
-	padding: 12px 8px;
 	text-align: left;
 }
-.menu li > .menu-item .icon {margin: 0 10px 0 6px;}
-.menu-item .fa-chevron-down, .menu-item .fa-chevron-up {font-size: 0.5em;}
-
-.menu-music li:first-child .menu-item {padding-top: 0;}
-
 
 /*============== Language Menu ==============*/
 .menu-language-choice .flag {
