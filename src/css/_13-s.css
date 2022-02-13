@@ -4,18 +4,7 @@
 @media screen and (max-width: 47.99em) {
 
 /*============== Menus ==============*/
-	.menu-language-choice > ul, .menu-main > ul {padding-top: 24px;}
-	.menu-music > ul {padding-left: 16px;}
 
-	.menu li {
-		margin: 0;
-		padding: 0;
-	}
-
-	.menu:not(.menu-playlist) li > .menu-item {
-		display: block;
-		font-size: 1.15em;
-	}
 
 	.menu-playlist-wrapper {
 		bottom: 48px;
@@ -79,10 +68,7 @@
  * S size only. Just making use of the wider horizontal space.
  **********************************************************************************/
 @media screen and (min-width: 35.5em) and (max-width: 47.99em) {
-	.menu li > .menu-item {
-		margin: 0 24px;
-		padding: 10px 8px;
-	}
+
 
 	.menu-playlist-wrapper {
 		bottom: 40px;

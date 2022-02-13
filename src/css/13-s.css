@@ -11,12 +11,6 @@
 		right: 40px;
 	}
 
-/*============== Pages ==============*/
-	.content {
-		/* 100% - header-height - footer - player - self padding */
-		min-height: calc(100vh - 64px - 40px - 40px - 26px);
-		padding: 16px 24px 10px;
-	}
 
 /*==============  Breadcrumbs ==============*/
 	.breadcrumbs ul {
@@ -24,6 +18,13 @@
 		margin-right: 6px;
 	}
 	.breadcrumbs ul li {display: inline;}
+
+/*============== Pages ==============*/
+	.content {
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 64px - 40px - 40px - 26px);
+		padding: 16px 24px 10px;
+	}
 
 /*==============  Footer ==============*/
 	footer .social-icons a {padding: 0 15px;}
@@ -45,5 +46,17 @@
 	.header-button > .fa-chevron-down,
 	.header-button > .fa-chevron-up {
 		display: none;
+	}
+
+	.header-super-wrapper > .menu-wrapper > .menu > ul {padding-top: 24px;}
+}
+
+/**********************************************************************************
+ * S only
+ **********************************************************************************/
+@media screen and (min-width: 35.5em) and (max-width: 47.99em) {
+	.menu li > .menu-item {
+		margin: 0 24px;
+		padding: 10px 8px;
 	}
 }

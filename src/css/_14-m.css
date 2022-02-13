@@ -3,17 +3,7 @@
  **********************************************************************************/
 @media screen and (min-width: 48em) {
 /*============== Menus ==============*/
-	.menu-wrapper {
-		display: inline-flex;
-		width: 50%;
-	}
 
-	.menu-main-wrapper {justify-content: flex-end;}
-
-	.menu li {
-		display: block;
-		padding: 0 12px 2px 12px;
-	}
 
 	.menu-playlist-wrapper {
 		bottom: 40px;
@@ -31,14 +21,6 @@
 
 
 /*============== Content ==============*/
-	.content {
-		margin: auto;
-		/* 100% - header-height - footer - player - self padding */
-		min-height: calc(100vh - 160px - 40px - 40px - 20px);
-		padding: 10px 32px;
-		max-width: 1033px;
-		width: auto;
-	}
 
 	.content-version .ascii-logo {
 		font-size: 0.6em;
@@ -72,17 +54,6 @@
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
 /*============== Menus ==============*/
-	.menu-language-choice, .menu-main {
-		width: 80%;
-	}
-
-	.menu-music > ul {padding-left: 16px;}
-
-	.menu:not(.menu-playlist) li .menu-item {
-		display: block;
-		font-size: 1.1em;
-	}
-
 	.menu-playlist li .menu-item, .menu-playlist-wrapper .playlist-search input {
 		font-size: 1em;
 	}
