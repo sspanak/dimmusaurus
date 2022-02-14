@@ -2,6 +2,7 @@
 	--ajax-loader-background-color: black;
 
 	--body-background-color: #f4f4f4;
+	--body-background-url: url(img/fon-f4f4f4.png);
 	--body-text-color: #000;
 
 	--link-color: #225682;
@@ -24,6 +25,8 @@
 
 	--menu-border-strong: 1px solid #666;
 
+	--player-loading-spinner-url: url(/static/img/vrtelejka-333.gif);
+
 	--shadow-language-flags: inset 2px 2px 2px 0 rgba(155, 155, 155, 0.5), inset -2px -2px 2px 0 rgba(0, 0, 0, 0.20);
 	--shadow-bottom: 0 3px 5px rgba(50, 50, 50, 0.57);
 	--shadow-top: 0 -3px 5px rgba(50, 50, 50, 0.57);
@@ -31,7 +34,7 @@
 }
 
 body {
-	background: var(--body-background-color) url(img/fon-f4f4f4.png);
+	background: var(--body-background-color) var(--body-background-url);
 	color: var(--body-text-color);
 }
 header .logo {background: var(--logo-background-color);}
@@ -122,6 +125,9 @@ footer a:hover,
 .player {border-top: var(--menu-border-strong);}
 .player .disabled {color: var(--menu-icon-inactive-color);}
 .player .loading-indicator {color: var(--body-background-color);}
+.player .player-loading-spinner {
+	background: center / contain no-repeat var(--player-loading-spinner-url);
+}
 .player .player-controls .player-button {border-left: 1px solid var(--menu-separator-medium);}
 .player .time-balloon-time-wrapper,
 .player .time-balloon-pointer {border: 1px solid var(--menu-separator-strong);}

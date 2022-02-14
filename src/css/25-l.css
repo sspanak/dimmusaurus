@@ -109,6 +109,7 @@
 		margin: 0 4px 0 2px;
 	}
 
+
 /*============== Music Menu ==============*/
 	.menu-music > ul {
 		display: flex;
@@ -119,17 +120,102 @@
 	.menu-music li:first-child .menu-item {padding-top: 12px;}
 
 
+/*============== Content ==============*/
+	.content {
+		font-size: 0.95em;
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 167px - 40px - 40px - 20px);
+	}
+
+
 /*============== Playlist ==============*/
 	.menu-playlist li > .menu-item, .menu-playlist-wrapper .playlist-search input {
 		font-size: 0.9em;
 	}
 
 
-/*============== Content ==============*/
-	.content {
-		font-size: 0.95em;
-		/* 100% - header-height - footer - player - self padding */
-		min-height: calc(100vh - 167px - 40px - 40px - 20px);
+/*============== Player ==============*/
+	.player .track-title,
+	.player .loading-indicator,
+	.player .track-progress-bar-container {
+		font-size: 0.9em;
+	}
+
+	.player .player-controls {font-size: 1.2em;}
+	.player .player-controls .player-button {width: 48px;}
+
+/* Track Title / Loading Indicator */
+	.player .track-title,
+	.player .loading-indicator {
+		flex: none;
+		margin: 0;
+		width: 340px;
+	}
+
+/* Progress Bar */
+	.player .total-time::before {content: ""; margin: 0 auto;}
+
+	.player .track-progress-bar-container {
+		align-items: center;
+		display: flex;
+		flex: 38%;
+	}
+
+	.player .track-progress-bar {
+		align-items: center;
+		border-radius: 0.5em;
+		cursor: pointer;
+		display: inline-flex;
+		flex: 1;
+		height: 1em;
+		margin: 0 8px;
+	}
+	.player-error .track-progress-bar {cursor: not-allowed;}
+	.player-loading .track-progress-bar-container,
+	.player-loading .track-progress-bar {
+		cursor: wait;
+	}
+
+	.player .track-progress-bar-background {
+		flex: 1;
+		height: 50%;
+	}
+
+	.player .track-progress {
+		height: 100%;
+		width: 0;
+	}
+
+	.player .track-progress, .player .track-progress-bar-background {
+		border-radius: inherit;
+	}
+
+/* Time Balloon */
+	.player .time-balloon {
+		bottom: 21px;
+		position: fixed;
+	}
+	.player:not(.player-loading):not(.player-error) .track-progress-bar:hover .time-balloon {
+		display: block;
+	}
+
+	.player .time-balloon-time-wrapper {
+		position: relative; /* z-index does not work with position: static */
+	}
+	.player .time-balloon-time {
+		font-size: 0.9em;
+		padding: 3px 7px;
+		position: relative;
+		z-index: 10; /* stacking the elements properly, not to cut the pointer with .time-baloon-time's border */
+	}
+
+	.player .time-balloon-pointer {
+		height: 10px;
+		margin: 0 auto;
+		position: relative;
+		top: -7px;
+		transform: rotateZ(45deg);
+		width: 10px;
 	}
 
 

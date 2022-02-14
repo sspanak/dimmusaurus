@@ -19,6 +19,15 @@
 	}
 	.breadcrumbs ul li {display: inline;}
 
+
+/*============== Pages ==============*/
+	.content {
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 64px - 40px - 40px - 26px);
+		padding: 16px 24px 10px;
+	}
+
+
 /*==============  Playlist ==============*/
 	.menu-playlist {height: calc(100vh - 40px - 50px - 96px);} /* 100% - footer - search - header */
 	.menu-playlist-wrapper .playlist-search input {
@@ -27,12 +36,20 @@
 	}
 	.menu-playlist .playlist-info {padding-left: 10px;}
 
-/*============== Pages ==============*/
-	.content {
-		/* 100% - header-height - footer - player - self padding */
-		min-height: calc(100vh - 64px - 40px - 40px - 26px);
-		padding: 16px 24px 10px;
+
+
+/*==============  Player ==============*/
+	.player .playlist, .player .player-controls .player-button {padding: 0 15px;}
+
+	.player .track-progress-bar-container {
+		display: inline-flex;
+		padding: 0 10px;
 	}
+	.player .total-time::before {
+		content: "/";
+		margin: 5px;
+	}
+
 
 /*==============  Footer ==============*/
 	footer .social-icons a {padding: 0 15px;}

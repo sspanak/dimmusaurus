@@ -1,5 +1,58 @@
-/*==============  Player ==============*/
-.player {height: 40px;}
+.player {
+	align-items: center;
+	bottom: 0;
+	display: flex;
+	height: 40px;
+	position: fixed;
+	width: 100%;
+}
+
+.player audio,
+.player .loading-indicator,
+.player .time-balloon,
+.player .track-progress-bar-container,
+.player .track-progress-bar,
+.player .player-controls .volume {
+	display: none;
+}
+
+/*==============  Track Title / Loading Indicator ==============*/
+.player .track-title {cursor: pointer;}
+.player .track-title, .player .loading-indicator {
+	flex: auto;
+	margin-right: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.player .player-loading-spinner {
+	align-self: center;
+	display: inline-flex;
+	height: 1.15em;
+	margin: 0 4px 0 0;
+	width: 1.15em;
+}
+
+/*==============  Player Buttons ==============*/
+.player .playlist, .player .player-controls .player-button {padding: 0 10px;}
+
+.player .player-controls {
+	display: inline-flex;
+	font-size: 1.7em;
+}
+.player .player-controls .disabled {cursor: default;}
+
+/*==============  Error ==============*/
+.player-error .player-controls .disabled {cursor: not-allowed;}
+
+/*==============  Loading ==============*/
+.player-loading .track-title {display: none;}
+.player-loading .loading-indicator {
+	cursor: wait;
+	display: flex;
+}
+
 
 /**********************************************************************************
  * Hide the player by default. JS will undo this on supported browsers

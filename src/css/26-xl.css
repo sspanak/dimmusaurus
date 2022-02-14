@@ -7,12 +7,10 @@
 		margin-right: 2%;
 	}
 
-	.player .track-progress-bar-container {
-		margin-right: 8%;
-		width: 42%;
-	}
+	.menu-playlist {height: 48vh;}
 
-	.menu-playlist {
-		height: 48vh;
+	.player .track-progress-bar-container {
+		flex: 42%;
+		margin-right: 8%;
 	}
 }
