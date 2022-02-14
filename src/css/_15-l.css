@@ -3,74 +3,11 @@
  **********************************************************************************/
 @media screen and (min-width: 64em) {
 
-
-/*============== Content ==============*/
+/*============== Pages ==============*/
 	.content-discography .album-tracks .album-duration-container .album-duration-label {
 		padding: 8px 1px 0 0;
 	}
 
-
-/*============== Player ==============*/
-	.player .track-title,
-	.player .loading-indicator,
-	.player .track-progress-bar-container {
-		font-size: 0.9em;
-	}
-	.player .player-controls {font-size: 1.2em;}
-
-	.player .track-title,
-	.player .loading-indicator {
-		flex: initial;
-		width: 340px;
-	}
-
-	.player .time-balloon {
-		bottom: 21px;
-		position: fixed;
-	}
-	.player .time-balloon-time-wrapper {
-		position: relative;
-	}
-	.player .time-balloon-time {
-		font-size: 0.9em;
-		padding: 3px 7px;
-		position: relative;
-		z-index: 10;
-	}
-	.player .time-balloon-pointer {
-		height: 10px;
-		margin: 0 auto;
-		position: relative;
-		top: -7px;
-		transform: rotateZ(45deg);
-		width: 10px;
-	}
-
-	.player .track-progress-bar-container {
-		align-items: center;
-		flex: auto;
-		width: 38%;
-	}
-	.player .track-progress-bar {
-		border-radius: 0.5em;
-		flex: auto;
-		height: 1em;
-		margin: 0 8px;
-	}
-	.player .track-progress-bar-background {
-		height: 0.5em;
-		margin-top: 0.25em;
-	}
-	.player .track-progress {
-		height: 100%;
-		width: 0;
-	}
-
-	.player .total-time::before {content: ""; margin: 0 auto;}
-
-	.player .player-controls .player-button {width: 48px;}
-
-/*============== Pages ==============*/
 	.lyrics-super-wrapper {
 		display: flex;
 		justify-content: center;

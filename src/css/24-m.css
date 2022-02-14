@@ -128,6 +128,17 @@
 	}
 
 
+/*============== Content ==============*/
+	.content {
+		margin: auto;
+		max-width: 1033px;
+		/* 100% - header-height - footer - player - self padding */
+		min-height: calc(100vh - 160px - 40px - 40px - 20px);
+		padding: 10px 32px;
+		width: auto;
+	}
+
+
 /*============== Playlist ==============*/
 	.menu-playlist-wrapper {width: 524px;}
 	.menu-playlist {
@@ -142,22 +153,20 @@
 
 	.menu-playlist li > .menu-item {font-size: 1em;}
 
-
-/*============== Content ==============*/
-	.content {
-		margin: auto;
-		max-width: 1033px;
-		/* 100% - header-height - footer - player - self padding */
-		min-height: calc(100vh - 160px - 40px - 40px - 20px);
-		padding: 10px 32px;
-		width: auto;
+/*============== Player ==============*/
+	.player .player-controls {font-size: 1.6em;}
+	.player .player-controls .player-button {
+		padding: 0;
+		width: 54px;
 	}
+	.player .player-controls .volume {display: inline-block;}
 
 
 /*============== Footer ==============*/
 	footer .social-icons a {font-size: 27px;}
 	footer .copyright {font-size: 0.93em;}
 }
+
 
 /**********************************************************************************
  * ONLY M

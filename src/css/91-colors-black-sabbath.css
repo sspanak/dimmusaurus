@@ -2,6 +2,7 @@
 		--ajax-loader-border-color: #888; /* not to be confused with "--ajax-loader-background-color" */
 
 		--body-background-color: #333;
+		--body-background-url: url(img/fon-333.png);
 		--body-heading-color: #ccc;
 		--body-text-color: #c8c8c8;
 
@@ -24,11 +25,11 @@
 		--menu-separator-medium: #444444;
 		--menu-separator-soft: #383838;
 
+		--player-loading-spinner-url: url(/static/img/vrtelejka-222.gif);
+
 		--shadow-bottom: 0px 3px 4px #111;
 		--shadow-top: 0px 0px 3px #111;
-		--shadow-top-small: 0 -2px 2px rgba(20, 20, 20, 0.4);
-
-		background: var(--body-background-color) url(img/fon-333.png);
+		--shadow-top-small: 0 -2px 2px rgba(20, 20, 20, 0.2);
 	}
 
 .black-sabbath hr {border-color: var(--menu-separator-medium);}
