@@ -30,17 +30,22 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		width: 80px;
 	}
 
-/*============== Playlist ==============*/
-	.menu-playlist {height: calc(70vh - 48px - 50px);} /* 70% - footer - search */
-	.menu-playlist ul {padding: 0 5px;}
-	.menu-playlist .playlist-info, .menu-playlist .playlist-time {padding-left: 5px;}
 
-/*============== Pages ==============*/
+	/*============== Pages ==============*/
 	.content {
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 64px - 40px - 48px - 40px);
 		padding: 20px 10px;
 	}
+
+	.content article {text-align: justify;}
+
+
+/*============== Playlist ==============*/
+	.menu-playlist {height: calc(70vh - 48px - 50px);} /* 70% - footer - search */
+	.menu-playlist ul {padding: 0 5px;}
+	.menu-playlist .playlist-info, .menu-playlist .playlist-time {padding-left: 5px;}
+
 }
 
 

@@ -7,16 +7,4 @@
 	.content-discography .album-tracks .album-duration-container .album-duration-label {
 		padding: 8px 1px 0 0;
 	}
-
-	.lyrics-super-wrapper {
-		display: flex;
-		justify-content: center;
-	}
-	.content-lyrics .lyrics-wrapper {
-		display: flex;
-		flex-flow: column;
-		text-align: left;
-	}
-	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
-	.content-lyrics .english-translation-link {display: none;}
 }

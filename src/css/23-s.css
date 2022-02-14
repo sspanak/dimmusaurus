@@ -74,6 +74,8 @@
 	}
 
 	.header-super-wrapper > .menu-wrapper > .menu > ul {padding-top: 24px;}
+
+	.content-lyrics .lyrics-wrapper:first-child .title {margin-top: 0;}
 }
 
 /**********************************************************************************

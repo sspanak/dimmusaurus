@@ -18,8 +18,11 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 /**********************************************************************************
  * Reset Components
  **********************************************************************************/
+.body-disabled {overflow: hidden;}
+.body-disabled .content {opacity: 0.3;}
 
 .hidden {display: none !important;}
+
 .menu-closed {
 	height: 0;
 	overflow: hidden;
@@ -41,34 +44,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 /**********************************************************************************
  * Pages styles
  **********************************************************************************/
-.body-disabled {overflow: hidden;}
-.body-disabled .content {opacity: 0.3;}
-
-.content article {text-align: justify;}
-
-.content .content-heading {
-	border-bottom-right-radius: 24px;
-	overflow: hidden;
-	padding: 0 15px 6px 3px;
-	text-overflow: ellipsis;
-}
-
-.content-404 {text-align: center;}
-
-
-/*============== Lyrics ==============*/
-.content-lyrics .lyrics-wrapper {
-	margin: 0 6px;
-	text-align: center;
-}
-.content-lyrics .english-translation-link {
-	display: block;
-	margin: 16px;
-}
-.content-lyrics .lyrics {
-	display: inline-block;
-	text-align: left;
-}
 
 /*============== Home ==============*/
 .content-home article .news-title {margin-top: 1.5em;}
