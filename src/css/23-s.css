@@ -27,6 +27,11 @@
 		padding: 16px 24px 10px;
 	}
 
+	.content-discography .album-contents-wrapper {flex-flow: row;}
+	.content-discography .album-cover {
+		flex-flow: row;
+		margin: 24px 22px 0 0;
+	}
 
 /*==============  Playlist ==============*/
 	.menu-playlist {height: calc(100vh - 40px - 50px - 96px);} /* 100% - footer - search - header */

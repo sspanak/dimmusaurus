@@ -136,6 +136,11 @@
 	.content-lyrics .english-translation-link {display: none;}
 	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
 
+/* Discography */
+	.content-discography .album-tracks .album-duration-container .album-duration-label {
+		padding-top: 8px;
+	}
+
 
 /*============== Playlist ==============*/
 	.menu-playlist li > .menu-item, .menu-playlist-wrapper .playlist-search input {

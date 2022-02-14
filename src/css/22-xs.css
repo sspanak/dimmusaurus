@@ -40,6 +40,8 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 
 	.content article {text-align: justify;}
 
+	.content-discography .album-cover {margin-top: 24px;}
+
 
 /*============== Playlist ==============*/
 	.menu-playlist {height: calc(70vh - 48px - 50px);} /* 70% - footer - search */
