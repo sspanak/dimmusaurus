@@ -104,7 +104,7 @@
 		padding-right: 8px;
 	}
 
-	/* expanded menus button spacing */
+/* expanded menus button spacing */
 	.menu-main > ul > li > .menu-item .icon, .header-container .toggle-language-wrapper .icon {
 		margin: 0 4px 0 2px;
 	}
@@ -126,6 +126,15 @@
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 167px - 40px - 40px - 20px);
 	}
+
+/* Lyrics */
+	.lyrics-super-wrapper {flex-flow: row;}
+	.content-lyrics .lyrics-wrapper {
+		flex: 0.45;
+		margin: 0 6px;
+	}
+	.content-lyrics .english-translation-link {display: none;}
+	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
 
 
 /*============== Playlist ==============*/
