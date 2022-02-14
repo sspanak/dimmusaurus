@@ -1,0 +1,16 @@
+/*==============  Player ==============*/
+.player {height: 40px;}
+
+/**********************************************************************************
+ * Hide the player by default. JS will undo this on supported browsers
+ **********************************************************************************/
+.no-player .player,
+.no-player .menu-playlist-wrapper,
+.no-player .content-tune .tune-play {
+	display: none;
+}
+
+.no-player footer {
+	margin-bottom: 0;
+	margin-top: 48px;
+}

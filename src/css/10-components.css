@@ -1,4 +1,5 @@
 /*============== Ajax spinner ==============*/
+/*** GEOMETRY ***/
 .ajax-loader {
 	align-items: center;
 
@@ -26,36 +27,29 @@
 	width: 38px;
 }
 
+/*** OTHERS ***/
+.ajax-loader {
+	border: 3px double;
+	opacity: 0;
+}
+.ajax-loader-spinning {opacity: 0.9;}
+.ajax-loader .spinner {
+	background: center no-repeat url(img/vrtelejka-000.gif);
+	background-size: contain;
+}
 
-/*============== Buttons ==============*/
+
+/*============== Button "Scroll to top" ==============*/
 .button-scroll-to-top {
 	border-radius: 1.4em;
+	cursor: pointer;
 	font-size: 2.75em;
+	font-weight: bold;
 	height: 1.4em;
 	position: fixed;
 	text-align: center;
 	width: 1.4em;
 }
-
-
-/*============== Header ==============*/
-.header-container {
-	display: flex;
-	overflow: visible;
-}
-
-
-/*============== Logo ==============*/
-.header-container .logo {
-	order: 1;
-	z-index: 100;
-}
-.header-container .logo-text{display: none;}
-.header-container .logo > img {
-	height: 100%;
-	width: 100%;
-}
-
 
 /*============== Breadcrumbs ==============*/
 .breadcrumbs ul {
@@ -66,19 +60,22 @@
 	text-align: left;
 }
 .breadcrumbs li {display: inline-block;}
+.breadcrumbs li:not(:first-child)::before {content: " / ";}
 .breadcrumbs li .fas {padding-right: 4px;}
 
 
 /*==============  Footer ==============*/
-footer {
+footer, footer .social, footer .copyright {
+	display: flex;
 	align-items: center;
+}
+
+footer {
 	height: 40px;
 	margin-bottom: 40px; /* make room for the player */
 }
 
-footer .social {
-	flex: auto;
-}
+footer .social {flex: auto;}
 footer .social-icons a {
 	font-size: 29px;
 	padding: 0 10px;
@@ -90,21 +87,3 @@ footer .copyright {
 }
 footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
 footer .copyright-copy, footer .copyright-last-year {margin-right: 3px;}
-
-
-/*==============  Player ==============*/
-.player {height: 40px;}
-
-/**********************************************************************************
- * Hide the player by default. JS will undo this on supported browsers
- **********************************************************************************/
-.no-player .player,
-.no-player .menu-playlist-wrapper,
-.no-player .content-tune .tune-play {
-	display: none;
-}
-
-.no-player footer {
-	margin-bottom: 0;
-	margin-top: 48px;
-}
