@@ -33,10 +33,12 @@
 
 					{% if sd.song.album_id == a.album_id and not sd.song.is_hidden %}
 						<li>
-							<a class="track-title" href="{{ sd.song.get_absolute_url }}">
-								{{ sd.translated_title }}
-							</a>
-							<span class="track-length"> {{ sd.song.duration }} </span>
+							<div class="track-wrapper">
+								<a class="track-title" href="{{ sd.song.get_absolute_url }}">
+									{{ sd.translated_title }}
+								</a>
+								<span class="track-length"> {{ sd.song.duration }} </span>
+							</div>
 						</li>
 					{% endif %}
 				{% endfor %}

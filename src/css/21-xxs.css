@@ -32,19 +32,7 @@ screen and (max-width: 20.1em) and (orientation: landscape) {
 	.content {padding: 10px;}
 	.content article {text-align: left;}
 
-	.content-discography .album-cover {
-		margin-top: 1em;
-	}
-	.content-discography .album-cover .fas {
-		font-size: 150px;
-	}
-
-	.content-discography .album-tracks .track-title {
-		display: inline-block;
-		vertical-align: top;
-		width: 75%;
-	}
-	.content-discography .album-tracks .track-length {
-		width: 20%;
-	}
+	.content-discography .album-cover {margin-top: 16px;}
+	.content-discography .album-cover .fas {font-size: 150px;}
+	.content-discography .album-tracks .track-length {margin-left: 4px;}
 }

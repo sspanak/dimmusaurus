@@ -83,57 +83,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	margin: 5px;
 }
 
-
-/*============== Discography ==============*/
-.content-discography .album-title {
-	margin: 0;
-	text-align: center;
-}
-
-.content-discography .album-contents-wrapper {display: flex;}
-
-.content-discography .album-cover {
-	height: 136px;
-	margin-right: 22px;
-	margin-top: 24px;
-	overflow-y: hidden;
-	width: 176px;
-}
-.content-discography .album-cover .fas {
-	font-size: 176px;
-}
-
-.content-discography .album-tracks {
-	flex: auto;
-}
-.content-discography .album-tracks ol {
-	padding-left: 20px;
-	text-align: left;
-}
-.content-discography .album-tracks li {margin: 4px 0;}
-.content-discography .album-tracks .track-title {
-	display: inline-block;
-	vertical-align: top;
-	width: calc(100% - 50px);
-}
-.content-discography .album-tracks .track-length {
-	display: inline-block;
-	text-align: right;
-	width: 45px;
-}
-.content-discography .album-tracks .album-duration-container ol {
-	margin: 0 0 10px 0;
-	text-align: right;
-}
-.content-discography .album-tracks .album-duration-container .album-duration-label {
-	border-top: 1px solid;
-	margin-left: 17px;
-	padding: 6px 1px 0 0;
-	text-align: right;
-}
-
-.content-discography .license-notice {padding: 0 10px;}
-
 /*============== Version Info ==============*/
 .content-version .ascii-logo {
 	display: inline-block;
