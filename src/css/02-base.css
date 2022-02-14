@@ -44,12 +44,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 /**********************************************************************************
  * Pages styles
  **********************************************************************************/
-
-/*============== Home ==============*/
-.content-home article .news-title {margin-top: 1.5em;}
-.content-home .news a {font-style: italic;}
-
-
 /*============== Tune ==============*/
 .content-tune .tune-title {
 	font-weight: normal;
