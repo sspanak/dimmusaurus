@@ -1,21 +1,10 @@
 /**********************************************************************************
- * Reset styles
+ * Reset HTML styles
  **********************************************************************************/
-.hidden {display: none !important;}
-.menu-closed {
-	height: 0;
-	overflow: hidden;
-	padding: 0;
-}
-
 img {border: 0 none;}
-body {
-	font-family: "Noto Sans", sans-serif;
-}
+body {font-family: "Noto Sans", sans-serif;}
 
 header .logo-text {font-family: 'Griffy', cursive;}
-
-.content article {text-align: justify;}
 
 hr {
 	border-bottom-style: none;
@@ -27,19 +16,16 @@ hr {
 footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet */
 
 /**********************************************************************************
- * Components
+ * Reset Components
  **********************************************************************************/
-.ajax-loader {
-	border: 3px double;
-	opacity: 0;
-}
-.ajax-loader-spinning {opacity: 0.9;}
-.ajax-loader .spinner {
-	background: center no-repeat url(img/vrtelejka-000.gif);
-	background-size: contain;
+
+.hidden {display: none !important;}
+.menu-closed {
+	height: 0;
+	overflow: hidden;
+	padding: 0;
 }
 
-/*==============  Buttons ==============*/
 .menu .menu-item, .menu-item a, footer a, .player .player-button {
 	text-decoration: none;
 }
@@ -48,43 +34,10 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 	border: none;
 }
 
-.button-scroll-to-top {
-	cursor: pointer;
-	font-weight: bold;
-}
 
-/*==============  Breadcrumbs ==============*/
-.breadcrumbs li:not(:first-child)::before {content: " / ";}
-
-/*==============  Menus ==============*/
-.menu li, .content-tune .tune-links li, .breadcrumbs li {list-style-type: none;}
-.menu li > .menu-item {
-	cursor: pointer;
-	text-align: left;
-}
-
-/*============== Language Menu ==============*/
-.menu-language-choice .flag {
-	background: url(img/znamena.svg) no-repeat;
-	border-radius: 3px;
-	display: inline-block;
-	height: 18px;
-	vertical-align: middle;
-	width: 24px;
-}
-
-.menu-language-choice .flag-bg{background-position:0 0;}
-.menu-language-choice .flag-en{background-position:-48px 0;}
-.menu-language-choice .flag-fr{background-position:-24px 0;}
-
-
-/*============== Playlist Menu ==============*/
-.menu-playlist-wrapper .playlist-search input {border: none;}
-.menu-playlist-wrapper .playlist-search input[disabled] {display: none;}
-
-.menu-playlist {border-radius: 10px;}
-.menu-playlist li > .menu-item {cursor: auto;}
-.menu-playlist .playlist-title {cursor: pointer;}
+/**********************************************************************************
+ * vv UNSORTED BASE.CSS vv
+ **********************************************************************************/
 
 
 /*==============  Player ==============*/
@@ -149,17 +102,13 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .player-error .player-controls .disabled,
 .player-error .track-progress-bar {cursor: not-allowed;}
 
-/*==============  Footer ==============*/
-footer, footer .social, footer .copyright {
-	display: flex;
-	align-items: center;
-}
-
 /**********************************************************************************
  * Pages styles
  **********************************************************************************/
 .body-disabled {overflow: hidden;}
 .body-disabled .content {opacity: 0.3;}
+
+.content article {text-align: justify;}
 
 .content .content-heading {
 	border-bottom-right-radius: 24px;
