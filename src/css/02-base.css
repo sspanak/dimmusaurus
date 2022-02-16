@@ -24,6 +24,7 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 .hidden {display: none !important;}
 
 .menu-closed {
+	border: 0;
 	height: 0;
 	overflow: hidden;
 	padding: 0;
