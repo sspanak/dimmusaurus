@@ -69,14 +69,15 @@ serve-ui:
 
 css-debug:
 	@printf 'Building CSS... ' && \
-		bash -c build-tools/css-build-dev.sh && \
+		bash -c build-tools/css-build.sh && \
 		cat src/css/ui-demo.css >> dist/static/ds.css && \
 		cp dist/static/ds.css dist/static/ds.min.css && \
+		cp dist/static/ds.legacy.css dist/static/ds.legacy.min.css && \
 	echo 'OK'
 
 css:
 	@printf 'Building CSS... ' && \
-		bash -c build-tools/css-build-dev.sh && \
+		bash -c build-tools/css-build.sh && \
 	echo 'OK' && \
 	printf 'Minifying CSS... ' && \
 		npx csso dist/static/ds.css > dist/static/ds.min.css && \
