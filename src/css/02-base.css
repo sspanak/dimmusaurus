@@ -45,39 +45,6 @@ footer .social-icons .bandcamp-link {display: none;} /* There is no bandcamp yet
 /**********************************************************************************
  * Pages styles
  **********************************************************************************/
-/*============== Tune ==============*/
-.content-tune .tune-title {
-	font-weight: normal;
-	margin: 6px auto 10px;
-}
-.content-tune .tune-title a {text-decoration: none;}
-.content-tune .tune-release-info {margin: 6px 6px 18px;}
-.content-tune .tune-original-title {
-	font-weight: normal;
-	margin-top: 1px;
-}
-
-.content-tune .tune-links {
-	margin: 0;
-	padding: 0 5px;
-}
-
-.content-tune .tune-links li {
-	display: inline-block;
-	margin-bottom: 10px;
-}
-
-.content-tune .tune-links a {
-	border-bottom-left-radius: 10px;
-	cursor: pointer;
-	padding: 5px 10px;
-	text-decoration: none;
-}
-.content-tune .tune-links .fas, .content-tune .tune-links .fab {
-	font-size: 1.3em;
-	margin: 5px;
-}
-
 /*============== Version Info ==============*/
 .content-version .ascii-logo {
 	display: inline-block;
