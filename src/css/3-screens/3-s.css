@@ -37,6 +37,16 @@
 	.content-tune .tune-original-title {margin: 0 6px;}
 	.content-tune .tune-links {margin-top: 8px;}
 
+	.content-version-super-wrapper {
+		align-items: flex-start;
+		flex-flow: row;
+	}
+	.content-version .version-info {
+		border-left: 1px solid;
+		border-top: none;
+		margin: 0 0 0 24px;
+		padding-left: 24px;
+	}
 
 /*==============  Playlist ==============*/
 	.menu-playlist {height: calc(100vh - 40px - 50px - 96px);} /* 100% - footer - search - header */

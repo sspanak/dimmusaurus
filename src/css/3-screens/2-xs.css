@@ -44,6 +44,8 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 
 	.content-tune .tune-links li {margin: 10px 3px;}
 
+	.content-version .ascii-logo {font-size: 0.5rem;}
+
 
 /*============== Playlist ==============*/
 	.menu-playlist {height: calc(70vh - 48px - 50px);} /* 70% - footer - search */
