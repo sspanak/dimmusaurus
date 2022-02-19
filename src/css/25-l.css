@@ -120,14 +120,13 @@
 	.menu-music li:first-child .menu-item {padding-top: 12px;}
 
 
-/*============== Content ==============*/
+/*============== Pages ==============*/
 	.content {
 		font-size: 0.95em;
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 167px - 40px - 40px - 20px);
 	}
 
-/* Lyrics */
 	.lyrics-super-wrapper {flex-flow: row;}
 	.content-lyrics .lyrics-wrapper {
 		flex: 0.45;
@@ -136,10 +135,7 @@
 	.content-lyrics .english-translation-link {display: none;}
 	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
 
-/* Discography */
-	.content-discography .album-tracks .album-duration-container .album-duration-label {
-		padding-top: 8px;
-	}
+	.content-discography .album-tracks .album-duration-container .album-duration-label {padding-top: 8px;}
 
 
 /*============== Playlist ==============*/

@@ -3,11 +3,6 @@
  **********************************************************************************/
 @media screen and (max-width: 47.99em) {
 /*============== Pages ==============*/
-	.content-tune .tune-title, .content-tune .tune-release-info, .content-tune .tune-links {text-align: center;}
-	.content-tune .tune-links li {
-		display: inline-block;
-		margin: 10px 0;
-	}
 
 	.content-version-super-wrapper {text-align: center;}
 	.content-version .ascii-logo {
