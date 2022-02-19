@@ -1,0 +1,24 @@
+.content-version-super-wrapper {
+	align-items: center;
+	display: flex;
+	flex-flow: column;
+}
+
+.content-version .ascii-logo {
+	flex: none;
+	font-weight: bold;
+}
+
+.content-version .version-info {
+	align-items: inherit;
+	border-top: 1px solid;
+	display: flex;
+	flex: auto;
+	flex-flow: column;
+	margin-top: 6px;
+}
+
+.version-info .version-info-table .version-info-left {
+	font-weight: bold;
+	padding: 2px 12px 0 2px;
+}

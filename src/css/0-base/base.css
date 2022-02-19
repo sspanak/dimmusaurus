@@ -35,25 +35,3 @@ hr {
 .header-container .header-button, .menu .menu-item, .player .player-button {
 	border: none;
 }
-
-
-/**********************************************************************************
- * vv UNSORTED BASE.CSS vv
- **********************************************************************************/
-/**********************************************************************************
- * Pages styles
- **********************************************************************************/
-/*============== Version Info ==============*/
-.content-version .ascii-logo {
-	display: inline-block;
-	font-weight: bold;
-	text-align: left;
-	vertical-align: top;
-}
-
-.content-version .version-info {display: inline-block;}
-.version-info .version-info-table, .version-info .content-heading {text-align: left;}
-.version-info .version-info-left {
-	font-weight: bold;
-	padding: 0 8px;
-}
