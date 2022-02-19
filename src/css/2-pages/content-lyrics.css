@@ -1,0 +1,14 @@
+.lyrics-super-wrapper {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+}
+
+.content-lyrics .lyrics-wrapper {
+	align-items: flex-start;
+	display: flex;
+	flex-flow: column;
+}
+
+.content-lyrics .english-translation-link {margin-bottom: 16px;}
+.content-lyrics .lyrics {text-align: left;}

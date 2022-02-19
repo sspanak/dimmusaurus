@@ -1,0 +1,22 @@
+footer, footer .social, footer .copyright {
+	display: flex;
+	align-items: center;
+}
+
+footer {
+	height: 40px;
+	margin-bottom: 40px; /* make room for the player */
+}
+
+footer .social {flex: auto;}
+footer .social-icons a {
+	font-size: 29px;
+	padding: 0 10px;
+}
+
+footer .copyright {
+	justify-content: flex-end;
+	margin-right: 5px;
+}
+footer .copyright-first-year, footer .copyright-ds, footer .social-label {display: none;}
+footer .copyright-copy, footer .copyright-last-year {margin-right: 3px;}

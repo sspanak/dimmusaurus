@@ -1,0 +1,10 @@
+.breadcrumbs ul {
+	display: inline-block;
+	font-size: 0.95em;
+	margin: 16px 2% 0;
+	padding: 0;
+	text-align: left;
+}
+.breadcrumbs li {display: inline-block;}
+.breadcrumbs li:not(:first-child)::before {content: " / ";}
+.breadcrumbs li .fas {padding-right: 4px;}

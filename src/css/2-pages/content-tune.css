@@ -1,0 +1,30 @@
+.content-tune .tune-title {
+	font-weight: normal;
+	margin: 6px auto 10px;
+}
+.content-tune .tune-title a {text-decoration: none;}
+.content-tune .tune-release-info {
+	font-size: 0.83em;
+	margin: 6px;
+}
+.content-tune .tune-original-title {
+	font-size: 0.83em;
+	font-weight: normal;
+	margin: 0;
+}
+
+.content-tune .tune-links {
+	margin: 16px 0 0 0;
+	padding: 0;
+}
+.content-tune .tune-links li {display: inline-block;}
+.content-tune .tune-links a {
+	border-bottom-left-radius: 10px;
+	cursor: pointer;
+	padding: 5px 10px;
+	text-decoration: none;
+}
+.content-tune .tune-links .fas, .content-tune .tune-links .fab {
+	font-size: 1.3em;
+	margin: 5px;
+}

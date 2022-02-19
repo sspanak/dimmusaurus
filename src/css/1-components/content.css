@@ -1,0 +1,6 @@
+.content .content-heading {
+	border-bottom-right-radius: 24px;
+	overflow: hidden;
+	padding: 0 15px 6px 3px;
+	text-overflow: ellipsis;
+}
