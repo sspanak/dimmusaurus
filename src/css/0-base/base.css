@@ -1,17 +1,16 @@
 /**********************************************************************************
  * Reset HTML styles
  **********************************************************************************/
-img {border: 0 none;}
 body {font-family: "Noto Sans", sans-serif;}
-
+h2, h3, h4, h5, h6 {text-align: left;}
 header .logo-text {font-family: 'Griffy', cursive;}
-
 hr {
 	border-bottom-style: none;
 	border-top-style: solid;
 	height: 0;
 	margin: 16px 0;
 }
+img {border: 0 none;}
 
 /**********************************************************************************
  * Reset Components

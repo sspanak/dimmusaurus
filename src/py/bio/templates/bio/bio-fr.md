@@ -2,5 +2,5 @@ Dimmu Saurus (en bulgare: *Димозавър* ou *Димозавъръ*; du lat
 
 J'ai créé ce projet parce que je voudrais composer de la musique qui ne conforme pas aux règles et qui ne souffre pas de limitations ou censure, tel que la musique devrait être composée.
 
-### La biographie n'est pas traduite :(
+## La biographie n'est pas traduite :(
 Aidez Dimmu Saurus traduire ce page en français. Contactez-lui sur [Facebook](https://www.facebook.com/dimmusaurus/).
