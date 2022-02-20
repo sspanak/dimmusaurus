@@ -1,2 +1,10 @@
-.content-home article .news-title {margin-top: 1.5em;}
+.content-home .news-heading {font-size: 1.66em;}
+
+.content-home .news .news-title {margin-bottom: 0;}
+.content-home .news .news-date {
+	font-size: 0.9em;
+	font-weight: normal;
+	margin: 1em 0 1.5em;
+}
+
 .content-home .news a {font-style: italic;}
