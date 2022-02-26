@@ -75,6 +75,10 @@
 		min-width: 300px;
 	}
 
+	.menu-music:not(.menu-closed) {
+		padding-top: 1px; /* fix the misalignment due to the relative position */
+	}
+
 	.menu-language-choice li, .menu-music li {
 		margin: 0 4px;
 	}
@@ -96,7 +100,6 @@
 		box-shadow: none;
 		display: block;
 		height: auto;
-		margin-right: 4px;
 		min-width: 380px;
 		overflow: initial; /* otherwise menu-music has no shadow */
 		text-align: right;
@@ -107,7 +110,7 @@
 		display: flex;
 		flex-flow: row;
 		justify-content: flex-end;
-		margin: 0;
+		margin: 0 4px 0 0;
 		padding-bottom: 0;
 	}
 

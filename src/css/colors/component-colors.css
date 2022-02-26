@@ -74,7 +74,7 @@ footer a:hover,
 	.menu-main > ul li:first-child {border-top: var(--menu-border-strong);}
 }
 @media screen and (min-width: 64em) {
-	.menu-music ul {border-top: var(--menu-border-strong);}
+	.menu-music ul li:first-child {border-top: var(--menu-border-strong);}
 }
 /* hover-only */
 .menu-language-choice .menu-item:hover,
