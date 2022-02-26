@@ -1,11 +1,15 @@
+/* eslint-disable no-var */
+
 function isAncientBrowser() {
 	'use strict';
 
 	try {
-		if (!('userAgent' in navigator)) return false;
 		if (navigator.userAgent.indexOf('Edge') !== -1 && navigator.userAgent.match(/Edge\/(\d+)/)[1] < 16) return true;
-		if (!window.CSS.supports('(--var: 0)')) return true;
-		if (typeof Symbol === 'undefined') return true;
+		if (
+			!window.CSS.supports('(--var: 0)')
+			|| !window.localStorage
+			|| typeof Symbol === 'undefined'
+		) return true;
 		eval('class C {}');
 		eval('var a=(x) => x+1');
 	} catch (e) {
@@ -19,6 +23,7 @@ function isOldBrowser() {
 	'use strict';
 
 	try {
+		if (!('userAgent' in navigator)) return false;
 		if (!String.prototype.padStart || !Number.isNaN || !Number.parseInt || !Number.parseFloat) return true;
 		// Firefox < 52 / KaiOS 2.x cannot interpret "const" inside "for..in"
 		eval('for (const _ in []){}');
@@ -29,7 +34,7 @@ function isOldBrowser() {
 	return false;
 }
 
-function loadResources(jsPath, legacyJsPath, legacyCssPath) {
+function loadResources(jsPath, legacyJsPath, legacyCssPath) { // eslint-disable-line no-unused-vars
 	if (isAncientBrowser()) {
 		var css = document.createElement('link');
 		css.rel = 'stylesheet';

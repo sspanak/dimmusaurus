@@ -51,7 +51,10 @@
 				newLanguageWillInterruptMusic: "{% trans 'Changing the language will interrupt music playback. Continue?' %}"
 			};
 
-			{% include "main/detect-old-browser.js" %}
+			{% include "main/inline.js" %}
+
+			window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme())});
+
 			loadResources(
 				'{% static "ds.min.js" %}?v={{ build|default:"0" }}',
 				'{% static "ds.legacy.min.js" %}?v={{ build|default:"0" }}',
