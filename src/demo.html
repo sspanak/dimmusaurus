@@ -26,8 +26,8 @@
 			crossorigin>
 
 		<script
-			src="main/templates/main/detect-old-browser.js"
-			onload="loadResources('static/ds.js', 'static/ds.legacy.js', 'static/ds.legacy.css');"
+			src="main/templates/main/inline.js"
+			onload="loadResources('static/ds.js', 'static/ds.legacy.js', 'static/ds.legacy.css');window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme())});"
 		></script>
 	</head>
 
