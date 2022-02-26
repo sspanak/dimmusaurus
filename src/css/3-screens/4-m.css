@@ -36,6 +36,10 @@
 
 
 /*============== Logo ==============*/
+	.header-container .logo-text, .header-container .logo {
+		display: inline-block;
+	}
+
 	.header-container .logo {
 		border-radius: 90px;
 		height: 150px;
@@ -49,10 +53,6 @@
 	.header-container .logo > img {
 		max-width: fit-content;
 		width: initial; /* Workaround for Opera */
-	}
-
-	.header-container .logo-text, .header-container .logo {
-		display: inline-block;
 	}
 
 	.header-container .logo-text {
@@ -77,12 +77,8 @@
 
 
 /*============== Menu Buttons ==============*/
-	.toggle-theme-wrapper {
-		order: 1;
-	}
-	.toggle-main-menu-wrapper {
-		order: 6;
-	}
+	.toggle-theme-wrapper {order: 1;}
+	.toggle-main-menu-wrapper {order: 6;}
 
 	.header-button {
 		display: -moz-box; /* workaround for Firefox 48 */

@@ -9,7 +9,6 @@
 	}
 	.header-container {
 		height: 131px;
-		justify-content: flex-end;
 	}
 
 
@@ -24,10 +23,10 @@
 	.header-container .logo-text-right {margin-right: calc(1px - 1px);}
 
 
-/*============== Buttons ==============*/
-	.toggle-wrapper {
-		align-items: flex-end;
-	}
+/*============== Menu Buttons ==============*/
+	.toggle-wrapper {align-items: flex-end;}
+
+	.toggle-theme-wrapper {margin-left: 4px;}
 
 	.toggle-language-wrapper {
 		margin-right: auto; /* workaround for Opera */
@@ -38,38 +37,46 @@
 		width: 24%; /* workaround for Opera */
 		width: calc(50% - 266px);
 	}
-
 	.toggle-main-menu-wrapper .header-button {display: none;}
 
-	.header-button {
+	.header-button .toggle-label {display: inline;}
+
+	.header-button,
+	.menu-main > ul > li > .menu-item {
+		align-items: center;
 		border-bottom: 0 none;
 		border-radius: 4px;
+		display: flex;
 		font-size: 1em;
-		margin: 4px 6px;
+		margin: 2px;
 		padding: 6px 8px;
 	}
-	.header-button .toggle-label {
-		display: inline;
-		margin-left: 3px;
+
+	.header-button .icon,
+	.menu li > .menu-item .icon {
+		margin: 1px 8px 0 2px;
 	}
+
 	.header-button .fa-chevron-up,
-	.header-button .fa-chevron-down {
+	.header-button .fa-chevron-down,
+	.menu-main > ul > li > .menu-item .fa-chevron-up,
+	.menu-main > ul > li > .menu-item .fa-chevron-down {
 		font-size: 0.5em;
+		margin: 3px 0 0 4px;
 	}
 
 
 /*============== Menus ==============*/
+	header .menu li > .menu-item {
+		font-size: 1em;
+	}
 
 	.menu-language-choice, .menu-music {
 		min-width: 300px;
 	}
 
-	header .menu li > .menu-item {
-		font-size: 1em;
-	}
-
-	.header-button .icon, .menu li > .menu-item .icon {
-		margin: 0 4px 0 0;
+	.menu-language-choice li, .menu-music li {
+		margin: 0 4px;
 	}
 
 
@@ -82,13 +89,14 @@
 	.menu-main-wrapper {
 		display: flex;
 		position: relative;
-		top: -37px;
+		top: -40px;
 	}
 
 	.menu-main {
 		box-shadow: none;
 		display: block;
 		height: auto;
+		margin-right: 4px;
 		min-width: 380px;
 		overflow: initial; /* otherwise menu-music has no shadow */
 		text-align: right;
@@ -98,28 +106,13 @@
 	.menu-main > ul {
 		display: flex;
 		flex-flow: row;
-		height: 36px; /* fix the 1px misalignment of the music menu */
 		justify-content: flex-end;
-		margin: 0 2px 0 0;
+		margin: 0;
 		padding-bottom: 0;
 	}
 
 	.menu-main > ul > li {
 		padding: 0;
-	}
-
-	.menu-main > ul > li > .menu-item {
-		border-bottom: 0 none;
-		border-radius: 4px;
-		padding: 6px 12px 6px 8px;
-	}
-	.menu-main > ul > li:last-child > .menu-item {
-		padding-right: 8px;
-	}
-
-/* expanded menus button spacing */
-	.menu-main > ul > li > .menu-item .icon {
-		margin: 0 4px 0 2px;
 	}
 
 
