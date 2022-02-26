@@ -138,7 +138,7 @@ screen and (max-width: 20em) and (orientation: landscape) {
 	}
 
 
-	.header-container .toggle-language-wrapper > .header-button {
+	.header-container .header-button {
 		border-right: var(--menu-border-strong);
 		border-top: 1px solid var(--menu-separator-soft);
 	}
@@ -153,7 +153,7 @@ screen and (max-width: 20em) and (orientation: landscape) {
 		border-top: 1px solid var(--menu-separator-soft);
 	}
 
-	.menu-main > ul > li > .menu-item:hover, .header-container .toggle-language-wrapper > .header-button:hover {
+	.menu-main > ul > li > .menu-item:hover, .header-container .header-button:hover {
 		border-color: var(--menu-icon-inactive-color);
 	}
 

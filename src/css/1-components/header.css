@@ -7,7 +7,6 @@
 
 /*============== Logo ==============*/
 .header-container .logo {
-	order: 1;
 	z-index: 100;
 }
 .header-container .logo-text{display: none;}
@@ -18,21 +17,27 @@
 
 
 /*============== Menu Buttons ==============*/
-.toggle-language-wrapper {order: 2;}
-.toggle-main-menu-wrapper {order: 3;}
-
-.header-button {font-size: 2em;}
-
-.header-button, .menu .menu-item, .player .player-button {
-	display: inline-block;
-	padding: 0;
+.toggle-wrapper {
+	align-items: center;
+	display: flex;
 }
 
-.toggle-language-label {
-	display: none;
+.header-button {
+	align-items: center;
+	display: flex;
+	font-size: 2em;
+	justify-content: center;
 }
+.header-button .toggle-label {display: none;}
 
 header .fa-chevron-down, header .fa-chevron-up {
 	font-size: 0.5em;
 	vertical-align: middle;
 }
+
+.menu .menu-item, .player .player-button {
+	display: inline-block;
+	padding: 0;
+}
+
+.toggle-theme-wrapper .header-button .fa-lightbulb {font-size: 0.8em;}

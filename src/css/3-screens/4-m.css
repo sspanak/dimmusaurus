@@ -28,7 +28,6 @@
 
 	.header-container {
 		height: 124px;
-		justify-content: center;
 	}
 
 	.header-super-wrapper {
@@ -41,11 +40,11 @@
 		border-radius: 90px;
 		height: 150px;
 		margin: -12px 20px 0;
-		order: 3;
+		order: 4;
 		overflow: hidden;
 		padding: 5px;
 		text-align: center;
-		width: 164px;
+		width: 156px;
 	}
 	.header-container .logo > img {
 		max-width: fit-content;
@@ -66,42 +65,35 @@
 
 	.header-container .logo-text-left {
 		justify-content: flex-end;
-		order: 2;
+		margin-left: auto;
+		order: 3;
 	}
 
 	.header-container .logo-text-right {
 		justify-content: flex-start;
-		order: 4;
+		margin-right: auto;
+		order: 5;
 	}
 
 
 /*============== Menu Buttons ==============*/
-	.toggle-wrapper {
-		align-items: center;
-		display: flex;
-		width: calc(50vw - 257px); /* (100vw - LogoWidth) / 2 */
-	}
-	.toggle-language-wrapper {
-		justify-content: flex-start;
-		margin-right: auto;
+	.toggle-theme-wrapper {
 		order: 1;
 	}
-
 	.toggle-main-menu-wrapper {
-		justify-content: flex-end;
-		margin-left: auto;
-		order: 5;
+		order: 6;
 	}
 
 	.header-button {
-		font-size: 2em;
+		display: -moz-box; /* workaround for Firefox 48 */
 		height: auto;
 		width: auto;
 	}
 
-	.header-button .fa-chevron-up,
-	.header-button .fa-chevron-down {
+	.header-button .fa-chevron-down,
+	.header-button .fa-chevron-up {
 		font-size: 0.3em;
+		margin-left: 8px;
 	}
 
 /*============== Breadcrumbs ==============*/
@@ -172,6 +164,8 @@
  * ONLY M
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
+	.toggle-language-wrapper {display: none;}
+
 	.header-button {margin: 0 20px;}
 
 	.menu-language-choice, .menu-main {
