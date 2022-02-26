@@ -3,7 +3,7 @@
  **********************************************************************************/
 @media screen and (min-width: 80em) {
 	.toggle-theme-wrapper {margin-left: 0.5vw;}
-	.menu-main {margin-right: 0.5vw;}
+	.menu-main > ul {margin-right: 0.5vw;}
 
 	.menu-playlist {height: 48vh;}
 
