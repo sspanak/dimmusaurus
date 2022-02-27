@@ -26,24 +26,23 @@ header .logo {background: var(--logo-background-color);}
 .content a:hover {color: var(--link-hovered-color);}
 .content a:visited {color: var(--link-visited-color);}
 .content a:hover:visited {color: var(--link-visited-hovered-color);}
-.content .content-heading {border-bottom: 1px solid var(--menu-icon-inactive-color);}
+.content .content-heading {border-color: var(--menu-icon-inactive-color);}
 .content-discography .album-cover .fas {color: var(--menu-background-color);}
 .content-discography .album-tracks .album-duration-container .album-duration-label {border-color: var(--menu-text-color);}
-.content-tune .tune-links a {border-bottom: 1px solid var(--link-color);}
+.content-tune .tune-links a {border-color: var(--link-color);}
 .content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
 .content-version .version-info {border-color: var(--menu-icon-inactive-color);}
 
 
 /*============== Footer ==============*/
-footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
+footer .social-icons a:not(:last-child) {border-color: var(--menu-separator-medium);}
 
 
 /*============== Playlist ==============*/
-.menu-playlist {border-top: 1px solid var(--menu-icon-inactive-color);}
+.menu-playlist {border-color: var(--menu-icon-inactive-color);}
 .menu-playlist-wrapper {
 	background: var(--menu-background-color);
-	border-right: var(--menu-border-strong);
-	border-top: var(--menu-border-strong);
+	border-color: var(--menu-border-strong);
 }
 .menu-playlist a, .menu-playlist a:visited {color: var(--menu-text-color);} /* The (i) button */
 .menu-playlist a:hover, .menu-playlist a:hover:visited {color: var(--menu-item-hovered);}
@@ -58,25 +57,16 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 
 
 /*============== Menu ==============*/
-.menu li > .menu-item {border-bottom: var(--menu-border-strong);}
+.menu ul li:first-child,
+.menu li > .menu-item {
+	border-color: var(--menu-border-strong);
+}
 .menu .menu-item, .header-container .header-button, footer a, .player .player-button {
 	background: none;
 	color: var(--menu-text-color);
 }
 
 .menu-language-choice .flag {box-shadow: var(--shadow-language-flags);}
-
-/* The separator that divides the top menus and the header */
-.menu-theme-choice li:first-child,
-.menu-language-choice li:first-child {
-	border-top: var(--menu-border-strong);
-}
-@media screen and (max-width: 64em) {
-	.menu-main > ul li:first-child {border-top: var(--menu-border-strong);}
-}
-@media screen and (min-width: 64em) {
-	.menu-music ul li:first-child {border-top: var(--menu-border-strong);}
-}
 
 /* menu and button hover/selected (color and borders) */
 .menu .menu-item:hover,
@@ -99,15 +89,15 @@ footer a:hover,
 
 
 /*============== Player ==============*/
-.player {border-top: var(--menu-border-strong);}
+.player {border-color: var(--menu-border-strong);}
 .player .disabled {color: var(--menu-icon-inactive-color);}
 .player .loading-indicator {color: var(--body-background-color);}
 .player .player-loading-spinner {
 	background: center / contain no-repeat var(--player-loading-spinner-url);
 }
-.player .player-controls .player-button {border-left: 1px solid var(--menu-separator-medium);}
+.player .player-controls .player-button {border-color: var(--menu-separator-medium);}
 .player .time-balloon-time-wrapper,
-.player .time-balloon-pointer {border: 1px solid var(--menu-separator-strong);}
+.player .time-balloon-pointer {border-color: var(--menu-separator-strong);}
 .player .time-balloon-time,
 .player .time-balloon-pointer {
 	background-color: var(--menu-background-color);
@@ -126,7 +116,7 @@ footer a:hover,
 @media screen and (max-width: 18em) and (orientation: portrait),
 screen and (max-width: 20em) and (orientation: landscape) {
 	.header-container .shadow-bottom {box-shadow: none;}
-	.header-container .logo {border-bottom: 1px solid var(--menu-separator-strong);}
+	.header-container .logo {border-color: var(--menu-separator-strong);}
 }
 
 /*============== Animations and special effects for desktop ==============*/
@@ -145,10 +135,10 @@ screen and (max-width: 20em) and (orientation: landscape) {
 		transition: background-color .066s linear, border-color .2s ease-out, color .2s ease-out;
 	}
 
-
-	.header-container .header-button {
-		border-right: var(--menu-border-strong);
-		border-top: 1px solid var(--menu-separator-soft);
+	.toggle-theme-wrapper .header-button,
+	.toggle-language-wrapper .header-button {
+		border-right-color: var(--menu-border-strong);
+		border-top-color: var(--menu-separator-soft);
 	}
 
 	.menu-main {
@@ -157,8 +147,8 @@ screen and (max-width: 20em) and (orientation: landscape) {
 	}
 
 	.menu-main > ul > li > .menu-item {
-		border-left: var(--menu-border-strong);
-		border-top: 1px solid var(--menu-separator-soft);
+		border-left-color: var(--menu-border-strong);
+		border-top-color: var(--menu-separator-soft);
 	}
 
 	.menu-main > ul > li > .menu-item:hover, .header-container .header-button:hover {

@@ -19,6 +19,7 @@
 }
 .content-tune .tune-links li {display: inline-block;}
 .content-tune .tune-links a {
+	border-bottom: 1px solid;
 	border-bottom-left-radius: 10px;
 	cursor: pointer;
 	padding: 5px 10px;

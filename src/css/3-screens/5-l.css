@@ -32,19 +32,27 @@
 		margin-right: auto; /* workaround for Opera */
 		order: 2;
 	}
+	.toggle-main-menu-wrapper .header-button {display: none;}
 
 	.toggle-main-menu-wrapper {
 		width: 24%; /* workaround for Opera */
 		width: calc(50% - 266px);
 	}
-	.toggle-main-menu-wrapper .header-button {display: none;}
+
+	.toggle-theme-wrapper .header-button,
+	.toggle-language-wrapper .header-button {
+		border-right: 1px solid;
+		border-top: 1px solid;
+	}
 
 	.header-button .toggle-label {display: inline;}
 
 	.header-button,
 	.menu-main > ul > li > .menu-item {
-		border-bottom: 0 none;
+		border-bottom: 0;
+		border-left: 1px solid;
 		border-radius: 4px;
+		border-top: 1px solid;
 		font-size: 1em;
 		margin: 2px;
 		padding: 6px 8px;
@@ -108,6 +116,8 @@
 		padding: 0;
 	}
 
+	.menu-main > ul li:first-child {border-top: 0 none;}
+
 
 /*============== Music Menu ==============*/
 	.menu-music > ul {
@@ -116,6 +126,7 @@
 		padding-left: 0;
 		text-align: initial;
 	}
+	.menu-music li:first-child {border-top: 1px solid;}
 	.menu-music li:first-child .menu-item {padding-top: 12px;}
 
 
@@ -210,6 +221,7 @@
 	}
 
 	.player .time-balloon-time-wrapper {
+		border: 1px solid;
 		position: relative; /* z-index does not work with position: static */
 	}
 	.player .time-balloon-time {
@@ -220,6 +232,7 @@
 	}
 
 	.player .time-balloon-pointer {
+		border: 1px solid;
 		height: 10px;
 		margin: 0 auto;
 		position: relative;
