@@ -55,14 +55,6 @@
 		margin: 1px 8px 0 2px;
 	}
 
-	.header-button .fa-chevron-up,
-	.header-button .fa-chevron-down,
-	.menu-main > ul > li > .menu-item .fa-chevron-up,
-	.menu-main > ul > li > .menu-item .fa-chevron-down {
-		font-size: 0.5em;
-		margin: 3px 0 0 4px;
-	}
-
 
 /*============== Menus ==============*/
 	header .menu li > .menu-item {
