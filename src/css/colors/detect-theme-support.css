@@ -1,0 +1,5 @@
+.no-theme {
+	visibility: hidden;
+	--theming-using-variables-support: unset;
+	visibility: var(--theming-using-variables-support);
+}

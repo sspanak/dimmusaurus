@@ -5,18 +5,22 @@ const THEMES = ['white-stripes', 'black-sabbath'];
 
 
 function getCurrentTheme() { // eslint-disable-line no-unused-vars
-	return localStorage.getItem('theme') || 0;
+	return localStorage.getItem('theme') || undefined;
 }
 
 
 function selectTheme(id) { // eslint-disable-line no-unused-vars
-	const theme = THEMES[id] ? id : 0;
-	localStorage.setItem('theme', theme);
+	const theme = THEMES[id] || '';
 
-	document.querySelector('body').setAttribute('class', THEMES[theme]);
-}
+	let className = document.querySelector('body').getAttribute('class');
+	THEMES.forEach(t => className = className.replace(t, ''));
+	className = `${className} ${theme}`.replace(/\s+/, ' ');
 
+	document.querySelector('body').setAttribute('class', className);
 
-function clearThemePreference() { // eslint-disable-line no-unused-vars
-	localStorage.removeItem('theme');
+	if (theme) {
+		localStorage.setItem('theme', id);
+	} else {
+		localStorage.removeItem('theme');
+	}
 }

@@ -56,11 +56,6 @@ function replaceRules(css) {
 			'-webkit-justify-content:$1;',
 			'justify-content:$1;'
 		],
-		// 'order', not to be confused with 'border'
-		'order:\\s*(\\d)\\s*;': [
-			'-webkit-order:$1;',
-			'order:$1;'
-		],
 		'transition:([^;]+);': [
 			'-webkit-transition:$1;', // even IE9 supports it, but not webkit...
 			'transition:$1'

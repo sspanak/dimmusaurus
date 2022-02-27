@@ -27,7 +27,7 @@
 
 		<script
 			src="main/templates/main/inline.js"
-			onload="loadResources('static/ds.js', 'static/ds.legacy.js', 'static/ds.legacy.css');window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme())});"
+			onload="loadResources('static/ds.js', 'static/ds.legacy.js', 'static/ds.legacy.css');window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme());});"
 		></script>
 	</head>
 
@@ -43,7 +43,7 @@
 
 				<div class="logo-text logo-text-right">Saurus</div>
 
-				<div class="toggle-wrapper toggle-theme-wrapper">
+				<div class="toggle-wrapper toggle-theme-wrapper no-theme">
 					<button id="theme-menu-button" class="header-button" title="Choose a Color Theme" aria-label="Choose a Color Theme">
 						<i class="icon fas fa-lightbulb"></i>
 						<span class="toggle-label">Theme</span>
@@ -69,33 +69,60 @@
 			</div>
 
 			<div class="header-super-wrapper">
-				<div class="menu-wrapper language-choice-wrapper">
+				<div class="menu-wrapper left-menu-wrapper">
+					<div class="menu menu-theme-choice menu-closed shadow-bottom">
+						<ul>
+							<li>
+								<a class="menu-item" onclick="selectTheme(undefined);">
+									<i class="icon fas fa-desktop"></i>
+									Като устройството
+								</a>
+							</li>
+
+							<li>
+								<a class="menu-item" onclick="selectTheme(0)">
+									<i class="icon fas fa-sun"></i>
+									Светъл
+								</a>
+							</li>
+
+							<li>
+								<a class="menu-item" onclick="selectTheme(1)">
+									<i class="icon fas fa-moon"></i>
+									Тъмен
+								</a>
+							</li>
+						</ul>
+					</div>
+
 					<nav class="menu menu-language-choice menu-closed shadow-bottom">
 						<ul>
 							<li>
 								<a class="menu-item" href="javascript:;" hreflang="bg" rel="alternate">
 									<span class="icon flag flag-bg"></span>
-									Български
+									<span class="language-label">Български</span>
 								</a>
 							</li>
 
 							<li>
 								<a class="menu-item" href="javascript:;" hreflang="en" rel="alternate">
 									<span class="icon flag flag-en"></span>
-									English
+									<span class="language-label">English</span>
 								</a>
 							</li>
 
 							<li>
 								<a class="menu-item" href="javascript:;" hreflang="fr" rel="alternate">
 									<span class="icon flag flag-fr"></span>
-									Français
+									<span class="language-label">Français</span>
 								</a>
 							</li>
 
 						</ul>
 					</nav>
-				</div><div class="menu-wrapper menu-main-wrapper"> <!-- the space ruins the alignment -->
+				</div>
+
+				<div class="menu-wrapper menu-main-wrapper">
 					<nav class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>

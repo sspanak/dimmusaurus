@@ -1,23 +1,27 @@
+/*============== Random Components ==============*/
 body {
 	background: var(--body-background-color) var(--body-background-url);
 	color: var(--body-text-color);
 }
-header .logo {background: var(--logo-background-color);}
-hr {border-color: var(--menu-text-color);}
 
-.ajax-loader{
-	background-color: var(--ajax-loader-background-color);
-	color: var(--ajax-loader-background-color);
-}
-.ajax-loader-spinning{
-	color: var(--menu-text-color);
-}
+hr {border-color: var(--menu-text-color);}
 
 .button-scroll-to-top {
 	background: var(--menu-background-color);
 	color: var(--menu-text-color);
 }
 
+.header-container, footer, .menu, .player {
+	background-color: var(--menu-background-color);
+	color: var(--menu-text-color);
+}
+
+
+/*============== Header ==============*/
+header .logo {background: var(--logo-background-color);}
+
+
+/*============== Content ==============*/
 .content a {color: var(--link-color);}
 .content a:hover {color: var(--link-hovered-color);}
 .content a:visited {color: var(--link-visited-color);}
@@ -29,15 +33,12 @@ hr {border-color: var(--menu-text-color);}
 .content-tune .tune-links a:visited {border-color: var(--link-visited-color);}
 .content-version .version-info {border-color: var(--menu-icon-inactive-color);}
 
+
+/*============== Footer ==============*/
 footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-separator-medium);}
 
-.menu-language-choice .flag {box-shadow: var(--shadow-language-flags);}
 
-.header-container, footer, .menu, .player {
-	background-color: var(--menu-background-color);
-	color: var(--menu-text-color);
-}
-
+/*============== Playlist ==============*/
 .menu-playlist {border-top: 1px solid var(--menu-icon-inactive-color);}
 .menu-playlist-wrapper {
 	background: var(--menu-background-color);
@@ -55,13 +56,29 @@ footer .social-icons a:not(:last-child) {border-right: 1px solid var(--menu-sepa
 	color: var(--menu-icon-inactive-color);
 }
 
+
+/*============== Menu ==============*/
 .menu li > .menu-item {border-bottom: var(--menu-border-strong);}
 .menu .menu-item, .header-container .header-button, footer a, .player .player-button {
 	background: none;
 	color: var(--menu-text-color);
 }
 
-/* hover and selected */
+.menu-language-choice .flag {box-shadow: var(--shadow-language-flags);}
+
+/* The separator that divides the top menus and the header */
+.menu-theme-choice li:first-child,
+.menu-language-choice li:first-child {
+	border-top: var(--menu-border-strong);
+}
+@media screen and (max-width: 64em) {
+	.menu-main > ul li:first-child {border-top: var(--menu-border-strong);}
+}
+@media screen and (min-width: 64em) {
+	.menu-music ul li:first-child {border-top: var(--menu-border-strong);}
+}
+
+/* menu and button hover/selected (color and borders) */
 .menu .menu-item:hover,
 .header-container .header-button:hover,
 footer a:hover,
@@ -69,17 +86,10 @@ footer a:hover,
 .menu .selected {
 	color: var(--menu-item-hovered);
 }
-.menu-language-choice li:first-child {border-top: var(--menu-border-strong);}
-@media screen and (max-width: 64em) {
-	.menu-main > ul li:first-child {border-top: var(--menu-border-strong);}
-}
-@media screen and (min-width: 64em) {
-	.menu-music ul li:first-child {border-top: var(--menu-border-strong);}
-}
-/* hover-only */
-.menu-language-choice .menu-item:hover,
-.menu-music .menu-item:hover,
-.menu-playlist .menu-item:hover,
+
+
+/* menu hover (background) */
+.menu:not(.menu-main) .menu-item:hover,
 .menu-playlist .highlighted .menu-item {
 	background-color: var(--menu-background-hovered-color);
 }
@@ -87,6 +97,8 @@ footer a:hover,
 	.menu-main .menu-item:hover {background-color: var(--menu-background-hovered-color);}
 }
 
+
+/*============== Player ==============*/
 .player {border-top: var(--menu-border-strong);}
 .player .disabled {color: var(--menu-icon-inactive-color);}
 .player .loading-indicator {color: var(--body-background-color);}
@@ -110,18 +122,14 @@ footer a:hover,
 .shadow-top-small {box-shadow: var(--shadow-top-small);}
 
 
-/**
- * Shadow replacements on XXS screens
- */
+/*============== Shadow replacements on XXS screens ==============*/
 @media screen and (max-width: 18em) and (orientation: portrait),
 screen and (max-width: 20em) and (orientation: landscape) {
 	.header-container .shadow-bottom {box-shadow: none;}
 	.header-container .logo {border-bottom: 1px solid var(--menu-separator-strong);}
 }
 
-/**
- * Link animations and special effects for desktop
- */
+/*============== Animations and special effects for desktop ==============*/
 @media screen and (min-width: 64em) {
 	.menu .menu-item,
 	.header-container .header-button,
@@ -174,10 +182,15 @@ screen and (max-width: 20em) and (orientation: landscape) {
 	}
 }
 
+/*============== Ajax loader ==============*/
+.ajax-loader{
+	background-color: var(--ajax-loader-background-color);
+	color: var(--ajax-loader-background-color);
+}
+.ajax-loader-spinning{
+	color: var(--menu-text-color);
+}
 
-/**
- * Ajax spinner animations
- */
 @media screen and (max-width: 48em) {
 	.ajax-loader {
 		transition:
