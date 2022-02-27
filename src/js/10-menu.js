@@ -51,7 +51,7 @@ const Menu = new class extends UiElement { // eslint-disable-line
 
 			this.select(this.selectors.themeButton).addEventListener('click', (event) => {
 				event.stopPropagation();
-				this.closeOthers(this.selector.theme).toggleMenuTheme();
+				this.closeOthers(this.selectors.theme).toggleMenuTheme();
 			});
 
 			// close all

@@ -1,0 +1,13 @@
+.body-disabled {overflow: hidden;}
+.body-disabled .content {opacity: 0.3;}
+
+.hidden {display: none;}
+
+.menu-closed {
+	border: 0;
+	height: 0;
+	min-width: unset;
+	overflow: hidden;
+	padding: 0;
+	width: 0;
+}

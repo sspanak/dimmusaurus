@@ -100,20 +100,16 @@
 	.breadcrumbs ul {margin-top: 0;}
 
 /*============== Menus ==============*/
-	.menu-wrapper {
-		display: flex;
-		flex: 0.5;
-	}
+	.menu-wrapper {display: flex;}
 
-	.menu-main-wrapper {justify-content: flex-end;}
+	.menu li {padding: 0 12px 2px 12px;}
+	.menu li > .menu-item {font-size: 1.1em;}
 
-	.menu li {
-		padding: 0 12px 2px 12px;
-	}
+	.left-menu-wrapper {flex: 0.6;}
+	.menu-theme-choice {flex: 0.666;}
 
-	.menu li > .menu-item {
-		font-size: 1.1em;
-	}
+	.menu-main-wrapper {flex: 0.4;}
+	.menu-main {flex: 1;}
 
 
 /*============== Pages ==============*/
@@ -122,7 +118,7 @@
 		max-width: 1033px;
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 160px - 40px - 40px - 20px);
-		padding: 10px 32px;
+		padding: 52px 32px 10px;
 		width: auto;
 	}
 
@@ -160,11 +156,45 @@
  * ONLY M
  **********************************************************************************/
 @media screen and (min-width: 48em) and (max-width: 63.99em) {
+/*============== Buttons ==============*/
 	.toggle-language-wrapper {display: none;}
-
 	.header-button {margin: 0 20px;}
 
-	.menu-language-choice, .menu-main {
-		flex: 0.8;
+/*============== Language menu ==============*/
+	.menu-language-choice,
+	.menu-language-choice.menu-closed {
+		align-items: flex-end;
+		border-radius: 0 0 50px 50px;
+		display: flex;
+		flex: 0.333;
+		height: 68px;
+		justify-content: center;
+		overflow: hidden;
+		width: auto;
 	}
+
+	.menu-language-choice ul {
+		display: flex;
+		flex: 1;
+		justify-content: center;
+		justify-content: space-evenly;
+		padding: 0 12px 8px 12px;
+	}
+
+	.menu-language-choice li {
+		border: 0 none !important;
+		display: inline;
+		padding: 0;
+	}
+	.menu-language-choice li:nth-child(2) {padding-top: 7px;}
+	.menu-language-choice li .menu-item {
+		border: 0 none !important;
+		display: inline;
+		padding: 8px; /* click area, "li" padding is for alignment */
+	}
+
+	.menu-language-choice li .menu-item .icon {margin: 0;}
+	.menu-language-choice .language-label {display: none;}
+
+
 }

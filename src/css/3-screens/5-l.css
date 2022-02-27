@@ -71,10 +71,6 @@
 		font-size: 1em;
 	}
 
-	.menu-language-choice, .menu-music {
-		min-width: 300px;
-	}
-
 	.menu-music:not(.menu-closed) {
 		padding-top: 1px; /* fix the misalignment due to the relative position */
 	}
@@ -83,22 +79,26 @@
 		margin: 0 4px;
 	}
 
-
-/*============== Main Menu ==============*/
-	.menu-main-wrapper > .menu-closed {
-		height: auto;
-		overflow: initial;
+	.menu-wrapper {flex: 0.5;}
+	.menu-theme-choice, .menu-language-choice, .menu-music {
+		flex: none;
+		min-width: 300px;
 	}
 
+
+/*============== Main Menu ==============*/
 	.menu-main-wrapper {
 		display: flex;
+		justify-content: flex-end;
 		position: relative;
 		top: -40px;
 	}
 
-	.menu-main {
+	.menu-main,
+	.menu-main.menu-closed {
 		box-shadow: none;
 		display: block;
+		flex: none;
 		height: auto;
 		min-width: 380px;
 		overflow: initial; /* otherwise menu-music has no shadow */
@@ -119,6 +119,9 @@
 	}
 
 
+/*============== Language Menu ==============*/
+
+
 /*============== Music Menu ==============*/
 	.menu-music > ul {
 		display: flex;
@@ -134,6 +137,7 @@
 		font-size: 0.95em;
 		/* 100% - header-height - footer - player - self padding */
 		min-height: calc(100vh - 167px - 40px - 40px - 20px);
+		padding-top: 10px;
 	}
 
 	.lyrics-super-wrapper {flex-flow: row;}

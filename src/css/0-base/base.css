@@ -15,18 +15,6 @@ img {border: 0 none;}
 /**********************************************************************************
  * Reset Components
  **********************************************************************************/
-.body-disabled {overflow: hidden;}
-.body-disabled .content {opacity: 0.3;}
-
-.hidden {display: none !important;}
-
-.menu-closed {
-	border: 0;
-	height: 0;
-	overflow: hidden;
-	padding: 0;
-}
-
 .menu .menu-item, .menu-item a, footer a, .player .player-button {
 	text-decoration: none;
 }
