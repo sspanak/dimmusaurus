@@ -10,6 +10,7 @@
 }
 .menu li > .menu-item {
 	align-items: center;
+	border-bottom: 1px solid;
 	cursor: pointer;
 	display: flex;
 	font-size: 1.15em;
@@ -19,6 +20,13 @@
 .menu li > .menu-item .icon {margin: 0 10px 0 6px;}
 
 .menu li, .content-tune .tune-links li, .breadcrumbs li {list-style-type: none;}
+
+/* The separator that divides the top menus and the header */
+.menu-main > ul li:first-child,
+.menu-theme-choice li:first-child,
+.menu-language-choice li:first-child {
+	border-top: 1px solid;
+}
 
 
 /*============== Language Menu ==============*/
@@ -42,6 +50,8 @@
 
 /*==============  Playlist ==============*/
 .menu-playlist-wrapper {
+	border-right: 1px solid;
+	border-top: 1px solid;
 	bottom: 40px;
 	max-width: 100%;
 	position: fixed;
@@ -59,6 +69,7 @@
 .menu-playlist-wrapper .playlist-search input[disabled] {display: none;}
 
 .menu-playlist {
+	border-top: 1px solid;
 	border-radius: 10px;
 	margin: 12px 6px 0 0;
 	overflow-y: auto;

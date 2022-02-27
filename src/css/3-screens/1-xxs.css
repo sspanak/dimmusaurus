@@ -18,6 +18,7 @@ screen and (max-width: 20.1em) and (orientation: landscape) {
 
 /*============== Logo ==============*/
 	.header-container .logo {
+		border-bottom: 1px solid;
 		border-radius: 0 0 28px 0;
 		height: 55px;
 		width: 55px;

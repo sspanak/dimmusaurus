@@ -1,5 +1,6 @@
 .player {
 	align-items: center;
+	border-top: 1px solid;
 	bottom: 0;
 	display: flex;
 	height: 40px;
@@ -35,6 +36,7 @@
 }
 
 /*==============  Player Buttons ==============*/
+.player .player-controls .player-button {border-left: 1px solid;}
 .player .playlist, .player .player-controls .player-button {padding: 0 10px;}
 
 .player .player-controls {

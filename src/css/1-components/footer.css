@@ -13,6 +13,7 @@ footer .social-icons a {
 	font-size: 29px;
 	padding: 0 10px;
 }
+footer .social-icons a:not(:last-child) {border-right: 1px solid;}
 
 footer .copyright {
 	justify-content: flex-end;
