@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-23 11:59+0200\n"
+"POT-Creation-Date: 2022-02-27 16:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,31 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: bio/templates/bio/index.html:9 main/templates/main/__root.html:139
+#: bio/templates/bio/index.html:10 main/templates/main/__root.html:151
 #: music/templates/music/discography.html:11
 #: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
 msgid "home/"
 msgstr "accueil/"
 
-#: bio/templates/bio/index.html:9 main/templates/main/__root.html:141
+#: bio/templates/bio/index.html:10 main/templates/main/__root.html:153
 #: music/templates/music/discography.html:11
 #: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
 msgid "Home"
 msgstr "Accueil"
 
 #. Translators: Biography page title
-#: bio/templates/bio/index.html:11 bio/views.py:23
-#: main/templates/main/__root.html:147
+#: bio/templates/bio/index.html:12 bio/views.py:24
+#: main/templates/main/__root.html:159
 msgid "Biography"
 msgstr "Biographie"
 
 #. Translators: About page big heading
-#: bio/templates/bio/index.html:16
+#: bio/templates/bio/index.html:17
 msgid "About Dimmu Saurus"
 msgstr "C'est quoi Dimmu Saurus?"
 
 #. Translators: Biography page description
-#: bio/views.py:25
+#: bio/views.py:26
 msgid "The story of Dimmu Saurus project"
 msgstr "L'histoire de Dimmu Saurus"
 
@@ -64,136 +64,156 @@ msgstr ""
 "Une erreur s'est produite pendant le traitement de votre requête. Veuillez "
 "essayer plus tard ou retourner au <a href=\"/\">page accueil</a>."
 
-#: main/templates/main/__root.html:46 music/models.py:52
+#: main/templates/main/__root.html:45 music/models.py:52
 msgid "/download/"
 msgstr "/telecharger/"
 
-#: main/templates/main/__root.html:50
+#: main/templates/main/__root.html:49
 msgid "Cannot load this song!"
 msgstr "Impossible de charger cette chanson!"
 
-#: main/templates/main/__root.html:51
+#: main/templates/main/__root.html:50
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: main/templates/main/__root.html:52
+#: main/templates/main/__root.html:51
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Si vous changez la langue, la musique s'arrêtera. Confirmez-vous?"
 
-#: main/templates/main/__root.html:104
+#: main/templates/main/__root.html:79
+msgid "Choose a Color Theme"
+msgstr "Choisir le thème «Couleur»"
+
+#: main/templates/main/__root.html:81
+msgid "Theme"
+msgstr "Thème"
+
+#: main/templates/main/__root.html:87
+msgid "Change the Language"
+msgstr "Choisir la langue préférée"
+
+#: main/templates/main/__root.html:95
 msgid "Main Menu"
 msgstr "Menu principal"
 
 #: main/templates/main/__root.html:111
-msgid "Change Language"
-msgstr "Choisir la langue préférée"
+msgid "Device Default"
+msgstr "Par défaut du système"
 
-#: main/templates/main/__root.html:139
+#: main/templates/main/__root.html:118
+msgid "Bright"
+msgstr "Lumineux"
+
+#: main/templates/main/__root.html:125
+msgid "Dark"
+msgstr "Foncé"
+
+#: main/templates/main/__root.html:151
 msgid "Go to home page"
 msgstr "Naviguer vers la page d'accueil"
 
-#: main/templates/main/__root.html:145 main/templates/main/index.html:6
+#: main/templates/main/__root.html:157 main/templates/main/index.html:6
 msgid "biography/"
 msgstr "biographie/"
 
-#: main/templates/main/__root.html:145
+#: main/templates/main/__root.html:157
 msgid "Go to biography page"
 msgstr "Naviguer vers la page Biographie"
 
-#: main/templates/main/__root.html:151
+#: main/templates/main/__root.html:163
 msgid "Go to discography page"
 msgstr "Naviguer vers la page Discographie"
 
-#: main/templates/main/__root.html:153
+#: main/templates/main/__root.html:165
 #: music/templates/music/discography.html:15
 #: music/templates/music/discography.html:18
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "Music"
 msgstr "Musique"
 
-#: main/templates/main/__root.html:162 main/templates/main/index.html:5
+#: main/templates/main/__root.html:174 main/templates/main/index.html:5
 #: music/templates/music/discography.html:18
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "music/"
 msgstr "musique/"
 
-#: main/templates/main/__root.html:162
+#: main/templates/main/__root.html:174
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: main/templates/main/__root.html:188
+#: main/templates/main/__root.html:200
 msgid "Song search field"
 msgstr "Recherher pour une chanson"
 
-#: main/templates/main/__root.html:191
+#: main/templates/main/__root.html:203
 msgid "Search..."
 msgstr "Rechercher..."
 
-#: main/templates/main/__root.html:197
+#: main/templates/main/__root.html:209
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
 
-#: main/templates/main/__root.html:208
+#: main/templates/main/__root.html:220
 msgid "Follow"
 msgstr "Suivez"
 
-#: main/templates/main/__root.html:222
+#: main/templates/main/__root.html:234
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: main/templates/main/__root.html:223
+#: main/templates/main/__root.html:235
 msgid "Go to Dimmu Saurus Facebook page"
 msgstr "Naviguer vers la page Facebook de Dimmu Saurus"
 
-#: main/templates/main/__root.html:228
+#: main/templates/main/__root.html:240
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: main/templates/main/__root.html:229
+#: main/templates/main/__root.html:241
 msgid "Go to Dimmu Saurus Youtube channel"
 msgstr "Naviguer vers la chaîne Youtube de Dimmu Saurus"
 
-#: main/templates/main/__root.html:233
+#: main/templates/main/__root.html:245
 msgid "Dimmu Saurus Soundcloud page"
 msgstr "Dimmu Saurus sur Soundcloud"
 
-#: main/templates/main/__root.html:234
+#: main/templates/main/__root.html:246
 msgid "Go to Dimmu Saurus Soundcloud page"
 msgstr "Naviguer vers la page Soundcloud de Dimmu Saurus"
 
-#: main/templates/main/__root.html:253 main/templates/main/__root.html:254
+#: main/templates/main/__root.html:265 main/templates/main/__root.html:266
 msgid "Toggle Playlist"
 msgstr "Liste de lecture"
 
-#: main/templates/main/__root.html:285
+#: main/templates/main/__root.html:297
 msgid "Sound Volume"
 msgstr "Son"
 
-#: main/templates/main/__root.html:286
+#: main/templates/main/__root.html:298
 msgid "Mute/Unmute music"
 msgstr "Baisser/Augmenter le volume"
 
-#: main/templates/main/__root.html:290
+#: main/templates/main/__root.html:302
 msgid "Previous Track"
 msgstr "Précédent"
 
-#: main/templates/main/__root.html:291
+#: main/templates/main/__root.html:303
 msgid "Play previous song"
 msgstr "Lire la chanson précédente"
 
-#: main/templates/main/__root.html:295
+#: main/templates/main/__root.html:307
 msgid "Play / Pause"
 msgstr "Lire / Pause"
 
-#: main/templates/main/__root.html:296
+#: main/templates/main/__root.html:308
 msgid "Play/Pause current song"
 msgstr "Lire/Pauser la chanson en cours"
 
-#: main/templates/main/__root.html:300
+#: main/templates/main/__root.html:312
 msgid "Next Track"
 msgstr "Suivant"
 
-#: main/templates/main/__root.html:301
+#: main/templates/main/__root.html:313
 msgid "Play next song"
 msgstr "Lire la chanson suivante"
 
@@ -224,11 +244,11 @@ msgstr ""
 "ce que c'est Dimmu Saurus? Alors, lisez sa <a href=\"/%(url_biography)s"
 "\">biographie</a>."
 
-#: main/templates/main/index.html:22
+#: main/templates/main/news.html:4
 msgid "News"
 msgstr "Nouvelles"
 
-#: main/templates/main/news.html:15
+#: main/templates/main/news.html:16
 msgid "No news are available at this time."
 msgstr "Il n'y a pas des nouvelles maintenant."
 
@@ -287,7 +307,7 @@ msgstr ""
 "niveau sonore trop élevé."
 
 #. Translators: LYRICS button on song page.
-#: music/templates/music/lyrics.html:22 music/templates/music/song.html:61
+#: music/templates/music/lyrics.html:22 music/templates/music/song.html:60
 msgid "lyrics"
 msgstr "paroles"
 
@@ -297,7 +317,7 @@ msgid "Song Lyrics"
 msgstr "Paroles de la chanson"
 
 #. Translators: Song page title
-#: music/templates/music/song.html:25 music/views.py:132
+#: music/templates/music/song.html:25 music/views.py:134
 msgid "Song Details"
 msgstr "Détails de la chanson"
 
@@ -306,45 +326,45 @@ msgid "Originally titled"
 msgstr "Titre original"
 
 #. Translators: LISTEN button on song page.
-#: music/templates/music/song.html:44
+#: music/templates/music/song.html:43
 msgid "listen"
 msgstr "écouter"
 
 #. Translators: Youtube button on song page.
-#: music/templates/music/song.html:52
+#: music/templates/music/song.html:51
 msgid "watch"
 msgstr "regarder"
 
 #. Translators: DOWNLOAD button on song page.
-#: music/templates/music/song.html:69
+#: music/templates/music/song.html:68
 msgid "download"
 msgstr "télécharger"
 
-#: music/views.py:78
+#: music/views.py:80
 msgid "Track list and information."
 msgstr "Liste des titres et information."
 
 #. Translators: Discography page title
-#: music/views.py:92
+#: music/views.py:94
 msgid "Discography"
 msgstr "Discographie"
 
 #. Translators: Discography page description
-#: music/views.py:94
+#: music/views.py:96
 msgid "Dimmu Saurus Discography"
 msgstr "Dimmu Saurus – Discographie"
 
 #. Translators: Song page description
-#: music/views.py:134
+#: music/views.py:136
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Information, paroles et téléchargement de la chanson."
 
 #. Translators: Lyrics page title
-#: music/views.py:168
+#: music/views.py:170
 msgid "Lyrics"
 msgstr "Paroles"
 
 #. Translators: Lyrics page description
-#: music/views.py:170
+#: music/views.py:172
 msgid "Song lyrics and English translation."
 msgstr "Paroles de la chanson et traduction anglaise."

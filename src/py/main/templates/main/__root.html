@@ -53,7 +53,7 @@
 
 			{% include "main/inline.js" %}
 
-			window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme())});
+			window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme());});
 
 			loadResources(
 				'{% static "ds.min.js" %}?v={{ build|default:"0" }}',
@@ -78,7 +78,7 @@
 				<div class="toggle-wrapper toggle-theme-wrapper">
 					<button id="theme-menu-button" class="header-button" title="{% trans 'Choose a Color Theme' %}" aria-label="{% trans 'Choose a Color Theme' %}">
 						<i class="icon fas fa-lightbulb"></i>
-						<span class="toggle-label">Theme</span>
+						<span class="toggle-label">{% trans "Theme" %}</span>
 						<i class="fas fa-chevron-down"></i>
 					</button>
 				</div>
@@ -101,7 +101,35 @@
 			</div>
 
 			<div class="header-super-wrapper">
-				<div class="menu-wrapper language-choice-wrapper">
+				<div class="menu-wrapper left-menu-wrapper">
+
+					<div class="menu menu-theme-choice menu-closed shadow-bottom">
+						<ul>
+
+							<li>
+								<a class="menu-item" onclick="selectTheme(undefined);">
+									<i class="icon fas fa-desktop"></i>
+									{% trans "Device Default" %}
+								</a>
+							</li>
+
+							<li>
+								<a class="menu-item" onclick="selectTheme(0)">
+									<i class="icon fas fa-sun"></i>
+									{% trans "Bright" %}
+								</a>
+							</li>
+
+							<li>
+								<a class="menu-item" onclick="selectTheme(1)">
+									<i class="icon fas fa-moon"></i>
+									{% trans "Dark" %}
+								</a>
+							</li>
+
+						</ul>
+					</div>
+
 					<nav class="menu menu-language-choice menu-closed shadow-bottom">
 						<ul>
 
@@ -109,14 +137,16 @@
 								<li>
 									<a class="menu-item" href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate">
 										<span class="icon flag flag-{{ url.language_code }}"></span>
-										{{ url.language_name }}
+										<span class="language-label">{{ url.language_name }}</span>
 									</a>
 								</li>
 							{% endfor %}
 
 						</ul>
 					</nav>
-				</div><div class="menu-wrapper menu-main-wrapper"> <!-- the space ruins the alignment -->
+				</div>
+
+				<div class="menu-wrapper menu-main-wrapper">
 					<nav class="menu menu-main menu-closed shadow-bottom">
 						<ul>
 							<li>
