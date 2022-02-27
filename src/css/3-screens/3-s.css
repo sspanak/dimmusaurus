@@ -86,8 +86,11 @@
 		margin-right: auto;
 	}
 
-	.header-button:not(.selected) .icon {padding-bottom: 2px;}
-	.header-button.selected .icon {border-bottom: 2px solid;}
+	.header-button .icon {padding: 6px;}
+	.header-button.selected .icon {
+		border-bottom: 2px solid;
+		padding-bottom: 4px;
+	}
 
 	.header-button > .fa-chevron-down,
 	.header-button > .fa-chevron-up {
