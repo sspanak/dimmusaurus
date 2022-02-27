@@ -113,6 +113,8 @@
 
 	/* non-playlist item */
 	.menu:not(.menu-playlist) li > .menu-item {padding: 10px 8px;}
+	/* special first item in music menu */
+	.menu-music li:first-child > .menu-item {padding-top: 0;}
 	/* playlist item */
 	.menu-playlist .playlist-info, .menu-playlist .playlist-title {
 		padding-bottom: 10px;
