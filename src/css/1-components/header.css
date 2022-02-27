@@ -32,7 +32,7 @@
 
 header .fa-chevron-down, header .fa-chevron-up {
 	font-size: 0.5em;
-	vertical-align: middle;
+	margin: 3px 0 0 4px;
 }
 
 .player .player-button {
