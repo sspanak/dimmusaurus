@@ -35,7 +35,7 @@ header .fa-chevron-down, header .fa-chevron-up {
 	vertical-align: middle;
 }
 
-.menu .menu-item, .player .player-button {
+.player .player-button {
 	display: inline-block;
 	padding: 0;
 }

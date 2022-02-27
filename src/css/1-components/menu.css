@@ -9,8 +9,9 @@
 	padding: 0;
 }
 .menu li > .menu-item {
+	align-items: center;
 	cursor: pointer;
-	display: block;
+	display: flex;
 	font-size: 1.15em;
 	padding: 12px 8px;
 	text-align: left;
@@ -25,8 +26,7 @@
 	background: url(img/znamena.svg) no-repeat;
 	border-radius: 3px;
 	display: inline-block;
-	height: 18px;
-	vertical-align: middle;
+	height: 1em;
 	width: 24px;
 }
 
@@ -65,9 +65,7 @@
 }
 
 .menu-playlist li > .menu-item {
-	align-items: center;
 	cursor: auto;
-	display: flex;
 	font-size: 1em;
 	padding-bottom: 0;
 	padding-top: 0;
