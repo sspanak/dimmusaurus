@@ -231,9 +231,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	togglePlaylist() {
 		/* eslint-disable no-undef */
-		Menu.closeMenuLanguage();
-		Menu.closeMenuMain();
-		Menu.closeMenuMusic();
+		Menu.closeMenuLanguage()
+			.closeMenuMain()
+			.closeMenuMusic()
+			.closeMenuTheme();
 		/* eslint-enable no-undef */
 
 		this.clearSearch();

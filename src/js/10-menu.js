@@ -141,6 +141,7 @@ const Menu = new class extends UiElement { // eslint-disable-line
 
 	closeMenuTheme() {
 		this.select(this.selectors.theme).addClass(this.classes.closedMenu);
+		this.select(this.selectors.themeButton).removeClass(this.classes.selected);
 
 		return this;
 	}
