@@ -1,5 +1,9 @@
 .no-theme {
-	visibility: hidden;
+	position: fixed;
+	top: -9999px;
+}
+.no-theme {
 	--theming-using-variables-support: unset;
-	visibility: var(--theming-using-variables-support);
+	position: var(--theming-using-variables-support);
+	top: var(--theming-using-variables-support);
 }
