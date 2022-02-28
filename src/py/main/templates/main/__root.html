@@ -51,16 +51,15 @@
 				newLanguageWillInterruptMusic: "{% trans 'Changing the language will interrupt music playback. Continue?' %}"
 			};
 
-			{% include "main/inline.js" %}
-
-			window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme());});
-
+			{% include "main/detect-old-browser.js" %}
 			loadResources(
 				'{% static "ds.min.js" %}?v={{ build|default:"0" }}',
 				'{% static "ds.legacy.min.js" %}?v={{ build|default:"0" }}',
 				'{% static "ds.legacy.min.css" %}?v={{ build|default:"0" }}'
 			);
 		</script>
+
+		<script>{% include "main/theme.js" %}</script>
 	</head>
 
 	<body class="no-player">
@@ -75,7 +74,7 @@
 
 				<div class="logo-text logo-text-right">Saurus</div>
 
-				<div class="toggle-wrapper toggle-theme-wrapper">
+				<div class="toggle-wrapper toggle-theme-wrapper no-theme">
 					<button id="theme-menu-button" class="header-button" title="{% trans 'Choose a Color Theme' %}" aria-label="{% trans 'Choose a Color Theme' %}">
 						<i class="icon fas fa-lightbulb"></i>
 						<span class="toggle-label">{% trans "Theme" %}</span>
@@ -103,25 +102,25 @@
 			<div class="header-super-wrapper">
 				<div class="menu-wrapper left-menu-wrapper">
 
-					<div class="menu menu-theme-choice menu-closed shadow-bottom">
+					<div class="menu menu-theme-choice menu-closed shadow-bottom no-theme">
 						<ul>
 
 							<li>
-								<a class="menu-item" onclick="selectTheme(undefined);">
+								<a class="menu-item" onclick="Theme.select(undefined);">
 									<i class="icon fas fa-desktop"></i>
 									{% trans "Device Default" %}
 								</a>
 							</li>
 
 							<li>
-								<a class="menu-item" onclick="selectTheme(0)">
+								<a class="menu-item" onclick="Theme.select(0)">
 									<i class="icon fas fa-sun"></i>
 									{% trans "Bright" %}
 								</a>
 							</li>
 
 							<li>
-								<a class="menu-item" onclick="selectTheme(1)">
+								<a class="menu-item" onclick="Theme.select(1)">
 									<i class="icon fas fa-moon"></i>
 									{% trans "Dark" %}
 								</a>

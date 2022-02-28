@@ -88,7 +88,7 @@ css:
 js-debug:
 	@printf 'Building JS... ' && \
 		mkdir -p dist/main/templates/main && \
-			cat src/js/{detect-old-browser,theme}.js > dist/main/templates/main/inline.js && \
+			cp src/js/{detect-old-browser,theme}.js dist/main/templates/main/ && \
 		mkdir -p dist/static && \
 			echo "'use strict';" > dist/static/ds.js && \
 			cat src/js/[0-9]*.js >> dist/static/ds.js && \
@@ -100,7 +100,8 @@ js-debug:
 js:
 	@make js-debug && \
 	printf 'Minifying JS... ' && \
-		npx terser -c drop_console=true,passes=2 src/js/{detect-old-browser,theme}.js > dist/main/templates/main/inline.js && \
+		npx terser -c drop_console=true,passes=2 src/js/detect-old-browser.js > dist/main/templates/main/detect-old-browser.js && \
+		npx terser -c drop_console=true,passes=2 src/js/theme.js > dist/main/templates/main/theme.js && \
 		npx terser -c drop_console=true,passes=2,ecma=2018 dist/static/ds.js > dist/static/ds.min.js && \
 		npx terser -c drop_console=true,passes=2 dist/static/ds.legacy.js > dist/static/ds.legacy.min.js && \
 		rm -f dist/static/{ds,ds.legacy}.js && \

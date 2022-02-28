@@ -26,9 +26,11 @@
 			crossorigin>
 
 		<script
-			src="main/templates/main/inline.js"
-			onload="loadResources('static/ds.js', 'static/ds.legacy.js', 'static/ds.legacy.css');window.addEventListener('DOMContentLoaded', function(){!isAncientBrowser() && selectTheme(getCurrentTheme());});"
+			src="main/templates/main/detect-old-browser.js"
+			onload="loadResources('static/ds.js', 'static/ds.legacy.js', 'static/ds.legacy.css');"
 		></script>
+
+		<script src="main/templates/main/theme.js"></script>
 	</head>
 
 	<body class="no-player">
@@ -70,24 +72,24 @@
 
 			<div class="header-super-wrapper">
 				<div class="menu-wrapper left-menu-wrapper">
-					<div class="menu menu-theme-choice menu-closed shadow-bottom">
+					<div class="menu menu-theme-choice menu-closed shadow-bottom no-theme">
 						<ul>
 							<li>
-								<a class="menu-item" onclick="selectTheme(undefined);">
+								<a class="menu-item" onclick="Theme.select(undefined);">
 									<i class="icon fas fa-desktop"></i>
 									Като устройството
 								</a>
 							</li>
 
 							<li>
-								<a class="menu-item" onclick="selectTheme(0)">
+								<a class="menu-item" onclick="Theme.select(0)">
 									<i class="icon fas fa-sun"></i>
 									Светъл
 								</a>
 							</li>
 
 							<li>
-								<a class="menu-item" onclick="selectTheme(1)">
+								<a class="menu-item" onclick="Theme.select(1)">
 									<i class="icon fas fa-moon"></i>
 									Тъмен
 								</a>
