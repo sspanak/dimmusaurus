@@ -14,38 +14,28 @@
 
 /*============== Logo ==============*/
 	.header-container .logo-text {
-		font-size: 3.8em;
+		font-size: 4em;
 		height: 100px;
 	}
-
-	/* prevent Opera workaround on other browsers */
-	.header-container .logo-text-left {margin-left: calc(1px - 1px);}
-	.header-container .logo-text-right {margin-right: calc(1px - 1px);}
 
 
 /*============== Menu Buttons ==============*/
 	.toggle-wrapper {align-items: flex-end;}
 
 	.toggle-theme-wrapper {margin-left: 4px;}
-
 	.toggle-language-wrapper {
-		margin-right: auto; /* workaround for Opera */
+		flex: auto;
 		order: 2;
 	}
+	.toggle-main-menu-wrapper {width: 24%;}
+
+
 	.toggle-main-menu-wrapper .header-button {display: none;}
-
-	.toggle-main-menu-wrapper {
-		width: 24%; /* workaround for Opera */
-		width: calc(50% - 266px);
-	}
-
 	.toggle-theme-wrapper .header-button,
 	.toggle-language-wrapper .header-button {
 		border-right: 1px solid;
 		border-top: 1px solid;
 	}
-
-	.header-button .toggle-label {display: inline;}
 
 	.header-button,
 	.menu-main > ul > li > .menu-item {
@@ -62,6 +52,8 @@
 	.menu li > .menu-item .icon {
 		margin: 1px 8px 0 2px;
 	}
+
+	.header-button .toggle-label {display: inline;}
 
 
 /*============== Menus ==============*/
