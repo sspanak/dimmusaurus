@@ -80,8 +80,8 @@ css:
 		bash -c build-tools/css-build.sh && \
 	echo 'OK' && \
 	printf 'Minifying CSS... ' && \
-		npx csso dist/static/ds.css > dist/static/ds.min.css && \
-		npx csso dist/static/ds.legacy.css > dist/static/ds.legacy.min.css && \
+		cat dist/static/ds.css | node build-tools/css-minify.js > dist/static/ds.min.css && \
+		cat dist/static/ds.legacy.css | node build-tools/css-minify.js > dist/static/ds.legacy.min.css && \
 		rm -f dist/static/{ds,ds.legacy}.css && \
 	echo 'OK'
 
