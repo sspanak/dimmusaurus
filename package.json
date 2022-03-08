@@ -20,9 +20,8 @@
     "@babel/core": "^7.16.5",
     "@babel/preset-env": "^7.16.5",
     "csslint": "^1.0.5",
-    "csso-cli": "^3.0.0",
+    "csso": "^5.0.2",
     "eslint": "^8.5.0",
     "terser": "^5.10.0"
-  },
-  "dependencies": {}
+  }
 }

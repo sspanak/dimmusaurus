@@ -85,5 +85,3 @@ const legacyCss = replaceRules(replaceVariables(css));
 
 console.log(legacyCss);
 process.exit(0);
-
-
