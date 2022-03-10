@@ -99,15 +99,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			}
 
 			if (event.code === 'Enter') {
-				let trackId = this.getHighlightedTrack();
-				if (trackId === -1) {
-					console.warn('No highlighted track, so picking the next visible in the playlist.');
-					trackId = this.highlightNextTrack().getHighlightedTrack();
-				}
-
-				Player.selectTrack(trackId);
-				Player.stop();
-				Player.playToggle();
+				this.handleEnter();
 			}
 
 			if (event.code === 'ArrowUp') {
@@ -264,9 +256,10 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	openPlaylist() {
 		this.select('body').addClass(this.classes.disabledBody);
 		/* eslint-disable no-undef */
-		this.scrollTrackIntoView(Player.currentTrack);
-
 		this.select(this.selectors.playlist).removeClass(Menu.classes.closedMenu);
+		this
+			.focusSearch()
+			.scrollTrackIntoView(Player.currentTrack);
 		/* eslint-enable no-undef */
 	}
 
@@ -456,6 +449,19 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 			event.preventDefault();
 			Player.playToggle();
 		}
+	}
+
+
+	handleEnter() {
+		let trackId = this.getHighlightedTrack();
+		if (trackId === -1) {
+			console.warn('No highlighted track, so picking the next visible in the playlist.');
+			trackId = this.highlightNextTrack().getHighlightedTrack();
+		}
+
+		Player.selectTrack(trackId);
+		Player.stop();
+		Player.playToggle();
 	}
 
 
@@ -854,6 +860,7 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		this.removeClassAll($items, this.classes.highlighted);
 		if (playlistId >= 0) {
 			this
+				.blurSearch()
 				.select(`${this.selectors.playlistTrackPrefix}${playlistId}`)
 				.selectParent()
 				.scrollIntoView({ block: 'nearest' })
@@ -999,5 +1006,35 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		}
 
 		this.searchForTrack('');
+	}
+
+
+	/**
+	 * blurSearch
+	 * Removes focus from the playlist search field.
+	 *
+	 * @return {void}
+	 */
+	blurSearch() {
+		if (this.select(this.selectors.searchField)) {
+			this.$element.blur();
+		}
+
+		return this;
+	}
+
+
+	/**
+	 * focusSearch
+	 * Focuses the playlist search field.
+	 *
+	 * @return {void}
+	 */
+	focusSearch() {
+		if (this.select(this.selectors.searchField)) {
+			this.$element.focus();
+		}
+
+		return this;
 	}
 };
