@@ -87,6 +87,12 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 		});
 
 
+		document.addEventListener('keydown', event => {
+			if (event.code === 'Space') {
+				this.handleSpacebar(event);
+			}
+		});
+
 		document.addEventListener('keyup', event => {
 			if (!this.isPlaylistOpened() || !('code' in event)) {
 				return;
@@ -445,6 +451,14 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	}
 
 
+	handleSpacebar(event) {
+		if (!this.isPlaylistOpened() || !this.isSearchFocused()) {
+			event.preventDefault();
+			Player.playToggle();
+		}
+	}
+
+
 	/**
 	 * onPlayback
 	 * Updates the UI with the track progress every second.
@@ -713,6 +727,17 @@ const PlayerUi = new class extends UiElement { // eslint-disable-line
 	 */
 	isSearchEmpty() {
 		return new UiElement().select(this.selectors.playlistSearch).value === '';
+	}
+
+
+	/**
+	 * isSearchFocused
+	 * Returns whether there the playlist search field is focused or not.
+	 *
+	 * @return {Boolean}
+	 */
+	isSearchFocused() {
+		return document.querySelector(this.selectors.playlistSearch) === document.activeElement;
 	}
 
 
