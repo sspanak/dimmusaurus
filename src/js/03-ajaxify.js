@@ -24,7 +24,7 @@ const Ajaxify = new class {
 		window.addEventListener('load', () => this._init());
 		window.addEventListener('buildPlaylist', () => {
 			if (this.isSupported()) {
-				this._apply(this.selectors.playlistLinks);
+				this._apply(this.selectors.playlistLinks, this._handleNavigation);
 			}
 		});
 	}
@@ -151,8 +151,8 @@ const Ajaxify = new class {
 	 */
 	_applyToAll() {
 		this
-			._apply(this.selectors.internalLinks)
-			._apply(this.selectors.languageLinks);
+			._apply(this.selectors.internalLinks, this._handleNavigation)
+			._apply(this.selectors.languageLinks, this._handleLanguageChange);
 	}
 
 
@@ -161,12 +161,18 @@ const Ajaxify = new class {
 	 * Ajaxifies links by a given CSS selector
 	 *
 	 * @param {string} selector
+	 * @param {function} handler
 	 * @return {this}
 	 */
-	_apply(selector) {
+	_apply(selector, handler) {
+		if (typeof handler !== 'function') {
+			console.error(`Cannot set a click handler for "${selector}". The handler must be a function.`);
+			return this;
+		}
+
 		this._getLinks(selector).forEach(a => {
-			a.removeEventListener('click', this._handleNavigation);
-			a.addEventListener('click', this._handleNavigation);
+			a.removeEventListener('click', handler);
+			a.addEventListener('click', handler);
 		});
 
 		return this;
