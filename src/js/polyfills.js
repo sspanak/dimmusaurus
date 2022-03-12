@@ -49,15 +49,18 @@ if (Number.parseFloat === undefined) {
  * Promise.finally polyfill
  * https://stackoverflow.com/questions/53327711/how-to-add-a-polyfill-to-support-finally-in-edge
  */
-Promise.prototype.finally = Promise.prototype.finally || {
-	finally (fn) {
-		const onFinally = callback => Promise.resolve(fn()).then(callback);
-		return this.then(
-			result => onFinally(() => result),
-			reason => onFinally(() => Promise.reject(reason))
-		);
-	}
-}.finally;
+if (window.Promise) {
+	Promise.prototype.finally = Promise.prototype.finally || {
+		finally (fn) {
+			const onFinally = callback => window.Promise.resolve(fn()).then(callback);
+			return this.then(
+				result => onFinally(() => result),
+				reason => onFinally(() => window.Promise.reject(reason))
+			);
+		}
+	}.finally;
+}
+
 
 /**
  * AbortController polyfill
