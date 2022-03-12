@@ -1,5 +1,16 @@
+class AjaxifyTimeout extends Error {
+	constructor(maxTimeout) {
+		super();
+		this.message = `Fetch timeout of ${maxTimeout} ms reached`;
+	}
+}
+
+
 const Ajaxify = new class {
 	constructor() {
+		this.navigationTimeMax = 4000; // ms
+		this.navigationTime = 0; // ms
+
 		this.spinnerDelay = 400; // ms
 		this.spinnerShowTimeout = 0; // setTimeout() ID
 		this.lastNavigationUrl = '';
@@ -31,7 +42,7 @@ const Ajaxify = new class {
 
 
 	_init() {
-		if (!this.isSupported()) {
+		if (!this.isSupported() || this.isDisabled()) {
 			return;
 		}
 
@@ -61,6 +72,29 @@ const Ajaxify = new class {
 
 
 	/**
+	 * isDisabled()
+	 *
+	 * @param {void}
+	 * @return {bool}
+	 */
+	isDisabled() {
+		return !!sessionStorage.getItem('ajaxifyDisabled');
+	}
+
+
+	/**
+	 * disable()
+	 * Disables Ajax navigation for the current session.
+	 *
+	 * @param {void}
+	 * @return {void}
+	 */
+	disable() {
+		sessionStorage.setItem('ajaxifyDisabled', true);
+	}
+
+
+	/**
 	 * get
 	 * Performs a GET request
 	 *
@@ -68,9 +102,38 @@ const Ajaxify = new class {
 	 * @return {Promise<JSON>}
 	 */
 	get(url) {
-		return fetch(url).then(response =>
-			response.ok ? response.json() : Promise.reject(new Error(`${response.status} ${response.statusText}`))
-		);
+		const navigationStart = Date.now();
+
+		const controller = new AbortController();
+
+		// Long running requests seem to cause significant delays when updating the UI
+		// (much longer than the request time). For this reason we constrain the maximum
+		// wait time.
+		const abortTimeout = setTimeout(() => controller.abort(), this.navigationTimeMax);
+
+		// not using "await", because Babel configuration is overcomplicated
+		// and figuring it out started seeming like a waste of time :(
+		return fetch(url, { signal: controller.signal })
+			.then(response => {
+				if (!response.ok) {
+					return Promise.reject(Error(`${response.status} ${response.statusText}`));
+				}
+
+				return response.json();
+			})
+			.catch(e => {
+				if (controller.signal.aborted) {
+					return Promise.reject(new AjaxifyTimeout(this.navigationTimeMax));
+				} else {
+					return Promise.reject(e);
+				}
+			})
+			.finally(() => {
+				clearTimeout(abortTimeout);
+				this.navigationTime = Date.now() - navigationStart;
+
+				console.info(`Fetch: "${url}". Time: ${this.navigationTime} ms.`);
+			});
 	}
 
 
@@ -88,6 +151,8 @@ const Ajaxify = new class {
 
 		this.lastNavigationUrl = url;
 
+		// not using "await", because Babel configuration is overcomplicated
+		// and figuring it out started seeming like a waste of time :(
 		return this.get(`/api${url}`)
 			.then(data => {
 				try {
@@ -107,8 +172,20 @@ const Ajaxify = new class {
 			})
 			.catch(error => {
 				console.error(`Could not navigate to URL: "${url}". ${error.message}.`);
+				if (
+					sessionStorage.getItem('lastNavigationTime') > this.navigationTimeMax
+					&& error instanceof AjaxifyTimeout
+				) {
+					// eslint-disable-next-line max-len
+					console.warn(`Two consecutive navigations over ${this.navigationTimeMax} ms occured. Disabling Ajaxify for this session.`);
+					this.disable();
+				}
+
 				console.info('Attempting non-ajax navigation.');
 				location.href = url;
+			})
+			.finally(() => {
+				sessionStorage.setItem('lastNavigationTime', this.navigationTime);
 			});
 	}
 

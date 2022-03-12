@@ -44,3 +44,28 @@ if (Number.parseInt === undefined) {
 if (Number.parseFloat === undefined) {
 	Number.parseFloat = parseFloat;
 }
+
+/**
+ * Promise.finally polyfill
+ * https://stackoverflow.com/questions/53327711/how-to-add-a-polyfill-to-support-finally-in-edge
+ */
+Promise.prototype.finally = Promise.prototype.finally || {
+	finally (fn) {
+		const onFinally = callback => Promise.resolve(fn()).then(callback);
+		return this.then(
+			result => onFinally(() => result),
+			reason => onFinally(() => Promise.reject(reason))
+		);
+	}
+}.finally;
+
+/**
+ * AbortController polyfill
+ * Just prevent crashing on older browsers.
+ */
+if (!window.AbortController) {
+	window.AbortController = () => ({
+		abort: () => null,
+		signal: { aborted: false }
+	});
+}
