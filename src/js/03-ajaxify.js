@@ -261,7 +261,7 @@ const Ajaxify = new class {
 
 		if (
 			new UiElement().select('body').hasClass(Ajaxify.classes.disabledBody)
-			&& !new UiElement().select(event.currentTarget).hasClass(this.classes.playlistInfoLink)
+			&& !new UiElement().select(event.currentTarget).hasClass(Ajaxify.classes.playlistInfoLink)
 		) {
 			return;
 		}
