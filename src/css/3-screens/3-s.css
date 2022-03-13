@@ -81,20 +81,14 @@
 /**********************************************************************************
  * NEGATIVE S
  **********************************************************************************/
-@media screen and (max-width: 47.99em) {
-	.header-container .logo {
-		margin-right: auto;
-	}
-
+@media
+	screen and (max-width: 47.99em),
+	screen and (max-width: 57.99em) and (pointer: coarse) and (orientation: landscape)
+{
 	.header-button .icon {padding: 6px;}
 	.header-button.selected .icon {
 		border-bottom: 2px solid;
 		padding-bottom: 4px;
-	}
-
-	.header-button > .fa-chevron-down,
-	.header-button > .fa-chevron-up {
-		display: none;
 	}
 
 	.header-super-wrapper > .menu-wrapper > .menu > ul {padding-top: 24px;}
@@ -105,14 +99,17 @@
 /**********************************************************************************
  * ONLY S
  **********************************************************************************/
-@media screen and (min-width: 35.5em) and (max-width: 47.99em) {
+@media
+	screen and (min-width: 35.5em) and (max-width: 47.99em),
+	screen and (min-width: 35.5em) and (max-width: 57.99em) and (pointer: coarse) and (orientation: landscape)
+{
 	.toggle-wrapper .header-button {margin-right: 6px;}
 	.toggle-wrapper:last-child .header-button {margin-right: 12px;}
 
-	.menu li > .menu-item {margin: 0 24px;}
+	.menu li > .menu-item {margin: 0 4%;}
 
 	/* non-playlist item */
-	.menu:not(.menu-playlist) li > .menu-item {padding: 10px 8px;}
+	.menu:not(.menu-playlist) li > .menu-item {padding: 10px 1%;}
 	/* special first item in music menu */
 	.menu-music li:first-child > .menu-item {padding-top: 0;}
 	/* playlist item */
