@@ -7,6 +7,7 @@
 
 /*============== Logo ==============*/
 .header-container .logo {
+	margin-right: auto;
 	z-index: 100;
 }
 .header-container .logo-text{display: none;}
@@ -33,6 +34,11 @@
 header .fa-chevron-down, header .fa-chevron-up {
 	font-size: 0.5em;
 	margin: 3px 0 0 4px;
+}
+
+.header-button > .fa-chevron-down,
+.header-button > .fa-chevron-up {
+	display: none;
 }
 
 .player .player-button {
