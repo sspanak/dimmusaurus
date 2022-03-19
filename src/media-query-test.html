@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>screen size test</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style>
+			div {
+				border: 1px solid gray;
+				max-width: 300px;
+				padding: 10px;
+				text-align: center;
+			}
+
+			.xxs, .xs, .s, .m-48, .m-58, .l, .xl,
+			.pointer-fine, .pointer-coarse,	.landscape {
+				background: lightpink;
+			}
+
+			@media screen and (orientation: landscape) {
+				.landscape { background: lightgreen; }
+			}
+
+			@media screen and (pointer: coarse) {
+				.pointer-coarse { background: lightgreen; }
+			}
+
+			@media screen and (pointer: fine) {
+				.pointer-fine { background: lightgreen; }
+			}
+
+
+			@media 
+				screen and (max-width: 18.1em) and (orientation: portrait),
+				screen and (max-width: 20.1em) and (orientation: landscape) {
+				.xxs { background: lightgreen; }
+			}
+
+			@media
+				screen and (min-width: 18.1em) and (orientation: portrait),
+				screen and (min-width: 20.1em) and (orientation: landscape) {
+				.xs { background: lightgreen; }
+			}
+
+			@media screen and (min-width: 35.5em) {
+				.s { background: lightgreen; }
+			}
+
+			@media screen and (min-width: 64em) {
+				.l { background: lightgreen; }
+			}
+
+			@media screen and (min-width: 80em) {
+				.xl { background: lightgreen; }
+			}
+
+			@media screen and (min-width: 58em) {
+				.m-58 { background: lightgreen; }
+			}
+
+			@media screen and (min-width: 48em) {
+				.m-48 { background: lightgreen; }
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="xxs">XXS</div>
+		<div class="xs">XS</div>
+		<div class="s">S</div>
+		<div class="m-48">M 48</div>
+		<div class="m-58">M 58</div>
+		<div class="l">L</div>
+		<div class="xl">XL</div>
+		<div class="pointer-fine">pointer-fine</div>
+		<div class="pointer-coarse">pointer-coarse</div>
+		<div class="landscape">landscape</div>
+	</body>
+</html>

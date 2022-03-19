@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-27 16:42+0200\n"
+"POT-Creation-Date: 2022-03-19 09:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: bio/templates/bio/index.html:10 main/templates/main/__root.html:151
+#: bio/templates/bio/index.html:10 main/templates/main/__root.html:153
 #: music/templates/music/discography.html:11
 #: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
 msgid "home/"
 msgstr "accueil/"
 
-#: bio/templates/bio/index.html:10 main/templates/main/__root.html:153
+#: bio/templates/bio/index.html:10 main/templates/main/__root.html:155
 #: music/templates/music/discography.html:11
 #: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
 msgid "Home"
@@ -32,7 +32,7 @@ msgstr "Accueil"
 
 #. Translators: Biography page title
 #: bio/templates/bio/index.html:12 bio/views.py:24
-#: main/templates/main/__root.html:159
+#: main/templates/main/__root.html:161
 msgid "Biography"
 msgstr "Biographie"
 
@@ -73,10 +73,14 @@ msgid "Cannot load this song!"
 msgstr "Impossible de charger cette chanson!"
 
 #: main/templates/main/__root.html:50
+msgid "Details about"
+msgstr "Détails de"
+
+#: main/templates/main/__root.html:51
 msgid "Loading..."
 msgstr "Chargement..."
 
-#: main/templates/main/__root.html:51
+#: main/templates/main/__root.html:52
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Si vous changez la langue, la musique s'arrêtera. Confirmez-vous?"
 
@@ -96,124 +100,124 @@ msgstr "Choisir la langue préférée"
 msgid "Main Menu"
 msgstr "Menu principal"
 
-#: main/templates/main/__root.html:111
+#: main/templates/main/__root.html:112
 msgid "Device Default"
 msgstr "Par défaut du système"
 
-#: main/templates/main/__root.html:118
+#: main/templates/main/__root.html:119
 msgid "Bright"
 msgstr "Lumineux"
 
-#: main/templates/main/__root.html:125
+#: main/templates/main/__root.html:126
 msgid "Dark"
 msgstr "Foncé"
 
-#: main/templates/main/__root.html:151
+#: main/templates/main/__root.html:153
 msgid "Go to home page"
 msgstr "Naviguer vers la page d'accueil"
 
-#: main/templates/main/__root.html:157 main/templates/main/index.html:6
+#: main/templates/main/__root.html:159 main/templates/main/index.html:6
 msgid "biography/"
 msgstr "biographie/"
 
-#: main/templates/main/__root.html:157
+#: main/templates/main/__root.html:159
 msgid "Go to biography page"
 msgstr "Naviguer vers la page Biographie"
 
-#: main/templates/main/__root.html:163
+#: main/templates/main/__root.html:165
 msgid "Go to discography page"
 msgstr "Naviguer vers la page Discographie"
 
-#: main/templates/main/__root.html:165
+#: main/templates/main/__root.html:167
 #: music/templates/music/discography.html:15
 #: music/templates/music/discography.html:18
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "Music"
 msgstr "Musique"
 
-#: main/templates/main/__root.html:174 main/templates/main/index.html:5
+#: main/templates/main/__root.html:176 main/templates/main/index.html:5
 #: music/templates/music/discography.html:18
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "music/"
 msgstr "musique/"
 
-#: main/templates/main/__root.html:174
+#: main/templates/main/__root.html:176
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: main/templates/main/__root.html:200
+#: main/templates/main/__root.html:202
 msgid "Song search field"
 msgstr "Recherher pour une chanson"
 
-#: main/templates/main/__root.html:203
+#: main/templates/main/__root.html:205
 msgid "Search..."
 msgstr "Rechercher..."
 
-#: main/templates/main/__root.html:209
+#: main/templates/main/__root.html:211
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
 
-#: main/templates/main/__root.html:220
+#: main/templates/main/__root.html:222
 msgid "Follow"
 msgstr "Suivez"
 
-#: main/templates/main/__root.html:234
+#: main/templates/main/__root.html:236
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: main/templates/main/__root.html:235
+#: main/templates/main/__root.html:237
 msgid "Go to Dimmu Saurus Facebook page"
 msgstr "Naviguer vers la page Facebook de Dimmu Saurus"
 
-#: main/templates/main/__root.html:240
+#: main/templates/main/__root.html:242
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: main/templates/main/__root.html:241
+#: main/templates/main/__root.html:243
 msgid "Go to Dimmu Saurus Youtube channel"
 msgstr "Naviguer vers la chaîne Youtube de Dimmu Saurus"
 
-#: main/templates/main/__root.html:245
+#: main/templates/main/__root.html:247
 msgid "Dimmu Saurus Soundcloud page"
 msgstr "Dimmu Saurus sur Soundcloud"
 
-#: main/templates/main/__root.html:246
+#: main/templates/main/__root.html:248
 msgid "Go to Dimmu Saurus Soundcloud page"
 msgstr "Naviguer vers la page Soundcloud de Dimmu Saurus"
 
-#: main/templates/main/__root.html:265 main/templates/main/__root.html:266
+#: main/templates/main/__root.html:267 main/templates/main/__root.html:268
 msgid "Toggle Playlist"
 msgstr "Liste de lecture"
 
-#: main/templates/main/__root.html:297
+#: main/templates/main/__root.html:299
 msgid "Sound Volume"
 msgstr "Son"
 
-#: main/templates/main/__root.html:298
+#: main/templates/main/__root.html:300
 msgid "Mute/Unmute music"
 msgstr "Baisser/Augmenter le volume"
 
-#: main/templates/main/__root.html:302
+#: main/templates/main/__root.html:304
 msgid "Previous Track"
 msgstr "Précédent"
 
-#: main/templates/main/__root.html:303
+#: main/templates/main/__root.html:305
 msgid "Play previous song"
 msgstr "Lire la chanson précédente"
 
-#: main/templates/main/__root.html:307
+#: main/templates/main/__root.html:309
 msgid "Play / Pause"
 msgstr "Lire / Pause"
 
-#: main/templates/main/__root.html:308
+#: main/templates/main/__root.html:310
 msgid "Play/Pause current song"
 msgstr "Lire/Pauser la chanson en cours"
 
-#: main/templates/main/__root.html:312
+#: main/templates/main/__root.html:314
 msgid "Next Track"
 msgstr "Suivant"
 
-#: main/templates/main/__root.html:313
+#: main/templates/main/__root.html:315
 msgid "Play next song"
 msgstr "Lire la chanson suivante"
 

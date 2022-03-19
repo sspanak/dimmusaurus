@@ -98,7 +98,12 @@ function getPlaylistItemTemplate(id, name, duration, url, trackIdPrefix, itemDat
 			<div id="${trackId}" class="menu-item">
 				<span class="playlist-title" onclick="Player.selectTrack(${id});Player.playToggle();">${name}</span>
 				<span class="playlist-time">${duration}</span>
-				<a href="${url}" class="playlist-info fas fa-info-circle" onclick="PlayerUi.closePlaylist()"></a>
+				<a
+					title="${MESSAGES.detailsAbout}: &quot;${name}&quot;"
+					href="${url}"
+					class="playlist-info fas fa-info-circle"
+					onclick="PlayerUi.closePlaylist()">
+				</a>
 			</div>
 		</li>`;
 }
