@@ -138,6 +138,7 @@
 	.content-lyrics .english-translation-link {display: none;}
 	.content-lyrics .lyrics-wrapper .lyrics {white-space: nowrap;}
 
+	.content-discography .album-tracks .track-wrapper {padding: 0;}
 	.content-discography .album-tracks .album-duration-container .album-duration-label {padding-top: 8px;}
 
 

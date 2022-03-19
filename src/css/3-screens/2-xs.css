@@ -19,6 +19,9 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		width: 56px;
 	}
 
+/*============== Breadcrumbs ==============*/
+	.breadcrumbs ul li {padding: 1px;}
+
 /*============== Logo ==============*/
 	.header-container .logo {
 		border-radius: 0 42px 42px 42px;
@@ -40,6 +43,7 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 	.content article {text-align: justify;}
 
 	.content-discography .album-cover {margin-top: 24px;}
+	.content-discography .album-tracks .track-wrapper {padding: 1px 0;}
 
 	.content-tune .tune-links li {margin: 10px 3px;}
 
@@ -63,7 +67,6 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		/* Otherwise breadcrumbs wrap arround and become unreadable on very narrow screens */
 		max-width: 100%;
 		overflow-x: hidden;
-		padding: 1px 0;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
