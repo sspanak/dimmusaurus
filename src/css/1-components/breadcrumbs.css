@@ -7,4 +7,4 @@
 }
 .breadcrumbs li {display: inline-block;}
 .breadcrumbs li:not(:first-child)::before {content: " / ";}
-.breadcrumbs li .fas {padding-right: 4px;}
+.breadcrumbs li .fas {padding: 0 5px 0 1px;}
