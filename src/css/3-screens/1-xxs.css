@@ -16,6 +16,9 @@ screen and (max-width: 20.1em) and (orientation: landscape) {
 
 	.button-scroll-to-top {display: none;}
 
+/*============== Breadcrumbs ==============*/
+	.breadcrumbs a, .breadcrumbs span {margin: 2px 4px;}
+
 /*============== Logo ==============*/
 	.header-container .logo {
 		border-bottom: 1px solid;

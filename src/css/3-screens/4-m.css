@@ -96,11 +96,11 @@
 	.toggle-theme-wrapper .header-button .fa-lightbulb {font-size: 0.9em;}
 
 /*============== Breadcrumbs ==============*/
-	.breadcrumbs {
-		margin: 0 auto;
-		text-align: center;
+	.breadcrumbs {margin: 0 auto;}
+	.breadcrumbs ul {
+		margin-top: 0;
+		justify-content: center;
 	}
-	.breadcrumbs ul {margin-top: 0;}
 
 /*============== Menus ==============*/
 	.menu-wrapper {display: flex;}

@@ -8,18 +8,20 @@
 	<nav class="breadcrumbs" aria-label="breadcrumbs">
 		<ul>
 			<li>
-				<span><a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a></span>
+				<a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a>
 			</li>
 			<li>
-				<span><a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a></span>
+				<a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a>
 			</li>
 			<li>
-				<span><a href="{{ album.get_absolute_url }}"><i class="fas fa-compact-disc"></i>{{ album.title }}</a></span>
+				<a href="{{ album.get_absolute_url }}"><i class="fas fa-compact-disc"></i>{{ album.title }}</a>
 			</li>
 			<li>
-				<span><a href="{{ lyrics.song.get_absolute_url }}"><i class="fas fa-guitar"></i>{{ song_title }}</a></span>
+				<a href="{{ lyrics.song.get_absolute_url }}"><i class="fas fa-guitar"></i>{{ song_title }}</a>
 			</li>
-			<li><i class="fas fa-file-alt"></i>{% trans 'lyrics'|title %}</li>
+			<li>
+				<span><i class="fas fa-file-alt"></i>{% trans 'lyrics'|title %}</span>
+			</li>
 		</ul>
 	</nav>
 
