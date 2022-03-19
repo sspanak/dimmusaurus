@@ -37,7 +37,7 @@ screen and (max-width: 20.1em) and (orientation: landscape) {
 	.content-discography .album-cover .fas {font-size: 150px;}
 	.content-discography .album-tracks .track-length {margin-left: 4px;}
 
-	.content-tune .tune-links li {margin: 5px 0;}
+	.content-tune .tune-links li {margin: 3px;}
 
 	.content-version .ascii-logo {
 		font-size: 0.35rem;
