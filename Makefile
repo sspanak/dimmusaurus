@@ -44,10 +44,11 @@ django:
 django-static:
 	make clean
 	django-admin compilemessages
-	@printf 'Copying py and linking the database... ' && \
-		cp -r src/py/* dist/ && \
+	@printf 'Copying py... ' && cp -r src/py/* dist/ && echo "OK"
+	@bash -c build-tools/html-minify.sh
+	@printf 'Copying the database... ' && \
 		rm dist/db.sqlite3 && ln -s "$(PWD)/src/py/db.sqlite3" dist/db.sqlite3 && \
-	echo 'OK'
+		echo 'OK'
 	@make css
 	@make js
 	@make images
