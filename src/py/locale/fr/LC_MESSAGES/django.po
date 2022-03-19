@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-19 09:23+0200\n"
+"POT-Creation-Date: 2022-03-19 15:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,13 +31,13 @@ msgid "Home"
 msgstr "Accueil"
 
 #. Translators: Biography page title
-#: bio/templates/bio/index.html:12 bio/views.py:24
+#: bio/templates/bio/index.html:13 bio/views.py:24
 #: main/templates/main/__root.html:161
 msgid "Biography"
 msgstr "Biographie"
 
 #. Translators: About page big heading
-#: bio/templates/bio/index.html:17
+#: bio/templates/bio/index.html:19
 msgid "About Dimmu Saurus"
 msgstr "C'est quoi Dimmu Saurus?"
 
@@ -129,14 +129,14 @@ msgid "Go to discography page"
 msgstr "Naviguer vers la page Discographie"
 
 #: main/templates/main/__root.html:167
-#: music/templates/music/discography.html:15
-#: music/templates/music/discography.html:18
+#: music/templates/music/discography.html:16
+#: music/templates/music/discography.html:20
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "Music"
 msgstr "Musique"
 
 #: main/templates/main/__root.html:176 main/templates/main/index.html:5
-#: music/templates/music/discography.html:18
+#: music/templates/music/discography.html:20
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "music/"
 msgstr "musique/"
@@ -284,7 +284,7 @@ msgstr "musique/chansons/"
 msgid "/lyrics/"
 msgstr "/paroles/"
 
-#: music/templates/music/discography.html:31
+#: music/templates/music/discography.html:35
 msgid ""
 "Dimmu Saurus' music is result of series of experiments with his guitar and "
 "his computer. They lead to almost anything you can imagine – from Blues to "
@@ -297,26 +297,26 @@ msgstr ""
 "transforme en black metal en combinaison avec un orchestre classique. Bien "
 "sur, on n'a pas oublié la musique électronique. "
 
-#: music/templates/music/discography.html:46
+#: music/templates/music/discography.html:50
 msgid ""
 "All music is composed by Димозавър (Dimmu Saurus), except where noted. "
-"Download, play and share to help him become famous. Dimmu Saurus is not "
-"responsible for any damage to your speakers, house or trouble with "
+"Download, play and share to help him take over Earth and Mars. Dimmu Saurus "
+"is not responsible for any damage to your speakers, house or trouble with "
 "neighbours which may result in playing his music too loud."
 msgstr ""
 "Toute la musique, sauf indication contraire, est composée par Димозавър "
-"(Dimmu Saurus). Téléchargez, écoutez et partagez pour l'aider devenir "
-"célèbre. Dimmu Saurus n'est pas responsable des dommages aux votre haut-"
-"parleurs, maison ou difficultés avec vos voisins, qui pourraient découler du "
-"niveau sonore trop élevé."
+"(Dimmu Saurus). Téléchargez, écoutez et partagez pour l'aider conquérir La "
+"Terre et Mars. Dimmu Saurus n'est pas responsable des dommages aux votre "
+"haut-parleurs, maison ou difficultés avec vos voisins, qui pourraient "
+"découler du niveau sonore trop élevé."
 
 #. Translators: LYRICS button on song page.
-#: music/templates/music/lyrics.html:22 music/templates/music/song.html:60
+#: music/templates/music/lyrics.html:23 music/templates/music/song.html:60
 msgid "lyrics"
 msgstr "paroles"
 
 #. Translators: Lyrics page big heading
-#: music/templates/music/lyrics.html:27
+#: music/templates/music/lyrics.html:29
 msgid "Song Lyrics"
 msgstr "Paroles de la chanson"
 
