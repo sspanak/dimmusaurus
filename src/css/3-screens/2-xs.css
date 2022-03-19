@@ -19,8 +19,8 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 		width: 56px;
 	}
 
-/*============== Breadcrumbs ==============*/
-	.breadcrumbs ul li {padding: 1px;}
+	/*============== Breadcrumbs ==============*/
+	.breadcrumbs a, .breadcrumbs span {margin: 4px 5px;}
 
 /*============== Logo ==============*/
 	.header-container .logo {
@@ -63,12 +63,11 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 @media screen and (max-width: 35.5em) {
 /*============== Components ==============*/
 	.breadcrumbs ul {max-width: 96%;}
-	.breadcrumbs li {
-		/* Otherwise breadcrumbs wrap arround and become unreadable on very narrow screens */
-		max-width: 100%;
+	.breadcrumbs li {max-width: 100%;}
+	.breadcrumbs a, .breadcrumbs span {
+		/* Otherwise breadcrumbs wrap around and become unreadable on very narrow screens */
 		overflow-x: hidden;
 		text-overflow: ellipsis;
-		white-space: nowrap;
 	}
 
 	.menu-playlist-wrapper {bottom: 48px;}

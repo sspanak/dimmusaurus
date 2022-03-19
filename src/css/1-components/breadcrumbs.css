@@ -1,10 +1,20 @@
 .breadcrumbs ul {
-	display: inline-block;
+	display: flex;
+	flex-wrap: wrap;
 	font-size: 0.95em;
-	margin: 16px 2% 0;
+	margin: 12px 2% 0;
 	padding: 0;
-	text-align: left;
 }
-.breadcrumbs li {display: inline-block;}
-.breadcrumbs li:not(:first-child)::before {content: " / ";}
+
+.breadcrumbs li {
+	align-items: center;
+	display: flex;
+}
+.breadcrumbs li:not(:first-child)::before {content: "/";}
+
+.breadcrumbs a, .breadcrumbs span {
+	display: block;
+	white-space: nowrap;
+}
+.breadcrumbs li:first-child a {margin-left: 0;}
 .breadcrumbs li .fas {padding: 0 5px 0 1px;}

@@ -13,11 +13,8 @@
 
 
 /*==============  Breadcrumbs ==============*/
-	.breadcrumbs ul {
-		margin-left: 6px;
-		margin-right: 6px;
-	}
-	.breadcrumbs ul li {display: inline;}
+	.breadcrumbs ul {margin: 16px 6px 0 6px;}
+	.breadcrumbs a, .breadcrumbs span {margin: 0 5px;}
 
 
 /*============== Pages ==============*/
