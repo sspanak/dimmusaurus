@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-02-27 16:42+0200\n"
+"POT-Creation-Date: 2022-03-19 09:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: bio/templates/bio/index.html:10 main/templates/main/__root.html:151
+#: bio/templates/bio/index.html:10 main/templates/main/__root.html:153
 #: music/templates/music/discography.html:11
 #: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
 msgid "home/"
 msgstr "начало/"
 
-#: bio/templates/bio/index.html:10 main/templates/main/__root.html:153
+#: bio/templates/bio/index.html:10 main/templates/main/__root.html:155
 #: music/templates/music/discography.html:11
 #: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
 msgid "Home"
@@ -32,7 +32,7 @@ msgstr "Начало"
 
 #. Translators: Biography page title
 #: bio/templates/bio/index.html:12 bio/views.py:24
-#: main/templates/main/__root.html:159
+#: main/templates/main/__root.html:161
 msgid "Biography"
 msgstr "Биография"
 
@@ -73,10 +73,14 @@ msgid "Cannot load this song!"
 msgstr "Песента не можа да зареди!"
 
 #: main/templates/main/__root.html:50
+msgid "Details about"
+msgstr "Подробности за"
+
+#: main/templates/main/__root.html:51
 msgid "Loading..."
 msgstr "Зареждане..."
 
-#: main/templates/main/__root.html:51
+#: main/templates/main/__root.html:52
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Смяната на езика ще спре музиката. Продължавате ли?"
 
@@ -96,124 +100,124 @@ msgstr "Избор на език"
 msgid "Main Menu"
 msgstr "Главно меню"
 
-#: main/templates/main/__root.html:111
+#: main/templates/main/__root.html:112
 msgid "Device Default"
 msgstr "Като устройството"
 
-#: main/templates/main/__root.html:118
+#: main/templates/main/__root.html:119
 msgid "Bright"
 msgstr "Светъл"
 
-#: main/templates/main/__root.html:125
+#: main/templates/main/__root.html:126
 msgid "Dark"
 msgstr "Тъмен"
 
-#: main/templates/main/__root.html:151
+#: main/templates/main/__root.html:153
 msgid "Go to home page"
 msgstr "Отиди на главната страница"
 
-#: main/templates/main/__root.html:157 main/templates/main/index.html:6
+#: main/templates/main/__root.html:159 main/templates/main/index.html:6
 msgid "biography/"
 msgstr "биография/"
 
-#: main/templates/main/__root.html:157
+#: main/templates/main/__root.html:159
 msgid "Go to biography page"
 msgstr "Отиди на страница Биография"
 
-#: main/templates/main/__root.html:163
+#: main/templates/main/__root.html:165
 msgid "Go to discography page"
 msgstr "Отиди на страница Дискография"
 
-#: main/templates/main/__root.html:165
+#: main/templates/main/__root.html:167
 #: music/templates/music/discography.html:15
 #: music/templates/music/discography.html:18
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "Music"
 msgstr "Музика"
 
-#: main/templates/main/__root.html:174 main/templates/main/index.html:5
+#: main/templates/main/__root.html:176 main/templates/main/index.html:5
 #: music/templates/music/discography.html:18
 #: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
 msgid "music/"
 msgstr "музика/"
 
-#: main/templates/main/__root.html:174
+#: main/templates/main/__root.html:176
 msgid "All Albums"
 msgstr "Всички албуми"
 
-#: main/templates/main/__root.html:200
+#: main/templates/main/__root.html:202
 msgid "Song search field"
 msgstr "Поле за търсене на песен"
 
-#: main/templates/main/__root.html:203
+#: main/templates/main/__root.html:205
 msgid "Search..."
 msgstr "Търсене..."
 
-#: main/templates/main/__root.html:209
+#: main/templates/main/__root.html:211
 msgid "Playlist unavailable. Refresh the page to try again."
 msgstr "Няма песни. Опитайте да презаредите страницата отново."
 
-#: main/templates/main/__root.html:220
+#: main/templates/main/__root.html:222
 msgid "Follow"
 msgstr "Последвай"
 
-#: main/templates/main/__root.html:234
+#: main/templates/main/__root.html:236
 msgid "Dimmu Saurus on Facebook"
 msgstr "Димозавър във Facebook"
 
-#: main/templates/main/__root.html:235
+#: main/templates/main/__root.html:237
 msgid "Go to Dimmu Saurus Facebook page"
 msgstr "Отиди на страницата на Димозавър във Facebook"
 
-#: main/templates/main/__root.html:240
+#: main/templates/main/__root.html:242
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Канал на Димозавър в Youtube"
 
-#: main/templates/main/__root.html:241
+#: main/templates/main/__root.html:243
 msgid "Go to Dimmu Saurus Youtube channel"
 msgstr "Отиди в канала на Димозавър в Youtube"
 
-#: main/templates/main/__root.html:245
+#: main/templates/main/__root.html:247
 msgid "Dimmu Saurus Soundcloud page"
 msgstr "Димозавър в Soundcloud"
 
-#: main/templates/main/__root.html:246
+#: main/templates/main/__root.html:248
 msgid "Go to Dimmu Saurus Soundcloud page"
 msgstr "Отиди на страницата на Димозавър в Soundcloud"
 
-#: main/templates/main/__root.html:265 main/templates/main/__root.html:266
+#: main/templates/main/__root.html:267 main/templates/main/__root.html:268
 msgid "Toggle Playlist"
 msgstr "Плейлиста"
 
-#: main/templates/main/__root.html:297
+#: main/templates/main/__root.html:299
 msgid "Sound Volume"
 msgstr "Сила на звука"
 
-#: main/templates/main/__root.html:298
+#: main/templates/main/__root.html:300
 msgid "Mute/Unmute music"
 msgstr "Намали/Усили музиката"
 
-#: main/templates/main/__root.html:302
+#: main/templates/main/__root.html:304
 msgid "Previous Track"
 msgstr "Предишна песен"
 
-#: main/templates/main/__root.html:303
+#: main/templates/main/__root.html:305
 msgid "Play previous song"
 msgstr "Пусни предишната песен"
 
-#: main/templates/main/__root.html:307
+#: main/templates/main/__root.html:309
 msgid "Play / Pause"
 msgstr "Просвири / Пауза"
 
-#: main/templates/main/__root.html:308
+#: main/templates/main/__root.html:310
 msgid "Play/Pause current song"
 msgstr "Пусни/Спри текущата песен"
 
-#: main/templates/main/__root.html:312
+#: main/templates/main/__root.html:314
 msgid "Next Track"
 msgstr "Следваща песен"
 
-#: main/templates/main/__root.html:313
+#: main/templates/main/__root.html:315
 msgid "Play next song"
 msgstr "Пусни следващата песен"
 
