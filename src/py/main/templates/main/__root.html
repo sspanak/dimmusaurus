@@ -178,7 +178,7 @@
 								{% for a_info in albums %}
 								<li>
 									<a class="menu-item" href="{{ a_info.get_absolute_url }}">
-										{{ a_info.album.release_date|date:"(Y)" }} {{ a_info.title }}
+										{{ a_info.album.release_date|date:"(Y) " }}{{ a_info.title }}
 									</a>
 								</li>
 								{% endfor %}

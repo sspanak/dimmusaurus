@@ -8,10 +8,10 @@
 <div class="album">
 	<h3 class="album-title">
 		{% if page.single_album %}
-			{{ a.album.release_date|date:"(Y)" }} {{ a.title }}
+			{{ a.album.release_date|date:"(Y) " }} {{ a.title }}
 		{% else %}
 			<a href="{{ a.get_absolute_url }}">
-				{{ a.album.release_date|date:"(Y)" }} {{ a.title }}
+				{{ a.album.release_date|date:"(Y) " }} {{ a.title }}
 			</a>
 		{% endif %}
 	</h3>

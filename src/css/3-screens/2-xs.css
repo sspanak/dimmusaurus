@@ -45,7 +45,7 @@ screen and (min-width: 20.1em) and (orientation: landscape) {
 	.content-discography .album-cover {margin-top: 24px;}
 	.content-discography .album-tracks .track-wrapper {padding: 1px 0;}
 
-	.content-tune .tune-links li {margin: 10px 3px;}
+	.content-tune .tune-links li {margin: 7px 5px;}
 
 	.content-version .ascii-logo {font-size: 0.5rem;}
 
