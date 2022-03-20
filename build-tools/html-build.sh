@@ -17,6 +17,11 @@ html_minify() {
 
 for src_file in src/py/*/templates/{*.html,*/*.html};
 do
+	if [[ "$src_file" =~ version\.html$ ]]; then
+		echo "Skpped $src_file"
+		continue
+	fi
+
 	printf "Minifiying $src_file... " \
 		&& dist_file="${src_file/src\/py\//dist/}" \
 		&& mkdir -p `dirname $dist_file` \
