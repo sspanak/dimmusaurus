@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-19 15:55+0200\n"
+"POT-Creation-Date: 2022-03-26 14:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,31 +18,40 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: bio/templates/bio/index.html:10 main/templates/main/__root.html:153
+#: bio/templates/bio/index.html:9 bio/templates/bio/index.html:17
+#: main/templates/main/components/gui-header.html:90
+#: main/templates/main/components/text-header.html:5
 #: music/templates/music/discography.html:11
-#: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
+#: music/templates/music/discography.html:25
+#: music/templates/music/lyrics.html:10 music/templates/music/lyrics.html:21
+#: music/templates/music/song.html:10 music/templates/music/song.html:20
 msgid "home/"
 msgstr "accueil/"
 
-#: bio/templates/bio/index.html:10 main/templates/main/__root.html:155
+#: bio/templates/bio/index.html:9 bio/templates/bio/index.html:17
+#: main/templates/main/components/gui-header.html:92
+#: main/templates/main/components/text-header.html:5
 #: music/templates/music/discography.html:11
-#: music/templates/music/lyrics.html:11 music/templates/music/song.html:11
+#: music/templates/music/discography.html:25
+#: music/templates/music/lyrics.html:10 music/templates/music/lyrics.html:21
+#: music/templates/music/song.html:10 music/templates/music/song.html:20
 msgid "Home"
 msgstr "Accueil"
 
 #. Translators: Biography page title
-#: bio/templates/bio/index.html:13 bio/views.py:24
-#: main/templates/main/__root.html:161
+#: bio/templates/bio/index.html:10 bio/templates/bio/index.html:20
+#: bio/views.py:25 main/templates/main/components/gui-header.html:98
+#: main/templates/main/components/text-header.html:7
 msgid "Biography"
 msgstr "Biographie"
 
 #. Translators: About page big heading
-#: bio/templates/bio/index.html:19
+#: bio/templates/bio/index.html:27
 msgid "About Dimmu Saurus"
 msgstr "C'est quoi Dimmu Saurus?"
 
 #. Translators: Biography page description
-#: bio/views.py:26
+#: bio/views.py:27
 msgid "The story of Dimmu Saurus project"
 msgstr "L'histoire de Dimmu Saurus"
 
@@ -84,148 +93,159 @@ msgstr "Chargement..."
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Si vous changez la langue, la musique s'arrêtera. Confirmez-vous?"
 
-#: main/templates/main/__root.html:79
-msgid "Choose a Color Theme"
-msgstr "Choisir le thème «Couleur»"
-
-#: main/templates/main/__root.html:81
-msgid "Theme"
-msgstr "Thème"
-
-#: main/templates/main/__root.html:87
-msgid "Change the Language"
-msgstr "Choisir la langue préférée"
-
-#: main/templates/main/__root.html:95
-msgid "Main Menu"
-msgstr "Menu principal"
-
-#: main/templates/main/__root.html:112
-msgid "Device Default"
-msgstr "Par défaut du système"
-
-#: main/templates/main/__root.html:119
-msgid "Bright"
-msgstr "Lumineux"
-
-#: main/templates/main/__root.html:126
-msgid "Dark"
-msgstr "Foncé"
-
-#: main/templates/main/__root.html:153
-msgid "Go to home page"
-msgstr "Naviguer vers la page d'accueil"
-
-#: main/templates/main/__root.html:159 main/templates/main/index.html:6
-msgid "biography/"
-msgstr "biographie/"
-
-#: main/templates/main/__root.html:159
-msgid "Go to biography page"
-msgstr "Naviguer vers la page Biographie"
-
-#: main/templates/main/__root.html:165
-msgid "Go to discography page"
-msgstr "Naviguer vers la page Discographie"
-
-#: main/templates/main/__root.html:167
-#: music/templates/music/discography.html:16
-#: music/templates/music/discography.html:20
-#: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
-msgid "Music"
-msgstr "Musique"
-
-#: main/templates/main/__root.html:176 main/templates/main/index.html:5
-#: music/templates/music/discography.html:20
-#: music/templates/music/lyrics.html:14 music/templates/music/song.html:14
-msgid "music/"
-msgstr "musique/"
-
-#: main/templates/main/__root.html:176
-msgid "All Albums"
-msgstr "Toute la discographie"
-
-#: main/templates/main/__root.html:202
-msgid "Song search field"
-msgstr "Recherher pour une chanson"
-
-#: main/templates/main/__root.html:205
-msgid "Search..."
-msgstr "Rechercher..."
-
-#: main/templates/main/__root.html:211
-msgid "Playlist unavailable. Refresh the page to try again."
-msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
-
-#: main/templates/main/__root.html:222
+#: main/templates/main/components/gui-footer.html:7
 msgid "Follow"
 msgstr "Suivez"
 
-#: main/templates/main/__root.html:236
+#: main/templates/main/components/gui-footer.html:21
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: main/templates/main/__root.html:237
+#: main/templates/main/components/gui-footer.html:22
 msgid "Go to Dimmu Saurus Facebook page"
 msgstr "Naviguer vers la page Facebook de Dimmu Saurus"
 
-#: main/templates/main/__root.html:242
+#: main/templates/main/components/gui-footer.html:27
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: main/templates/main/__root.html:243
+#: main/templates/main/components/gui-footer.html:28
 msgid "Go to Dimmu Saurus Youtube channel"
 msgstr "Naviguer vers la chaîne Youtube de Dimmu Saurus"
 
-#: main/templates/main/__root.html:247
+#: main/templates/main/components/gui-footer.html:32
 msgid "Dimmu Saurus Soundcloud page"
 msgstr "Dimmu Saurus sur Soundcloud"
 
-#: main/templates/main/__root.html:248
+#: main/templates/main/components/gui-footer.html:33
 msgid "Go to Dimmu Saurus Soundcloud page"
 msgstr "Naviguer vers la page Soundcloud de Dimmu Saurus"
 
-#: main/templates/main/__root.html:267 main/templates/main/__root.html:268
+#: main/templates/main/components/gui-header.html:16
+msgid "Choose a Color Theme"
+msgstr "Choisir le thème «Couleur»"
+
+#: main/templates/main/components/gui-header.html:18
+msgid "Theme"
+msgstr "Thème"
+
+#: main/templates/main/components/gui-header.html:24
+msgid "Change the Language"
+msgstr "Choisir la langue préférée"
+
+#: main/templates/main/components/gui-header.html:32
+msgid "Main Menu"
+msgstr "Menu principal"
+
+#: main/templates/main/components/gui-header.html:49
+msgid "Device Default"
+msgstr "Par défaut du système"
+
+#: main/templates/main/components/gui-header.html:56
+msgid "Bright"
+msgstr "Lumineux"
+
+#: main/templates/main/components/gui-header.html:63
+msgid "Dark"
+msgstr "Foncé"
+
+#: main/templates/main/components/gui-header.html:90
+msgid "Go to home page"
+msgstr "Naviguer vers la page d'accueil"
+
+#: main/templates/main/components/gui-header.html:96
+#: main/templates/main/components/text-header.html:7
+#: main/templates/main/pages/index.html:7
+msgid "biography/"
+msgstr "biographie/"
+
+#: main/templates/main/components/gui-header.html:96
+msgid "Go to biography page"
+msgstr "Naviguer vers la page Biographie"
+
+#: main/templates/main/components/gui-header.html:102
+msgid "Go to discography page"
+msgstr "Naviguer vers la page Discographie"
+
+#: main/templates/main/components/gui-header.html:104
+#: main/templates/main/components/text-header.html:9
+#: music/templates/music/discography.html:14
+#: music/templates/music/discography.html:16
+#: music/templates/music/discography.html:30
+#: music/templates/music/discography.html:34
+#: music/templates/music/lyrics.html:11 music/templates/music/lyrics.html:24
+#: music/templates/music/song.html:11 music/templates/music/song.html:23
+msgid "Music"
+msgstr "Musique"
+
+#: main/templates/main/components/gui-header.html:113
+#: main/templates/main/components/text-header.html:9
+#: main/templates/main/pages/index.html:6
+#: music/templates/music/discography.html:16
+#: music/templates/music/discography.html:34
+#: music/templates/music/lyrics.html:11 music/templates/music/lyrics.html:24
+#: music/templates/music/song.html:11 music/templates/music/song.html:23
+msgid "music/"
+msgstr "musique/"
+
+#: main/templates/main/components/gui-header.html:113
+msgid "All Albums"
+msgstr "Toute la discographie"
+
+#: main/templates/main/components/player.html:7
+#: main/templates/main/components/player.html:8
 msgid "Toggle Playlist"
 msgstr "Liste de lecture"
 
-#: main/templates/main/__root.html:299
+#: main/templates/main/components/player.html:39
 msgid "Sound Volume"
 msgstr "Son"
 
-#: main/templates/main/__root.html:300
+#: main/templates/main/components/player.html:40
 msgid "Mute/Unmute music"
 msgstr "Baisser/Augmenter le volume"
 
-#: main/templates/main/__root.html:304
+#: main/templates/main/components/player.html:44
 msgid "Previous Track"
 msgstr "Précédent"
 
-#: main/templates/main/__root.html:305
+#: main/templates/main/components/player.html:45
 msgid "Play previous song"
 msgstr "Lire la chanson précédente"
 
-#: main/templates/main/__root.html:309
+#: main/templates/main/components/player.html:49
 msgid "Play / Pause"
 msgstr "Lire / Pause"
 
-#: main/templates/main/__root.html:310
+#: main/templates/main/components/player.html:50
 msgid "Play/Pause current song"
 msgstr "Lire/Pauser la chanson en cours"
 
-#: main/templates/main/__root.html:314
+#: main/templates/main/components/player.html:54
 msgid "Next Track"
 msgstr "Suivant"
 
-#: main/templates/main/__root.html:315
+#: main/templates/main/components/player.html:55
 msgid "Play next song"
 msgstr "Lire la chanson suivante"
 
-#: main/templates/main/index.html:8
+#: main/templates/main/components/playlist.html:7
+msgid "Song search field"
+msgstr "Recherher pour une chanson"
+
+#: main/templates/main/components/playlist.html:10
+msgid "Search..."
+msgstr "Rechercher..."
+
+#: main/templates/main/components/playlist.html:16
+msgid "Playlist unavailable. Refresh the page to try again."
+msgstr "Le playlist n'est pas disponible. Veuillez rafraîchir la page."
+
+#: main/templates/main/pages/index.html:14
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: main/templates/main/index.html:11
+#: main/templates/main/pages/index.html:17
 msgid ""
 "Welcome to the Black Blues Dimosaur's den (Latin: <i>Dimmu Saurus</i>). It "
 "is a garage project for blues, rock and metal music, without any rules or "
@@ -235,7 +255,7 @@ msgstr ""
 "Dimmu Saurus est un projet de musique garage, dédié à la création de blues, "
 "metal et rock, sans règles ou restrictions."
 
-#: main/templates/main/index.html:16
+#: main/templates/main/pages/index.html:22
 #, python-format
 msgid ""
 "If you are a fan of this kind of music, then jump straight ahead to the <a "
@@ -248,27 +268,27 @@ msgstr ""
 "ce que c'est Dimmu Saurus? Alors, lisez sa <a href=\"/%(url_biography)s"
 "\">biographie</a>."
 
-#: main/templates/main/news.html:4
+#: main/templates/main/pages/index.html:28
 msgid "News"
 msgstr "Nouvelles"
 
-#: main/templates/main/news.html:16
+#: main/templates/main/pages/index.html:40
 msgid "No news are available at this time."
 msgstr "Il n'y a pas des nouvelles maintenant."
 
-#: main/views.py:21
+#: main/views.py:22
 msgid "Version Info"
 msgstr "Info du système"
 
-#: main/views.py:22
+#: main/views.py:23
 msgid "Version Information"
 msgstr "Information du système"
 
-#: main/views.py:43
+#: main/views.py:45
 msgid "Home Page"
 msgstr "Accueil"
 
-#: main/views.py:44
+#: main/views.py:46
 msgid "Music from the garage... without rules or restrictions"
 msgstr "Musique garage... sans règles et sans restrictions"
 
@@ -284,7 +304,11 @@ msgstr "musique/chansons/"
 msgid "/lyrics/"
 msgstr "/paroles/"
 
-#: music/templates/music/discography.html:35
+#: music/templates/music/albums.html:58
+msgid "Album Duration"
+msgstr "Durée totale"
+
+#: music/templates/music/discography.html:50
 msgid ""
 "Dimmu Saurus' music is result of series of experiments with his guitar and "
 "his computer. They lead to almost anything you can imagine – from Blues to "
@@ -297,7 +321,7 @@ msgstr ""
 "transforme en black metal en combinaison avec un orchestre classique. Bien "
 "sur, on n'a pas oublié la musique électronique. "
 
-#: music/templates/music/discography.html:50
+#: music/templates/music/discography.html:65
 msgid ""
 "All music is composed by Димозавър (Dimmu Saurus), except where noted. "
 "Download, play and share to help him take over Earth and Mars. Dimmu Saurus "
@@ -311,64 +335,65 @@ msgstr ""
 "découler du niveau sonore trop élevé."
 
 #. Translators: LYRICS button on song page.
-#: music/templates/music/lyrics.html:23 music/templates/music/song.html:60
+#: music/templates/music/lyrics.html:14 music/templates/music/lyrics.html:33
+#: music/templates/music/song.html:73
 msgid "lyrics"
 msgstr "paroles"
 
 #. Translators: Lyrics page big heading
-#: music/templates/music/lyrics.html:29
+#: music/templates/music/lyrics.html:40
 msgid "Song Lyrics"
 msgstr "Paroles de la chanson"
 
 #. Translators: Song page title
-#: music/templates/music/song.html:25 music/views.py:134
+#: music/templates/music/song.html:35 music/views.py:137
 msgid "Song Details"
 msgstr "Détails de la chanson"
 
-#: music/templates/music/song.html:35
+#: music/templates/music/song.html:45
 msgid "Originally titled"
 msgstr "Titre original"
 
 #. Translators: LISTEN button on song page.
-#: music/templates/music/song.html:43
+#: music/templates/music/song.html:55
 msgid "listen"
 msgstr "écouter"
 
 #. Translators: Youtube button on song page.
-#: music/templates/music/song.html:51
+#: music/templates/music/song.html:63
 msgid "watch"
 msgstr "regarder"
 
 #. Translators: DOWNLOAD button on song page.
-#: music/templates/music/song.html:68
+#: music/templates/music/song.html:81
 msgid "download"
 msgstr "télécharger"
 
-#: music/views.py:80
+#: music/views.py:81
 msgid "Track list and information."
 msgstr "Liste des titres et information."
 
 #. Translators: Discography page title
-#: music/views.py:94
+#: music/views.py:96
 msgid "Discography"
 msgstr "Discographie"
 
 #. Translators: Discography page description
-#: music/views.py:96
+#: music/views.py:98
 msgid "Dimmu Saurus Discography"
 msgstr "Dimmu Saurus – Discographie"
 
 #. Translators: Song page description
-#: music/views.py:136
+#: music/views.py:139
 msgid "Detailed information and song lyrics. Download link."
 msgstr "Information, paroles et téléchargement de la chanson."
 
 #. Translators: Lyrics page title
-#: music/views.py:170
+#: music/views.py:174
 msgid "Lyrics"
 msgstr "Paroles"
 
 #. Translators: Lyrics page description
-#: music/views.py:172
+#: music/views.py:176
 msgid "Song lyrics and English translation."
 msgstr "Paroles de la chanson et traduction anglaise."

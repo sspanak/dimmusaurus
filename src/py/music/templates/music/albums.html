@@ -17,6 +17,8 @@
 	</h3>
 
 	<div class="album-contents-wrapper">
+
+		{% if not is_text_browser %}
 		<div class="album-cover">
 			{% if page.single_album %}
 				<i class="fas fa-compact-disc"></i>
@@ -26,6 +28,7 @@
 				</a>
 			{% endif %}
 		</div>
+		{% endif %}
 
 		<div class="album-tracks">
 			<ol>
@@ -37,7 +40,10 @@
 								<a class="track-title" href="{{ sd.song.get_absolute_url }}">
 									{{ sd.translated_title }}
 								</a>
-								<span class="track-length"> {{ sd.song.duration }} </span>
+								<span class="track-length">
+									{% if is_text_browser %}&nbsp;{% endif %}
+									{{ sd.song.duration }}
+								</span>
 							</div>
 						</li>
 					{% endif %}
@@ -47,7 +53,10 @@
 			{% for al in album_durations %}
 				{% if al.album_id == a.album_id %}
 					<div class="album-duration-container">
-						<div class="album-duration-label">{{ al.album_duration }}</div>
+						<div class="album-duration-label">
+							{% if is_text_browser %} {% trans "Album Duration" %}: {% endif %}
+							{{ al.album_duration }}
+						</div>
 					</div>
 				{% endif %}
 			{% endfor %}
