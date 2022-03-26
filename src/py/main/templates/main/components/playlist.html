@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<div class="menu-playlist-wrapper shadow-top menu-closed no-playlist">
+
+	<div class="playlist-search">
+		<input
+			aria-label="{% trans 'Song search field' %}"
+			type="text"
+			name="search-song"
+			placeholder="{% trans 'Search...' %}"
+			onkeyup="PlayerUi.handleSearch(this)">
+	</div>
+
+	<div class="menu menu-playlist">
+		<div id="no-playlist-label" class="no-playlist-label">
+			{% trans 'Playlist unavailable. Refresh the page to try again.' %}
+		</div>
+
+		<ul id="playlist-list"></ul>
+	</div>
+
+</div>

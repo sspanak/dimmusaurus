@@ -15,7 +15,7 @@ html_minify() {
 }
 
 
-for src_file in src/py/*/templates/{*.html,*/*.html};
+for src_file in src/py/*/templates/{*.html,*/*.html,*/*/*.html};
 do
 	if [[ "$src_file" =~ version\.html$ ]]; then
 		echo "Skpped $src_file"
