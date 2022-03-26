@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.utils.translation import gettext, activate, get_language
 
 from .models import News, DbVersion
-from .shortcuts import render_template, get_version_info
+from .shortcuts import render_template, get_version_info, is_text_browser
 from music.shortcuts import get_music_menu_album_list
 
 
@@ -15,6 +15,7 @@ def version(request):
         **version_info,
         'albums': get_music_menu_album_list(language=lang),
         'db_info': DbVersion.objects.get(pk=1),
+        'is_text_browser': is_text_browser(request),
         'page': {
             'base_url': settings.BASE_URL,
             'url': 'version/',
@@ -37,6 +38,7 @@ def render_news(request):
             'albums': get_music_menu_album_list(language=lang),
             'build': version_info.get('build'),
             'news': News.objects.filter(language=lang).order_by('-pub_date')[:10],
+            'is_text_browser': is_text_browser(request),
             'page': {
                 'base_url': settings.BASE_URL,
                 'url': 'home/',

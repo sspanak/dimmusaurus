@@ -6,7 +6,7 @@ from django.utils.translation import gettext, activate, get_language
 
 from .models import SongDescription, SongFile, SongLyrics
 from .shortcuts import get_music_menu_album_list, get_all_songs, get_album_language_urls, get_album_durations
-from main.shortcuts import render_template, get_version_info
+from main.shortcuts import render_template, get_version_info, is_text_browser
 
 
 def index(request):
@@ -70,6 +70,7 @@ def render_albums(request, album_id=None):
             'albums': albums,
             'album_durations': get_album_durations(),
             'build': version_info.get('build'),
+            'is_text_browser': is_text_browser(request),
             'song_descriptions': songs,
             'page_albums': [selected_album],
             'page': {
@@ -85,6 +86,7 @@ def render_albums(request, album_id=None):
         context = {
             'albums': albums,
             'build': version_info.get('build'),
+            'is_text_browser': is_text_browser(request),
             'song_descriptions': songs,
             'page_albums': albums,
             'page': {
@@ -121,6 +123,7 @@ def render_song(request, song_id):
     context = {
         'albums': get_music_menu_album_list(lang),
         'build': version_info.get('build'),
+        'is_text_browser': is_text_browser(request),
         'song': song,
         'song_album': song_album,
         'song_description': song_description,
@@ -157,6 +160,7 @@ def render_lyrics(request, song_id):
     context = {
         'albums': get_music_menu_album_list(lang),
         'build': version_info.get('build'),
+        'is_text_browser': is_text_browser(request),
         'lyrics': lyrics,
         'song_title': this_song_title,
         'album': this_album,

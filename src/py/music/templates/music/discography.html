@@ -5,10 +5,24 @@
 
 {% block content_block %}
 <div class="content content-discography">
+
+{% if is_text_browser %}
+	<nav>
+		* <a href="/{% trans 'home/' %}">{% trans 'Home' %}</a>
+
+		{% if not page.single_album %}
+			&gt; <span>{% trans 'Music' %}</span>
+		{% else %}
+			&gt; <a href="/{% trans 'music/' %}">{% trans 'Music' %}</a>
+			&gt; <span>{{ page.title }}</span>
+		{% endif %}
+	</nav>
+	<hr>
+{% else %}
 	<nav class="breadcrumbs" aria-label="breadcrumbs">
 		<ul>
 			<li>
-				<a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a>
+				<a href="/{% trans 'home/' %}"><i class="fas fa-home"></i>{% trans 'Home' %}</a>
 			</li>
 
 			{% if not page.single_album %}
@@ -17,7 +31,7 @@
 				</li>
 			{% else %}
 				<li>
-					<a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a>
+					<a href="/{% trans 'music/' %}"><i class="fas fa-music"></i>{% trans 'Music' %}</a>
 				</li>
 
 				<li>
@@ -27,6 +41,7 @@
 
 		</ul>
 	</nav>
+{% endif %}
 
 	<h1 class="content-heading">{{ page.title }}</h1>
 	<article>

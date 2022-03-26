@@ -4,6 +4,11 @@
 {% block content_block %}
 	{% trans 'music/' as url_music %}
 	{% trans 'biography/' as url_biography %}
+
+	{% if is_text_browser %}
+		{% include "main/text-mode-menu.html" %}
+	{% endif %}
+
 	<div class="content content-home">
 		<h1 class="content-heading">{% trans "Welcome" %}</h1>
 		<article>

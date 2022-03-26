@@ -3,6 +3,11 @@
 {% load tz %}
 
 {% block content_block %}
+
+{% if is_text_browser %}
+	{% include "main/text-mode-menu.html" %}
+{% endif %}
+
 <div class="content content-version">
 	<h1 class="content-heading">{{ page.title }}</h1>
 
