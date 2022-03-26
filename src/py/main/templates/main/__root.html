@@ -64,6 +64,8 @@
 	</head>
 
 	<body class="no-player">
+
+{% if not is_text_browser %}
 		<header>
 			<div class="header-container shadow-bottom">
 
@@ -190,11 +192,13 @@
 			</div>
 
 		</header>
+{% endif %}
 
 		<div id="content-container">
 			{% block content_block %}{% endblock %}
 		</div>
 
+{% if not is_text_browser %}
 		<div class="menu-playlist-wrapper shadow-top menu-closed no-playlist">
 
 			<div class="playlist-search">
@@ -215,9 +219,12 @@
 			</div>
 
 		</div>
+{% endif %}
 
 		<!-- Whitespace ruins alignment, so <a> tags had to be compressed -->
 		<footer class="shadow-top">
+
+{% if not is_text_browser %}
 			<div class="social">
 				<div class="social-label">{% trans "Follow" %}:</div>
 				<div class="social-icons">
@@ -250,6 +257,7 @@
 						rel="me noopener"><i class="fab fa-soundcloud"></i></a>
 				</div>
 			</div>
+{% endif %}
 
 			<div class="copyright">
 				<span class="copyright-copy">&copy;</span>
@@ -258,7 +266,7 @@
 			</div>
 		</footer>
 
-
+{% if not is_text_browser %}
 		<div class="player shadow-top">
 			<audio onended="Player.next()"></audio>
 			<button
@@ -326,6 +334,7 @@
 			id="scroll-to-top-button"
 			class="shadow-bottom button-scroll-to-top hidden"
 			onclick="window.scrollTo(0, 0);Menu.hideButtonScrollToTop();"><i class="fas fa-angle-up"></i></div>
+{% endif %}
 
 	</body>
 </html>

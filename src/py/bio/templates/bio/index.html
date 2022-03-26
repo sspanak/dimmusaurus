@@ -4,16 +4,24 @@
 
 {% block content_block %}
 <div class="content content-bio">
+{% if is_text_browser %}
+	<nav>
+		* <a href="/{% trans 'home/' %}">{% trans 'Home' %}</a>
+		&gt; <span>{% trans 'Biography' %}</span>
+	</nav>
+	<hr>
+{% else %}
 	<nav class="breadcrumbs" aria-label="breadcrumbs">
 		<ul>
 			<li>
-				<a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a>
+				<a href="/{% trans 'home/' %}"><i class="fas fa-home"></i>{% trans 'Home' %}</a>
 			</li>
 			<li>
 				<span><i class="fas fa-book"></i>{% trans 'Biography' %}</span>
 			</li>
 		</ul>
 	</nav>
+{% endif %}
 
 	{% comment %}Translators: About page big heading{% endcomment %}
 	<h1 class="content-heading">{% trans 'About Dimmu Saurus' %}</h1>

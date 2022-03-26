@@ -71,3 +71,7 @@ def get_version_info():
             return json.load(version_file)
     except (OSError, json.JSONDecodeError) as e:
         return {}
+
+def is_text_browser(request):
+    agent = request.META['HTTP_USER_AGENT']
+    return agent.find('Lynx/') != -1 or agent.find('w3m') != -1 or agent.find('Links (') != -1

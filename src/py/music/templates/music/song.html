@@ -5,13 +5,22 @@
 {% block content_block %}
 <div class="content content-tune">
 
+{% if is_text_browser %}
+	<nav>
+		* <a href="/{% trans 'home/' %}">{% trans 'Home' %}</a>
+		&gt; <a href="/{% trans 'music/' %}">{% trans 'Music' %}</a>
+		&gt; <a href="{{ song_album.get_absolute_url }}">{{ song_album.title }}</a>
+		&gt; <span>{{ song_title }}</span>
+	</nav>
+	<hr>
+{% else %}
 	<nav class="breadcrumbs" aria-label="breadcrumbs">
 		<ul>
 			<li>
-				<a href="/{% trans 'home/' %}"><i class="icon fas fa-home"></i>{% trans 'Home' %}</a>
+				<a href="/{% trans 'home/' %}"><i class="fas fa-home"></i>{% trans 'Home' %}</a>
 			</li>
 			<li>
-				<a href="/{% trans 'music/' %}"><i class="icon fas fa-music"></i>{% trans 'Music' %}</a>
+				<a href="/{% trans 'music/' %}"><i class="fas fa-music"></i>{% trans 'Music' %}</a>
 			</li>
 			<li>
 				<a href="{{ song_album.get_absolute_url }}"><i class="fas fa-compact-disc"></i>{{ song_album.title }}</a>
@@ -21,6 +30,7 @@
 			</li>
 		</ul>
 	</nav>
+{% endif %}
 
 	<h1 class="content-heading">{% trans 'Song Details' %}</h1>
 	<div>
@@ -37,6 +47,8 @@
 		{% endif %}
 
 		<ul class="tune-links">
+
+{% if not is_text_browser %}
 			<li class="tune-play">
 				<a onclick="Player.selectTrackById({{ song.id }});Player.playToggle();">
 					{% comment %}Translators: LISTEN button on song page.{% endcomment %}
@@ -52,6 +64,7 @@
 				</a>
 			</li>
 			{% endif %}
+{% endif %}
 
 			{% if song.song_lyrics %}
 			<li class="tune-lyrics">
