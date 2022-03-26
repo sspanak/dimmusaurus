@@ -1,5 +1,5 @@
 # dimmusaurus
-*Version 7.13*
+*Version 7.14*
 
 A small, beautiful and fast wiki-like site for Dimmu Saurus, that works equally good on a powerful PC and on an old Nokia running Opera Mini.
 
