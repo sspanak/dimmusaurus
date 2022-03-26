@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 14:17+0200\n"
+"POT-Creation-Date: 2022-03-26 15:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,6 +130,7 @@ msgid "Theme"
 msgstr "Облик"
 
 #: main/templates/main/components/gui-header.html:24
+#: main/templates/main/pages/languages.html:11 main/views.py:67
 msgid "Change the Language"
 msgstr "Избор на език"
 
@@ -164,8 +165,8 @@ msgid "Go to biography page"
 msgstr "Отиди на страница Биография"
 
 #: main/templates/main/components/gui-header.html:102
-msgid "Go to discography page"
-msgstr "Отиди на страница Дискография"
+msgid "Open Discography menu"
+msgstr "Отвори меню Дискография"
 
 #: main/templates/main/components/gui-header.html:104
 #: main/templates/main/components/text-header.html:9
@@ -304,7 +305,7 @@ msgstr "музика/песни/"
 msgid "/lyrics/"
 msgstr "/текст/"
 
-#: music/templates/music/albums.html:58
+#: music/templates/music/albums.html:57
 msgid "Album Duration"
 msgstr "Продължителност на албума"
 

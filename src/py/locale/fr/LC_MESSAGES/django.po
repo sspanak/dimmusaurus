@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 14:17+0200\n"
+"POT-Creation-Date: 2022-03-26 15:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -130,6 +130,7 @@ msgid "Theme"
 msgstr "Thème"
 
 #: main/templates/main/components/gui-header.html:24
+#: main/templates/main/pages/languages.html:11 main/views.py:67
 msgid "Change the Language"
 msgstr "Choisir la langue préférée"
 
@@ -164,8 +165,8 @@ msgid "Go to biography page"
 msgstr "Naviguer vers la page Biographie"
 
 #: main/templates/main/components/gui-header.html:102
-msgid "Go to discography page"
-msgstr "Naviguer vers la page Discographie"
+msgid "Open Discography menu"
+msgstr "Ouvrir le menu Discographie"
 
 #: main/templates/main/components/gui-header.html:104
 #: main/templates/main/components/text-header.html:9
@@ -304,7 +305,7 @@ msgstr "musique/chansons/"
 msgid "/lyrics/"
 msgstr "/paroles/"
 
-#: music/templates/music/albums.html:58
+#: music/templates/music/albums.html:57
 msgid "Album Duration"
 msgstr "Durée totale"
 
