@@ -1,0 +1,59 @@
+{% load i18n %}
+
+<div class="player shadow-top">
+	<audio onended="Player.next()"></audio>
+	<button
+		id="pl-playlist-toggle"
+		title="{% trans 'Toggle Playlist' %}"
+		aria-label="{% trans 'Toggle Playlist' %}"
+		class="player-button playlist"><i class="fas fa-chevron-up"></i></button>
+
+		<div class="loading-indicator">
+			<div class="player-loading-spinner"></div>
+			<div class="label"></div>
+		</div>
+		<div class="track-title"></div>
+
+	<div class="track-progress-bar-container">
+		<span class="progress-time"></span>
+
+		<div class="track-progress-bar">
+			<div class="time-balloon shadow-top-small">
+				<div class="time-balloon-time-wrapper">
+					<div class="time-balloon-time"></div>
+				</div>
+				<div class="time-balloon-pointer"></div>
+			</div>
+
+			<div class="track-progress-bar-background">
+				<div class="track-progress"></div>
+			</div>
+		</div>
+
+		<span class="total-time"></span>
+	</div>
+
+	<div class="player-controls">
+		<button
+			id="pl-volume"
+			title="{% trans 'Sound Volume' %}"
+			aria-label="{% trans 'Mute/Unmute music' %}"
+			onclick="Player.toggleMute(this)"
+			class="player-button volume fas fa-volume-up"></button><button
+			id="pl-previous"
+			title="{% trans 'Previous Track' %}"
+			aria-label="{% trans 'Play previous song' %}"
+			onclick="Player.previous()"
+			class="player-button fas fa-step-backward"></button><button
+			id="pl-play"
+			title="{% trans 'Play / Pause' %}"
+			aria-label="{% trans 'Play/Pause current song' %}"
+			onclick="Player.playToggle()"
+			class="player-button fas fa-play"></button><button
+			id="pl-next"
+			title="{% trans 'Next Track' %}"
+			aria-label="{% trans 'Play next song' %}"
+			onclick="Player.next()"
+			class="player-button fas fa-step-forward"></button>
+	</div>
+</div>

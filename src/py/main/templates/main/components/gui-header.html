@@ -1,0 +1,129 @@
+{% load i18n %}
+{% load static %}
+
+<header>
+	<div class="header-container shadow-bottom">
+
+		<div class="logo-text logo-text-left">Dimmu</div>
+
+		<div class="logo shadow-bottom">
+			<img src="{% static 'img/dimmu-saurus.svg' %}" alt="" />
+		</div>
+
+		<div class="logo-text logo-text-right">Saurus</div>
+
+		<div class="toggle-wrapper toggle-theme-wrapper no-theme">
+			<button id="theme-menu-button" class="header-button" title="{% trans 'Choose a Color Theme' %}" aria-label="{% trans 'Choose a Color Theme' %}">
+				<i class="icon fas fa-lightbulb"></i>
+				<span class="toggle-label">{% trans "Theme" %}</span>
+				<i class="fas fa-chevron-down"></i>
+			</button>
+		</div>
+
+		<div class="toggle-wrapper toggle-language-wrapper">
+			<button id="language-menu-button" class="header-button" title="{% trans 'Change the Language' %}" aria-label="{% trans 'Change the Language' %}">
+				<i class="icon fas fa-language"></i>
+				<span class="toggle-label">Language</span>
+				<i class="fas fa-chevron-down"></i>
+			</button>
+		</div>
+
+		<div class="toggle-wrapper toggle-main-menu-wrapper">
+			<button id="main-menu-button" class="header-button" title="{% trans 'Main Menu' %}" aria-label="{% trans 'Main Menu' %}">
+				<i class="icon fas fa-bars"></i>
+				<i class="fas fa-chevron-down"></i>
+			</button>
+		</div>
+
+	</div>
+
+	<div class="header-super-wrapper">
+		<div class="menu-wrapper left-menu-wrapper">
+
+			<div class="menu menu-theme-choice menu-closed shadow-bottom no-theme">
+				<ul>
+
+					<li>
+						<span class="menu-item" onclick="Theme.select(undefined);">
+							<i class="icon fas fa-desktop"></i>
+							{% trans "Device Default" %}
+						</span>
+					</li>
+
+					<li>
+						<span class="menu-item" onclick="Theme.select(0)">
+							<i class="icon fas fa-sun"></i>
+							{% trans "Bright" %}
+						</span>
+					</li>
+
+					<li>
+						<span class="menu-item" onclick="Theme.select(1)">
+							<i class="icon fas fa-moon"></i>
+							{% trans "Dark" %}
+						</span>
+					</li>
+
+				</ul>
+			</div>
+
+			<nav class="menu menu-language-choice menu-closed shadow-bottom">
+				<ul>
+
+					{% for url in language_urls %}
+						<li>
+							<a class="menu-item" href="{{ url.url }}" hreflang="{{ url.language_code }}" rel="alternate">
+								<span class="icon flag flag-{{ url.language_code }}"></span>
+								<span class="language-label">{{ url.language_name }}</span>
+							</a>
+						</li>
+					{% endfor %}
+
+				</ul>
+			</nav>
+		</div>
+
+		<div class="menu-wrapper menu-main-wrapper">
+			<nav class="menu menu-main menu-closed shadow-bottom">
+				<ul>
+					<li>
+						<a class="menu-item" href="/{% trans 'home/' %}" aria-label="{% trans 'Go to home page' %}">
+							<i class="icon fas fa-home"></i>
+							{% trans "Home" %}
+						</a>
+					</li>
+					<li>
+						<a class="menu-item" href="/{% trans 'biography/' %}" aria-label="{% trans 'Go to biography page' %}">
+							<i class="icon fas fa-book"></i>
+							{% trans "Biography" %}
+						</a>
+					</li>
+					<li>
+						<span id="music-button" class="menu-item" aria-label="{% trans 'Go to discography page' %}">
+							<i class="icon fas fa-music"></i>
+							{% trans "Music" %}
+							<i class="fas fa-chevron-down"></i>
+						</span>
+					</li>
+				</ul>
+
+				<nav class="menu menu-music menu-closed">
+					<ul>
+						<li>
+							<a class="menu-item" href="/{% trans 'music/' %}">{% trans 'All Albums' %}</a>
+						</li>
+						{% for a_info in albums %}
+						<li>
+							<a class="menu-item" href="{{ a_info.get_absolute_url }}">
+								{{ a_info.album.release_date|date:"(Y) " }}{{ a_info.title }}
+							</a>
+						</li>
+						{% endfor %}
+					</ul>
+				</nav>
+
+			</nav>
+		</div>
+	</div>
+
+</header>

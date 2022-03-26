@@ -24,7 +24,7 @@ def version(request):
         }
     }
 
-    return render_template(request, 'main/version.html', context, lang)
+    return render_template(request, 'main/pages/version.html', context, lang)
 
 
 def render_news(request):
@@ -33,7 +33,7 @@ def render_news(request):
 
     return render_template(
         request,
-        'main/index.html',
+        'main/pages/index.html',
         {
             'albums': get_music_menu_album_list(language=lang),
             'build': version_info.get('build'),
