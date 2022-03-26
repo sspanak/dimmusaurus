@@ -6,7 +6,9 @@
 		id="pl-playlist-toggle"
 		title="{% trans 'Toggle Playlist' %}"
 		aria-label="{% trans 'Toggle Playlist' %}"
-		class="player-button playlist"><i class="fas fa-chevron-up"></i></button>
+		class="player-button playlist">
+			<i class="fas fa-chevron-up"></i>
+	</button>
 
 		<div class="loading-indicator">
 			<div class="player-loading-spinner"></div>
@@ -39,21 +41,28 @@
 			title="{% trans 'Sound Volume' %}"
 			aria-label="{% trans 'Mute/Unmute music' %}"
 			onclick="Player.toggleMute(this)"
-			class="player-button volume fas fa-volume-up"></button><button
+			class="player-button volume fas fa-volume-up">
+		</button>
+		<button
 			id="pl-previous"
 			title="{% trans 'Previous Track' %}"
 			aria-label="{% trans 'Play previous song' %}"
 			onclick="Player.previous()"
-			class="player-button fas fa-step-backward"></button><button
+			class="player-button fas fa-step-backward">
+		</button>
+		<button
 			id="pl-play"
 			title="{% trans 'Play / Pause' %}"
 			aria-label="{% trans 'Play/Pause current song' %}"
 			onclick="Player.playToggle()"
-			class="player-button fas fa-play"></button><button
+			class="player-button fas fa-play">
+		</button>
+		<button
 			id="pl-next"
 			title="{% trans 'Next Track' %}"
 			aria-label="{% trans 'Play next song' %}"
 			onclick="Player.next()"
-			class="player-button fas fa-step-forward"></button>
+			class="player-button fas fa-step-forward">
+		</button>
 	</div>
 </div>
