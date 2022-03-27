@@ -9,6 +9,10 @@ footer {
 }
 
 footer .social {flex: auto;}
+footer .social-icons {
+	display: flex;
+	flex: none;
+}
 footer .social-icons a {
 	font-size: 29px;
 	padding: 0 10px;

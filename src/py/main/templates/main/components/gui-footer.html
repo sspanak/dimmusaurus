@@ -1,11 +1,11 @@
 {% load i18n %}
 
-<!-- Whitespace ruins alignment, so <a> tags had to be compressed -->
 <footer class="shadow-top">
 
 	<div class="social">
 		<div class="social-label">{% trans "Follow" %}:</div>
 		<div class="social-icons">
+
 			{% comment %}
 			<a
 				class="bandcamp-link"
@@ -13,26 +13,40 @@
 				aria-label="{% trans 'Go to Dimmu Saurus Bandcamp page' %}"
 				href="http://bandcamp.com"
 				target="_blank"
-				rel="me"><i class="fab fa-bandcamp"></i></a>
+				rel="me">
+					<i class="fab fa-bandcamp"></i>
+			</a>
 			{% endcomment %}
+
 			<a
 				class="facebook-link"
 				title="{% trans 'Dimmu Saurus on Facebook' %}"
 				aria-label="{% trans 'Go to Dimmu Saurus Facebook page' %}"
 				href="https://www.facebook.com/dimmusaurus/"
 				target="_blank"
-				rel="me noopener"><i class="fab fa-facebook-square"></i></a><a
+				rel="me noopener">
+					<i class="fab fa-facebook-square"></i>
+				</a>
+
+			<a
 				class="youtube-link"
 				title="{% trans 'Dimmu Saurus Youtube channel' %}"
 				aria-label="{% trans 'Go to Dimmu Saurus Youtube channel' %}"
 				href="https://www.youtube.com/playlist?list=PLBugGYGZgZWcA8ePOBLDdyD1__D7WWxMI"
 				target="_blank"
-				rel="me noopener"><i class="fab fa-youtube"></i></a><a
+				rel="me noopener">
+					<i class="fab fa-youtube"></i>
+			</a>
+
+			<a
 				title="{% trans 'Dimmu Saurus Soundcloud page' %}"
 				aria-label="{% trans 'Go to Dimmu Saurus Soundcloud page' %}"
 				href="https://soundcloud.com/beeuisri12mz"
 				target="_blank"
-				rel="me noopener"><i class="fab fa-soundcloud"></i></a>
+				rel="me noopener">
+					<i class="fab fa-soundcloud"></i>
+			</a>
+
 		</div>
 	</div>
 
