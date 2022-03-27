@@ -1,6 +1,6 @@
 # dimmusaurus contributing guide
 
-This is a small and very efficient website, that looks good and loads fast on any device, including a powerful PC, a smartphone, and even on an old Nokia phone running Opera Mini. It is aimed to be less than 300 kb on initial load, and less than 30 kb when navigating around.
+This is a small and very efficient website, that looks good and loads fast on any device, be it a powerful PC, a smartphone, an old Nokia phone running Opera Mini or even on a text browser. It is aimed to be less than 300 kb on initial load, and less than 30 kb when navigating around.
 
 Hence, no big frameworks or libraries were used, except when they really made difference. Learn [why it is so awesome](https://idlewords.com/talks/website_obesity.htm).
 
