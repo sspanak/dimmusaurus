@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-26 15:07+0200\n"
+"POT-Creation-Date: 2022-03-27 12:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,31 +93,31 @@ msgstr "Chargement..."
 msgid "Changing the language will interrupt music playback. Continue?"
 msgstr "Si vous changez la langue, la musique s'arrêtera. Confirmez-vous?"
 
-#: main/templates/main/components/gui-footer.html:7
+#: main/templates/main/components/gui-footer.html:6
 msgid "Follow"
 msgstr "Suivez"
 
-#: main/templates/main/components/gui-footer.html:21
+#: main/templates/main/components/gui-footer.html:24
 msgid "Dimmu Saurus on Facebook"
 msgstr "Page Facebook"
 
-#: main/templates/main/components/gui-footer.html:22
+#: main/templates/main/components/gui-footer.html:25
 msgid "Go to Dimmu Saurus Facebook page"
 msgstr "Naviguer vers la page Facebook de Dimmu Saurus"
 
-#: main/templates/main/components/gui-footer.html:27
+#: main/templates/main/components/gui-footer.html:34
 msgid "Dimmu Saurus Youtube channel"
 msgstr "Chaîne Youtube"
 
-#: main/templates/main/components/gui-footer.html:28
+#: main/templates/main/components/gui-footer.html:35
 msgid "Go to Dimmu Saurus Youtube channel"
 msgstr "Naviguer vers la chaîne Youtube de Dimmu Saurus"
 
-#: main/templates/main/components/gui-footer.html:32
+#: main/templates/main/components/gui-footer.html:43
 msgid "Dimmu Saurus Soundcloud page"
 msgstr "Dimmu Saurus sur Soundcloud"
 
-#: main/templates/main/components/gui-footer.html:33
+#: main/templates/main/components/gui-footer.html:44
 msgid "Go to Dimmu Saurus Soundcloud page"
 msgstr "Naviguer vers la page Soundcloud de Dimmu Saurus"
 
@@ -193,40 +193,40 @@ msgstr "musique/"
 msgid "All Albums"
 msgstr "Toute la discographie"
 
-#: main/templates/main/components/player.html:7
 #: main/templates/main/components/player.html:8
+#: main/templates/main/components/player.html:9
 msgid "Toggle Playlist"
 msgstr "Liste de lecture"
 
-#: main/templates/main/components/player.html:39
+#: main/templates/main/components/player.html:43
 msgid "Sound Volume"
 msgstr "Son"
 
-#: main/templates/main/components/player.html:40
+#: main/templates/main/components/player.html:44
 msgid "Mute/Unmute music"
 msgstr "Baisser/Augmenter le volume"
 
-#: main/templates/main/components/player.html:44
+#: main/templates/main/components/player.html:50
 msgid "Previous Track"
 msgstr "Précédent"
 
-#: main/templates/main/components/player.html:45
+#: main/templates/main/components/player.html:51
 msgid "Play previous song"
 msgstr "Lire la chanson précédente"
 
-#: main/templates/main/components/player.html:49
+#: main/templates/main/components/player.html:57
 msgid "Play / Pause"
 msgstr "Lire / Pause"
 
-#: main/templates/main/components/player.html:50
+#: main/templates/main/components/player.html:58
 msgid "Play/Pause current song"
 msgstr "Lire/Pauser la chanson en cours"
 
-#: main/templates/main/components/player.html:54
+#: main/templates/main/components/player.html:64
 msgid "Next Track"
 msgstr "Suivant"
 
-#: main/templates/main/components/player.html:55
+#: main/templates/main/components/player.html:65
 msgid "Play next song"
 msgstr "Lire la chanson suivante"
 
