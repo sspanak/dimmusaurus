@@ -9,13 +9,7 @@
 {% if is_text_browser %}
 	<nav>
 		* <a href="/{% trans 'home/' %}">{% trans 'Home' %}</a>
-
-		{% if not page.single_album %}
-			&gt; <span>{% trans 'Music' %}</span>
-		{% else %}
-			&gt; <a href="/{% trans 'music/' %}">{% trans 'Music' %}</a>
-			&gt; <span>{{ page.title }}</span>
-		{% endif %}
+		&gt; <span>{% trans 'Music' %}</span>
 	</nav>
 	<hr>
 {% else %}
@@ -24,49 +18,31 @@
 			<li>
 				<a href="/{% trans 'home/' %}"><i class="fas fa-home"></i>{% trans 'Home' %}</a>
 			</li>
-
-			{% if not page.single_album %}
-				<li>
-					<span><i class="fas fa-music"></i>{% trans 'Music' %}</span>
-				</li>
-			{% else %}
-				<li>
-					<a href="/{% trans 'music/' %}"><i class="fas fa-music"></i>{% trans 'Music' %}</a>
-				</li>
-
-				<li>
-					<span><i class="fas fa-compact-disc"></i>{{ page.title }}</span>
-				</li>
-			{% endif %}
-
+			<li>
+				<span><i class="fas fa-music"></i>{% trans 'Music' %}</span>
+			</li>
 		</ul>
 	</nav>
 {% endif %}
 
 	<h1 class="content-heading">{{ page.title }}</h1>
 	<article>
-			{% if not page.single_album %}
-				<p>
-					{% blocktrans trimmed %}
-						 Dimmu Saurus' music is result of series of experiments with his guitar and his computer. They lead to almost anything you can imagine – from Blues to Heavy Metal, some Black and Thrash here and there, and last but not least – several Classical and Electronic tunes.
-					{% endblocktrans %}
-				</p>
-			{% else %}
-				{{ page_albums.0.description | markdown_to_html | safe }}
-			{% endif %}
+		<p>
+			{% blocktrans trimmed %}
+				 Dimmu Saurus' music is result of series of experiments with his guitar and his computer. They lead to almost anything you can imagine – from Blues to Heavy Metal, some Black and Thrash here and there, and last but not least – several Classical and Electronic tunes.
+			{% endblocktrans %}
+		</p>
 	</article>
 
-	{% include "music/albums.html" %}
+	{% include "music/album_list.html" %}
 
-	{% if not page.single_album %}
-		<hr>
-		<p class="license-notice">
-			<small>
-			{% blocktrans trimmed %}
-				All music is composed by Димозавър (Dimmu Saurus), except where noted. Download, play and share to help him take over Earth and Mars. Dimmu Saurus is not responsible for any damage to your speakers, house or trouble with neighbours which may result in playing his music too loud.
-			{% endblocktrans %}
-			</small>
-		</p>
-	{% endif %}
+	<hr>
+	<p class="license-notice">
+		<small>
+		{% blocktrans trimmed %}
+			All music is composed by Димозавър (Dimmu Saurus), except where noted. Download, play and share to help him take over Earth and Mars. Dimmu Saurus is not responsible for any damage to your speakers, house or trouble with neighbours which may result in playing his music too loud.
+		{% endblocktrans %}
+		</small>
+	</p>
 </div>
 {% endblock %}

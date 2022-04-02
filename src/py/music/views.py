@@ -56,50 +56,53 @@ def render_playlist(request):
     return JsonResponse({'playlist': playlist})
 
 
-def render_albums(request, album_id=None):
+def render_discography(request):
     lang = get_language()
-    version_info = get_version_info()
-
     albums = get_music_menu_album_list(lang)
-    songs = get_all_songs(lang, album_id)
 
-    if album_id:
-        selected_album = get_object_or_404(albums, album__id=album_id)
-
-        context = {
-            'albums': albums,
-            'album_durations': get_album_durations(),
-            'build': version_info.get('build'),
-            'is_text_browser': is_text_browser(request),
-            'song_descriptions': songs,
-            'page_albums': [selected_album],
-            'page': {
-                'base_url': settings.BASE_URL,
-                'url': 'music/albums/',
-                'url_slugs_localized': get_album_language_urls(album_id),
-                'title': selected_album.title,
-                'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),
-                'single_album': True,
-            }
+    context = {
+        'albums': albums,
+        'build': get_version_info().get('build'),
+        'is_text_browser': is_text_browser(request),
+        'song_descriptions':  get_all_songs(lang),
+        'page_albums': albums,
+        'page': {
+            'base_url': settings.BASE_URL,
+            'url': 'music/',
+            # Translators: Discography page title
+            'title': gettext('Discography'),
+            # Translators: Discography page description
+            'description': gettext('Dimmu Saurus Discography'),
         }
-    else:
-        context = {
-            'albums': albums,
-            'build': version_info.get('build'),
-            'is_text_browser': is_text_browser(request),
-            'song_descriptions': songs,
-            'page_albums': albums,
-            'page': {
-                'base_url': settings.BASE_URL,
-                'url': 'music/',
-                # Translators: Discography page title
-                'title': gettext('Discography'),
-                # Translators: Discography page description
-                'description': gettext('Dimmu Saurus Discography'),
-            }
-        }
+    }
 
     return render_template(request, 'music/discography.html', context, lang)
+
+
+def render_album(request, album_id):
+    lang = get_language()
+
+    albums = get_music_menu_album_list(lang)
+    selected_album = get_object_or_404(albums, album__id=album_id)
+
+    context = {
+        'albums': albums,
+        'album_durations': get_album_durations(),
+        'build': get_version_info().get('build'),
+        'is_text_browser': is_text_browser(request),
+        'song_descriptions': get_all_songs(lang, album_id),
+        'page_albums': [selected_album],
+        'page': {
+            'base_url': settings.BASE_URL,
+            'url': 'music/albums/',
+            'url_slugs_localized': get_album_language_urls(album_id),
+            'title': selected_album.title,
+            'description': '%s. %s' % (selected_album.title, gettext('Track list and information.')),
+            'single_album': True,
+        }
+    }
+
+    return render_template(request, 'music/album.html', context, lang)
 
 
 def render_song(request, song_id):
@@ -208,33 +211,33 @@ def download(request, song_id):
 # ######### All Albums Overview ######### #
 def дискография(request):
     activate('bg')
-    return render_albums(request)
+    return render_discography(request)
 
 
 def discography(request):
     activate('en')
-    return render_albums(request)
+    return render_discography(request)
 
 
 def discographie(request):
     activate('fr')
-    return render_albums(request)
+    return render_discography(request)
 
 
 # ######### Single Album View ######### #
 def албум(request, album_id):
     activate('bg')
-    return render_albums(request, album_id)
+    return render_album(request, album_id)
 
 
 def album_en(request, album_id):
     activate('en')
-    return render_albums(request, album_id)
+    return render_album(request, album_id)
 
 
 def album_fr(request, album_id):
     activate('fr')
-    return render_albums(request, album_id)
+    return render_album(request, album_id)
 
 
 # ######### Song View ######### #

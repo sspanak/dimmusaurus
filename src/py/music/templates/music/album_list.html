@@ -6,27 +6,26 @@
 {% endif %}
 
 <div class="album">
-	<h3 class="album-title">
-		{% if page.single_album %}
-			{{ a.album.release_date|date:"(Y) " }} {{ a.title }}
-		{% else %}
+	{% if not page.single_album %}
+		<h3 class="album-title">
 			<a href="{{ a.get_absolute_url }}">
-				{{ a.album.release_date|date:"(Y) " }} {{ a.title }}
+				{{ a.album.release_date | date:"(Y) " }} {{ a.title }}
 			</a>
-		{% endif %}
-	</h3>
+		</h3>
+	{% endif %}
 
 	<div class="album-contents-wrapper">
-
 		{% if not is_text_browser %}
-		<div class="album-cover">
-			{% if page.single_album %}
-				<i class="fas fa-compact-disc"></i>
-			{% else %}
-				<a href="{{ a.get_absolute_url }}">
+		<div class="album-cover-wrapper">
+			<div class="album-cover">
+				{% if page.single_album %}
 					<i class="fas fa-compact-disc"></i>
-				</a>
-			{% endif %}
+				{% else %}
+					<a href="{{ a.get_absolute_url }}">
+						<i class="fas fa-compact-disc"></i>
+					</a>
+				{% endif %}
+			</div>
 		</div>
 		{% endif %}
 
