@@ -1,8 +1,10 @@
-/*============== Alubm title ==============*/
+/*============== Album title ==============*/
 .content-discography .album-title {
 	margin: 0;
 	text-align: center;
 }
+
+
 
 /*============== Album cover ==============*/
 .content-discography .album-contents-wrapper {
