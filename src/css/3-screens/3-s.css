@@ -23,9 +23,7 @@
 	}
 
 	.content-discography .album-contents-wrapper {flex-flow: row;}
-	.content-discography .album-cover-wrapper {
-		margin-right: 22px;
-	}
+	.content-discography .album-cover-wrapper {margin-right: 22px;}
 	.content-discography .album-cover {
 		flex-flow: row;
 		margin: 24px 0 0 0;
